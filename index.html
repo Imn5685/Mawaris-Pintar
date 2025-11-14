@@ -369,7 +369,7 @@
             }
         ];
 
-        // --- APLIKASI LOGIKA ---
+                // --- APLIKASI LOGIKA ---
         let currentChapterId = null, currentSubChapterId = null;
         let quizState = { questions: [], currentQuestionIndex: 0, score: 0, totalPossibleScore: 0 };
         let caseStudyState = { answeredSubQuestions: new Set() };
@@ -396,14 +396,14 @@
             if (!userName) { showView('welcome-view'); return; }
             courseData.forEach(chapter => {
                 const card = document.createElement('div'); card.className = 'chapter-card';
-                card.innerHTML = '<h3>' + chapter.title + '</h3>';
+                card.innerHTML = `<h3>${chapter.title}</h3>`;
                 const list = document.createElement('ul'); list.className = 'sub-chapter-list';
                 chapter.subChapters.forEach(sub => {
                     const item = document.createElement('li'); item.className = 'sub-chapter-item';
                     const isLessonDone = storage.isCompleted('lessons', sub.id);
                     const isQuizDone = storage.isCompleted('quizzes', sub.id);
                     if (isLessonDone && isQuizDone) item.classList.add('completed');
-                    item.innerHTML = '<a href="#">' + sub.title + '</a><span class="status-icon">' + (isLessonDone && isQuizDone ? '✅' : '⏳') + '</span>';
+                    item.innerHTML = `<a href="#">${sub.title}</a><span class="status-icon">${(isLessonDone && isQuizDone) ? '✅' : '⏳'}</span>`;
                     item.querySelector('a').onclick = (e) => { e.preventDefault(); showLesson(chapter.id, sub.id); };
                     list.appendChild(item);
                 });
@@ -420,7 +420,7 @@
             const completedTasks = completedLessons + completedQuizzes;
             const percentage = totalTasks > 0 ? Math.round((completedTasks / totalTasks) * 100) : 0;
             const progressBar = document.getElementById('progress-bar');
-            progressBar.style.width = percentage + '%'; progressBar.textContent = percentage + '%';
+            progressBar.style.width = `${percentage}%`; progressBar.textContent = `${percentage}%`;
         }
         function checkCompletionStatus() {
             const totalSubChapters = courseData.reduce((acc, ch) => acc + ch.subChapters.length, 0);
@@ -447,7 +447,7 @@
             quizState.totalPossibleScore = calculateTotalPossibleScore(quizState.questions);
             caseStudyState.answeredSubQuestions = new Set(); // Reset case study state
 
-            document.getElementById('quiz-title').textContent = 'Asesmen: ' + subChapter.title;
+            document.getElementById('quiz-title').textContent = `Asesmen: ${subChapter.title}`;
             document.getElementById('back-to-dashboard-quiz').style.display = 'none';
             document.getElementById('quiz-result').style.display = 'none';
             document.getElementById('quiz-container').style.display = 'block';
@@ -473,7 +473,7 @@
         function renderQuestion() {
             if (quizState.currentQuestionIndex >= quizState.questions.length) { showQuizResult(); return; }
             const question = quizState.questions[quizState.currentQuestionIndex];
-            const progressInfo = 'Soal ' + (quizState.currentQuestionIndex + 1) + ' / ' + quizState.questions.length;
+            const progressInfo = `Soal ${quizState.currentQuestionIndex + 1} / ${quizState.questions.length}`;
             document.getElementById('quiz-progress-info').textContent = progressInfo;
             
             document.getElementById('quiz-options').style.display = 'none';
@@ -505,27 +505,42 @@
             document.getElementById('quiz-essay-container').style.display = 'block';
             document.getElementById('question-text').textContent = question.question;
             const container = document.getElementById('quiz-essay-container');
-            container.innerHTML = '<textarea id="essay-answer" placeholder="Ketik jawaban Anda di sini..."></textarea>' +
-                '<button id="show-reference-btn" class="btn btn-warning">Lihat Jawaban Acuan</button>' +
-                '<div id="reference-answer" class="essay-reference">' +
-                    '<strong>Jawaban Acuan:</strong><p>' + question.referenceAnswer + '</p>' +
-                    '<button id="mark-essay-done-btn" class="btn btn-success">Tandai Selesai & Lanjut</button>' +
-                '</div>';
-            document.getElementById('show-reference-btn').onclick = () => { document.getElementById('reference-answer').style.display = 'block'; };
-            document.getElementById('mark-essay-done-btn').onclick = () => { quizState.score++; quizState.currentQuestionIndex++; renderQuestion(); };
+            container.innerHTML = `
+                <textarea id="essay-answer" placeholder="Ketik jawaban Anda di sini..."></textarea>
+                <button id="show-reference-btn" class="btn btn-warning">Lihat Jawaban Acuan</button>
+                <div id="reference-answer" class="essay-reference">
+                    <strong>Jawaban Acuan:</strong><p>${question.referenceAnswer}</p>
+                    <button id="mark-essay-done-btn" class="btn btn-success">Tandai Selesai & Lanjut</button>
+                </div>
+            `;
+            // Reset state for the new question
+            document.getElementById('show-reference-btn').style.display = 'inline-block';
+            document.getElementById('show-reference-btn').disabled = false;
+            document.getElementById('mark-essay-done-btn').style.display = 'none';
+            
+            document.getElementById('show-reference-btn').onclick = () => {
+                document.getElementById('reference-answer').style.display = 'block';
+                document.getElementById('show-reference-btn').style.display = 'none'; // Hide button after clicking
+                document.getElementById('mark-essay-done-btn').style.display = 'inline-block'; // Show the done button
+            };
+            document.getElementById('mark-essay-done-btn').onclick = () => {
+                quizState.score++;
+                quizState.currentQuestionIndex++;
+                renderQuestion();
+            };
         }
 
         function renderMatching(question) {
             document.getElementById('quiz-matching-container').style.display = 'block';
             document.getElementById('question-text').textContent = question.question;
             const container = document.getElementById('quiz-matching-container');
-            container.innerHTML = '<div class="matching-container"></div><button id="check-matching-btn" class="btn btn-primary">Cocokkan Jawaban</button>';
+            container.innerHTML = `<div class="matching-container"></div><button id="check-matching-btn" class="btn btn-primary">Cocokkan Jawaban</button>`;
             const matchingContainer = container.querySelector('.matching-container');
             const matches = {};
             question.pairs.forEach((pair, index) => {
                 matches[pair.term] = pair.match;
                 const itemDiv = document.createElement('div'); itemDiv.className = 'matching-item';
-                itemDiv.innerHTML = '<label>' + pair.term + ':</label><select data-term="' + pair.term + '"><option value="">-- Pilih --</option></select>';
+                itemDiv.innerHTML = `<label>${pair.term}:</label><select data-term="${pair.term}"><option value="">-- Pilih --</option></select>`;
                 matchingContainer.appendChild(itemDiv);
             });
             const allMatches = [...new Set(question.pairs.map(p => p.match))];
@@ -544,19 +559,19 @@
                     else { select.style.borderColor = 'var(--danger-color)'; }
                 });
                 quizState.score += correctCount;
-                setTimeout(() => { quizState.currentQuestionIndex++; renderQuestion(); },2000);
+                setTimeout(() => { quizState.currentQuestionIndex++; renderQuestion(); }, 2000);
             };
         }
 
         function renderCaseStudy(question) {
             document.getElementById('quiz-case-study-container').style.display = 'block';
             const container = document.getElementById('quiz-case-study-container');
-            container.innerHTML = '<div class="case-study-scenario"><strong>Skenario:</strong><br>' + question.scenario + '</div>';
+            container.innerHTML = `<div class="case-study-scenario"><strong>Skenario:</strong><br>${question.scenario}</div>`;
             const subQuestionsContainer = document.createElement('div');
             subQuestionsContainer.id = 'sub-questions-container';
             question.questions.forEach((subQ, index) => {
                 const subQDiv = document.createElement('div'); subQDiv.className = 'case-study-sub-question';
-                subQDiv.innerHTML = '<p><strong>' + (index + 1) + '. ' + subQ.question + '</strong></p>';
+                subQDiv.innerHTML = `<p><strong>${index + 1}. ${subQ.question}</strong></p>`;
                 if (subQ.type === 'multiple-choice') {
                     const optionsList = document.createElement('ul'); optionsList.className = 'quiz-options';
                     subQ.options.forEach((opt, i) => {
@@ -566,18 +581,19 @@
                     });
                     subQDiv.appendChild(optionsList);
                 } else if (subQ.type === 'essay') {
-                    subQDiv.innerHTML += '<textarea id="case-essay-' + index + '" placeholder="Ketik jawaban Anda..."></textarea>' +
-                        '<button class="btn btn-warning" onclick="showCaseEssayRef(' + index + ')">Lihat Acuan</button>' +
-                        '<div id="case-ref-' + index + '" class="essay-reference" style="display:none;"><strong>Acuan:</strong><p>' + subQ.referenceAnswer + '</p><button class="btn btn-success" onclick="markCaseEssayDone(' + index + ')">Selesai</button></div>';
+                    subQDiv.innerHTML += `
+                        <textarea id="case-essay-${index}" placeholder="Ketik jawaban Anda..."></textarea>
+                        <button class="btn btn-warning" onclick="showCaseEssayRef(${index})">Lihat Acuan</button>
+                        <div id="case-ref-${index}" class="essay-reference" style="display:none;"><strong>Acuan:</strong><p>${subQ.referenceAnswer}</p><button class="btn btn-success" onclick="markCaseEssayDone(${index})">Selesai</button></div>
+                    `;
                 }
                 subQuestionsContainer.appendChild(subQDiv);
             });
             container.appendChild(subQuestionsContainer);
-            // Add next button for case study
             const nextButtonContainer = document.createElement('div');
             nextButtonContainer.id = 'case-study-next-btn-container';
             nextButtonContainer.style.marginTop = '20px';
-            nextButtonContainer.innerHTML = '<button id="next-question-btn" class="btn btn-primary" disabled>Lanjut ke Soal Berikutnya</button>';
+            nextButtonContainer.innerHTML = `<button id="next-question-btn" class="btn btn-primary" disabled>Lanjut ke Soal Berikutnya</button>`;
             container.appendChild(nextButtonContainer);
             
             document.getElementById('next-question-btn').onclick = () => {
@@ -589,18 +605,18 @@
         }
         
         function selectSubAnswer(qIndex, aIndex, correctAnswer) {
-            const options = document.querySelectorAll('#sub-questions-container .case-study-sub-question:nth-of-type(' + (qIndex + 1) + ') .quiz-option');
+            const options = document.querySelectorAll(`#sub-questions-container .case-study-sub-question:nth-of-type(${qIndex + 1}) .quiz-option`);
             options.forEach(o => o.classList.add('disabled'));
             if (aIndex === correctAnswer) { options[aIndex].classList.add('correct'); quizState.score++; }
             else { options[aIndex].classList.add('incorrect'); options[correctAnswer].classList.add('correct'); }
             caseStudyState.answeredSubQuestions.add(qIndex);
             checkCaseStudyCompletion();
         }
-        function showCaseEssayRef(index) { document.getElementById('case-ref-' + index).style.display = 'block'; }
+        function showCaseEssayRef(index) { document.getElementById(`case-ref-${index}`).style.display = 'block'; }
         function markCaseEssayDone(index) {
             quizState.score++;
             caseStudyState.answeredSubQuestions.add(index);
-            document.getElementById('case-ref-' + index).querySelector('.btn-success').disabled = true;
+            document.getElementById(`case-ref-${index}`).querySelector('.btn-success').disabled = true;
             checkCaseStudyCompletion();
         }
 
@@ -626,9 +642,11 @@
             document.getElementById('back-to-dashboard-quiz').style.display = 'inline-block';
             const resultContainer = document.getElementById('quiz-result');
             resultContainer.style.display = 'block';
-            resultContainer.innerHTML = '<h3>🎉 Asesmen Selesai!</h3>' +
-                '<p>Anda mendapat skor <strong>' + quizState.score + ' dari ' + quizState.totalPossibleScore + '.</p>' +
-                '<p>' + (quizState.score === quizState.totalPossibleScore ? 'Luar biasa! Anda sempurna.' : 'Bagus! Terus belajar untuk hasil yang lebih baik.') + '</p>';
+            resultContainer.innerHTML = `
+                <h3>🎉 Asesmen Selesai!</h3>
+                <p>Anda mendapat skor <strong>${quizState.score} dari ${quizState.totalPossibleScore}</strong>.</p>
+                <p>${quizState.score === quizState.totalPossibleScore ? 'Luar biasa! Anda sempurna.' : 'Bagus! Terus belajar untuk hasil yang lebih baik.'}</p>
+            `;
             storage.saveQuizScore(currentSubChapterId, quizState.score, quizState.totalPossibleScore);
             storage.markCompleted('quizzes', currentSubChapterId);
         }
@@ -647,7 +665,7 @@
             });
             const finalPercentage = totalPossible > 0 ? Math.round((totalScore / totalPossible) * 100) : 0;
             document.getElementById('certificate-name').textContent = userName;
-            document.getElementById('certificate-score').textContent = finalPercentage + '% (' + totalScore + '/' + totalPossible + ' poin)';
+            document.getElementById('certificate-score').textContent = `${finalPercentage}% (${totalScore}/${totalPossible} poin)`;
             document.getElementById('certificate-date').textContent = new Date().toLocaleDateString('id-ID');
             showView('certificate-view');
         }
@@ -669,6 +687,8 @@
             if (userName) { renderDashboard(); } else { showView('welcome-view'); }
         });
 
+
     </script>
 </body>
 </html>
+
