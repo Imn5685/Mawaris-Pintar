@@ -153,206 +153,11 @@ const courseData = [
         ]
     },
     {
-        id: 'bab2', title: 'Bab 2: Ahli Waris Bagian Tetap (Ashabul Furudh) - Bagian 1',
+        id: 'bab2', title: 'Bab 2: Penyimpangan & Rukun Waris',
         subChapters: [
             {
                 id: 'sub2-1', 
-                title: '2.1 Suami, Istri, Ayah, dan Ibu',
-                slides: [
-                    {
-                        title: 'Hak Suami dalam Warisan',
-                        content: `
-                            <p><strong>1. Suami:</strong> Suami selalu mendapat bagian. <strong>1/2</strong> jika istri tidak meninggalkan anak (atau cucu). <strong>1/4</strong> jika istri meninggalkan anak (atau cucu).</p>
-                            <div class="source-detail">
-                                <h4>Surah An-Nisa' Ayat 12 (bagian pertama)</h4>
-                                <p class="verse-arabic">وَلَكُمْ نِصْفُ مَا تَرَكَ أَزْوَاجُكُمْ إِن لَّمْ يَكُن لَّهُنَّ وَلَدٌ ۚ فَإِن كَانَ لَهُنَّ وَلَدٌ فَلَكُمُ الرُّبُعُ مِمَّا تَرَكُوا</p>
-                                <p class="verse-translation"><strong>Terjemahan:</strong> "Bagimu (suami-suami) seperdua dari harta yang ditinggalkan oleh istri-istri kamu, jika mereka tidak mempunyai anak. Jika istri-istri itu mempunyai anak, maka kamu (suami-suami) mendapat seperempat dari harta yang ditinggalkan oleh mereka..."</p>
-                                <div class="source-explanation"><strong>Tafsir Ringkas:</strong> Ayat ini secara eksplisit menetapkan bagian suami. Suami mendapat 1/2 jika istri tidak meninggalkan anak, dan 1/4 jika istri meninggalkan anak. Ini menunjukkan posisi penting suami sebagai penopang keluarga.</div>
-                            </div>
-                        `
-                    },
-                    {
-                        title: 'Hak Istri dalam Warisan',
-                        content: `
-                            <p><strong>2. Istri:</strong> <strong>1/4</strong> jika suami tidak meninggalkan anak. Jika lebih dari satu istri, mereka berbagi 1/4 ini. <strong>1/8</strong> jika suami meninggalkan anak. Jika lebih dari satu istri, mereka berbagi 1/8 ini.</p>
-                            <div class="source-detail">
-                                <h4>Surah An-Nisa' Ayat 12 (bagian kedua)</h4>
-                                <p class="verse-arabic">مِن بَعْدِ وَصِيَّةٍ يُوصِي بِهَا أَوْ دَيْنٍ ۗ وَلَهُنَّ الرُّبُعُ مِمَّا تَرَكْتُمْ إِن لَّمْ يَكُمْ وَلَدٌ ۚ فَإِن كَانَ لَكُمْ وَلَدٌ فَلَهُنَّ الثُّمُنُ مِمَّا تَرَكْتُمْ</p>
-                                <p class="verse-translation"><strong>Terjemahan:</strong> "...(pembagian ini) sesudah dipenuhi wasiat yang dibuatnya atau sesudah hutangnya dilunasi. Dan bagi istri-istrimu ada seperempat dari harta yang kamu tinggalkan, jika kamu tidak mempunyai anak. Jika kamu mempunyai anak, maka bagi mereka seperdelapan dari harta yang kamu tinggalkan..."</p>
-                                <div class="source-explanation"><strong>Tafsir Ringkas:</strong> Ayat ini melanjutkan penjelasan bagian istri. Istri mendapat 1/4 jika suami tidak meninggalkan anak, dan 1/8 jika suami meninggalkan anak. Jika ada lebih dari satu istri, mereka berbagi bagian tersebut secara merata.</div>
-                            </div>
-                        `
-                    },
-                    {
-                        title: 'Hak Ayah dan Ibu dalam Warisan',
-                        content: `
-                            <p><strong>3. Ayah:</strong> <strong>1/6</strong> jika mayit meninggalkan anak laki-laki (atau cucu laki-laki). <strong>'Asabah</strong> (ahli waris sisa) jika mayit tidak meninggalkan anak laki-laki (atau cucu laki-laki).</p>
-                            <p><strong>4. Ibu:</strong> <strong>1/6</strong> jika mayit meninggalkan anak (atau cucu) atau meninggalkan dua saudara kandung atau lebih. <strong>1/3</strong> jika mayit tidak meninggalkan anak, cucu, dan tidak ada dua saudara kandung atau lebih. <strong>1/3 dari sisa</strong> jika mayit hanya meninggalkan ayah dan suami/istri (kasus 'asysyarthan).</p>
-                            <div class="source-detail">
-                                <h4>Surah An-Nisa' Ayat 11 (bagian tengah)</h4>
-                                <p class="verse-arabic">وَلِأَبَوَيْهِ لِكُلِّ وَاحِدٍ مِنْهُمَا السُّدُسُ مِمَّا تَرَكَ إِن كَانَ لَهُ وَلَدٌ ۚ فَإِن لَّمْ يَكُن لَّهُ وَلَدٌ وَوَرِثَهُ أَبَوَاهُ فَلِأُمِّهِ الثُّلُثُ ۚ فَإِن كَانَ لَهُ إِخْوَةٌ فَلِأُمِّهِ السُّدُسُ</p>
-                                <p class="verse-translation"><strong>Terjemahan:</strong> "Dan untuk dua orang ibu-bapak, bagi masing-masing seperenam dari harta yang ditinggalkan, jika yang meninggal itu mempunyai anak. Jika yang meninggal tidak mempunyai anak dan ia diwarisi oleh ibu-bapaknya (saja), maka ibunya mendapat sepertiga. Jika yang meninggal itu mempunyai beberapa saudara, maka ibunya mendapat seperenam."</p>
-                                <div class="source-explanation"><strong>Tafsir Ringkas:</strong> Ayat ini mengatur bagian orang tua. Ayah dan ibu masing-masing mendapat 1/6 jika ada anak. Jika tidak ada anak, ibu mendapat 1/3, tetapi bagian ini berkurang menjadi 1/6 jika ada dua saudara atau lebih (karena saudara membantu kebutuhan ibu). Ayah dalam kasus ini menjadi 'ashabah.</div>
-                            </div>
-                        `
-                    }
-                ],
-                quiz: { questions: [
-                    { type: 'multiple-choice', question: "Seorang laki-laki meninggal dunia, meninggalkan istri, ayah, ibu, dan dua anak perempuan. Berapa bagian ibu?", options: ["1/6", "1/3", "1/3 dari sisa", "Tidak mendapat bagian"], correctAnswer: 0 },
-                    { type: 'essay', question: "Jelaskan alasan logis di balik bagian ayah yang bisa menjadi 'ashabah (pewaris sisa) jika tidak ada anak laki-laki, padahal ia termasuk Ashabul Furudh!", referenceAnswer: "Jawaban acuan: Ayah memiliki peran ganda: sebagai orang tua dan sebagai pewaris laki-laki terdekat. Jika si mayit meninggalkan anak laki-laki, maka anak tersebut mewakili garis keturunan ayah. Dalam kasus ini, peran utama ayah adalah sebagai orang tua dengan bagian 1/6. Jika tidak ada anak laki-laki, ayah berperan sebagai pewaris laki-laki utama (pengganti si mayit) yang menjamin kelangsungan garis keturunan, sehingga ia berhak atas sisa harta setelah ahli waris lain (yang bukan 'ashabah) mendapat bagian." }
-                ]}
-            }
-        ]
-    },
-    {
-        id: 'bab3', title: 'Bab 3: Ahli Waris Bagian Tetap (Ashabul Furudh) - Bagian 2',
-        subChapters: [
-            {
-                id: 'sub3-1', 
-                title: '3.1 Anak Perempuan dan Saudara Kandung Perempuan',
-                slides: [
-                    {
-                        title: 'Hak Anak Perempuan dalam Warisan',
-                        content: `
-                            <p><strong>Anak Perempuan:</strong> <strong>Anak Perempuan Tunggal:</strong> Mendapat <strong>1/2</strong> harta jika tidak ada anak laki-laki. <strong>Dua Anak Perempuan atau Lebih:</strong> Mendapat <strong>2/3</strong> harta jika tidak ada anak laki-laki. <strong>Bersama Anak Laki-laki:</strong> Menjadi <strong>'Ashabah</strong>, bagian anak laki-laki setara dengan bagian dua anak perempuan.</p>
-                            <div class="source-detail">
-                                <h4>Surah An-Nisa' Ayat 11 (bagian awal)</h4>
-                                <p class="verse-arabic">يُوصِيكُمُ اللَّهُ فِي أَوْلَادِكُمْ ۖ لِلذَّكَرِ مِثْلُ حَظِّ الْأُنثَيَيْنِ ۚ فَإِن كُنَّ نِسَاءً فَوْقَ اثْنَتَيْنِ فَلَهُنَّ ثُلُثَا مَا تَرَكَ ۚ وَإِن كَانَتْ وَاحِدَةً فَلَهَا النِّصْفُ</p>
-                                <p class="verse-translation"><strong>Terjemahan:</strong> "Allah mensyariatkan bagimu (berbuat baik) terhadap anak-anakmu. Bagian anak laki-laki sama dengan bagian dua anak perempuan. Jika anak perempuan itu lebih dari dua, maka bagi mereka dua pertiga dari harta yang ditinggalkan. Jika anak perempuan itu seorang saja, maka dia mendapat seperdua harta."</p>
-                                <div class="source-explanation"><strong>Tafsir Ringkas:</strong> Ayat ini secara fundamental menetapkan bagian anak perempuan. Jika hanya satu, dapat 1/2. Jika dua atau lebih, dapat 2/3 secara bersama. Ayat ini juga menetapkan prinsip bahwa jika ada anak laki-laki, anak perempuan tidak lagi mendapat bagian fardh (tetap), tetapi menjadi 'ashabah bersamanya dengan perbandingan 1:2.</div>
-                            </div>
-                        `
-                    },
-                    {
-                        title: 'Hak Saudara Kandung Perempuan dalam Warisan',
-                        content: `
-                            <p><strong>Saudara Kandung Perempuan:</strong> <strong>Saudara Kandung Perempuan Tunggal:</strong> Mendapat <strong>1/2</strong> harta jika tidak ada anak perempuan, saudara seayah perempuan, dan tidak ada anak laki-laki. <strong>Dua Saudara Kandung Perempuan atau Lebih:</strong> Mendapat <strong>2/3</strong> harta jika tidak ada anak perempuan, saudara seayah perempuan, dan tidak ada anak laki-laki. <strong>Bersama Anak Perempuan:</strong> Menjadi <strong>'Ashabah</strong> bersama anak perempuan.</p>
-                            <div class="source-detail">
-                                <h4>Surah An-Nisa' Ayat 176 (bagian akhir)</h4>
-                                <p class="verse-arabic">يَسْتَفْتُونَكَ قُلِ اللَّهُ يُفْتِيكُمْ فِي الْكَلَالَةِ ۚ إِمْرُؤٌ هَلَكَ لَهُ وَلَدٌ وَلَيْسَ لَهُ أُخْتٌ فَلَهَا نِصْفُ مَا تَرَكَ ۚ وَهُوَ يَرِثُهَا إِن لَّمْ يَكُن لَّهَا وَلَدٌ ۚ فَإِن كَانَتَا اثْنَتَيْنِ فَلَهُمَا الثُّلُثَانِ مِمَّا تَرَكَ</p>
-                                <p class="verse-translation"><strong>Terjemahan:</strong> "Mereka meminta fatwa kepadamu (tentang kalalah). Katakanlah: 'Allah memberi fatwa kepadamu tentang kalalah (yaitu: jika seorang meninggal dunia, dan ia tidak mempunyai anak dan mempunyai saudara perempuan), maka bagi saudara perempuan itu seperdua dari harta yang ditinggalkannya. Dan saudara laki-lakinya mewarisi seluruhnya jika ia tidak mempunyai anak. Jika (saudara-saudara perempuan itu) dua orang, maka keduanya mendapat dua pertiga dari harta yang ditinggalkan...'"</p>
-                                <div class="source-explanation"><strong>Tafsir Ringkas:</strong> Ayat ini khusus membahas hukum waris untuk saudara kandung (kalalah). Ini menunjukkan bahwa saudara kandung perempuan dapat mewarisi seperti anak perempuan jika tidak ada anak. Satu saudara perempuan dapat 1/2, dua dapat 2/3. Jika ada saudara laki-laki, ia menjadi 'ashabah dan mewarisi sisanya.</div>
-                            </div>
-                        `
-                    },
-                    {
-                        title: 'Prinsip Penting dalam Warisan',
-                        content: `
-                            <p><strong>Prinsip Penting:</strong> Kehadiran anak perempuan akan <strong>menghalangi (hijb)</strong> saudara kandung perempuan untuk mendapat bagian 1/2 atau 2/3. Namun, saudara kandung perempuan tidak sepenuhnya terbuang, karena ia bisa 'naik kelas' menjadi 'ashabah bersama anak perempuan.</p>
-                            <div class="hadith-text">
-                                <p class="verse-arabic">لِلْأُخْتِ مِثْلُ حَظِّ الْبِنْتَيْنِ، يَرِثْنَ مِمَّا يَرِثْنَ، وَيَحْجُبْنَ مِمَّا يَحْجُبْنَ</p>
-                                <p class="verse-translation"><strong>Terjemahan:</strong> "Bagi saudara perempuan (kandung) sepertiga bagian dua anak perempuan. Ia mewarisi dari apa yang diwarisi oleh anak perempuan dan terhalang oleh apa yang menghalangi anak perempuan."</p>
-                                <p class="hadith-source">(HR. Ibnu Majah)</p>
-                                <div class="source-explanation"><strong>Penjelasan:</strong> Hadis ini menjelaskan posisi saudara perempuan. Ia memiliki kedudukan yang mirip dengan anak perempuan dalam hal mewarisi (jika tidak ada anak) dan dalam hal terhalang (oleh anak laki-laki). Hadis ini juga menjadi dasar bagi saudara perempuan untuk menjadi 'ashabah bersama anak perempuan.</div>
-                            </div>
-                        `
-                    }
-                ],
-                quiz: { questions: [
-                    { type: 'multiple-choice', question: "Seorang ayah meninggal, meninggalkan seorang anak perempuan dan seorang anak laki-laki. Anak perempuan mendapat bagian?", options: ["1/2", "1/3", "1/6", "Bagian sisa sebagai Ashabah"], correctAnswer: 3 },
-                    { type: 'essay', question: "Jelaskan hikmah di balik aturan 'bagian anak laki-laki setara dengan dua anak perempuan'. Mengapa aturan ini dianggap adil dalam konteks tanggung jawab sosial dan ekonomi Islam?", referenceAnswer: "Jawaban acuan: Hikmah aturan ini terkait dengan kewajiban dan tanggung jawab. Dalam Islam, anak laki-laki (suami) dibebani kewajiban untuk memberikan nafkah (mahar, maskawin) kepada istrinya dan bertanggung jawab atas seluruh kebutuhan finansial keluarga (istri dan anak-anaknya). Sementara itu, anak perempuan tidak dibebani kewajiban serupa; bahkan hartanya sendiri adalah haknya sepenuhnya. Untuk memenuhi tanggung jawab finansial yang lebih besar ini, anak laki-laki diberikan bagian waris yang lebih besar." }
-                ]}
-            }
-        ]
-    },
-    {
-        id: 'bab4', title: 'Bab 4: Ahli Waris Pewaris Sisa (Asabah)',
-        subChapters: [
-            {
-                id: 'sub4-1', 
-                title: '4.1 Definisi, Jenis, dan Hirarki Asabah',
-                slides: [
-                    {
-                        title: 'Definisi Asabah',
-                        content: `
-                            <p><strong>Definisi Asabah:</strong> Ahli waris yang tidak memiliki bagian tertentu (fardh). Mereka hanya mendapat bagian jika ada harta yang tersisa setelah semua ahli waris Ashabul Furudh menerima bagian mereka. Jika tidak ada sisa, mereka tidak mendapat apa-apa.</p>
-                            <div class="hadith-text">
-                                <p class="verse-arabic">أَلْحِقُوا الْفَرَائِضَ بِأَهْلِهَا فَمَا بَقِيَ فَهُوَ لِأَوْلَى رَجُلٍ ذَكَرٍ</p>
-                                <p class="verse-translation"><strong>Terjemahan:</strong> "Berikanlah bagian yang telah ditetapkan (fardh) kepada ahlinya, maka apa yang tersisa adalah untuk laki-laki yang paling dekat (kerabat)."</p>
-                                <p class="hadith-source">(HR. Abu Dawud, Tirmidzi, Ibnu Majah)</p>
-                                <div class="source-explanation"><strong>Penjelasan:</strong> Hadis ini menjadi dasar konsep 'asabah. Setelah semua ahli waris dengan bagian tetap (Ashabul Furudh) menerima hak mereka, sisa hartanya (jika ada) diberikan kepada kerabat laki-laki yang paling dekat dengan si mayit. Ini menciptakan hirarki yang jelas dalam pewarisan sisa harta.</div>
-                            </div>
-                        `
-                    },
-                    {
-                        title: 'Jenis-jenis Asabah',
-                        content: `
-                            <p><strong>Jenis-jenis Asabah:</strong></p>
-                            <ul>
-                                <li><strong>Asabah Binasab (Karena Keturunan):</strong> Ini adalah golongan utama. Contoh: Anak laki-laki, ayah, kakek, saudara laki-laki kandung, paman kandung, dll.</li>
-                                <li><strong>Asabah Sabab (Karena Sebab):</strong> Hanya satu golongan, yaitu <strong>budak yang telah membebaskan tuannya</strong> (mu'allat).</li>
-                            </ul>
-                        `
-                    },
-                    {
-                        title: 'Hirarki Asabah',
-                        content: `
-                            <p><strong>Hirarki Asabah:</strong></p>
-                            <ol>
-                                <li>Anak Laki-laki (dan keturunannya).</li>
-                                <li>Ayah (dan kakek).</li>
-                                <li>Saudara Laki-laki Kandung (dan keturunannya).</li>
-                                <li>Saudara Seayah Laki-laki (dan keturunannya).</li>
-                                <li>Paman Kandung (dan keturunannya).</li>
-                                <li>Paman Seayah (dan keturunannya).</li>
-                            </ol>
-                            <p>Prinsip utama: <strong>yang lebih dekat nasabnya menghalangi yang lebih jauh</strong>.</p>
-                        `
-                    }
-                ],
-                quiz: { questions: [
-                    { type: 'multiple-choice', question: "Siapa yang termasuk Asabah Binasab?", options: ["Anak laki-laki", "Ibu", "Istri", "Anak perempuan tunggal"], correctAnswer: 0 },
-                    { type: 'essay', question: "Jelaskan mengapa anak laki-laki menjadi 'asabah yang paling utama dan dapat menghalangi ayahnya sendiri untuk menjadi 'asabah, meskipun ayah adalah orang tuanya!", referenceAnswer: "Jawaban acuan: Karena dalam hukum waris, prioritas utama adalah melanjutkan garis keturunan. Anak laki-laki adalah perpanjangan tangan langsung dari si mayit. Jika anak laki-laki ada, maka garis keturunan sudah jelas dan diwakili olehnya. Ayah, meskipun orang tua, berperan sebagai penopang generasi di atasnya. Jika anak laki-laki tidak ada, barulah ayah 'turun tangan' menjadi pewaris utama ('asabah) untuk memastikan garis keturunan tidak putus." }
-                ]}
-            }
-        ]
-    },
-    {
-        id: 'bab5', title: 'Bab 5: Praktik Pembagian & Kasus Khusus',
-        subChapters: [
-            {
-                id: 'sub5-1', 
-                title: '5.1 Masalah Aul (Kekurangan Bagian)',
-                slides: [
-                    {
-                        title: 'Pengertian Aul',
-                        content: `
-                            <p><strong>'Aul</strong> terjadi ketika jumlah total bagian Ashabul Furudh lebih dari 1 (satu). Akibatnya, bagian masing-masing ahli waris harus dikurangi secara proporsional agar totalnya menjadi 1. Ini adalah 'keajaiban' matematika dalam Al-Qur'an.</p>
-                            <div class="source-detail">
-                                <h4>Contoh Kasus 'Aul dalam Al-Qur'an</h4>
-                                <p class="verse-arabic">وَلَكُمْ نِصْفُ مَا تَرَكَ أَزْوَاجُكُمْ إِن لَّمْ يَكُن لَّهُنَّ وَلَدٌ ۚ فَإِن كَانَ لَهُنَّ وَلَدٌ فَلَكُمُ الرُّبُعُ مِمَّا تَرَكُوا ۗ مِن بَعْدِ وَصِيَّةٍ يُوصِي بِهَا أَوْ دَيْنٍ ۗ وَلَهُنَّ الرُّبُعُ مِمَّا تَرَكْتُمْ إِن لَّمْ يَكُمْ وَلَدٌ ۚ فَإِن كَانَتَا اثْنَتَيْنِ فَلَهُمَا الثُّلُثَانِ مِمَّا تَرَكَ</p>
-                                <p class="verse-translation"><strong>Terjemahan:</strong> "Bagimu (suami-suami) seperdua dari harta yang ditinggalkan oleh istri-istri kamu, jika mereka tidak mempunyai anak. Jika istri-istri itu mempunyai anak, maka kamu (suami-suami) mendapat seperempat... Dan bagi istri-istrimu ada seperempat dari harta yang kamu tinggalkan, jika kamu tidak mempunyai anak. Jika kamu mempunyai anak, maka bagi mereka seperdelapan... (jika saudara-saudara perempuan itu) dua orang, maka keduanya mendapat dua pertiga dari harta yang ditinggalkan."</p>
-                                <div class="source-explanation"><strong>Tafsir Ringkas:</strong> Jika seorang mayit meninggalkan suami (1/4), ibu (1/3), dan dua saudara perempuan (2/3), maka total bagian = 1/4 + 1/3 + 2/3 = 1 1/4. Ini adalah contoh klasik 'aul yang disebutkan dalam Al-Qur'an. Solusinya adalah dengan mengurangi (taul) bagian masing-masing secara proporsional.</div>
-                            </div>
-                        `
-                    },
-                    {
-                        title: 'Cara Menghitung Aul',
-                        content: `
-                            <p><strong>Cara Menghitung 'Aul:</strong></p>
-                            <ol>
-                                <li>Jumlahkan semua bagian Ashabul Furudh yang ada.</li>
-                                <li>Jika hasilnya lebih dari 1, maka terjadi 'aul.</li>
-                                <li>Tentukan "bilangan pokok" dengan mencari penyebut persekutuan terkecil (KPK) dari semua penyebut bagian.</li>
-                                <li>Bagikan bilangan pokok tersebut kepada setiap ahli waris sesuai dengan bagian semula mereka.</li>
-                            </ol>
-                            <p><strong>Contoh:</strong> Suami (1/4), Ibu (1/3), 2 Saudara Perempuan (2/3). Total = 1/4 + 1/3 + 2/3 = 1 1/4. Bilangan pokok = 12. Suami dapat 3/12 (1/4). Ibu dapat 4/12 (1/3). 2 Saudara dapat 8/12 (2/3). Total bagian baru = 15/12. Karena melebihi bilangan pokok (12), semua bagian harus dikurangi proporsional terhadap 12. Hasil akhir: Suami 3/15, Ibu 4/15, masing-masing saudara 4/15.</p>
-                        `
-                    }
-                ],
-                quiz: { questions: [
-                    { type: 'multiple-choice', question: "Kapan terjadi masalah 'Aul?", options: ["Ketika total bagian kurang dari 1", "Ketika total bagian lebih dari 1", "Ketika tidak ada 'Asabah", "Ketika mayit tidak punya ahli waris"], correctAnswer: 1 },
-                    { type: 'essay', question: "Jelaskan bagaimana cara menghitung pembagian harta jika terjadi masalah 'Aul. Berikan contoh perhitungan sederhana!", referenceAnswer: "Jawaban acuan: Cara menghitung 'aul adalah dengan mengalikan setiap bagian dengan bilangan pokok (hasil dari 1 dibagi total bagian asal). Contoh: Mayit meninggalkan suami (1/2) dan dua saudara perempuan (2/3). Total asal = 1/2 + 2/3 = 7/6. Bilangan pokok = 1 / (7/6) = 6/7. Bagian akhir suami = 1/2 * 6/7 = 3/7. Bagian akhir masing-masing saudara perempuan = (1/3) * 6/7 = 2/7." }
-                ]}
-            }
-        ]
-    },
-    {
-        id: 'bab6', title: 'Bab 6: Penyimpangan & Rukun Waris',
-        subChapters: [
-            {
-                id: 'sub6-1', 
-                title: '6.1 Penyimpangan Umum dalam Pembagian Waris',
+                title: '2.1 Penyimpangan Umum dalam Pembagian Waris',
                 slides: [
                     {
                         title: 'Pendahuluan: Banyaknya Penyimpangan',
@@ -364,7 +169,7 @@ const courseData = [
                             <p>Salah satu penyimpangan yang paling umum adalah membagi harta secara rata antara anak laki-laki dan perempuan dengan alasan keadilan gender. Padahal, Islam telah menetapkan bagian yang berbeda dengan hikmah yang mendalam.</p>
                             <div class="source-detail">
                                 <h4>QS. An-Nisa' : 11</h4>
-                                <p class="verse-arabic">يُوصِيكُمُ اللَّهُ فِي أَوْلَادِكُمْ ۖ لِلذَّكَرِ مِثْلُ حَظِّ الْأُنثَيَيْنِ</p>
+                                <p class="verse-arabic">يُوصِيكُمُ اللَّهُ فِي أَوْلَادِكُمْ ۖ لِلذَّكَرِ مِثْلُ حَظِّ الْأُنثَيْيْنِ</p>
                                 <p class="verse-translation"><strong>Terjemahan:</strong> Allah mensyariatkan bagimu (berbuat baik) terhadap anak-anakmu. Bagian anak laki-laki sama dengan bagian dua anak perempuan.</p>
                                 <div class="source-explanation"><strong>Tafsir Ringkas:</strong> Ayat ini secara tegas menetapkan perbedaan bagian. Ini bukan bentuk diskriminasi, melainkan keadilan sosial. Anak laki-laki dibebani kewajiban finansial (nafkah, mahar) yang tidak dibebani kepada anak perempuan, sehingga bagian yang lebih besar adalah kompensasi atas tanggung jawab tersebut.</div>
                             </div>
@@ -466,8 +271,8 @@ const courseData = [
                 ]}
             },
             {
-                id: 'sub6-2', 
-                title: '6.2 Rukun & Detail Teknis Waris',
+                id: 'sub2-2', 
+                title: '2.2 Rukun & Detail Teknis Waris',
                 slides: [
                     {
                         title: 'Pengenalan Rukun Waris',
@@ -571,6 +376,280 @@ const courseData = [
                         { type: 'multiple-choice', question: "Siapa di antara ahli waris di atas yang terhalang (mahjub) dan tidak mendapat bagian?", options: ["Istri", "Ayah", "Cucu laki-laki (Budi Jr)", "Ibu"], correctAnswer: 2 },
                         { type: 'essay', question: "Jelaskan mengapa ahli waris yang Anda pilih di soal sebelumnya terhalang! Sebutkan prinsip hukum yang mendasarinya!", referenceAnswer: "Jawaban acuan: Ahli waris yang terhalang adalah cucu laki-laki (Budi Jr). Prinsip hukum yang mendasarinya adalah <strong>'Hijb Hirman'</strong>, yaitu penghalangan total. Kehadiran Anak laki-laki (Andi) yang merupakan anak kandung dari Pak Budi, secara otomatis menghalangi hak cucu (Budi Jr) untuk mewarisi. Prinsipnya adalah <strong>'Anak menghalangi Cucu'</strong>. Karena garis keturunan ke bawah sudah diwakili oleh anak, maka cucu tidak lagi mendapat bagian." }
                     ]}
+                ]}
+            }
+        ]
+    },
+    {
+        id: 'bab3', title: 'Bab 3: Ahli Waris Bagian Tetap (Ashabul Furudh) - Bagian 1',
+        subChapters: [
+            {
+                id: 'sub3-1', 
+                title: '3.1 Suami, Istri, Ayah, dan Ibu',
+                slides: [
+                    {
+                        title: 'Hak Suami dalam Warisan',
+                        content: `
+                            <p><strong>1. Suami:</strong> Suami selalu mendapat bagian. <strong>1/2</strong> jika istri tidak meninggalkan anak (atau cucu). <strong>1/4</strong> jika istri meninggalkan anak (atau cucu).</p>
+                            <div class="source-detail">
+                                <h4>Surah An-Nisa' Ayat 12 (bagian pertama)</h4>
+                                <p class="verse-arabic">وَلَكُمْ نِصْفُ مَا تَرَكَ أَزْوَاجُكُمْ إِن لَّمْ يَكُن لَّهُنَّ وَلَدٌ ۚ فَإِن كَانَ لَهُنَّ وَلَدٌ فَلَكُمُ الرُّبُعُ مِمَّا تَرَكُوا</p>
+                                <p class="verse-translation"><strong>Terjemahan:</strong> "Bagimu (suami-suami) seperdua dari harta yang ditinggalkan oleh istri-istri kamu, jika mereka tidak mempunyai anak. Jika istri-istri itu mempunyai anak, maka kamu (suami-suami) mendapat seperempat dari harta yang ditinggalkan oleh mereka..."</p>
+                                <div class="source-explanation"><strong>Tafsir Ringkas:</strong> Ayat ini secara eksplisit menetapkan bagian suami. Suami mendapat 1/2 jika istri tidak meninggalkan anak, dan 1/4 jika istri meninggalkan anak. Ini menunjukkan posisi penting suami sebagai penopang keluarga.</div>
+                            </div>
+                        `
+                    },
+                    {
+                        title: 'Hak Istri dalam Warisan',
+                        content: `
+                            <p><strong>2. Istri:</strong> <strong>1/4</strong> jika suami tidak meninggalkan anak. Jika lebih dari satu istri, mereka berbagi 1/4 ini. <strong>1/8</strong> jika suami meninggalkan anak. Jika lebih dari satu istri, mereka berbagi 1/8 ini.</p>
+                            <div class="source-detail">
+                                <h4>Surah An-Nisa' Ayat 12 (bagian kedua)</h4>
+                                <p class="verse-arabic">مِن بَعْدِ وَصِيَّةٍ يُوصِي بِهَا أَوْ دَيْنٍ ۗ وَلَهُنَّ الرُّبُعُ مِمَّا تَرَكْتُمْ إِن لَّمْ يَكُمْ وَلَدٌ ۚ فَإِن كَانَ لَكُمْ وَلَدٌ فَلَهُنَّ الثُّمُنُ مِمَّا تَرَكْتُمْ</p>
+                                <p class="verse-translation"><strong>Terjemahan:</strong> "...(pembagian ini) sesudah dipenuhi wasiat yang dibuatnya atau sesudah hutangnya dilunasi. Dan bagi istri-istrimu ada seperempat dari harta yang kamu tinggalkan, jika kamu tidak mempunyai anak. Jika kamu mempunyai anak, maka bagi mereka seperdelapan dari harta yang kamu tinggalkan..."</p>
+                                <div class="source-explanation"><strong>Tafsir Ringkas:</strong> Ayat ini melanjutkan penjelasan bagian istri. Istri mendapat 1/4 jika suami tidak meninggalkan anak, dan 1/8 jika suami meninggalkan anak. Jika ada lebih dari satu istri, mereka berbagi bagian tersebut secara merata.</div>
+                            </div>
+                        `
+                    },
+                    {
+                        title: 'Hak Ayah dan Ibu dalam Warisan',
+                        content: `
+                            <p><strong>3. Ayah:</strong> <strong>1/6</strong> jika mayit meninggalkan anak laki-laki (atau cucu laki-laki). <strong>'Asabah</strong> (ahli waris sisa) jika mayit tidak meninggalkan anak laki-laki (atau cucu laki-laki).</p>
+                            <p><strong>4. Ibu:</strong> <strong>1/6</strong> jika mayit meninggalkan anak (atau cucu) atau meninggalkan dua saudara kandung atau lebih. <strong>1/3</strong> jika mayit tidak meninggalkan anak, cucu, dan tidak ada dua saudara kandung atau lebih. <strong>1/3 dari sisa</strong> jika mayit hanya meninggalkan ayah dan suami/istri (kasus 'asysyarthan).</p>
+                            <div class="source-detail">
+                                <h4>Surah An-Nisa' Ayat 11 (bagian tengah)</h4>
+                                <p class="verse-arabic">وَلِأَبَوَيْهِ لِكُلِّ وَاحِدٍ مِنْهُمَا السُّدُسُ مِمَّا تَرَكَ إِن كَانَ لَهُ وَلَدٌ ۚ فَإِن لَّمْ يَكُن لَّهُ وَلَدٌ وَوَرِثَهُ أَبَوَاهُ فَلِأُمِّهِ الثُّلُثُ ۚ فَإِن كَانَ لَهُ إِخْوَةٌ فَلِأُمِّهِ السُّدُسُ</p>
+                                <p class="verse-translation"><strong>Terjemahan:</strong> "Dan untuk dua orang ibu-bapak, bagi masing-masing seperenam dari harta yang ditinggalkan, jika yang meninggal itu mempunyai anak. Jika yang meninggal tidak mempunyai anak dan ia diwarisi oleh ibu-bapaknya (saja), maka ibunya mendapat sepertiga. Jika yang meninggal itu mempunyai beberapa saudara, maka ibunya mendapat seperenam."</p>
+                                <div class="source-explanation"><strong>Tafsir Ringkas:</strong> Ayat ini mengatur bagian orang tua. Ayah dan ibu masing-masing mendapat 1/6 jika ada anak. Jika tidak ada anak, ibu mendapat 1/3, tetapi bagian ini berkurang menjadi 1/6 jika ada dua saudara atau lebih (karena saudara membantu kebutuhan ibu). Ayah dalam kasus ini menjadi 'ashabah.</div>
+                            </div>
+                        `
+                    }
+                ],
+                quiz: { questions: [
+                    { type: 'multiple-choice', question: "Seorang laki-laki meninggal dunia, meninggalkan istri, ayah, ibu, dan dua anak perempuan. Berapa bagian ibu?", options: ["1/6", "1/3", "1/3 dari sisa", "Tidak mendapat bagian"], correctAnswer: 0 },
+                    { type: 'essay', question: "Jelaskan alasan logis di balik bagian ayah yang bisa menjadi 'ashabah (pewaris sisa) jika tidak ada anak laki-laki, padahal ia termasuk Ashabul Furudh!", referenceAnswer: "Jawaban acuan: Ayah memiliki peran ganda: sebagai orang tua dan sebagai pewaris laki-laki terdekat. Jika si mayit meninggalkan anak laki-laki, maka anak tersebut mewakili garis keturunan ayah. Dalam kasus ini, peran utama ayah adalah sebagai orang tua dengan bagian 1/6. Jika tidak ada anak laki-laki, ayah berperan sebagai pewaris laki-laki utama (pengganti si mayit) yang menjamin kelangsungan garis keturunan, sehingga ia berhak atas sisa harta setelah ahli waris lain (yang bukan 'ashabah) mendapat bagian." }
+                ]}
+            }
+        ]
+    },
+    {
+        id: 'bab4', title: 'Bab 4: Ahli Waris Bagian Tetap (Ashabul Furudh) - Bagian 2',
+        subChapters: [
+            {
+                id: 'sub4-1', 
+                title: '4.1 Anak Perempuan dan Saudara Kandung Perempuan',
+                slides: [
+                    {
+                        title: 'Hak Anak Perempuan dalam Warisan',
+                        content: `
+                            <p><strong>Anak Perempuan:</strong> <strong>Anak Perempuan Tunggal:</strong> Mendapat <strong>1/2</strong> harta jika tidak ada anak laki-laki. <strong>Dua Anak Perempuan atau Lebih:</strong> Mendapat <strong>2/3</strong> harta jika tidak ada anak laki-laki. <strong>Bersama Anak Laki-laki:</strong> Menjadi <strong>'Ashabah</strong>, bagian anak laki-laki setara dengan bagian dua anak perempuan.</p>
+                            <div class="source-detail">
+                                <h4>Surah An-Nisa' Ayat 11 (bagian awal)</h4>
+                                <p class="verse-arabic">يُوصِيكُمُ اللَّهُ فِي أَوْلَادِكُمْ ۖ لِلذَّكَرِ مِثْلُ حَظِّ الْأُنثَيَيْنِ ۚ فَإِن كُنَّ نِسَاءً فَوْقَ اثْنَتَيْنِ فَلَهُنَّ ثُلُثَا مَا تَرَكَ ۚ وَإِن كَانَتْ وَاحِدَةً فَلَهَا النِّصْفُ</p>
+                                <p class="verse-translation"><strong>Terjemahan:</strong> "Allah mensyariatkan bagimu (berbuat baik) terhadap anak-anakmu. Bagian anak laki-laki sama dengan bagian dua anak perempuan. Jika anak perempuan itu lebih dari dua, maka bagi mereka dua pertiga dari harta yang ditinggalkan. Jika anak perempuan itu seorang saja, maka dia mendapat seperdua harta."</p>
+                                <div class="source-explanation"><strong>Tafsir Ringkas:</strong> Ayat ini secara fundamental menetapkan bagian anak perempuan. Jika hanya satu, dapat 1/2. Jika dua atau lebih, dapat 2/3 secara bersama. Ayat ini juga menetapkan prinsip bahwa jika ada anak laki-laki, anak perempuan tidak lagi mendapat bagian fardh (tetap), tetapi menjadi 'ashabah bersamanya dengan perbandingan 1:2.</div>
+                            </div>
+                        `
+                    },
+                    {
+                        title: 'Hak Saudara Kandung Perempuan dalam Warisan',
+                        content: `
+                            <p><strong>Saudara Kandung Perempuan:</strong> <strong>Saudara Kandung Perempuan Tunggal:</strong> Mendapat <strong>1/2</strong> harta jika tidak ada anak perempuan, saudara seayah perempuan, dan tidak ada anak laki-laki. <strong>Dua Saudara Kandung Perempuan atau Lebih:</strong> Mendapat <strong>2/3</strong> harta jika tidak ada anak perempuan, saudara seayah perempuan, dan tidak ada anak laki-laki. <strong>Bersama Anak Perempuan:</strong> Menjadi <strong>'Ashabah</strong> bersama anak perempuan.</p>
+                            <div class="source-detail">
+                                <h4>Surah An-Nisa' Ayat 176 (bagian akhir)</h4>
+                                <p class="verse-arabic">يَسْتَفْتُونَكَ قُلِ اللَّهُ يُفْتِيكُمْ فِي الْكَلَالَةِ ۚ إِمْرُؤٌ هَلَكَ لَهُ وَلَدٌ وَلَيْسَ لَهُ أُخْتٌ فَلَهَا نِصْفُ مَا تَرَكَ ۚ وَهُوَ يَرِثُهَا إِن لَّمْ يَكُن لَّهَا وَلَدٌ ۚ فَإِن كَانَتَا اثْنَتَيْنِ فَلَهُمَا الثُّلُثَانِ مِمَّا تَرَكَ</p>
+                                <p class="verse-translation"><strong>Terjemahan:</strong> "Mereka meminta fatwa kepadamu (tentang kalalah). Katakanlah: 'Allah memberi fatwa kepadamu tentang kalalah (yaitu: jika seorang meninggal dunia, dan ia tidak mempunyai anak dan mempunyai saudara perempuan), maka bagi saudara perempuan itu seperdua dari harta yang ditinggalkannya. Dan saudara laki-lakinya mewarisi seluruhnya jika ia tidak mempunyai anak. Jika (saudara-saudara perempuan itu) dua orang, maka keduanya mendapat dua pertiga dari harta yang ditinggalkan...'"</p>
+                                <div class="source-explanation"><strong>Tafsir Ringkas:</strong> Ayat ini khusus membahas hukum waris untuk saudara kandung (kalalah). Ini menunjukkan bahwa saudara kandung perempuan dapat mewarisi seperti anak perempuan jika tidak ada anak. Satu saudara perempuan dapat 1/2, dua dapat 2/3. Jika ada saudara laki-laki, ia menjadi 'ashabah dan mewarisi sisanya.</div>
+                            </div>
+                        `
+                    },
+                    {
+                        title: 'Prinsip Penting dalam Warisan',
+                        content: `
+                            <p><strong>Prinsip Penting:</strong> Kehadiran anak perempuan akan <strong>menghalangi (hijb)</strong> saudara kandung perempuan untuk mendapat bagian 1/2 atau 2/3. Namun, saudara kandung perempuan tidak sepenuhnya terbuang, karena ia bisa 'naik kelas' menjadi 'ashabah bersama anak perempuan.</p>
+                            <div class="hadith-text">
+                                <p class="verse-arabic">لِلْأُخْتِ مِثْلُ حَظِّ الْبِنْتَيْنِ، يَرِثْنَ مِمَّا يَرِثْنَ، وَيَحْجُبْنَ مِمَّا يَحْجُبْنَ</p>
+                                <p class="verse-translation"><strong>Terjemahan:</strong> "Bagi saudara perempuan (kandung) sepertiga bagian dua anak perempuan. Ia mewarisi dari apa yang diwarisi oleh anak perempuan dan terhalang oleh apa yang menghalangi anak perempuan."</p>
+                                <p class="hadith-source">(HR. Ibnu Majah)</p>
+                                <div class="source-explanation"><strong>Penjelasan:</strong> Hadis ini menjelaskan posisi saudara perempuan. Ia memiliki kedudukan yang mirip dengan anak perempuan dalam hal mewarisi (jika tidak ada anak) dan dalam hal terhalang (oleh anak laki-laki). Hadis ini juga menjadi dasar bagi saudara perempuan untuk menjadi 'ashabah bersama anak perempuan.</div>
+                            </div>
+                        `
+                    }
+                ],
+                quiz: { questions: [
+                    { type: 'multiple-choice', question: "Seorang ayah meninggal, meninggalkan seorang anak perempuan dan seorang anak laki-laki. Anak perempuan mendapat bagian?", options: ["1/2", "1/3", "1/6", "Bagian sisa sebagai Ashabah"], correctAnswer: 3 },
+                    { type: 'essay', question: "Jelaskan hikmah di balik aturan 'bagian anak laki-laki setara dengan dua anak perempuan'. Mengapa aturan ini dianggap adil dalam konteks tanggung jawab sosial dan ekonomi Islam?", referenceAnswer: "Jawaban acuan: Hikmah aturan ini terkait dengan kewajiban dan tanggung jawab. Dalam Islam, anak laki-laki (suami) dibebani kewajiban untuk memberikan nafkah (mahar, maskawin) kepada istrinya dan bertanggung jawab atas seluruh kebutuhan finansial keluarga (istri dan anak-anaknya). Sementara itu, anak perempuan tidak dibebani kewajiban serupa; bahkan hartanya sendiri adalah haknya sepenuhnya. Untuk memenuhi tanggung jawab finansial yang lebih besar ini, anak laki-laki diberikan bagian waris yang lebih besar." }
+                ]}
+            }
+        ]
+    },
+    {
+        id: 'bab5', title: 'Bab 5: Ahli Waris Pewaris Sisa (Asabah)',
+        subChapters: [
+            {
+                id: 'sub5-1', 
+                title: '5.1 Definisi, Jenis, dan Hirarki Asabah',
+                slides: [
+                    {
+                        title: 'Definisi Asabah',
+                        content: `
+                            <p><strong>Definisi Asabah:</strong> Ahli waris yang tidak memiliki bagian tertentu (fardh). Mereka hanya mendapat bagian jika ada harta yang tersisa setelah semua ahli waris Ashabul Furudh menerima bagian mereka. Jika tidak ada sisa, mereka tidak mendapat apa-apa.</p>
+                            <div class="hadith-text">
+                                <p class="verse-arabic">أَلْحِقُوا الْفَرَائِضَ بِأَهْلِهَا فَمَا بَقِيَ فَهُوَ لِأَوْلَى رَجُلٍ ذَكَرٍ</p>
+                                <p class="verse-translation"><strong>Terjemahan:</strong> "Berikanlah bagian yang telah ditetapkan (fardh) kepada ahlinya, maka apa yang tersisa adalah untuk laki-laki yang paling dekat (kerabat)."</p>
+                                <p class="hadith-source">(HR. Abu Dawud, Tirmidzi, Ibnu Majah)</p>
+                                <div class="source-explanation"><strong>Penjelasan:</strong> Hadis ini menjadi dasar konsep 'asabah. Setelah semua ahli waris dengan bagian tetap (Ashabul Furudh) menerima hak mereka, sisa hartanya (jika ada) diberikan kepada kerabat laki-laki yang paling dekat dengan si mayit. Ini menciptakan hirarki yang jelas dalam pewarisan sisa harta.</div>
+                            </div>
+                        `
+                    },
+                    {
+                        title: 'Jenis-jenis Asabah',
+                        content: `
+                            <p><strong>Jenis-jenis Asabah:</strong></p>
+                            <ul>
+                                <li><strong>Asabah Binasab (Karena Keturunan):</strong> Ini adalah golongan utama. Contoh: Anak laki-laki, ayah, kakek, saudara laki-laki kandung, paman kandung, dll.</li>
+                                <li><strong>Asabah Sabab (Karena Sebab):</strong> Hanya satu golongan, yaitu <strong>budak yang telah membebaskan tuannya</strong> (mu'allat).</li>
+                            </ul>
+                        `
+                    },
+                    {
+                        title: 'Hirarki Asabah',
+                        content: `
+                            <p><strong>Hirarki Asabah:</strong></p>
+                            <ol>
+                                <li>Anak Laki-laki (dan keturunannya).</li>
+                                <li>Ayah (dan kakek).</li>
+                                <li>Saudara Laki-laki Kandung (dan keturunannya).</li>
+                                <li>Saudara Seayah Laki-laki (dan keturunannya).</li>
+                                <li>Paman Kandung (dan keturunannya).</li>
+                                <li>Paman Seayah (dan keturunannya).</li>
+                            </ol>
+                            <p>Prinsip utama: <strong>yang lebih dekat nasabnya menghalangi yang lebih jauh</strong>.</p>
+                        `
+                    }
+                ],
+                quiz: { questions: [
+                    { type: 'multiple-choice', question: "Siapa yang termasuk Asabah Binasab?", options: ["Anak laki-laki", "Ibu", "Istri", "Anak perempuan tunggal"], correctAnswer: 0 },
+                    { type: 'essay', question: "Jelaskan mengapa anak laki-laki menjadi 'asabah yang paling utama dan dapat menghalangi ayahnya sendiri untuk menjadi 'asabah, meskipun ayah adalah orang tuanya!", referenceAnswer: "Jawaban acuan: Karena dalam hukum waris, prioritas utama adalah melanjutkan garis keturunan. Anak laki-laki adalah perpanjangan tangan langsung dari si mayit. Jika anak laki-laki ada, maka garis keturunan sudah jelas dan diwakili olehnya. Ayah, meskipun orang tua, berperan sebagai penopang generasi di atasnya. Jika anak laki-laki tidak ada, barulah ayah 'turun tangan' menjadi pewaris utama ('asabah) untuk memastikan garis keturunan tidak putus." }
+                ]}
+            }
+        ]
+    },
+    {
+        id: 'bab6', title: 'Bab 6: Praktik Pembagian & Kasus Khusus',
+        subChapters: [
+            {
+                id: 'sub6-1', 
+                title: '6.1 Masalah Aul (Kekurangan Bagian)',
+                slides: [
+                    {
+                        title: 'Pengertian Aul',
+                        content: `
+                            <p><strong>'Aul</strong> terjadi ketika jumlah total bagian Ashabul Furudh lebih dari 1 (satu). Akibatnya, bagian masing-masing ahli waris harus dikurangi secara proporsional agar totalnya menjadi 1. Ini adalah 'keajaiban' matematika dalam Al-Qur'an.</p>
+                            <div class="source-detail">
+                                <h4>Contoh Kasus 'Aul dalam Al-Qur'an</h4>
+                                <p class="verse-arabic">وَلَكُمْ نِصْفُ مَا تَرَكَ أَزْوَاجُكُمْ إِن لَّمْ يَكُن لَّهُنَّ وَلَدٌ ۚ فَإِن كَانَ لَهُنَّ وَلَدٌ فَلَكُمُ الرُّبُعُ مِمَّا تَرَكُوا ۗ مِن بَعْدِ وَصِيَّةٍ يُوصِي بِهَا أَوْ دَيْنٍ ۗ وَلَهُنَّ الرُّبُعُ مِمَّا تَرَكْتُمْ إِن لَّمْ يَكُمْ وَلَدٌ ۚ فَإِن كَانَتَا اثْنَتَيْنِ فَلَهُمَا الثُّلُثَانِ مِمَّا تَرَكَ</p>
+                                <p class="verse-translation"><strong>Terjemahan:</strong> "Bagimu (suami-suami) seperdua dari harta yang ditinggalkan oleh istri-istri kamu, jika mereka tidak mempunyai anak. Jika istri-istri itu mempunyai anak, maka kamu (suami-suami) mendapat seperempat... Dan bagi istri-istrimu ada seperempat dari harta yang kamu tinggalkan, jika kamu tidak mempunyai anak. Jika kamu mempunyai anak, maka bagi mereka seperdelapan... (jika saudara-saudara perempuan itu) dua orang, maka keduanya mendapat dua pertiga dari harta yang ditinggalkan..."</p>
+                                <div class="source-explanation"><strong>Tafsir Ringkas:</strong> Jika seorang mayit meninggalkan suami (1/4), ibu (1/3), dan dua saudara perempuan (2/3), maka total bagian = 1/4 + 1/3 + 2/3 = 1 1/4. Ini adalah contoh klasik 'aul yang disebutkan dalam Al-Qur'an. Solusinya adalah dengan mengurangi (taul) bagian masing-masing secara proporsional.</div>
+                            </div>
+                        `
+                    },
+                    {
+                        title: 'Cara Menghitung Aul',
+                        content: `
+                            <p><strong>Cara Menghitung 'Aul:</strong></p>
+                            <ol>
+                                <li>Jumlahkan semua bagian Ashabul Furudh yang ada.</li>
+                                <li>Jika hasilnya lebih dari 1, maka terjadi 'aul.</li>
+                                <li>Tentukan "bilangan pokok" dengan mencari penyebut persekutuan terkecil (KPK) dari semua penyebut bagian.</li>
+                                <li>Bagikan bilangan pokok tersebut kepada setiap ahli waris sesuai dengan bagian semula mereka.</li>
+                            </ol>
+                            <p><strong>Contoh:</strong> Suami (1/4), Ibu (1/3), 2 Saudara Perempuan (2/3). Total = 1/4 + 1/3 + 2/3 = 1 1/4. Bilangan pokok = 12. Suami dapat 3/12 (1/4). Ibu dapat 4/12 (1/3). 2 Saudara dapat 8/12 (2/3). Total bagian baru = 15/12. Karena melebihi bilangan pokok (12), semua bagian harus dikurangi proporsional terhadap 12. Hasil akhir: Suami 3/15, Ibu 4/15, masing-masing saudara 4/15.</p>
+                        `
+                    }
+                ],
+                quiz: { questions: [
+                    { type: 'multiple-choice', question: "Kapan terjadi masalah 'Aul?", options: ["Ketika total bagian kurang dari 1", "Ketika total bagian lebih dari 1", "Ketika tidak ada 'Asabah", "Ketika mayit tidak punya ahli waris"], correctAnswer: 1 },
+                    { type: 'essay', question: "Jelaskan bagaimana cara menghitung pembagian harta jika terjadi masalah 'Aul. Berikan contoh perhitungan sederhana!", referenceAnswer: "Jawaban acuan: Cara menghitung 'aul adalah dengan mengalikan setiap bagian dengan bilangan pokok (hasil dari 1 dibagi total bagian asal). Contoh: Mayit meninggalkan suami (1/2) dan dua saudara perempuan (2/3). Total asal = 1/2 + 2/3 = 7/6. Bilangan pokok = 1 / (7/6) = 6/7. Bagian akhir suami = 1/2 * 6/7 = 3/7. Bagian akhir masing-masing saudara perempuan = (1/3) * 6/7 = 2/7." }
+                ]}
+            },
+            {
+                id: 'sub6-2', 
+                title: '6.2 Masalah Radd (Kelebihan Bagian)',
+                slides: [
+                    {
+                        title: 'Pengertian Radd',
+                        content: `
+                            <p><strong>Radd</strong> (artinya: kembali, pengembalian) terjadi ketika jumlah total bagian Ashabul Furudh kurang dari 1 (satu) dan tidak ada ahli waris Asabah yang menerima sisa harta tersebut. Akibatnya, sisa harta tersebut <strong>dikembalikan</strong> kepada para Ashabul Furudh itu sendiri secara proporsional sesuai bagian mereka.</p>
+                            <p><strong>Contoh Sederhana:</strong> Seorang wanita meninggal, hanya meninggalkan seorang ibu (1/6) dan seorang suami (1/4). Total bagian = 1/6 + 1/4 = 5/12. Sisa harta = 1 - 5/12 = 7/12. Karena tidak ada Asabah, sisa 7/12 ini dikembalikan (Radd) kepada ibu dan suami.</p>
+                        `
+                    },
+                    {
+                        title: 'Syarat Terjadinya Radd',
+                        content: `
+                            <p><strong>Syarat-syarat terjadinya Radd:</strong></p>
+                            <ol>
+                                <li><strong>Total Bagian Ashabul Furudh Kurang dari 1:</strong> Jumlah semua bagian yang sudah ditetapkan tidak mencapai seluruh harta.</li>
+                                <li><strong>Tidak Ada Ahli Waris Asabah:</strong> Tidak ada pewaris sisa yang berhak atas sisa harta tersebut. Jika ada Asabah, maka sisa harta menjadi milik mereka, bukan untuk Radd.</li>
+                            </ol>
+                            <div class="example-box">
+                                <h4>Contoh Kasus Radd:</h4>
+                                <p>Mayit meninggalkan: Ibu (1/6) dan 2 Saudara Kandung Perempuan (2/3).</p>
+                                <p><strong>Analisis:</strong></p>
+                                <ul>
+                                    <li>Ashabul Furudh: Ibu (1/6), 2 Saudara Perempuan (2/3).</li>
+                                    <li>Asabah: Tidak ada.</li>
+                                    <li>Total Bagian: 1/6 + 2/3 = 5/6 (kurang dari 1).</li>
+                                    <li><strong>Kesimpulan: Terjadi Radd.</strong></li>
+                                </ul>
+                            </div>
+                        `
+                    },
+                    {
+                        title: 'Cara Menghitung Radd',
+                        content: `
+                            <p><strong>Cara Menghitung Radd:</strong></p>
+                            <p>Sisa harta (1 - total bagian) dibagikan secara proporsional kepada semua Ashabul Furudh.</p>
+                            <p><strong>Menggunakan Contoh Sebelumnya (Ibu 1/6, 2 Saudara 2/3):</strong></p>
+                            <ol>
+                                <li>Total bagian asal = 5/6.</li>
+                                <li>Sisa harta untuk Radd = 1 - 5/6 = 1/6.</li>
+                                <li><strong>Metode 1 (Mengalikan Bagian):</strong>
+                                    <ul>
+                                        <li>Bagian Ibu baru = (1/6) / (5/6) = 1/5 harta.</li>
+                                        <li>Bagian masing-masing Saudara baru = (1/3) / (5/6) = 2/5 harta.</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Metode 2 (Mencari Pecahan Baru):</strong>
+                                    <ul>
+                                        <li>Jumlahkan pembilang bagian asli: 1 (ibu) + 4 (2 saudara) = 5.</li>
+                                        <li>Ibu mendapat 1/5 harta.</li>
+                                        <li>Masing-masing saudara mendapat 2/5 harta.</li>
+                                    </ul>
+                                </li>
+                            </ol>
+                        `
+                    },
+                    {
+                        title: 'Penting: Siapa yang Tidak Dapat Radd?',
+                        content: `
+                            <p>Ini adalah poin krusial yang sering menjadi perdebatan di kalangan ulama.</p>
+                            <p><strong>Pendapat Jumhur (Mayoritas Ulama):</strong> Suami dan Istri <strong>tidak mendapat bagian Radd</strong>. Mereka hanya mendapat bagian yang sudah ditetapkan (1/2, 1/4, 1/8). Sisa harta hanya dibagikan kepada Ashabul Furudh lainnya (seperti ibu, anak, saudara, dll).</p>
+                            <p><strong>Alasannya:</strong> Bagian suami/istri dianggap sudah 'final' dan maksimal karena mereka bukan bagian dari garis keturunan darah (nasab) mayit. Mereka mewarisi karena adanya ikatan pernikahan, bukan karena hubungan kekerabatan darah.</p>
+                            <div class="example-box">
+                                <h4>Contoh: Suami Tidak Dapat Radd</h4>
+                                <p>Mayit meninggalkan: Suami (1/4) dan Ibu (1/6).</p>
+                                <p>Total bagian = 1/4 + 1/6 = 5/12. Sisa = 7/12.</p>
+                                <p><strong>Menurut Jumhur:</strong> Suami tetap dapat 1/4. Sisa 7/12 + bagian ibu 1/6 (2/12) = 9/12. Ibu mendapat seluruhnya, yaitu 9/12 atau 3/4 harta.</p>
+                                <p><strong>Hasil Akhir: Suami 1/4, Ibu 3/4.</strong></p>
+                            </div>
+                        `
+                    }
+                ],
+                quiz: { questions: [
+                    { type: 'multiple-choice', question: "Kapan terjadi masalah 'Radd'?", options: ["Ketika total bagian kurang dari 1 dan tidak ada Asabah", "Ketika total bagian lebih dari 1", "Ketika ada ahli waris Asabah", "Ketika mayit hanya meninggalkan suami dan istri"], correctAnswer: 0 },
+                    { type: 'essay', question: "Jelaskan perbedaan mendasar antara 'Aul dan Radd! Berikan contoh sederhana untuk masing-masing!", referenceAnswer: "Jawaban acuan: **Aul** terjadi ketika total bagian Ashabul Furudh LEBIH dari 1, sehingga bagian masing-masing harus DIKURANGI secara proporsional. Contoh: Suami (1/4), Ibu (1/3), 2 Saudara Perempuan (2/3). Total = 1 1/4. Semua bagian harus dikurangi. **Radd** terjadi ketika total bagian Ashabul Furudh KURANG dari 1 dan tidak ada Asabah, sehingga SISA harta tersebut DIKEMBALIKAN kepada Ashabul Furudh secara proporsional. Contoh: Ibu (1/6) dan 2 Saudara Perempuan (2/3). Total = 5/6. Sisa 1/6 dikembalikan kepada mereka." },
+                    { type: 'matching', question: "Jodohkan istilah dengan kondisi yang tepat!", pairs: [{ term: "Aul", match: "Total bagian Ashabul Furudh lebih dari 1" }, { term: "Radd", match: "Total bagian Ashabul Furudh kurang dari 1 dan tidak ada Asabah" }, { term: "Asabah", match: "Ahli waris yang menerima sisa harta" }, { term: "Hijb", match: "Ahli waris yang tidak mendapat bagian karena ada yang lebih dekat" }] }
                 ]}
             }
         ]
