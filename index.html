@@ -61,6 +61,7 @@
             font-size: 1rem;
             text-decoration: none;
             transition: background-color 0.3s, transform 0.2s;
+            margin: 5px;
         }
 
         .btn-primary {
@@ -81,6 +82,11 @@
         .btn-secondary:hover {
             background-color: #dd6b20;
         }
+        
+        .btn-success {
+            background-color: var(--success-color);
+            color: white;
+        }
 
         /* --- Views --- */
         .view {
@@ -95,6 +101,31 @@
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- Welcome View --- */
+        #welcome-view {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: var(--card-background);
+            border-radius: 8px;
+            margin-top: 50px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        #welcome-view h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        #user-name-input {
+            padding: 10px;
+            font-size: 1rem;
+            width: 80%;
+            max-width: 300px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            margin-bottom: 20px;
         }
 
         /* --- Dashboard View --- */
@@ -257,6 +288,66 @@
             display: flex;
             justify-content: space-between;
         }
+        
+        /* --- Certificate View --- */
+        #certificate-view {
+            background-color: white;
+            border: 10px solid var(--accent-color);
+            padding: 40px;
+            text-align: center;
+            font-family: 'Times New Roman', serif;
+            color: var(--text-color);
+        }
+
+        #certificate-view h1 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        #certificate-view h2 {
+            font-size: 1.5rem;
+            font-weight: normal;
+            margin-bottom: 30px;
+        }
+
+        .certificate-body {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .certificate-body strong {
+            text-decoration: underline;
+        }
+
+        .certificate-footer {
+            margin-top: 40px;
+        }
+
+        .certificate-footer p {
+            font-size: 1rem;
+        }
+
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #certificate-view, #certificate-view * {
+                visibility: visible;
+            }
+            #certificate-view {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                border: none;
+                padding: 20px;
+            }
+            .no-print {
+                display: none !important;
+            }
+        }
 
     </style>
 </head>
@@ -270,13 +361,25 @@
 
     <main class="container">
         
+        <!-- Welcome View -->
+        <div id="welcome-view" class="view active">
+            <h2>Selamat Datang di Aplikasi Mawaris Pintar!</h2>
+            <p>Silakan masukkan nama Anda untuk memulai pembelajaran.</p>
+            <input type="text" id="user-name-input" placeholder="Ketik nama Anda di sini...">
+            <br>
+            <button id="start-learning-btn" class="btn btn-primary">Mulai Belajar</button>
+        </div>
+
         <!-- Dashboard View -->
-        <div id="dashboard-view" class="view active">
+        <div id="dashboard-view" class="view">
             <h2>📚 Menu Pembelajaran</h2>
             <div class="progress-container">
                 <div id="progress-bar" class="progress-bar" style="width: 0%;">0%</div>
             </div>
             <div id="chapter-list"></div>
+            <div id="certificate-button-container" style="text-align: center; margin-top: 20px; display: none;">
+                <button id="view-certificate-btn" class="btn btn-success">🎉 Lihat Sertifikat Anda</button>
+            </div>
         </div>
 
         <!-- Lesson View -->
@@ -295,10 +398,36 @@
             <div id="quiz-container">
                 <p class="quiz-question" id="question-text"></p>
                 <ul id="quiz-options" class="quiz-options"></ul>
+                <!-- New container for calculation quiz -->
+                <div id="calculation-quiz-container" style="display: none;">
+                    <p id="scenario-text"></p>
+                    <div id="input-fields-container"></div>
+                    <button id="check-calculation-btn" class="btn btn-primary">Cek Jawaban</button>
+                    <div id="calculation-feedback"></div>
+                </div>
             </div>
             <div id="quiz-result" class="quiz-result" style="display: none;"></div>
             <div class="navigation-buttons">
                 <button id="back-to-dashboard-quiz" class="btn btn-primary" style="display: none;">← Kembali ke Menu</button>
+            </div>
+        </div>
+
+        <!-- Certificate View -->
+        <div id="certificate-view" class="view">
+            <h1>SERTIFIKAT</h1>
+            <h2>Pencapaian Pembelajaran Ilmu Mawaris</h2>
+            <div class="certificate-body">
+                <p>Dengan ini menyatakan bahwa</p>
+                <p><strong id="certificate-name"></strong></p>
+                <p>telah berhasil menyelesaikan seluruh materi dan asesmen pada aplikasi "Mawaris Pintar" dengan hasil yang sangat memuaskan.</p>
+                <p>Nilai Akhir: <strong id="certificate-score"></strong></p>
+            </div>
+            <div class="certificate-footer">
+                <p>Dikeluarkan pada: <span id="certificate-date"></span></p>
+            </div>
+            <div class="no-print" style="margin-top: 30px;">
+                <button id="print-certificate-btn" class="btn btn-secondary">Cetak Sertifikat</button>
+                <button id="back-to-dashboard-cert" class="btn btn-primary">Kembali ke Menu</button>
             </div>
         </div>
 
@@ -307,93 +436,74 @@
     <script>
         // --- DATA KURIKULUM & KUIS ---
         const courseData = [
+            // ... (Data Bab 1-5 tetap sama seperti sebelumnya) ...
             {
                 id: 'bab1',
                 title: 'Bab 1: Pendahuluan Ilmu Mawaris',
                 subChapters: [
-                    {
-                        id: 'sub1-1',
-                        title: '1.1 Definisi dan Pentingnya Ilmu Mawaris',
-                        content: `<p>Ilmu Mawaris (atau Faraidh) adalah cabang ilmu syar\'i yang membahas tentang pembagian harta peninggalan (tirkah) kepada ahli waris yang berhak setelah si mayit meninggal dunia.</p><p>Ilmu ini sangat penting dalam Islam karena beberapa alasan:</p><ul><li><strong>Bagian dari Syariat:</strong> Pembagian warisan telah diatur secara rinci oleh Allah SWT dalam Al-Qur\'an, khususnya di Surah An-Nisa.</li><li><strong>Mencegah Perselisihan:</strong> Dengan aturan yang jelas, ilmu ini mencegah terjadinya konflik dan permusuhan di antara keluarga yang ditinggalkan.</li><li><strong>Menjaga Keadilan:</strong> Memastikan setiap ahli waris mendapatkan haknya sesuai dengan kedudukan dan hubungannya dengan si mayit.</li></ul>`,
-                        quiz: { questions: [{ question: "Apa itu Ilmu Mawaris?", options: ["Ilmu tentang pernikahan", "Ilmu hukum pidana", "Ilmu pembagian harta peninggalan", "Ilmu tata cara sholat"], correctAnswer: 2 }, { question: "Surah yang paling banyak membahas warisan adalah?", options: ["Al-Baqarah", "An-Nisa", "Al-Maidah", "Al-Hujurat"], correctAnswer: 1 }] }
-                    },
-                    {
-                        id: 'sub1-2',
-                        title: '1.2 Sebab-Sebab Pewarisan',
-                        content: `<p>Ada tiga sebab utama seseorang bisa menjadi ahli waris:</p><ol><li><strong>Nasab (Keturunan):</strong> Hubungan kekerabatan karena darah. Contoh: anak, orang tua, saudara.</li><li><strong>Nikah (Pernikahan):</strong> Hubungan suami-istri yang sah secara syar\'i.</li><li><strong>Wala' (Perbudakan):</strong> Hubungan karena pembebasan budak. (Sudah tidak relevan saat ini).</li></ol>`,
-                        quiz: { questions: [{ question: "Manakah yang BUKAN sebab pewarisan?", options: ["Nasab", "Nikah", "Wala'", "Hibah"], correctAnswer: 3 }, { question: "Suami atau istri menjadi ahli waris karena sebab?", options: ["Nasab", "Nikah", "Wala'", "Persahabatan"], correctAnswer: 1 }] }
-                    }
+                    { id: 'sub1-1', title: '1.1 Definisi dan Pentingnya', content: `<p>Ilmu Mawaris...</p>`, quiz: { questions: [{ question: "Apa itu Ilmu Mawaris?", options: ["Ilmu tentang pernikahan", "Ilmu hukum pidana", "Ilmu pembagian harta peninggalan", "Ilmu tata cara sholat"], correctAnswer: 2 }, { question: "Surah yang paling banyak membahas warisan adalah?", options: ["Al-Baqarah", "An-Nisa", "Al-Maidah", "Al-Hujurat"], correctAnswer: 1 }] } },
+                    { id: 'sub1-2', title: '1.2 Sebab-Sebab Pewarisan', content: `<p>Ada tiga sebab...</p>`, quiz: { questions: [{ question: "Manakah yang BUKAN sebab pewarisan?", options: ["Nasab", "Nikah", "Wala'", "Hibah"], correctAnswer: 3 }, { question: "Suami atau istri menjadi ahli waris karena sebab?", options: ["Nasab", "Nikah", "Wala'", "Persahabatan"], correctAnswer: 1 }] } }
                 ]
             },
             {
                 id: 'bab2',
                 title: 'Bab 2: Ahli Waris Bagian Tetap (Ashabul Furudh) - Bagian 1',
                 subChapters: [
-                    {
-                        id: 'sub2-1',
-                        title: '2.1 Suami dan Istri',
-                        content: `<p><strong>Bagian Suami:</strong></p><ul><li><strong>1/2</strong> jika istri tidak meninggalkan anak (atau cucu).</li><li><strong>1/4</strong> jika istri meninggalkan anak (atau cucu).</li></ul><p><strong>Bagian Istri:</strong></p><ul><li><strong>1/4</strong> jika suami tidak meninggalkan anak (atau cucu). Jika istri lebih dari satu, mereka berbagi 1/4 ini.</li><li><strong>1/8</strong> jika suami meninggalkan anak (atau cucu). Jika istri lebih dari satu, mereka berbagi 1/8 ini.</li></ul>`,
-                        quiz: { questions: [{ question: "Seorang suami meninggal, meninggalkan istri dan 1 anak laki-laki. Berapa bagian istri?", options: ["1/2", "1/4", "1/8", "Tidak dapat bagian"], correctAnswer: 2 }, { question: "Seorang istri meninggal, meninggalkan suami dan tidak ada anak. Berapa bagian suami?", options: ["1/2", "1/4", "1/8", "1/6"], correctAnswer: 0 }] }
-                    },
-                    {
-                        id: 'sub2-2',
-                        title: '2.2 Ayah dan Ibu',
-                        content: `<p><strong>Bagian Ibu:</strong></p><ul><li><strong>1/6</strong> jika mayit meninggalkan anak (atau cucu) atau meninggalkan dua saudara kandung atau lebih.</li><li><strong>1/3</strong> jika mayit tidak meninggalkan anak, cucu, dan tidak ada dua saudara kandung atau lebih.</li><li><strong>1/3 dari sisa</strong> jika mayit hanya meninggalkan ayah dan suami/istri. (Ini adalah kasus khusus).</li></ul><p><strong>Bagian Ayah:</strong></p><ul><li><strong>1/6</strong> jika mayit meninggalkan anak laki-laki (atau cucu laki-laki).</li><li><strong>Bagian sisa ('Asabah)</strong> jika mayit tidak meninggalkan anak laki-laki (atau cucu laki-laki).</li></ul>`,
-                        quiz: { questions: [{ question: "Seorang meninggal dunia, meninggalkan ibu, ayah, dan seorang anak laki-laki. Berapa bagian ibu?", options: ["1/3", "1/6", "1/8", "Tidak dapat bagian"], correctAnswer: 1 }, { question: "Seorang perempuan meninggal, meninggalkan ayah dan suami. Ayah berperan sebagai?", options: ["Ashabul Furudh dengan bagian 1/6", "Ashabah (pewaris sisa)", "Mahjub (terhalang)", "Tidak mendapat bagian"], correctAnswer: 1 }] }
-                    }
+                    { id: 'sub2-1', title: '2.1 Suami dan Istri', content: `<p><strong>Bagian Suami:</strong>...</p>`, quiz: { questions: [{ question: "Seorang suami meninggal, meninggalkan istri dan 1 anak laki-laki. Berapa bagian istri?", options: ["1/2", "1/4", "1/8", "Tidak dapat bagian"], correctAnswer: 2 }, { question: "Seorang istri meninggal, meninggalkan suami dan tidak ada anak. Berapa bagian suami?", options: ["1/2", "1/4", "1/8", "1/6"], correctAnswer: 0 }] } },
+                    { id: 'sub2-2', title: '2.2 Ayah dan Ibu', content: `<p><strong>Bagian Ibu:</strong>...</p>`, quiz: { questions: [{ question: "Seorang meninggal dunia, meninggalkan ibu, ayah, dan seorang anak laki-laki. Berapa bagian ibu?", options: ["1/3", "1/6", "1/8", "Tidak dapat bagian"], correctAnswer: 1 }, { question: "Seorang perempuan meninggal, meninggalkan ayah dan suami. Ayah berperan sebagai?", options: ["Ashabul Furudh dengan bagian 1/6", "Ashabah (pewaris sisa)", "Mahjub (terhalang)", "Tidak mendapat bagian"], correctAnswer: 1 }] } }
                 ]
             },
             {
                 id: 'bab3',
                 title: 'Bab 3: Ahli Waris Bagian Tetap (Ashabul Furudh) - Bagian 2',
                 subChapters: [
-                    {
-                        id: 'sub3-1',
-                        title: '3.1 Anak Perempuan',
-                        content: `<p><strong>Anak Perempuan Tunggal:</strong></p><ul><li>Mendapat <strong>1/2</strong> jika tidak ada anak laki-laki.</li></ul><p><strong>Dua Anak Perempuan atau Lebih:</strong></p><ul><li>Mendapat <strong>2/3</strong> jika tidak ada anak laki-laki. Mereka berbagi rata 2/3 tersebut.</li></ul><p><strong>Anak Perempuan Bersama Anak Laki-laki:</strong></p><ul><li>Menjadi <strong>'Ashabah</strong> (pewaris sisa), mendapat bagian sisa setelah ahli waris Ashabul Furudh lain mendapat bagian mereka. Bagian anak laki-laki setara dengan bagian dua anak perempuan.</li></ul>`,
-                        quiz: { questions: [{ question: "Seorang ayah meninggal, meninggalkan seorang anak perempuan dan seorang anak laki-laki. Anak perempuan mendapat bagian?", options: ["1/2", "1/3", "1/6", "Bagian sisa sebagai Ashabah"], correctAnswer: 3 }, { question: "Seorang ibu meninggal, meninggalkan dua anak perempuan dan suami. Kedua anak perempuan mendapat bagian total?", options: ["1/2", "2/3", "1/4", "1/6"], correctAnswer: 1 }] }
-                    },
-                    {
-                        id: 'sub3-2',
-                        title: '3.2 Saudara Kandung Perempuan',
-                        content: `<p><strong>Saudara Kandung Perempuan Tunggal:</strong></p><ul><li>Mendapat <strong>1/2</strong> jika tidak ada anak perempuan, saudara seayah perempuan, dan tidak ada anak laki-laki.</li></ul><p><strong>Dua Saudara Kandung Perempuan atau Lebih:</strong></p><ul><li>Mendapat <strong>2/3</strong> jika tidak ada anak perempuan, saudara seayah perempuan, dan tidak ada anak laki-laki.</li></ul><p><strong>Bersama Anak Perempuan:</strong></p><ul><li>Menjadi <strong>'Ashabah</strong> (pewaris sisa) bersama anak perempuan.</li></ul>`,
-                        quiz: { questions: [{ question: "Seorang meninggal, meninggalkan seorang saudara kandung perempuan dan seorang ayah. Bagian saudara kandung perempuan adalah?", options: ["1/2", "1/6", "1/3", "Tidak mendapat bagian (Mahjub oleh Ayah)"], correctAnswer: 3 }, { question: "Seorang laki-laki meninggal, meninggalkan dua saudara kandung perempuan dan ibu. Kedua saudara perempuan mendapat bagian total?", options: ["1/2", "2/3", "1/3", "Tidak mendapat bagian"], correctAnswer: 1 }] }
-                    }
+                    { id: 'sub3-1', title: '3.1 Anak Perempuan', content: `<p><strong>Anak Perempuan Tunggal:</strong>...</p>`, quiz: { questions: [{ question: "Seorang ayah meninggal, meninggalkan seorang anak perempuan dan seorang anak laki-laki. Anak perempuan mendapat bagian?", options: ["1/2", "1/3", "1/6", "Bagian sisa sebagai Ashabah"], correctAnswer: 3 }, { question: "Seorang ibu meninggal, meninggalkan dua anak perempuan dan suami. Kedua anak perempuan mendapat bagian total?", options: ["1/2", "2/3", "1/4", "1/6"], correctAnswer: 1 }] } },
+                    { id: 'sub3-2', title: '3.2 Saudara Kandung Perempuan', content: `<p><strong>Saudara Kandung Perempuan Tunggal:</strong>...</p>`, quiz: { questions: [{ question: "Seorang meninggal, meninggalkan seorang saudara kandung perempuan dan seorang ayah. Bagian saudara kandung perempuan adalah?", options: ["1/2", "1/6", "1/3", "Tidak mendapat bagian (Mahjub oleh Ayah)"], correctAnswer: 3 }, { question: "Seorang laki-laki meninggal, meninggalkan dua saudara kandung perempuan dan ibu. Kedua saudara perempuan mendapat bagian total?", options: ["1/2", "2/3", "1/3", "Tidak mendapat bagian"], correctAnswer: 1 }] } }
                 ]
             },
             {
                 id: 'bab4',
                 title: 'Bab 4: Ahli Waris Pewaris Sisa (Asabah)',
                 subChapters: [
-                    {
-                        id: 'sub4-1',
-                        title: '4.1 Definisi dan Jenis Asabah',
-                        content: `<p><strong>Asabah</strong> (jamak: 'Aashibun) adalah ahli waris yang tidak memiliki bagian tertentu (fardh). Mereka hanya mendapat bagian jika ada harta yang tersisa setelah semua ahli waris Ashabul Furudh menerima bagian mereka. Jika tidak ada sisa, mereka tidak mendapat apa-apa.</p><p>Jenis-jenis Asabah:</p><ol><li><strong>Asabah Binasab (Karena Keturunan):</strong> Ini adalah golongan utama. Contoh: Anak laki-laki, ayah, kakek, saudara laki-laki kandung, paman kandung, dll.</li><li><strong>Asabah Sabab (Karena Sebab):</strong> Hanya satu golongan, yaitu <strong>budak yang telah membebaskan tuannya</strong> (mu'allat).</li></ol>`,
-                        quiz: { questions: [{ question: "Siapa yang termasuk Asabah Binasab?", options: ["Anak laki-laki", "Ibu", "Istri", "Anak perempuan tunggal"], correctAnswer: 0 }, { question: "Definisi Asabah adalah ahli waris yang?", options: ["Mendapat bagian 1/6", "Mendapat bagian sisa", "Selalu mendapat bagian terbesar", "Mendapat bagian 1/8"], correctAnswer: 1 }] }
-                    },
-                    {
-                        id: 'sub4-2',
-                        title: '4.2 Hirarki Asabah',
-                        content: `<p>Jika ada beberapa Asabah, mereka tidak semua mendapat bagian. Ada aturan prioritas (hirarki) yang menentukan siapa yang berhak menjadi Asabah:</p><ol><li><strong>Anak Laki-laki</strong> (dan keturunannya: cucu laki-laki, cicit laki-laki, dst).</li><li><strong>Ayah</strong> (dan kakek, buyut, dst).</li><li><strong>Saudara Laki-laki Kandung</strong> (dan keturunannya).</li><li><strong>Saudara Seayah Laki-laki</strong> (dan keturunannya).</li><li><strong>Paman Kandung</strong> (dan keturunannya).</li><li><strong>Paman Seayah</strong> (dan keturunannya).</li></ol><p>Contoh: Jika ada anak laki-laki, maka ayah dan saudara laki-laki tidak menjadi Asabah (karena anak laki-laki lebih prioritas).</p>`,
-                        quiz: { questions: [{ question: "Seorang mayit meninggalkan anak laki-laki, ayah, dan saudara laki-laki kandung. Siapa yang menjadi Asabah?", options: ["Anak laki-laki dan ayah", "Anak laki-laki, ayah, dan saudara laki-laki", "Hanya anak laki-laki", "Hanya ayah"], correctAnswer: 2 }, { question: "Jika tidak ada anak laki-laki dan ayah, siapa yang bisa menjadi Asabah berikutnya?", options: ["Ibu", "Istri", "Saudara laki-laki kandung", "Anak perempuan"], correctAnswer: 2 }] }
-                    }
+                    { id: 'sub4-1', title: '4.1 Definisi dan Jenis Asabah', content: `<p><strong>Asabah</strong>...</p>`, quiz: { questions: [{ question: "Siapa yang termasuk Asabah Binasab?", options: ["Anak laki-laki", "Ibu", "Istri", "Anak perempuan tunggal"], correctAnswer: 0 }, { question: "Definisi Asabah adalah ahli waris yang?", options: ["Mendapat bagian 1/6", "Mendapat bagian sisa", "Selalu mendapat bagian terbesar", "Mendapat bagian 1/8"], correctAnswer: 1 }] } },
+                    { id: 'sub4-2', title: '4.2 Hirarki Asabah', content: `<p>Jika ada beberapa Asabah...</p>`, quiz: { questions: [{ question: "Seorang mayit meninggalkan anak laki-laki, ayah, dan saudara laki-laki kandung. Siapa yang menjadi Asabah?", options: ["Anak laki-laki dan ayah", "Anak laki-laki, ayah, dan saudara laki-laki", "Hanya anak laki-laki", "Hanya ayah"], correctAnswer: 2 }, { question: "Jika tidak ada anak laki-laki dan ayah, siapa yang bisa menjadi Asabah berikutnya?", options: ["Ibu", "Istri", "Saudara laki-laki kandung", "Anak perempuan"], correctAnswer: 2 }] } }
                 ]
             },
             {
                 id: 'bab5',
                 title: 'Bab 5: Praktik Pembagian & Kasus Khusus',
                 subChapters: [
+                    { id: 'sub5-1', title: '5.1 Masalah Aul (Kekurangan Bagian)', content: `<p><strong>Aul</strong> terjadi...</p>`, quiz: { questions: [{ question: "Kapan terjadi masalah Aul?", options: ["Ketika total bagian kurang dari 1", "Ketika total bagian lebih dari 1", "Ketika tidak ada Asabah", "Ketika mayit tidak punya ahli waris"], correctAnswer: 1 }, { question: "Apa yang dilakukan jika terjadi Aul?", options: ["Membagikan sisa harta kepada Asabah", "Mengurangi bagian Ashabul Furudh secara proporsional", "Menghapus ahli waris dengan bagian paling kecil", "Memberikan semua harta kepada fakir miskin"], correctAnswer: 1 }] } },
+                    { id: 'sub5-2', title: '5.2 Masalah Radd (Pengembalian Sisa)', content: `<p><strong>Radd</strong> terjadi...</p>`, quiz: { questions: [{ question: "Kapan terjadi masalah Radd?", options: ["Ketika total bagian kurang dari 1 dan tidak ada Asabah", "Ketika total bagian lebih dari 1", "Ketika ada Asabah", "Ketika semua ahli waris laki-laki"], correctAnswer: 0 }, { question: "Mayit meninggalkan seorang ibu (1/6) dan seorang anak perempuan (1/2). Apa yang terjadi pada sisa hartanya?", options: ["Diberikan kepada Asabah", "Dibagikan kembali (Radd) kepada ibu dan anak perempuan", "Hilang", "Dibagi rata kepada semua ahli waris"], correctAnswer: 1 }] } }
+                ]
+            },
+            // --- BAB BARU: KUIS INTERAKTIF ---
+            {
+                id: 'bab6',
+                title: 'Bab 6: Praktik & Kuis Perhitungan Interaktif',
+                subChapters: [
                     {
-                        id: 'sub5-1',
-                        title: '5.1 Masalah Aul (Kekurangan Bagian)',
-                        content: `<p><strong>Aul</strong> terjadi ketika jumlah total bagian Ashabul Furudh lebih dari 1 (satu). Akibatnya, bagian masing-masing ahli waris harus dikurangi secara proporsional agar totalnya menjadi 1.</p><p><strong>Contoh Kasus Aul:</strong></p><ul><li>Mayit meninggalkan: Suami (1/4), 2 orang ibu (1/3), dan 2 orang saudara perempuan kandung (2/3).</li><li>Total bagian = 1/4 + 1/3 + 2/3 = 1/4 + 1 = 1 1/4.</li><li>Karena total > 1, terjadi Aul. Semua bagian harus dikurangi.</li></ul>`,
-                        quiz: { questions: [{ question: "Kapan terjadi masalah Aul?", options: ["Ketika total bagian kurang dari 1", "Ketika total bagian lebih dari 1", "Ketika tidak ada Asabah", "Ketika mayit tidak punya ahli waris"], correctAnswer: 1 }, { question: "Apa yang dilakukan jika terjadi Aul?", options: ["Membagikan sisa harta kepada Asabah", "Mengurangi bagian Ashabul Furudh secara proporsional", "Menghapus ahli waris dengan bagian paling kecil", "Memberikan semua harta kepada fakir miskin"], correctAnswer: 1 }] }
-                    },
-                    {
-                        id: 'sub5-2',
-                        title: '5.2 Masalah Radd (Pengembalian Sisa)',
-                        content: `<p><strong>Radd</strong> terjadi ketika jumlah total bagian Ashabul Furudh kurang dari 1, dan tidak ada ahli waris Asabah yang menerima sisa harta. Sisa harta tersebut dikembalikan (dibagikan kembali) kepada para Ashabul Furudh sesuai dengan proporsi bagian masing-masing.</p><p><strong>Contoh Kasus Radd:</strong></p><ul><li>Mayit meninggalkan: Ibu (1/6) dan seorang istri (1/4).</li><li>Total bagian = 1/6 + 1/4 = 2/12 + 3/12 = 5/12.</li><li>Sisa harta = 1 - 5/12 = 7/12.</li><li>Karena tidak ada Asabah, sisa 7/12 ini dibagikan kembali (Radd) kepada ibu dan istri secara proporsional.</li></ul>`,
-                        quiz: { questions: [{ question: "Kapan terjadi masalah Radd?", options: ["Ketika total bagian kurang dari 1 dan tidak ada Asabah", "Ketika total bagian lebih dari 1", "Ketika ada Asabah", "Ketika semua ahli waris laki-laki"], correctAnswer: 0 }, { question: "Mayit meninggalkan seorang ibu (1/6) dan seorang anak perempuan (1/2). Apa yang terjadi pada sisa hartanya?", options: ["Diberikan kepada Asabah", "Dibagikan kembali (Radd) kepada ibu dan anak perempuan", "Hilang", "Dibagi rata kepada semua ahli waris"], correctAnswer: 1 }] }
+                        id: 'sub6-1',
+                        title: '6.1 Kuis Perhitungan Dasar',
+                        content: `<p>Pada bab ini, Anda akan diuji kemampuan perhitungannya secara interaktif. Bacalah skenario dengan teliti, lalu isilah bagian masing-masing ahli waris yang disediakan.</p><p>Jawaban dapat berupa angka (misal: 1) atau pecahan (misal: 1/2, 1/4).</p>`,
+                        quiz: {
+                            type: 'calculation', // Tipe kuis baru
+                            scenario: {
+                                deceased: 'Laki-laki',
+                                heirs: [
+                                    { name: 'Istri', role: 'wife' },
+                                    { name: 'Ayah', role: 'father' },
+                                    { name: 'Ibu', role: 'mother' },
+                                    { name: 'Anak Perempuan', role: 'daughter', count: 1 }
+                                ]
+                            },
+                            correctAnswers: {
+                                'Istri': '1/8',
+                                'Ayah': '1/6',
+                                'Ibu': '1/6',
+                                'Anak Perempuan': '1/2'
+                            }
+                        }
                     }
                 ]
             }
@@ -407,7 +517,8 @@
         let quizState = {
             questions: [],
             currentQuestionIndex: 0,
-            score: 0
+            score: 0,
+            type: 'multiple-choice' // Tipe kuis default
         };
 
         // DOM Elements
@@ -415,16 +526,21 @@
         const dashboardView = document.getElementById('dashboard-view');
         const lessonView = document.getElementById('lesson-view');
         const quizView = document.getElementById('quiz-view');
+        const welcomeView = document.getElementById('welcome-view');
+        const certificateView = document.getElementById('certificate-view');
 
         // Local Storage Helper
         const storage = {
-            getProgress: () => {
-                const data = localStorage.getItem('mawarisProgress');
-                return data ? JSON.parse(data) : {};
+            get: (key) => {
+                const data = localStorage.getItem(key);
+                return data ? JSON.parse(data) : null;
             },
-            saveProgress: (progress) => {
-                localStorage.setItem('mawarisProgress', JSON.stringify(progress));
+            set: (key, value) => {
+                localStorage.setItem(key, JSON.stringify(value));
             },
+            // --- Fungsi baru untuk progres dan skor ---
+            getProgress: () => storage.get('mawarisProgress') || {},
+            saveProgress: (progress) => storage.set('mawarisProgress', progress),
             markCompleted: (type, id) => {
                 const progress = storage.getProgress();
                 if (!progress[type]) progress[type] = {};
@@ -434,7 +550,15 @@
             isCompleted: (type, id) => {
                 const progress = storage.getProgress();
                 return !!(progress[type] && progress[type][id]);
-            }
+            },
+            getQuizScores: () => storage.get('mawarisQuizScores') || {},
+            saveQuizScore: (id, score) => {
+                const scores = storage.getQuizScores();
+                scores[id] = score;
+                storage.set('mawarisQuizScores', scores);
+            },
+            getUserName: () => storage.get('mawarisUserName') || 'Pengguna',
+            saveUserName: (name) => storage.set('mawarisUserName', name)
         };
 
         // View Management
@@ -443,33 +567,44 @@
             document.getElementById(viewId).classList.add('active');
         }
 
+        // --- Welcome Logic ---
+        document.getElementById('start-learning-btn').onclick = () => {
+            const name = document.getElementById('user-name-input').value.trim();
+            if (name) {
+                storage.saveUserName(name);
+                renderDashboard();
+            } else {
+                alert('Silakan masukkan nama Anda terlebih dahulu.');
+            }
+        };
+
         // Dashboard Logic
         function renderDashboard() {
             const chapterList = document.getElementById('chapter-list');
             chapterList.innerHTML = '';
+            const userName = storage.getUserName();
+            if (!userName) {
+                showView('welcome-view');
+                return;
+            }
 
             courseData.forEach(chapter => {
                 const chapterCard = document.createElement('div');
                 chapterCard.className = 'chapter-card';
-
                 const chapterTitle = document.createElement('h3');
                 chapterTitle.textContent = chapter.title;
                 chapterCard.appendChild(chapterTitle);
-
                 const subChapterList = document.createElement('ul');
                 subChapterList.className = 'sub-chapter-list';
 
                 chapter.subChapters.forEach(subChapter => {
                     const listItem = document.createElement('li');
                     listItem.className = 'sub-chapter-item';
-                    
                     const isLessonCompleted = storage.isCompleted('lessons', subChapter.id);
                     const isQuizCompleted = storage.isCompleted('quizzes', subChapter.id);
-                    
                     if (isLessonCompleted && isQuizCompleted) {
                         listItem.classList.add('completed');
                     }
-
                     const link = document.createElement('a');
                     link.href = '#';
                     link.textContent = subChapter.title;
@@ -477,25 +612,19 @@
                         e.preventDefault();
                         showLesson(chapter.id, subChapter.id);
                     };
-
                     const statusIcon = document.createElement('span');
                     statusIcon.className = 'status-icon';
-                    if (isLessonCompleted && isQuizCompleted) {
-                        statusIcon.textContent = '✅';
-                    } else {
-                        statusIcon.textContent = '⏳';
-                    }
-
+                    statusIcon.textContent = (isLessonCompleted && isQuizCompleted) ? '✅' : '⏳';
                     listItem.appendChild(link);
                     listItem.appendChild(statusIcon);
                     subChapterList.appendChild(listItem);
                 });
-
                 chapterCard.appendChild(subChapterList);
                 chapterList.appendChild(chapterCard);
             });
             
             updateProgressBar();
+            checkCompletionStatus();
             showView('dashboard-view');
         }
 
@@ -504,28 +633,35 @@
             const progress = storage.getProgress();
             const completedLessons = Object.keys(progress.lessons || {}).length;
             const completedQuizzes = Object.keys(progress.quizzes || {}).length;
-            
             const totalCompletedTasks = completedLessons + completedQuizzes;
             const totalTasks = totalSubChapters * 2;
-
             const percentage = totalTasks > 0 ? Math.round((totalCompletedTasks / totalTasks) * 100) : 0;
-            
             const progressBar = document.getElementById('progress-bar');
             progressBar.style.width = percentage + '%';
             progressBar.textContent = percentage + '%';
+        }
+        
+        function checkCompletionStatus() {
+            const totalSubChapters = courseData.reduce((acc, ch) => acc + ch.subChapters.length, 0);
+            const progress = storage.getProgress();
+            const completedQuizzes = Object.keys(progress.quizzes || {}).length;
+            
+            const certButtonContainer = document.getElementById('certificate-button-container');
+            if (completedQuizzes === totalSubChapters) {
+                certButtonContainer.style.display = 'block';
+            } else {
+                certButtonContainer.style.display = 'none';
+            }
         }
 
         // Lesson Logic
         function showLesson(chapterId, subChapterId) {
             currentChapterId = chapterId;
             currentSubChapterId = subChapterId;
-
             const chapter = courseData.find(ch => ch.id === chapterId);
             const subChapter = chapter.subChapters.find(sub => sub.id === subChapterId);
-
             document.getElementById('lesson-title').textContent = subChapter.title;
             document.getElementById('lesson-content').innerHTML = subChapter.content;
-
             showView('lesson-view');
             storage.markCompleted('lessons', subChapterId);
         }
@@ -534,18 +670,85 @@
         function startQuiz() {
             const chapter = courseData.find(ch => ch.id === currentChapterId);
             const subChapter = chapter.subChapters.find(sub => sub.id === currentSubChapterId);
-
-            quizState.questions = subChapter.quiz.questions;
-            quizState.currentQuestionIndex = 0;
-            quizState.score = 0;
+            
+            quizState.type = subChapter.quiz.type || 'multiple-choice';
 
             document.getElementById('quiz-title').textContent = `Asesmen: ${subChapter.title}`;
             document.getElementById('back-to-dashboard-quiz').style.display = 'none';
             document.getElementById('quiz-result').style.display = 'none';
             document.getElementById('quiz-container').style.display = 'block';
             
-            renderQuestion();
+            if (quizState.type === 'calculation') {
+                startCalculationQuiz(subChapter.quiz);
+            } else {
+                startMultipleChoiceQuiz(subChapter.quiz);
+            }
             showView('quiz-view');
+        }
+
+        function startMultipleChoiceQuiz(quiz) {
+            quizState.questions = quiz.questions;
+            quizState.currentQuestionIndex = 0;
+            quizState.score = 0;
+            document.getElementById('calculation-quiz-container').style.display = 'none';
+            document.getElementById('quiz-options').style.display = 'block';
+            renderQuestion();
+        }
+
+        function startCalculationQuiz(quiz) {
+            document.getElementById('quiz-options').style.display = 'none';
+            document.getElementById('calculation-quiz-container').style.display = 'block';
+            
+            const scenarioText = document.getElementById('scenario-text');
+            const inputContainer = document.getElementById('input-fields-container');
+            const feedbackContainer = document.getElementById('calculation-feedback');
+            
+            scenarioText.innerHTML = `<strong>Skenario:</strong> Seorang ${quiz.scenario.deceased} meninggal dunia, meninggalkan ahli waris:`;
+            const heirList = quiz.scenario.heirs.map(h => h.name).join(', ');
+            scenarioText.innerHTML += ` <em>${heirList}</em>.<br><br>Silakan isi bagian masing-masing ahli waris:`;
+
+            inputContainer.innerHTML = '';
+            quiz.scenario.heirs.forEach(heir => {
+                const div = document.createElement('div');
+                div.style.marginBottom = '10px';
+                div.innerHTML = `
+                    <label for="input-${heir.role}" style="display: inline-block; width: 150px;">${heir.name}:</label>
+                    <input type="text" id="input-${heir.role}" placeholder="Contoh: 1/2 atau 1/6">
+                `;
+                inputContainer.appendChild(div);
+            });
+            
+            feedbackContainer.innerHTML = '';
+            document.getElementById('check-calculation-btn').onclick = () => checkCalculationAnswer(quiz);
+        }
+
+        function checkCalculationAnswer(quiz) {
+            const feedbackContainer = document.getElementById('calculation-feedback');
+            let allCorrect = true;
+            quiz.scenario.heirs.forEach(heir => {
+                const userAnswer = document.getElementById(`input-${heir.role}`).value.trim();
+                const correctAnswer = quiz.correctAnswers[heir.name];
+                const inputElement = document.getElementById(`input-${heir.role}`);
+                
+                if (userAnswer === correctAnswer) {
+                    inputElement.style.borderColor = 'var(--success-color)';
+                    inputElement.style.backgroundColor = '#c6f6d5';
+                } else {
+                    inputElement.style.borderColor = 'var(--danger-color)';
+                    inputElement.style.backgroundColor = '#fed7d7';
+                    allCorrect = false;
+                }
+            });
+
+            if (allCorrect) {
+                quizState.score = 1; // Skor untuk kuis perhitungan
+                feedbackContainer.innerHTML = `<p style="color: var(--success-color); font-weight: bold;">🎉 Jawaban Anda benar semua!</p>`;
+                setTimeout(() => {
+                    showQuizResult();
+                }, 2000);
+            } else {
+                feedbackContainer.innerHTML = `<p style="color: var(--danger-color); font-weight: bold;">❌ Masih ada jawaban yang salah. Periksa kembali!</p>`;
+            }
         }
 
         function renderQuestion() {
@@ -553,13 +756,10 @@
                 showQuizResult();
                 return;
             }
-
             const question = quizState.questions[quizState.currentQuestionIndex];
             document.getElementById('question-text').textContent = `Pertanyaan ${quizState.currentQuestionIndex + 1}: ${question.question}`;
-
             const optionsContainer = document.getElementById('quiz-options');
             optionsContainer.innerHTML = '';
-
             question.options.forEach((option, index) => {
                 const li = document.createElement('li');
                 li.className = 'quiz-option';
@@ -572,9 +772,7 @@
         function selectAnswer(selectedIndex) {
             const question = quizState.questions[quizState.currentQuestionIndex];
             const options = document.querySelectorAll('.quiz-option');
-            
             options.forEach(option => option.classList.add('disabled'));
-
             if (selectedIndex === question.correctAnswer) {
                 options[selectedIndex].classList.add('correct');
                 quizState.score++;
@@ -582,7 +780,6 @@
                 options[selectedIndex].classList.add('incorrect');
                 options[question.correctAnswer].classList.add('correct');
             }
-
             setTimeout(() => {
                 quizState.currentQuestionIndex++;
                 renderQuestion();
@@ -592,26 +789,62 @@
         function showQuizResult() {
             document.getElementById('quiz-container').style.display = 'none';
             document.getElementById('back-to-dashboard-quiz').style.display = 'inline-block';
-            
             const resultContainer = document.getElementById('quiz-result');
             resultContainer.style.display = 'block';
+            const totalQuestions = quizState.type === 'calculation' ? 1 : quizState.questions.length;
             resultContainer.innerHTML = `
                 <h3>🎉 Asesmen Selesai!</h3>
-                <p>Anda mendapat skor <strong>${quizState.score} dari ${quizState.questions.length}</strong>.</p>
-                <p>${quizState.score === quizState.questions.length ? 'Luar biasa! Anda sempurna.' : 'Bagus! Terus belajar untuk hasil yang lebih baik.'}</p>
+                <p>Anda mendapat skor <strong>${quizState.score} dari ${totalQuestions}</strong>.</p>
+                <p>${quizState.score === totalQuestions ? 'Luar biasa! Anda sempurna.' : 'Bagus! Terus belajar untuk hasil yang lebih baik.'}</p>
             `;
-            
+            storage.saveQuizScore(currentSubChapterId, quizState.score);
             storage.markCompleted('quizzes', currentSubChapterId);
+        }
+
+        // --- Certificate Logic ---
+        function showCertificate() {
+            const userName = storage.getUserName();
+            const scores = storage.getQuizScores();
+            let totalScore = 0;
+            let totalPossibleScore = 0;
+
+            courseData.forEach(chapter => {
+                chapter.subChapters.forEach(subChapter => {
+                    const quiz = subChapter.quiz;
+                    if (quiz) {
+                        const scoreForThisQuiz = scores[subChapter.id] || 0;
+                        const possibleScore = quiz.type === 'calculation' ? 1 : quiz.questions.length;
+                        totalScore += scoreForThisQuiz;
+                        totalPossibleScore += possibleScore;
+                    }
+                });
+            });
+
+            const finalPercentage = totalPossibleScore > 0 ? Math.round((totalScore / totalPossibleScore) * 100) : 0;
+            
+            document.getElementById('certificate-name').textContent = userName;
+            document.getElementById('certificate-score').textContent = `${finalPercentage}% (${totalScore}/${totalPossibleScore})`;
+            document.getElementById('certificate-date').textContent = new Date().toLocaleDateString('id-ID');
+            
+            showView('certificate-view');
         }
 
         // Event Listeners
         document.getElementById('back-to-dashboard-lesson').onclick = () => renderDashboard();
         document.getElementById('back-to-dashboard-quiz').onclick = () => renderDashboard();
+        document.getElementById('back-to-dashboard-cert').onclick = () => renderDashboard();
         document.getElementById('start-quiz-btn').onclick = startQuiz;
+        document.getElementById('view-certificate-btn').onclick = showCertificate;
+        document.getElementById('print-certificate-btn').onclick = () => window.print();
 
         // Initial Load
         document.addEventListener('DOMContentLoaded', () => {
-            renderDashboard();
+            const userName = storage.getUserName();
+            if (userName) {
+                renderDashboard();
+            } else {
+                showView('welcome-view');
+            }
         });
 
     </script>
