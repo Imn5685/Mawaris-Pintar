@@ -1,0 +1,504 @@
+/* --- Global Styles & Variables --- */
+:root {
+    --primary-color: #2c7a7b;
+    --secondary-color: #38b2ac;
+    --accent-color: #ed8936;
+    --background-color: #f7fafc;
+    --card-background: #ffffff;
+    --text-color: #2d3748;
+    --text-light: #718096;
+    --border-color: #e2e8f0;
+    --success-color: #48bb78;
+    --danger-color: #f56565;
+    --warning-color: #ecc94b;
+    --info-color: #4299e1;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.7;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* --- Header --- */
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header h1 {
+    font-size: 1.8rem;
+}
+
+/* --- Buttons --- */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.2s;
+    margin: 5px;
+}
+
+.btn-primary { background-color: var(--secondary-color); color: white; }
+.btn-primary:hover { background-color: var(--primary-color); transform: translateY(-2px); }
+.btn-secondary { background-color: var(--accent-color); color: white; }
+.btn-secondary:hover { background-color: #dd6b20; }
+.btn-success { background-color: var(--success-color); color: white; }
+.btn-warning { background-color: var(--warning-color); color: var(--text-color); }
+.btn-danger { background-color: var(--danger-color); color: white; }
+.btn-info { background-color: var(--info-color); color: white; }
+.btn:disabled { cursor: not-allowed; opacity: 0.5; }
+
+/* --- Views --- */
+.view { display: none; }
+.view.active { display: block; animation: fadeIn 0.4s ease-in-out; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* --- Welcome View --- */
+.welcome-card {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: var(--card-background);
+    border-radius: 8px;
+    margin-top: 50px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.welcome-card h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+#user-name-input {
+    padding: 10px;
+    font-size: 1rem;
+    width: 80%;
+    max-width: 300px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+}
+
+/* --- Dashboard View --- */
+#dashboard-view h2 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: var(--primary-color);
+}
+
+.progress-container {
+    background-color: var(--border-color);
+    border-radius: 10px;
+    height: 25px;
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: var(--success-color);
+    transition: width 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
+
+.chapter-card {
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.chapter-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.chapter-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.sub-chapter-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.sub-chapter-item {
+    padding: 10px;
+    border-left: 3px solid transparent;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sub-chapter-item:hover {
+    background-color: var(--background-color);
+}
+
+.sub-chapter-item.completed {
+    border-left-color: var(--success-color);
+    color: var(--success-color);
+}
+
+.sub-chapter-item a {
+    text-decoration: none;
+    color: inherit;
+    flex-grow: 1;
+}
+
+.status-icon {
+    font-size: 1.2rem;
+}
+
+/* --- Lesson View --- */
+.lesson-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.slide-navigation {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#lesson-view, #quiz-view {
+    background-color: var(--card-background);
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+#lesson-view h2, #quiz-view h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.lesson-content {
+    margin-bottom: 2rem;
+    text-align: justify;
+    min-height: 400px;
+}
+
+.lesson-content p, .lesson-content li {
+    margin-bottom: 1rem;
+}
+
+.lesson-content ul, .lesson-content ol {
+    padding-left: 20px;
+}
+
+/* --- Example Box Style --- */
+.example-box {
+    background-color: #e6fffa;
+    border: 1px solid #81e6d9;
+    border-left: 5px solid var(--info-color);
+    padding: 20px;
+    margin-top: 2rem;
+    border-radius: 5px;
+}
+
+.example-box h4 {
+    color: var(--info-color);
+    margin-bottom: 10px;
+}
+
+/* --- Quiz View --- */
+.quiz-question {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+.quiz-options {
+    list-style: none;
+}
+
+.quiz-option {
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.quiz-option:hover {
+    background-color: #edf2f7;
+    border-color: var(--secondary-color);
+}
+
+.quiz-option.correct {
+    background-color: #c6f6d5;
+    border-color: var(--success-color);
+}
+
+.quiz-option.incorrect {
+    background-color: #fed7d7;
+    border-color: var(--danger-color);
+}
+
+.quiz-option.disabled {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.quiz-result {
+    text-align: center;
+    padding: 20px;
+    font-size: 1.2rem;
+}
+
+.quiz-result h3 {
+    margin-bottom: 1rem;
+}
+
+.navigation-buttons {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+#quiz-progress-info {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: var(--text-light);
+}
+
+/* --- New Quiz Type Styles --- */
+.quiz-essay textarea {
+    width: 100%;
+    height: 120px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 10px;
+}
+
+.essay-reference {
+    background-color: #f0f4f8;
+    border-left: 4px solid var(--secondary-color);
+    padding: 15px;
+    margin-top: 15px;
+    display: none;
+}
+
+.matching-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.matching-item {
+    display: flex;
+    align-items: center;
+}
+
+.matching-item label {
+    flex-basis: 100px;
+}
+
+.matching-item select {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+}
+
+.case-study-scenario {
+    background-color: #f7fafc;
+    border: 1px dashed var(--border-color);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.case-study-sub-question {
+    margin-top: 15px;
+    padding: 15px;
+    background-color: #edf2f7;
+    border-radius: 5px;
+}
+
+/* --- Certificate View --- */
+.certificate-container {
+    background-color: white;
+    border: 10px solid var(--accent-color);
+    padding: 40px;
+    text-align: center;
+    font-family: 'Times New Roman', serif;
+    color: var(--text-color);
+}
+
+#certificate-view h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+#certificate-view h2 {
+    font-size: 1.5rem;
+    font-weight: normal;
+    margin-bottom: 30px;
+}
+
+.certificate-body {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.certificate-body strong {
+    text-decoration: underline;
+}
+
+.certificate-footer {
+    margin-top: 40px;
+}
+
+.certificate-footer p {
+    font-size: 1rem;
+}
+
+@media print {
+    body * { visibility: hidden; }
+    #certificate-view, #certificate-view * { visibility: visible; }
+    #certificate-view { 
+        position: absolute; 
+        left: 0; 
+        top: 0; 
+        width: 100%; 
+        border: none; 
+        padding: 20px; 
+    } 
+    .no-print { display: none !important; }
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .lesson-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .matching-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .navigation-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+.source-detail {
+    background-color: #f8f9fa;
+    border-left: 4px solid var(--primary-color);
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 5px;
+}
+
+.source-detail h4 {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.verse-arabic {
+    font-family: 'KFGQPC Uthman Taha Naskh', 'Amiri Quran', 'Traditional Arabic', serif;
+    font-size: 1.5rem;
+    text-align: right;
+    direction: rtl;
+    line-height: 2;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.verse-translation {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #ddd;
+}
+
+.source-context {
+    margin-bottom: 10px;
+}
+
+.source-context strong {
+    color: var(--secondary-color);
+}
+
+.source-explanation {
+    text-align: justify;
+}
+
+.hadith-text {
+    background-color: #fffef0;
+    border-left: 4px solid var(--warning-color);
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 5px;
+}
+
+.hadith-text p {
+    margin-bottom: 10px;
+}
+
+.hadith-source {
+    font-size: 0.9rem;
+    color: #777;
+    text-align: right;
+    font-style: italic;
+}
