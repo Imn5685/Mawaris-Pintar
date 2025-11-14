@@ -549,9 +549,9 @@ const courseData = [
                         `
                     }
                     {
-                    title: 'Hirarki Asabah',
+                    title: 'Hirarki Ashabah',
                     content: `
-                        <p><strong>Hirarki Asabah:</strong></p>
+                        <p><strong>Hirarki Ashabah:</strong></p>
                         <ol>
                             <li>Anak Laki-laki (dan keturunannya).</li>
                             <li>Ayah (dan kakek).</li>
@@ -577,9 +577,9 @@ const courseData = [
                     `
                 }
                 {
-                    title: 'Kasus Khusus Asabah',
+                    title: 'Kasus Khusus Ashabah',
                     content: `
-                        <p><strong>Kasus-Kasus Khusus dalam Asabah:</strong></p>
+                        <p><strong>Kasus-Kasus Khusus dalam Ashabah:</strong></p>
                         <div class="case-box">
                             <h4>1. 'Ashabah Ma'al Ghairi</h4>
                             <p>Saudara perempuan kandung atau saudara perempuan sebapak menjadi 'ashabah bersama dengan anak perempuan atau cucu perempuan dari anak laki-laki.</p>
@@ -599,31 +599,18 @@ const courseData = [
                     `
                 }
                 ],
-                quiz: { 
-                    questions: [
-                        { 
-                            type: 'multiple-choice', 
-                            question: "Siapa yang termasuk Asabah Binasab?", 
-                            options: ["Anak laki-laki", "Ibu", "Istri", "Anak perempuan tunggal"], 
-                            correctAnswer: 0 
-                        },
-                        { 
-                            type: 'essay', 
-                            question: "Jelaskan mengapa anak laki-laki menjadi 'asabah yang paling utama dan dapat menghalangi ayahnya sendiri untuk menjadi 'asabah, meskipun ayah adalah orang tuanya!", 
-                            referenceAnswer: "Jawaban acuan: Karena dalam hukum waris, prioritas utama adalah melanjutkan garis keturunan. Anak laki-laki adalah perpanjangan tangan langsung dari si mayit. Jika anak laki-laki ada, maka garis keturunan sudah jelas dan diwakili olehnya. Ayah, meskipun orang tua, berperan sebagai penopang generasi di atasnya. Jika anak laki-laki tidak ada, barulah ayah 'turun tangan' menjadi pewaris utama ('asabah) untuk memastikan garis keturunan tidak putus." 
-                        },
+                quiz: { questions: [
+                        { type: 'multiple-choice', question: "Siapa yang termasuk Asabah Binasab?", options: ["Anak laki-laki", "Ibu", "Istri", "Anak perempuan tunggal"], correctAnswer: 0 },
+                        { type: 'essay', question: "Jelaskan mengapa anak laki-laki menjadi 'asabah yang paling utama dan dapat menghalangi ayahnya sendiri untuk menjadi 'asabah, meskipun ayah adalah orang tuanya!", referenceAnswer: "Jawaban acuan: Karena dalam hukum waris, prioritas utama adalah melanjutkan garis keturunan. Anak laki-laki adalah perpanjangan tangan langsung dari si mayit. Jika anak laki-laki ada, maka garis keturunan sudah jelas dan diwakili olehnya. Ayah, meskipun orang tua, berperan sebagai penopang generasi di atasnya. Jika anak laki-laki tidak ada, barulah ayah 'turun tangan' menjadi pewaris utama ('asabah) untuk memastikan garis keturunan tidak putus." },
                         // Soal HOTS Pilihan Ganda Kompleks
-                        {
-                            type: 'multiple-choice-complex',
-                            question: "Seorang laki-laki meninggal dunia dengan meninggalkan harta warisan sebesar Rp 1.000.000. Ahli waris yang tersisa adalah: seorang istri, seorang anak perempuan, seorang ayah, dan seorang saudara laki-laki kandung. Bagaimana pembagian warisan yang tepat sesuai hukum Islam?",
+                        { type: 'multiple-choice-complex', question: "Seorang laki-laki meninggal dunia dengan meninggalkan harta warisan sebesar Rp 1.000.000. Ahli waris yang tersisa adalah: seorang istri, seorang anak perempuan, seorang ayah, dan seorang saudara laki-laki kandung. Bagaimana pembagian warisan yang tepat sesuai hukum Islam?",
                             options: [
                                 "Istri 1/8 (Rp 125.000), Anak perempuan 1/2 (Rp 500.000), Ayah 1/6 (Rp 166.667), Saudara laki-laki kandung sebagai 'ashabah mendapat sisa (Rp 208.333)",
                                 "Istri 1/4 (Rp 250.000), Anak perempuan 1/2 (Rp 500.000), Ayah 1/6 (Rp 166.667), Saudara laki-laki kandung sebagai 'ashabah mendapat sisa (Rp 83.333)",
                                 "Istri 1/8 (Rp 125.000), Anak perempuan 1/2 (Rp 500.000), Ayah sebagai 'ashabah mendapat sisa (Rp 375.000), Saudara laki-laki kandung tidak mendapat bagian",
                                 "Istri 1/8 (Rp 125.000), Anak perempuan 1/2 (Rp 500.000), Ayah 1/6 (Rp 166.667), Saudara laki-laki kandung tidak mendapat bagian, sisa harta (Rp 208.333) dikembalikan (radd) kepada ahli waris selain istri"
                             ],
-                            correctAnswer: 3,
-                            explanation: "Dalam kasus ini, istri mendapat 1/8, anak perempuan mendapat 1/2, dan ayah mendapat 1/6 sebagai ash-habul furudh. Saudara laki-laki kandung tidak mendapat bagian karena dihalangi oleh ayah yang lebih dekat hubungannya dengan si mayit. Sisa harta setelah pembagian kepada ash-habul furudh (1/8 + 1/2 + 1/6 = 13/24) dikembalikan (radd) kepada ahli waris selain istri, yaitu anak perempuan dan ayah sesuai dengan proporsi bagian mereka."
+                            correctAnswer: 3, explanation: "Dalam kasus ini, istri mendapat 1/8, anak perempuan mendapat 1/2, dan ayah mendapat 1/6 sebagai ash-habul furudh. Saudara laki-laki kandung tidak mendapat bagian karena dihalangi oleh ayah yang lebih dekat hubungannya dengan si mayit. Sisa harta setelah pembagian kepada ash-habul furudh (1/8 + 1/2 + 1/6 = 13/24) dikembalikan (radd) kepada ahli waris selain istri, yaitu anak perempuan dan ayah sesuai dengan proporsi bagian mereka."
                         },
                         {
                             type: 'multiple-choice-complex',
@@ -634,8 +621,7 @@ const courseData = [
                                 "Suami mendapat 1/4, dua anak perempuan bersama mendapat 2/3, ibu mendapat 1/6, dan sisa harta diberikan kepada saudara perempuan kandung sebagai 'ashabah ma'al ghairi",
                                 "Suami mendapat 1/4, dua anak perempuan bersama mendapat 2/3, ibu mendapat 1/6, dan terjadi 'aul karena total bagian melebihi 1"
                             ],
-                            correctAnswer: 2,
-                            explanation: "Dalam kasus ini, suami mendapat 1/4, dua anak perempuan bersama mendapat 2/3, dan ibu mendapat 1/6 sebagai ash-habul furudh. Saudara perempuan kandung menjadi 'ashabah ma'al ghairi karena bersama dengan anak perempuan dan mendapatkan sisa warisan. Total bagian ash-habul furudh adalah 1/4 + 2/3 + 1/6 = 13/12, yang melebihi 1, sehingga terjadi 'aul (penyesuaian proporsi) dan saudara perempuan kandung tetap mendapat bagian sebagai 'ashabah ma'al ghairi."
+                            correctAnswer: 2, explanation: "Dalam kasus ini, suami mendapat 1/4, dua anak perempuan bersama mendapat 2/3, dan ibu mendapat 1/6 sebagai ash-habul furudh. Saudara perempuan kandung menjadi 'ashabah ma'al ghairi karena bersama dengan anak perempuan dan mendapatkan sisa warisan. Total bagian ash-habul furudh adalah 1/4 + 2/3 + 1/6 = 13/12, yang melebihi 1, sehingga terjadi 'aul (penyesuaian proporsi) dan saudara perempuan kandung tetap mendapat bagian sebagai 'ashabah ma'al ghairi."
                         },
                         {
                             type: 'multiple-choice-complex',
@@ -646,11 +632,11 @@ const courseData = [
                                 "Istri mendapat 1/8, cucu perempuan mendapat 1/2, ayah mendapat 1/6, dan saudara perempuan seayah tidak mendapat bagian karena dihalangi oleh ayah",
                                 "Istri mendapat 1/8, cucu perempuan mendapat 1/2, ayah sebagai 'ashabah mendapat sisa, dan saudara perempuan seayah tidak mendapat bagian"
                             ],
-                            correctAnswer: 2,
-                            explanation: "Dalam kasus ini, istri mendapat 1/8, cucu perempuan mendapat 1/2, dan ayah mendapat 1/6 sebagai ash-habul furudh. Saudara perempuan seayah tidak mendapat bagian karena dihalangi oleh ayah yang lebih dekat hubungannya dengan si mayit. Sisa harta setelah pembagian kepada ash-habul furudh (1/8 + 1/2 + 1/6 = 11/24) diberikan kepada ayah sebagai 'ashabah, bukan kepada saudara perempuan seayah."
-                        }
-                    ]
-                },
+                            correctAnswer: 2, explanation: "Dalam kasus ini, istri mendapat 1/8, cucu perempuan mendapat 1/2, dan ayah mendapat 1/6 sebagai ash-habul furudh. Saudara perempuan seayah tidak mendapat bagian karena dihalangi oleh ayah yang lebih dekat hubungannya dengan si mayit. Sisa harta setelah pembagian kepada ash-habul furudh (1/8 + 1/2 + 1/6 = 11/24) diberikan kepada ayah sebagai 'ashabah, bukan kepada saudara perempuan seayah." }
+                    ]}
+            }        
+        ]
+    },
     {
         id: 'bab6', title: 'Bab 6: Praktik Pembagian & Kasus Khusus',
         subChapters: [
