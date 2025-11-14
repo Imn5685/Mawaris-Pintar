@@ -84,7 +84,18 @@
         /* --- Welcome View --- */
         #welcome-view { text-align: center; padding: 50px 20px; background-color: var(--card-background); border-radius: 8px; margin-top: 50px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
         #welcome-view h2 { color: var(--primary-color); margin-bottom: 20px; }
-        #user-name-input { padding: 10px; font-size: 1rem; width: 80%; max-width: 300px; border: 1px solid var(--border-color); border-radius: 5px; margin-bottom: 20px; }
+        #user-name-input { 
+            padding: 10px; 
+            font-size: 1rem; 
+            width: 80%; 
+            max-width: 300px; 
+            border: 1px solid var(--border-color); 
+            border-radius: 5px; 
+            margin-bottom: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
         /* --- Dashboard View --- */
         #dashboard-view h2 { margin-bottom: 1.5rem; text-align: center; color: var(--primary-color); }
@@ -165,7 +176,7 @@
 
     <main class="container">
         <!-- Welcome View -->
-        <div id="welcome-view" class="view active">
+        <div id="welcome-view" class="view">
             <h2>Selamat Datang di Aplikasi Mawaris Pintar!</h2>
             <p>Silakan masukkan nama Anda untuk memulai pembelajaran mendalam Ilmu Mawaris.</p>
             <input type="text" id="user-name-input" placeholder="Ketik nama Anda di sini...">
@@ -369,7 +380,7 @@
             }
         ];
 
-                // --- APLIKASI LOGIKA ---
+        // --- APLIKASI LOGIKA ---
         let currentChapterId = null, currentSubChapterId = null;
         let quizState = { questions: [], currentQuestionIndex: 0, score: 0, totalPossibleScore: 0 };
         let caseStudyState = { answeredSubQuestions: new Set() };
@@ -388,29 +399,46 @@
             saveUserName: (name) => storage.set('mawarisUserName', name)
         };
 
-        function showView(viewId) { views.forEach(v => v.classList.remove('active')); document.getElementById(viewId).classList.add('active'); }
+        function showView(viewId) { 
+            views.forEach(v => v.classList.remove('active')); 
+            document.getElementById(viewId).classList.add('active'); 
+        }
         
         function renderDashboard() {
-            const chapterList = document.getElementById('chapter-list'); chapterList.innerHTML = '';
+            const chapterList = document.getElementById('chapter-list'); 
+            chapterList.innerHTML = '';
             const userName = storage.getUserName();
-            if (!userName) { showView('welcome-view'); return; }
+            if (!userName) { 
+                showView('welcome-view'); 
+                return; 
+            }
             courseData.forEach(chapter => {
-                const card = document.createElement('div'); card.className = 'chapter-card';
+                const card = document.createElement('div'); 
+                card.className = 'chapter-card';
                 card.innerHTML = `<h3>${chapter.title}</h3>`;
-                const list = document.createElement('ul'); list.className = 'sub-chapter-list';
+                const list = document.createElement('ul'); 
+                list.className = 'sub-chapter-list';
                 chapter.subChapters.forEach(sub => {
-                    const item = document.createElement('li'); item.className = 'sub-chapter-item';
+                    const item = document.createElement('li'); 
+                    item.className = 'sub-chapter-item';
                     const isLessonDone = storage.isCompleted('lessons', sub.id);
                     const isQuizDone = storage.isCompleted('quizzes', sub.id);
                     if (isLessonDone && isQuizDone) item.classList.add('completed');
                     item.innerHTML = `<a href="#">${sub.title}</a><span class="status-icon">${(isLessonDone && isQuizDone) ? '✅' : '⏳'}</span>`;
-                    item.querySelector('a').onclick = (e) => { e.preventDefault(); showLesson(chapter.id, sub.id); };
+                    item.querySelector('a').onclick = (e) => { 
+                        e.preventDefault(); 
+                        showLesson(chapter.id, sub.id); 
+                    };
                     list.appendChild(item);
                 });
-                card.appendChild(list); chapterList.appendChild(card);
+                card.appendChild(list); 
+                chapterList.appendChild(card);
             });
-            updateProgressBar(); checkCompletionStatus(); showView('dashboard-view');
+            updateProgressBar(); 
+            checkCompletionStatus(); 
+            showView('dashboard-view');
         }
+        
         function updateProgressBar() {
             const totalSubChapters = courseData.reduce((acc, ch) => acc + ch.subChapters.length, 0);
             const progress = storage.getProgress();
@@ -420,22 +448,27 @@
             const completedTasks = completedLessons + completedQuizzes;
             const percentage = totalTasks > 0 ? Math.round((completedTasks / totalTasks) * 100) : 0;
             const progressBar = document.getElementById('progress-bar');
-            progressBar.style.width = `${percentage}%`; progressBar.textContent = `${percentage}%`;
+            progressBar.style.width = `${percentage}%`; 
+            progressBar.textContent = `${percentage}%`;
         }
+        
         function checkCompletionStatus() {
             const totalSubChapters = courseData.reduce((acc, ch) => acc + ch.subChapters.length, 0);
             const progress = storage.getProgress();
             const completedQuizzes = Object.keys(progress.quizzes || {}).length;
-            document.getElementById('certificate-button-container').style.display = (completedQuizzes === totalSubChapters) ? 'block' : 'none';
+            document.getElementById('certificate-button-container').style.display = 
+                (completedQuizzes === totalSubChapters) ? 'block' : 'none';
         }
 
         function showLesson(chapterId, subChapterId) {
-            currentChapterId = chapterId; currentSubChapterId = subChapterId;
+            currentChapterId = chapterId; 
+            currentSubChapterId = subChapterId;
             const chapter = courseData.find(ch => ch.id === chapterId);
             const subChapter = chapter.subChapters.find(sub => sub.id === subChapterId);
             document.getElementById('lesson-title').textContent = subChapter.title;
             document.getElementById('lesson-content').innerHTML = subChapter.content;
-            showView('lesson-view'); storage.markCompleted('lessons', subChapterId);
+            showView('lesson-view'); 
+            storage.markCompleted('lessons', subChapterId);
         }
 
         function startQuiz() {
@@ -471,7 +504,10 @@
         }
 
         function renderQuestion() {
-            if (quizState.currentQuestionIndex >= quizState.questions.length) { showQuizResult(); return; }
+            if (quizState.currentQuestionIndex >= quizState.questions.length) { 
+                showQuizResult(); 
+                return; 
+            }
             const question = quizState.questions[quizState.currentQuestionIndex];
             const progressInfo = `Soal ${quizState.currentQuestionIndex + 1} / ${quizState.questions.length}`;
             document.getElementById('quiz-progress-info').textContent = progressInfo;
@@ -495,7 +531,9 @@
             const optionsContainer = document.getElementById('quiz-options');
             optionsContainer.innerHTML = '';
             question.options.forEach((option, index) => {
-                const li = document.createElement('li'); li.className = 'quiz-option'; li.textContent = option;
+                const li = document.createElement('li'); 
+                li.className = 'quiz-option'; 
+                li.textContent = option;
                 li.onclick = () => selectAnswer(index, question.correctAnswer);
                 optionsContainer.appendChild(li);
             });
@@ -539,14 +577,17 @@
             const matches = {};
             question.pairs.forEach((pair, index) => {
                 matches[pair.term] = pair.match;
-                const itemDiv = document.createElement('div'); itemDiv.className = 'matching-item';
+                const itemDiv = document.createElement('div'); 
+                itemDiv.className = 'matching-item';
                 itemDiv.innerHTML = `<label>${pair.term}:</label><select data-term="${pair.term}"><option value="">-- Pilih --</option></select>`;
                 matchingContainer.appendChild(itemDiv);
             });
             const allMatches = [...new Set(question.pairs.map(p => p.match))];
             document.querySelectorAll('#quiz-matching-container select').forEach(select => {
                 allMatches.forEach(match => {
-                    const option = document.createElement('option'); option.value = match; option.textContent = match;
+                    const option = document.createElement('option'); 
+                    option.value = match; 
+                    option.textContent = match;
                     select.appendChild(option);
                 });
             });
@@ -555,11 +596,19 @@
                 document.querySelectorAll('#quiz-matching-container select').forEach(select => {
                     const term = select.dataset.term;
                     const userAnswer = select.value;
-                    if (userAnswer === matches[term]) { select.style.borderColor = 'var(--success-color)'; correctCount++; }
-                    else { select.style.borderColor = 'var(--danger-color)'; }
+                    if (userAnswer === matches[term]) { 
+                        select.style.borderColor = 'var(--success-color)'; 
+                        correctCount++; 
+                    }
+                    else { 
+                        select.style.borderColor = 'var(--danger-color)'; 
+                    }
                 });
                 quizState.score += correctCount;
-                setTimeout(() => { quizState.currentQuestionIndex++; renderQuestion(); }, 2000);
+                setTimeout(() => { 
+                    quizState.currentQuestionIndex++; 
+                    renderQuestion(); 
+                }, 2000);
             };
         }
 
@@ -570,12 +619,16 @@
             const subQuestionsContainer = document.createElement('div');
             subQuestionsContainer.id = 'sub-questions-container';
             question.questions.forEach((subQ, index) => {
-                const subQDiv = document.createElement('div'); subQDiv.className = 'case-study-sub-question';
+                const subQDiv = document.createElement('div'); 
+                subQDiv.className = 'case-study-sub-question';
                 subQDiv.innerHTML = `<p><strong>${index + 1}. ${subQ.question}</strong></p>`;
                 if (subQ.type === 'multiple-choice') {
-                    const optionsList = document.createElement('ul'); optionsList.className = 'quiz-options';
+                    const optionsList = document.createElement('ul'); 
+                    optionsList.className = 'quiz-options';
                     subQ.options.forEach((opt, i) => {
-                        const li = document.createElement('li'); li.className = 'quiz-option'; li.textContent = opt;
+                        const li = document.createElement('li'); 
+                        li.className = 'quiz-option'; 
+                        li.textContent = opt;
                         li.onclick = () => selectSubAnswer(index, i, subQ.correctAnswer);
                         optionsList.appendChild(li);
                     });
@@ -678,17 +731,14 @@
             };
             document.getElementById('back-to-dashboard-lesson').onclick = () => renderDashboard();
             document.getElementById('back-to-dashboard-quiz').onclick = () => renderDashboard();
-            document.getElementById('back-to-dashboard-cert').onclick = () => renderDashboard();
             document.getElementById('start-quiz-btn').onclick = startQuiz;
             document.getElementById('view-certificate-btn').onclick = showCertificate;
             document.getElementById('print-certificate-btn').onclick = () => window.print();
+            document.getElementById('back-to-dashboard-cert').onclick = () => renderDashboard();
 
             const userName = storage.getUserName();
             if (userName) { renderDashboard(); } else { showView('welcome-view'); }
         });
-
-
     </script>
 </body>
 </html>
-
