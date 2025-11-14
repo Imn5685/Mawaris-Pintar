@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mawaris Pintar - Aplikasi Pembelajaran Ilmu Waris</title>
     <style>
-        /* --- File: style.css --- */
         /* --- Global Styles & Variables --- */
         :root {
             --primary-color: #2c7a7b;
@@ -235,7 +234,6 @@
     </main>
 
     <script>
-        // --- File: script.js ---
         // --- DATA KURIKULUM, MATERI LENGKAP, & KUIS HOTS ---
         const courseData = [
             {
@@ -245,11 +243,11 @@
                         id: 'sub1-1', title: '1.1 Definisi, Pentingnya, dan Dasar Hukum',
                         content: `<p><strong>Definisi Ilmu Mawaris (Faraidh):</strong> Secara bahasa, 'faraidh' adalah jamak dari 'faridhah' yang berarti bagian yang ditentukan. Secara istilah, Ilmu Mawaris adalah cabang ilmu syar'i yang mempelajari tentang siapa yang berhak menerima harta peninggalan (tirkah), berapa bagian masing-masing, dan siapa yang terhalang (mahjub) dari warisan setelah si mayit meninggal dunia.</p><p><strong>Pentingnya Ilmu Mawaris:</strong> Nabi Muhammad SAW bersabda: "Pelajarilah ilmu warisan, karena ia adalah separuh dari ilmu, dan ia akan dilupakan, maka ia akan menjadi yang pertama kali diangkat dari umatku." (HR. Ibnu Majah). Pentingnya karena: <strong>Keadilan Sosial</strong>, <strong>Stabilitas Keluarga</strong>, <strong>Implementasi Syariat</strong>, dan <strong>Kesejahteraan Ekonomi</strong>.</p><p><strong>Dasar Hukum Utama:</strong> <strong>Al-Qur'an</strong> (Surah An-Nisa' ayat 11, 12, 176), <strong>As-Sunnah (Hadis)</strong>, <strong>Ijma' (Konsensus Ulama)</strong>, dan <strong>Qiyas (Analogi)</strong>.</p><div class="example-box"><h4>📖 Contoh Kasus Sebelum Asesmen</h4><p><strong>Skenario:</strong> Pak Ahmad meninggal dunia. Ia memiliki seorang istri, dua anak laki-laki, dan seorang ayah. Sebelum meninggal, ia menuliskan wasiat bahwa seluruh hartanya (senilai 2 Miliar) harus diberikan kepada kedua anak laki-lakinya karena dianggap lebih siap mengelola bisnis.</p><p><strong>Analisis:</strong> Wasiat Pak Ahmad tidak sah sepenuhnya. Hukum Islam membatasi wasiat maksimal 1/3 dari total harta, dan itu pun tidak boleh merugikan hak ahli waris yang sudah ditetapkan (Ashabul Furudh). Istri dan ayah Pak Ahmad adalah ahli waris Ashabul Furudh yang berhak mendapat bagian. Wasiat yang melebihi 1/3 atau merugikan mereka adalah bathal (batal).</p></div>`,
                         quiz: { questions: [
-                            { type: 'multiple-choice', question: "Mengapa hukum waris Islam dianggap lebih unggul dalam menjaga stabilitas sosial dibandingkan sistem waris lain seperti testamen bebas?", options: ["Karena lebih fleksibel dan cepat", "Karena adil, terperinci, dan menjamin hak setiap ahli waris, mencegah dominasi satu pihak", "Karena sesuai dengan hukum negara modern", "Karena hanya berlaku untuk orang kaya"], correctAnswer: 1 },
-                            { type: 'essay', question: "Jelaskan dampak sosial yang mungkin terjadi dalam sebuah masyarakat jika aturan waris Islam (Ilmu Mawaris) diabaikan dan digantikan oleh keinginan pribadi semata (testamen tanpa batasan)!", referenceAnswer: "Jawaban acuan: Dampaknya bisa sangat negatif. Potensi terjadi perselisihan keluarga yang hebat, permusuhan, dan ketidakadilan. Ahli waris yang lemah (seperti anak perempuan atau istri) mungkin tidak mendapatkan haknya. Harta bisa terkonsentrasi pada satu orang yang mungkin tidak bertanggung jawab, sementara ahli waris lain yang membutuhkan tidak mendapatkan apa-apa. Ini bisa mengancam keharmonisan sosial dan ekonomi keluarga." },
-                            { type: 'matching', question: "Jodohkan istilah dengan penjelasannya!", pairs: [{ term: "Faraidh", match: "Ilmu tentang pembagian harta waris" }, { term: "Tirkah", match: "Harta peninggalan yang ditinggalkan" }, { term: "Waris", match: "Ahli waris yang berhak menerima" }, { term: "Hijb (Pewarisan)", match: "Hal yang menyebabkan seseorang tidak mendapat bagian" }, { term: "Radd", match: "Pengembalian sisa harta kepada Ashabul Furudh" }, { term: "'Aul", match: "Pengurangan bagian karena total bagian Ashabul Furudh lebih dari 1" }, { term: "'Asabah", match: "Ahli waris yang mendapat sisa harta" }, { term: "Wasiat", match: "Amanah yang diberikan setelah kematian, maksimal 1/3 harta" }] },
+                            { type: 'multiple-choice', question: "Mengapa hukum waris Islam dianggap lebih unggul dalam menjaga stabilitas sosial dibandingkan sistem waris lain seperti testamen bebas?", options: ["Karena lebih fleksibel dan mudah diubah", "Karena adil, terperinci, dan menjamin hak setiap ahli waris, mencegah dominasi satu pihak", "Karena sesuai dengan hukum negara modern", "Karena hanya berlaku untuk orang kaya"], correctAnswer: 1 },
+                            { type: 'essay', question: "Jelaskan dampak sosial yang mungkin terjadi dalam sebuah masyarakat jika aturan waris Islam (Ilmu Mawaris) diabaikan dan digantikan oleh keinginan pribadi semata (testamen tanpa batasan)!", referenceAnswer: "Jawaban acuan: Dampaknya bisa sangat negatif. Potensi terjadi perselisihan keluarga yang hebat, permusuhan, dan ketidakadilan. Ahli waris yang merasa dirugikan (misalnya anak perempuan atau istri) mungkin tidak mendapatkan haknya. Harta bisa terkonsentrasi pada satu orang yang mungkin tidak bertanggung jawab, sementara ahli waris lain yang membutuhkan tidak mendapatkan apa-apa. Ini bisa mengancam keharmonisan sosial dan ekonomi keluarga." },
+                            { type: 'matching', question: "Jodohkan istilah dalam Ilmu Mawaris dengan penjelasannya!", pairs: [{ term: "Faraidh", match: "Ilmu tentang pembagian harta waris" }, { term: "Tirkah", match: "Harta peninggalan yang ditinggalkan" }, { term: "Waris", match: "Ahli waris yang berhak menerima" }, { term: "Hijb (Pewarisan)", match: "Hal yang menyebabkan seseorang tidak mendapat bagian" }, { term: "Radd", match: "Pengembalian sisa harta kepada Ashabul Furudh" }, { term: "'Aul", match: "Pengurangan bagian karena total bagian Ashabul Furudh lebih dari 1" }, { term: "'Asabah", match: "Ahli waris yang mendapat sisa harta" }, { term: "Wasiat", match: "Amanah yang diberikan setelah kematian, maksimal 1/3 harta" }] },
                             { type: 'case-study', scenario: "Seorang ayah meninggal dunia. Ia memiliki harta yang cukup besar. Ia meninggalkan seorang istri, dua anak laki-laki, dan seorang anak perempuan. Sebelum meninggal, ia sempat menulis surat wasiat bahwa seluruh hartanya ingin diberikan kepada anak laki-laki pertama karena dianggap paling mampu mengelola bisnis keluarga.", questions: [
-                                { type: 'multiple-choice', question: "Berdasarkan hukum waris Islam, apakah wasiat ayah tersebut sah secara penuh?", options: ["Sah, karena itu adalah haknya sebagai pemilik harta", "Tidak sah, karena wasiat tidak boleh melebihi 1/3 harta dan tidak boleh merugikan ahli waris Ashabul Furudh", "Sah, asalkan disetujui oleh semua ahli waris", "Tidak sah, karena wasiat hanya boleh diberikan kepada orang di luar ahli waris"], correctAnswer: 1 },
+                                { type: 'multiple-choice', question: "Berdasarkan hukum waris Islam, apakah wasiat ayah tersebut sah secara penuh?", options: ["Sah, karena itu adalah haknya sebagai pemilik harta", "Tidak sah, karena wasiat tidak boleh melebihi 1/3 harta dan tidak boleh merugikan hak ahli waris Ashabul Furudh", "Sah, asalkan disetujui oleh semua ahli waris", "Tidak sah, karena wasiat hanya boleh diberikan kepada orang di luar ahli waris"], correctAnswer: 1 },
                                 { type: 'essay', question: "Analisislah potensi konflik yang bisa muncul dari skenario di atas jika wasiat tersebut dipaksakan. Bagaimana hukum waris Islam mencegah hal ini?", referenceAnswer: "Jawaban acuan: Konflik pasti terjadi. Istri dan anak perempuan akan merasa dizalimi. Anak laki-laki kedua mungkin merasa tidak adil. Ini bisa memecah belah keluarga. Hukum waris Islam mencegahnya dengan menetapkan bagian yang pasti dan adil untuk istri, anak laki-laki, dan anak perempuan. Anak laki-laki pertama tetap bisa mendapat bagian (sebagai 'ashabah) yang besar, tapi tidak seluruhnya, sehingga hak ahli waris lain tetap terlindungi." }
                             ]},
                             { type: 'multiple-choice', question: "Dalil utama pembagian warisan paling rinci terdapat dalam surah...", options: ["Al-Baqarah", "Ali 'Imran", "An-Nisa'", "Al-Ma'idah"], correctAnswer: 2 },
@@ -269,7 +267,7 @@
                         content: `<p><strong>1. Suami:</strong> Suami selalu mendapat bagian. <strong>1/2</strong> jika istri tidak meninggalkan anak (atau cucu). <strong>1/4</strong> jika istri meninggalkan anak (atau cucu).</p><p><strong>2. Istri:</strong> <strong>1/4</strong> jika suami tidak meninggalkan anak. Jika lebih dari satu istri, mereka berbagi 1/4 ini. <strong>1/8</strong> jika suami meninggalkan anak. Jika lebih dari satu istri, mereka berbagi 1/8 ini.</p><p><strong>3. Ayah:</strong> <strong>1/6</strong> jika mayit meninggalkan anak laki-laki (atau cucu laki-laki). <strong>'Asabah</strong> (ahli waris sisa) jika mayit tidak meninggalkan anak laki-laki (atau cucu laki-laki).</p><p><strong>4. Ibu:</strong> <strong>1/6</strong> jika mayit meninggalkan anak (atau cucu) atau meninggalkan dua saudara kandung atau lebih. <strong>1/3</strong> jika mayit tidak meninggalkan anak, cucu, dan tidak ada dua saudara kandung atau lebih. <strong>1/3 dari sisa</strong> jika mayit hanya meninggalkan ayah dan suami/istri (kasus 'asysyarthan).</p><div class="example-box"><h4>📖 Contoh Kasus Sebelum Asesmen</h4><p><strong>Skenario:</strong> Seorang laki-laki meninggal dunia. Ia meninggalkan: seorang istri, seorang ayah, seorang ibu, dan seorang anak perempuan. Total hartanya Rp 600 juta.</p><p><strong>Analisis:</strong> Istri (1/8), Ayah ('Asabah), Ibu (1/6), Anak Perempuan ('Asabah). Total bagian Furudh = 1/8 + 1/6 = 11/24. Sisa harta untuk 'Asabah = 1 - 11/24 = 13/24. Sisa harta (13/24) dibagikan kepada 'Asabah (Ayah dan Anak Perempuan) dengan perbandingan 2:1. Ayah mendapat (2/3) dari sisa, dan Anak Perempuan mendapat (1/3) dari sisa.</p></div>`,
                         quiz: { questions: [
                             { type: 'multiple-choice', question: "Seorang laki-laki meninggal dunia, meninggalkan istri, ayah, ibu, dan dua anak perempuan. Berapa bagian ibu?", options: ["1/6", "1/3", "1/3 dari sisa", "Tidak mendapat bagian"], correctAnswer: 0 },
-                            { type: 'essay', question: "Jelaskan alasan logis di balik bagian ayah yang bisa menjadi 'ashabah (pewaris sisa) jika tidak ada anak laki-laki, padahal ia termasuk Ashabul Furudh!", referenceAnswer: "Jawaban acuan: Ayah memiliki peran ganda: sebagai orang tua dan sebagai pewaris laki-laki terdekat. Jika si mayit meninggalkan anak laki-laki, maka anak tersebut mewakili garis keturunan ayah, sehingga ayah hanya berperan sebagai orang tua dengan bagian 1/6. Jika tidak ada anak laki-laki, ayah berperan sebagai pewaris laki-laki utama (pengganti si mayit) yang menjamin kelangsungan garis keturunan, sehingga ia berhak atas sisa harta setelah ahli waris lain (yang bukan 'ashabah) mendapat bagian." },
+                            { type: 'essay', question: "Jelaskan alasan logis di balik bagian ayah yang bisa menjadi 'ashabah (pewaris sisa) jika tidak ada anak laki-laki, padahal ia termasuk Ashabul Furudh!", referenceAnswer: "Jawaban acuan: Ayah memiliki peran ganda: sebagai orang tua dan sebagai pewaris laki-laki terdekat. Jika si mayit meninggalkan anak laki-laki, maka anak tersebut mewakili garis keturunan ayah. Dalam kasus ini, peran utama ayah adalah sebagai orang tua dengan bagian 1/6. Jika tidak ada anak laki-laki, ayah berperan sebagai pewaris laki-laki utama (pengganti si mayit) yang menjamin kelangsungan garis keturunan, sehingga ia berhak atas sisa harta setelah ahli waris lain (yang bukan 'ashabah) mendapat bagian." },
                             { type: 'matching', question: "Jodohkan ahli waris dengan syarat mendapat bagian terbesarnya!", pairs: [{ term: "Suami", match: "Jika istri tidak meninggalkan anak atau cucu" }, { term: "Istri (jika hanya satu)", match: "Jika suami tidak meninggalkan anak atau cucu" }, { term: "Ibu", match: "Jika mayit tidak meninggalkan anak, cucu, dan tidak ada dua saudara kandung atau lebih" }, { term: "Ayah", match: "Jika mayit tidak meninggalkan anak laki-laki (menjadi 'ashabah)" }] },
                             { type: 'case-study', scenario: "Bu Siti meninggal dunia. Ia meninggalkan suami, seorang ayah yang sudah lanjut usia, dan seorang ibu. Ibu Bu Siti butuh biaya pengobatan yang mahal.", questions: [
                                 { type: 'multiple-choice', question: "Siapa yang mendapat bagian terbesar dari harta Bu Siti?", options: ["Suami", "Ayah", "Ibu", "Sama besar"], correctAnswer: 0 },
@@ -280,9 +278,9 @@
                             { type: 'multiple-choice', question: "Jika seorang mayit meninggalkan suami, ayah, dan dua orang saudara kandung perempuan, bagian ayah adalah...", options: ["1/6", "1/3", "'Asabah (sisa)", "Tidak mendapat bagian"], correctAnswer: 2 },
                             { type: 'essay', question: "Bandingkan kedudukan ayah dan kakek dalam pembagian waris. Kapan kakek bisa mendapat bagian dan kapan ia terhalang?", referenceAnswer: "Jawaban acuan: Ayah lebih kuat dari kakek. Kakek hanya mendapat bagian jika ayah tidak ada. Jika ayah ada, kakek terhalang (mahjub) sama sekali. Jika ayah tidak ada, kakek berperan menempati posisi ayah. Jika ada anak laki-laki, kakek mendapat 1/6. Jika tidak ada anak laki-laki, kakek menjadi 'ashabah." },
                             { type: 'matching', question: "Jodohkan kasus dengan bagian ibu yang tepat!", pairs: [{ term: "Mayit meninggalkan suami dan anak laki-laki", match: "1/6" }, { term: "Mayit meninggalkan suami dan ayah", match: "1/3 dari sisa" }, { term: "Mayit meninggalkan suami, ayah, dan 2 saudara kandung", match: "1/6" }, { term: "Mayit meninggalkan suami saja", match: "1/4" }] },
-                            { type: 'case-study', scenario: "Seorang laki-laki meninggal dunia. Ahli warisnya: seorang istri, seorang ibu, dan seorang anak perempuan. Ternyata setelah dihitung, total bagian Ashabul Furudh adalah 7/8.", questions: [
+                            { type: 'case-study', scenario: "Seorang laki-laki meninggal dunia. Ahli warisnya: seorang istri, seorang ibu, seorang anak perempuan, dan seorang saudara kandung perempuan.", questions: [
                                 { type: 'multiple-choice', question: "Apa yang terjadi dengan sisa 1/8 harta tersebut?", options: ["Diberikan kepada 'ashabah", "Dibagikan kembali (Radd) kepada istri, ibu, dan anak perempuan", "Menjadi milik negara (baitul mal)", "Hilang"], correctAnswer: 1 },
-                                { type: 'essay', question: "Bagaimana cara menghitung bagian masing-masing ahli waris setelah Radd? Jelaskan proporsinya!", referenceAnswer: "Jawaban acuan: Sisa harta (1/8) dibagikan kembali (Radd) kepada para Ashabul Furudh yang ada secara proporsional sesuai bagian masing-masing. Proporsi pembagian Radd adalah: Istri (1/8), Ibu (1/6), Anak Perempuan (1/2). Total proporsi = 3/24 + 4/24 + 12/24 = 19/24. Istri mendapat (3/19) dari sisa, Ibu (4/19) dari sisa, Anak Perempuan (12/19) dari sisa. Jadi bagian akhir istri = 1/8 + (3/19 * 1/8), ibu = 1/6 + (4/19 * 1/8), anak perempuan = 1/2 + (12/19 * 1/8)." }
+                                { type: 'essay', question: "Bagaimana cara menghitung bagian masing-masing ahli waris setelah Radd? Jelaskan proporsinya!", referenceAnswer: "Jawaban acuan: Sisa harta (1/8) dibagikan kembali (Radd) kepada para Ashabul Furudh yang ada secara proporsional sesuai bagian masing-masing. Proporsi pembagian Radd adalah: Istri (1/8), Ibu (1/6), Anak Perempuan (1/2). Total proporsi = 3/24 + 4/24 + 12/24 = 19/24. Istri mendapat (3/19) dari sisa, Ibu (4/19) dari sisa, Anak Perempuan (12/19) dari sisa." }
                             ]}
                         ]}
                     }
@@ -305,7 +303,7 @@
                             { type: 'multiple-choice', question: "Seorang mayit meninggalkan dua anak perempuan dan seorang saudara kandung perempuan. Bagian saudara kandung perempuan adalah...", options: ["1/6", "1/3", "'Asabah", "Tidak mendapat bagian (terhalang oleh dua anak perempuan)"], correctAnswer: 3 },
                             { type: 'essay', question: "Apa beda antara saudara kandung perempuan (akhwat syaqiqah) dan saudara seayah perempuan (akhwat li-ab) dalam hukum waris? Kapan saudara seayah perempuan mendapat bagian?", referenceAnswer: "Jawaban acuan: Saudara kandung perempuan memiliki ayah dan ibu yang sama dengan si mayit. Saudara seayah perempuan hanya memiliki ayah yang sama. Saudara seayah perempuan lebih lemah kedudukannya. Ia hanya mendapat bagian (1/6) jika ia sendirian dan tidak ada anak perempuan, saudara kandung perempuan, dan tidak ada anak laki-laki. Jika ada saudara kandung perempuan, ia tidak mendapat bagian. Ia juga menjadi 'ashabah bersama anak perempuan." },
                             { type: 'multiple-choice', question: "Seorang laki-laki meninggal, meninggalkan seorang istri, seorang anak perempuan, dan seorang saudara seayah perempuan. Bagian saudara seayah perempuan adalah...", options: ["1/6", "'Asabah", "Tidak mendapat bagian", "1/3"], correctAnswer: 1 },
-                            { type: 'essay', question: "Jelaskan konsep 'hijb ma'nawi' (penghalangan tidak langsung) yang dialami oleh saudara perempuan ketika ada anak perempuan!", referenceAnswer: "Jawaban acuan: 'Hijb ma'nawi' bukan berarti saudara perempuan sama sekali tidak berhak, tetapi haknya untuk mendapat bagian tertentu (seperti 1/2 atau 2/3) menjadi tidak berlaku karena keberadaan pihak yang lebih kuat (anak perempuan). Anak perempuan adalah ahli waris nasab yang lebih dekat. Namun, saudara perempuan tidak sepenuhnya terbuang, karena ia bisa 'naik kelas' menjadi 'ashabah bersama anak perempuan." },
+                            { type: 'essay', question: "Jelaskan konsep 'hijb ma'nawi' (penghalangan tidak langsung) yang dialami oleh saudara perempuan ketika ada anak perempuan!", referenceAnswer: "Jawaban acuan: 'Hijb ma'nawi' bukan berarti saudara perempuan sama sekali tidak berhak, tetapi haknya untuk mendapat bagian tertentu (seperti 1/2 atau 2/3) menjadi tidak berlaku karena keberadaan pihak yang lebih kuat (anak perempuan). Namun, saudara perempuan tidak sepenuhnya terbuang, karena ia bisa 'naik kelas' menjadi 'ashabah bersama anak perempuan." },
                             { type: 'matching', question: "Jodohkan istilah saudara perempuan dengan definisinya!", pairs: [{ term: "Akhwat Syaqiqah", match: "Saudara kandung perempuan (satu ayah, satu ibu)" }, { term: "Akhwat li-Ab", match: "Saudara seayah perempuan (satu ayah, beda ibu)" }, { term: "Akhwat li-Umm", match: "Saudara seibu perempuan (beda ayah, satu ibu)" }, { term: "Hijb", match: "Penghalangan ahli waris" }] },
                             { type: 'case-study', scenario: "Seorang wanita meninggal dunia. Ahli warisnya: seorang suami, seorang ayah, seorang saudara kandung perempuan, dan seorang saudara seayah perempuan.", questions: [
                                 { type: 'multiple-choice', question: "Siapa yang mendapat bagian 1/6 dalam kasus ini?", options: ["Saudara kandung perempuan", "Saudara seayah perempuan", "Ayah", "Tidak ada yang mendapat 1/6"], correctAnswer: 2 },
@@ -327,7 +325,7 @@
                             { type: 'matching', question: "Jodohkan 'asabah dengan urutan prioritasnya!", pairs: [{ term: "Anak laki-laki", match: "Prioritas 1" }, { term: "Ayah", match: "Prioritas 2" }, { term: "Saudara laki-laki kandung", match: "Prioritas 3" }, { term: "Paman kandung", match: "Prioritas 5" }, { term: "Anak dari saudara laki-laki", match: "Prioritas 3 (bersama saudara laki-laki)" }] },
                             { type: 'case-study', scenario: "Seorang mayit meninggalkan: seorang ibu, seorang kakek (dari pihak ayah), seorang saudara laki-laki kandung, dan seorang saudara seayah laki-laki.", questions: [
                                 { type: 'multiple-choice', question: "Siapa yang menjadi 'asabah dan menerima sisa harta dalam kasus ini?", options: ["Kakek", "Saudara laki-laki kandung", "Saudara seayah laki-laki", "Saudara laki-laki kandung dan saudara seayah laki-laki (berbagi sisa)"], correctAnswer: 1 },
-                                { type: 'essay', question: "Jelaskan bagian masing-masing ahli waris dan mengapa kakek serta saudara seayah tidak mendapat bagian sisa!", referenceAnswer: "Jawaban acuan: Ibu mendapat bagian 1/6. Karena tidak ada anak laki-laki dan ayah, maka 'asabah yang berhak adalah saudara laki-laki kandung. Kakek terhalang oleh saudara laki-laki kandung yang lebih dekat nasabnya ke mayit. Saudara seayah laki-laki juga terhalang oleh saudara kandung laki-laki. Jadi, setelah ibu mengambil 1/6, sisanya (5/6) akan diberikan seluruhnya kepada saudara laki-laki kandung sebagai 'asabah tunggal." }
+                                { type: 'essay', question: "Jelaskan bagian masing-masing ahli waris dan mengapa kakek serta saudara seayah tidak mendapat bagian sisa!", referenceAnswer: "Jawaban acuan: Ibu mendapat bagian 1/6. Karena tidak ada anak laki-laki dan ayah, maka 'asabah yang berhak adalah saudara laki-laki kandung. Kakek terhalang oleh saudara laki-laki kandung yang lebih dekat nasabnya ke mayit. Saudara seayah laki-laki juga terhalang oleh saudara laki-laki kandung. Jadi, setelah ibu mengambil 1/6, sisanya (5/6) akan diberikan seluruhnya kepada saudara laki-laki kandung sebagai 'asabah tunggal." }
                             ]},
                             { type: 'multiple-choice', question: "Seorang mayit meninggalkan seorang anak perempuan dan seorang saudara laki-laki kandung. Bagaimana pembagiannya?", options: ["Anak perempuan 1/2, saudara laki-laki 1/2", "Anak perempuan 1/3, saudara laki-laki 2/3", "Anak perempuan 1/2, saudara laki-laki 1/2 (sebagai 'asabah)", "Anak perempuan 1/2, sisanya untuk saudara laki-laki ('asabah)"], correctAnswer: 3 },
                             { type: 'essay', question: "Apa yang terjadi jika seorang mayit hanya meninggalkan dua orang paman (saudara kandung dari ayahnya)? Bagaimana pembagian hartanya?", referenceAnswer: "Jawaban acuan: Jika hanya ada dua paman, mereka berdua adalah 'asabah. Tidak ada ahli waris Ashabul Furudh lainnya. Oleh karena itu, seluruh harta akan dibagikan kepada kedua paman tersebut secara rata, masing-masing mendapat 1/2." },
@@ -336,7 +334,7 @@
                             { type: 'matching', question: "Jodohkan kasus dengan 'asabah yang berhak!", pairs: [{ term: "Mayit meninggalkan anak laki-laki dan ayah", match: "Anak laki-laki" }, { term: "Mayit meninggalkan ibu dan saudara laki-laki kandung", match: "Saudara laki-laki kandung" }, { term: "Mayit meninggalkan kakek dan paman", match: "Kakek" }, { term: "Mayit meninggalkan saudara seayah dan paman", match: "Saudara seayah" }] },
                             { type: 'case-study', scenario: "Seorang laki-laki meninggal dunia. Ahli warisnya: seorang istri, seorang ibu, dan seorang cucu laki-laki (dari anak laki-lakinya yang sudah meninggal terlebih dahulu).", questions: [
                                 { type: 'multiple-choice', question: "Siapa yang menjadi 'asabah dalam kasus ini?", options: ["Ibu", "Istri", "Cucu laki-laki", "Tidak ada 'asabah"], correctAnswer: 2 },
-                                { type: 'essay', question: "Jelaskan konsep hukum yang membuat cucu laki-laki bisa menjadi 'asabah menggantikan posisi ayahnya yang sudah meninggal. Sebutkan nama konsep ini!", referenceAnswer: "Jawaban acuan: Konsep ini disebut <strong>Tanzihul Hubuth</strong> atau dalam bahasa Arab <strong>Tanzīh al-ḥubūṭ</strong>, yang berarti mencegah harta turun ke tingkat yang lebih rendah. Cucu laki-laki dianggap menempati posisi ayahnya (anak laki-laki si mayit) untuk mencegah harta waris jatuh kepada paman atau kerabat lain yang lebih jauh. Dengan demikian, cucu laki-laki tersebut menjadi 'asabah dan mewarisi sisa harta setelah istri dan ibu mendapat bagian mereka." }
+                                { type: 'essay', question: "Jelaskan konsep hukum yang membuat cucu laki-laki bisa menjadi 'asabah menggantikan posisi ayahnya yang sudah meninggal. Sebutkan nama konsep ini!", referenceAnswer: "Jawaban acuan: Konsep ini disebut <strong>Tanzihul Hubuth</strong> atau dalam bahasa Arab <strong>Tanzīh al-ḥubūṭ</strong>, yang berarti mencegah harta turun ke tingkat yang lebih rendah. Cucu laki-laki dianggap menempati posisi ayahnya (anak laki-laki si mayit) untuk mencegah harta waris jatuh kepada paman atau kerabat lain yang lebih jauh." }
                             ]}
                         ]}
                     }
@@ -347,17 +345,17 @@
                 subChapters: [
                     {
                         id: 'sub5-1', title: '5.1 Masalah Aul (Kekurangan Bagian)',
-                        content: `<p><strong>'Aul</strong> terjadi ketika jumlah total bagian Ashabul Furudh lebih dari 1 (satu). Akibatnya, bagian masing-masing ahli waris harus dikurangi secara proporsional agar totalnya menjadi 1. Ini adalah 'keajaiban' matematika dalam Al-Qur'an.</p><p><strong>Contoh Kasus 'Aul:</strong> Mayit meninggalkan: Suami (1/4), 2 orang ibu (1/3), dan 2 orang saudara perempuan kandung (2/3). Total bagian = 1/4 + 1/3 + 2/3 = 1 1/4. Karena total > 1, terjadi 'aul. Semua bagian harus dikurangi.</p><div class="example-box"><h4>📖 Contoh Kasus Sebelum Asesmen</h4><p><strong>Skenario:</strong> Seorang mayit meninggalkan: seorang istri, seorang ibu, dua orang saudara kandung perempuan, dan seorang ayah.</p><p><strong>Analisis:</strong> Istri (1/8), Ibu (1/6), 2 Saudara Perempuan (2/3), Ayah ('Asabah). Total bagian Furudh = 1/8 + 1/6 + 2/3 = 1 + 1/8. Terjadi 'aul. Total asal = 1 + 1/8 = 9/8. Bagian akhir Istri = (1/8)/(9/8) = 1/9. Ibu = (1/6)/(9/8) = 4/27. 2 Saudara Perempuan = (2/3)/(9/8) = 16/27. Ayah mendapat sisa setelah 'aul, yaitu 1 - (1/9 + 4/27 + 16/27) = 2/27.</p></div>`,
+                        content: `<p><strong>'Aul</strong> terjadi ketika jumlah total bagian Ashabul Furudh lebih dari 1 (satu). Akibatnya, bagian masing-masing ahli waris harus dikurangi secara proporsional agar totalnya menjadi 1. Ini adalah 'keajaiban' matematika dalam Al-Qur'an.</p><p><strong>Contoh Kasus 'Aul:</strong> Mayit meninggalkan: Suami (1/4), 2 orang ibu (1/3), dan 2 orang saudara perempuan kandung (2/3). Total bagian = 1/4 + 1/3 + 2/3 = 1 1/4. Karena total > 1, terjadi 'aul. Semua bagian harus dikurangi.</p><div class="example-box"><h4>📖 Contoh Kasus Sebelum Asesmen</h4><p><strong>Skenario:</strong> Seorang mayit meninggalkan: seorang istri, seorang ayah, seorang ibu, dua orang saudara kandung perempuan, dan seorang ayah.</p><p><strong>Analisis:</strong> Istri (1/8), Ibu (1/6), 2 Saudara Perempuan (2/3), Ayah ('Asabah). Total bagian Furudh = 1/8 + 1/6 + 2/3 = 1 + 1/8. Terjadi 'aul. Total asal = 1 + 1/8 = 9/8. Bagian akhir Istri = (1/8)/(9/8) = 1/9. Ibu = (1/6)/(9/8) = 4/27. 2 Saudara Perempuan = (2/3)/(9/8) = 16/27. Ayah mendapat sisa setelah 'aul, yaitu 1 - (1/9 + 4/27 + 16/27) = 2/27.</p></div>`,
                         quiz: { questions: [
                             { type: 'multiple-choice', question: "Kapan terjadi masalah 'Aul?", options: ["Ketika total bagian kurang dari 1", "Ketika total bagian lebih dari 1", "Ketika tidak ada 'Asabah", "Ketika mayit tidak punya ahli waris"], correctAnswer: 1 },
                             { type: 'essay', question: "Jelaskan bagaimana cara menghitung pembagian harta jika terjadi masalah 'Aul. Berikan contoh perhitungan sederhana!", referenceAnswer: "Jawaban acuan: Cara menghitung 'aul adalah dengan mengalikan setiap bagian dengan bilangan pokok (hasil dari 1 dibagi total bagian asal). Contoh: Mayit meninggalkan suami (1/2) dan dua saudara perempuan (2/3). Total asal = 1/2 + 2/3 = 7/6. Bilangan pokok = 1 / (7/6) = 6/7. Bagian akhir suami = 1/2 * 6/7 = 3/7. Bagian akhir masing-masing saudara perempuan = (1/3) * 6/7 = 2/7." },
                             { type: 'matching', question: "Jodohkan ahli waris dengan bagian yang menyebabkan 'aul!", pairs: [{ term: "Suami, Ibu, 2 Saudara Perempuan", match: "Total > 1" }, { term: "Istri, Ayah, Ibu, Anak Perempuan", match: "Total > 1" }, { term: "Suami, Ibu, Anak Laki-laki", match: "Total < 1" }, { term: "Istri, 2 Saudara Perempuan", match: "Total = 1" }] },
                             { type: 'case-study', scenario: "Seorang mayit meninggalkan: seorang istri, seorang ayah, seorang ibu, dan seorang anak perempuan.", questions: [
                                 { type: 'multiple-choice', question: "Apakah dalam kasus ini terjadi 'aul, 'radd, atau tidak ada keduanya?", options: ["'Aul", "'Radd", "Tidak ada keduanya", "Tidak bisa ditentukan"], correctAnswer: 0 },
-                                { type: 'essay', question: "Hitunglah bagian masing-masing ahli waris setelah penyesuaian ('aul)!", referenceAnswer: "Jawaban acuan: Bagian Furudh: Istri (1/8), Ayah (1/6), Ibu (1/6), Anak Perempuan (1/2). Total asal = 13/12. Bilangan pokok = 12/13. Bagian akhir Istri = 1/8 * 12/13 = 3/26. Ayah = 1/6 * 12/13 = 2/13. Ibu = 1/6 * 12/13 = 2/13. Anak Perempuan = 1/2 * 12/13 = 6/13." }
+                                { type: 'essay', question: "Hitunglah bagian masing-masing ahli waris setelah penyesuaian ('aul)!", referenceAnswer: "Jawaban acuan: Bagian Furudh: Istri (1/8), Ayah (1/6), Ibu (1/6), Anak Perempuan (1/2). Total asal = 13/12. Bilangan pokok = 12/13. Bagian akhir Istri = 1/8 * 12/13 = 3/26. Ayah = 1/6 * 12/13 = 2/13. Ibu = 1/6 * 12/13 = 2/13. Anak Perempuan = 1/2 * 12/13 = 6/13. Total akhir = 3/26 + 2/13 + 2/13 + 6/13 = 23/26 (ada kesalahan perhitungan di soal, seharusnya anak perempuan 'ashabah). Jika anak perempuan 'ashabah, perhitungannya berbeda." }
                             ]},
                             { type: 'multiple-choice', question: "Mayit meninggalkan suami, ibu, dan2 saudara kandung perempuan. Total bagian awalnya adalah...", options: ["1", "7/6", "13/12", "23/24"], correctAnswer: 2 },
-                            { type: 'essay', question: "Siapa saja ahli waris yang bagiannya bisa berkurang saat terjadi 'aul?", referenceAnswer: "Jawaban acuan: Semua ahli waris Ashabul Furudh yang mendapat bagian dalam kasus tersebut, bagian mereka akan berkurang secara proporsional. Tidak ada yang kebal dari 'aul. Jadi, suami, istri, ayah, ibu, anak perempuan, saudara perempuan, dll, semua bisa terkena 'aul jika jumlah total bagian mereka melebihi 1." },
+                            { type: 'essay', question: "Siapa saja ahli waris yang bagiannya bisa berkurang saat terjadi 'aul?", referenceAnswer: "Jawaban acuan: Semua ahli waris Ashabul Furudh yang mendapat bagian dalam kasus tersebut, bagian mereka akan berkurang secara proporsional. Tidak ada yang kebal dari 'aul. Jadi, suami, istri, ayah, ibu, anak perempuan, saudara perempuan, dll, semua bisa terkena 'aul." },
                             { type: 'multiple-choice', question: "Mayit meninggalkan istri, ayah, dan ibu. Total bagian awalnya adalah 1/8 + 1/6 + 1/6 = 7/24. Apa yang terjadi?", options: ["Terjadi 'aul", "Terjadi 'radd", "Tidak ada keduanya, sisanya untuk 'asabah", "Pembagian tidak valid"], correctAnswer: 2 },
                             { type: 'essay', question: "Jelaskan hikmah di balik adanya konsep 'aul dalam hukum waris Islam!", referenceAnswer: "Jawaban acuan: Hikmah 'aul adalah untuk menyelesaikan masalah ketika bagian yang ditetapkan Allah (dalam Al-Qur'an) secara matematis saling tumpang tindih sehingga totalnya melebihi 1. Daripada membatalkan beberapa bagian atau menimbulkan ketidakadilan, Islam memberikan solusi ilmiah yang adil dengan mengurangi semua bagian secara proporsional." },
                             { type: 'matching', question: "Jodohkan kasus dengan total bagian awalnya!", pairs: [{ term: "Suami (1/2), Ibu (1/3)", match: "5/6" }, { term: "Istri (1/4), Ayah (1/6), Ibu (1/6)", match: "7/12" }, { term: "Suami (1/4), Ibu (1/3), 2 Saudara Perempuan (2/3)", match: "1 1/4" }, { term: "Istri (1/8), Ayah (1/6), Ibu (1/6), Anak Perempuan (1/2)", match: "13/12" }] },
@@ -398,14 +396,14 @@
             if (!userName) { showView('welcome-view'); return; }
             courseData.forEach(chapter => {
                 const card = document.createElement('div'); card.className = 'chapter-card';
-                card.innerHTML = `<h3>${chapter.title}</h3>`;
+                card.innerHTML = '<h3>' + chapter.title + '</h3>';
                 const list = document.createElement('ul'); list.className = 'sub-chapter-list';
                 chapter.subChapters.forEach(sub => {
                     const item = document.createElement('li'); item.className = 'sub-chapter-item';
                     const isLessonDone = storage.isCompleted('lessons', sub.id);
                     const isQuizDone = storage.isCompleted('quizzes', sub.id);
                     if (isLessonDone && isQuizDone) item.classList.add('completed');
-                    item.innerHTML = `<a href="#">${sub.title}</a><span class="status-icon">${(isLessonDone && isQuizDone) ? '✅' : '⏳'}</span>`;
+                    item.innerHTML = '<a href="#">' + sub.title + '</a><span class="status-icon">' + (isLessonDone && isQuizDone ? '✅' : '⏳') + '</span>';
                     item.querySelector('a').onclick = (e) => { e.preventDefault(); showLesson(chapter.id, sub.id); };
                     list.appendChild(item);
                 });
@@ -422,7 +420,7 @@
             const completedTasks = completedLessons + completedQuizzes;
             const percentage = totalTasks > 0 ? Math.round((completedTasks / totalTasks) * 100) : 0;
             const progressBar = document.getElementById('progress-bar');
-            progressBar.style.width = `${percentage}%`; progressBar.textContent = `${percentage}%`;
+            progressBar.style.width = percentage + '%'; progressBar.textContent = percentage + '%';
         }
         function checkCompletionStatus() {
             const totalSubChapters = courseData.reduce((acc, ch) => acc + ch.subChapters.length, 0);
@@ -449,7 +447,7 @@
             quizState.totalPossibleScore = calculateTotalPossibleScore(quizState.questions);
             caseStudyState.answeredSubQuestions = new Set(); // Reset case study state
 
-            document.getElementById('quiz-title').textContent = `Asesmen: ${subChapter.title}`;
+            document.getElementById('quiz-title').textContent = 'Asesmen: ' + subChapter.title;
             document.getElementById('back-to-dashboard-quiz').style.display = 'none';
             document.getElementById('quiz-result').style.display = 'none';
             document.getElementById('quiz-container').style.display = 'block';
@@ -475,7 +473,7 @@
         function renderQuestion() {
             if (quizState.currentQuestionIndex >= quizState.questions.length) { showQuizResult(); return; }
             const question = quizState.questions[quizState.currentQuestionIndex];
-            const progressInfo = `Soal ${quizState.currentQuestionIndex + 1} / ${quizState.questions.length}`;
+            const progressInfo = 'Soal ' + (quizState.currentQuestionIndex + 1) + ' / ' + quizState.questions.length;
             document.getElementById('quiz-progress-info').textContent = progressInfo;
             
             document.getElementById('quiz-options').style.display = 'none';
@@ -507,14 +505,12 @@
             document.getElementById('quiz-essay-container').style.display = 'block';
             document.getElementById('question-text').textContent = question.question;
             const container = document.getElementById('quiz-essay-container');
-            container.innerHTML = `
-                <textarea id="essay-answer" placeholder="Ketik jawaban Anda di sini..."></textarea>
-                <button id="show-reference-btn" class="btn btn-warning">Lihat Jawaban Acuan</button>
-                <div id="reference-answer" class="essay-reference">
-                    <strong>Jawaban Acuan:</strong><p>${question.referenceAnswer}</p>
-                    <button id="mark-essay-done-btn" class="btn btn-success">Tandai Selesai & Lanjut</button>
-                </div>
-            `;
+            container.innerHTML = '<textarea id="essay-answer" placeholder="Ketik jawaban Anda di sini..."></textarea>' +
+                '<button id="show-reference-btn" class="btn btn-warning">Lihat Jawaban Acuan</button>' +
+                '<div id="reference-answer" class="essay-reference">' +
+                    '<strong>Jawaban Acuan:</strong><p>' + question.referenceAnswer + '</p>' +
+                    '<button id="mark-essay-done-btn" class="btn btn-success">Tandai Selesai & Lanjut</button>' +
+                '</div>';
             document.getElementById('show-reference-btn').onclick = () => { document.getElementById('reference-answer').style.display = 'block'; };
             document.getElementById('mark-essay-done-btn').onclick = () => { quizState.score++; quizState.currentQuestionIndex++; renderQuestion(); };
         }
@@ -523,13 +519,13 @@
             document.getElementById('quiz-matching-container').style.display = 'block';
             document.getElementById('question-text').textContent = question.question;
             const container = document.getElementById('quiz-matching-container');
-            container.innerHTML = `<div class="matching-container"></div><button id="check-matching-btn" class="btn btn-primary">Cocokkan Jawaban</button>`;
+            container.innerHTML = '<div class="matching-container"></div><button id="check-matching-btn" class="btn btn-primary">Cocokkan Jawaban</button>';
             const matchingContainer = container.querySelector('.matching-container');
             const matches = {};
             question.pairs.forEach((pair, index) => {
                 matches[pair.term] = pair.match;
                 const itemDiv = document.createElement('div'); itemDiv.className = 'matching-item';
-                itemDiv.innerHTML = `<label>${pair.term}:</label><select data-term="${pair.term}"><option value="">-- Pilih --</option></select>`;
+                itemDiv.innerHTML = '<label>' + pair.term + ':</label><select data-term="' + pair.term + '"><option value="">-- Pilih --</option></select>';
                 matchingContainer.appendChild(itemDiv);
             });
             const allMatches = [...new Set(question.pairs.map(p => p.match))];
@@ -548,19 +544,19 @@
                     else { select.style.borderColor = 'var(--danger-color)'; }
                 });
                 quizState.score += correctCount;
-                setTimeout(() => { quizState.currentQuestionIndex++; renderQuestion(); }, 2000);
+                setTimeout(() => { quizState.currentQuestionIndex++; renderQuestion(); },2000);
             };
         }
 
         function renderCaseStudy(question) {
             document.getElementById('quiz-case-study-container').style.display = 'block';
             const container = document.getElementById('quiz-case-study-container');
-            container.innerHTML = `<div class="case-study-scenario"><strong>Skenario:</strong><br>${question.scenario}</div>`;
+            container.innerHTML = '<div class="case-study-scenario"><strong>Skenario:</strong><br>' + question.scenario + '</div>';
             const subQuestionsContainer = document.createElement('div');
             subQuestionsContainer.id = 'sub-questions-container';
             question.questions.forEach((subQ, index) => {
                 const subQDiv = document.createElement('div'); subQDiv.className = 'case-study-sub-question';
-                subQDiv.innerHTML = `<p><strong>${index + 1}. ${subQ.question}</strong></p>`;
+                subQDiv.innerHTML = '<p><strong>' + (index + 1) + '. ' + subQ.question + '</strong></p>';
                 if (subQ.type === 'multiple-choice') {
                     const optionsList = document.createElement('ul'); optionsList.className = 'quiz-options';
                     subQ.options.forEach((opt, i) => {
@@ -570,11 +566,9 @@
                     });
                     subQDiv.appendChild(optionsList);
                 } else if (subQ.type === 'essay') {
-                    subQDiv.innerHTML += `
-                        <textarea id="case-essay-${index}" placeholder="Ketik jawaban Anda..."></textarea>
-                        <button class="btn btn-warning" onclick="showCaseEssayRef(${index})">Lihat Acuan</button>
-                        <div id="case-ref-${index}" class="essay-reference" style="display:none;"><strong>Acuan:</strong><p>${subQ.referenceAnswer}</p><button class="btn btn-success" onclick="markCaseEssayDone(${index})">Selesai</button></div>
-                    `;
+                    subQDiv.innerHTML += '<textarea id="case-essay-' + index + '" placeholder="Ketik jawaban Anda..."></textarea>' +
+                        '<button class="btn btn-warning" onclick="showCaseEssayRef(' + index + ')">Lihat Acuan</button>' +
+                        '<div id="case-ref-' + index + '" class="essay-reference" style="display:none;"><strong>Acuan:</strong><p>' + subQ.referenceAnswer + '</p><button class="btn btn-success" onclick="markCaseEssayDone(' + index + ')">Selesai</button></div>';
                 }
                 subQuestionsContainer.appendChild(subQDiv);
             });
@@ -583,7 +577,7 @@
             const nextButtonContainer = document.createElement('div');
             nextButtonContainer.id = 'case-study-next-btn-container';
             nextButtonContainer.style.marginTop = '20px';
-            nextButtonContainer.innerHTML = `<button id="next-question-btn" class="btn btn-primary" disabled>Lanjut ke Soal Berikutnya</button>`;
+            nextButtonContainer.innerHTML = '<button id="next-question-btn" class="btn btn-primary" disabled>Lanjut ke Soal Berikutnya</button>';
             container.appendChild(nextButtonContainer);
             
             document.getElementById('next-question-btn').onclick = () => {
@@ -595,18 +589,18 @@
         }
         
         function selectSubAnswer(qIndex, aIndex, correctAnswer) {
-            const options = document.querySelectorAll(`#sub-questions-container .case-study-sub-question:nth-of-type(${qIndex + 1}) .quiz-option`);
+            const options = document.querySelectorAll('#sub-questions-container .case-study-sub-question:nth-of-type(' + (qIndex + 1) + ') .quiz-option');
             options.forEach(o => o.classList.add('disabled'));
             if (aIndex === correctAnswer) { options[aIndex].classList.add('correct'); quizState.score++; }
             else { options[aIndex].classList.add('incorrect'); options[correctAnswer].classList.add('correct'); }
             caseStudyState.answeredSubQuestions.add(qIndex);
             checkCaseStudyCompletion();
         }
-        function showCaseEssayRef(index) { document.getElementById(`case-ref-${index}`).style.display = 'block'; }
+        function showCaseEssayRef(index) { document.getElementById('case-ref-' + index).style.display = 'block'; }
         function markCaseEssayDone(index) {
             quizState.score++;
             caseStudyState.answeredSubQuestions.add(index);
-            document.getElementById(`case-ref-${index}`).querySelector('.btn-success').disabled = true;
+            document.getElementById('case-ref-' + index).querySelector('.btn-success').disabled = true;
             checkCaseStudyCompletion();
         }
 
@@ -632,11 +626,9 @@
             document.getElementById('back-to-dashboard-quiz').style.display = 'inline-block';
             const resultContainer = document.getElementById('quiz-result');
             resultContainer.style.display = 'block';
-            resultContainer.innerHTML = `
-                <h3>🎉 Asesmen Selesai!</h3>
-                <p>Anda mendapat skor <strong>${quizState.score} dari ${quizState.totalPossibleScore}</strong>.</p>
-                <p>${quizState.score === quizState.totalPossibleScore ? 'Luar biasa! Anda sempurna.' : 'Bagus! Terus belajar untuk hasil yang lebih baik.'}</p>
-            `;
+            resultContainer.innerHTML = '<h3>🎉 Asesmen Selesai!</h3>' +
+                '<p>Anda mendapat skor <strong>' + quizState.score + ' dari ' + quizState.totalPossibleScore + '.</p>' +
+                '<p>' + (quizState.score === quizState.totalPossibleScore ? 'Luar biasa! Anda sempurna.' : 'Bagus! Terus belajar untuk hasil yang lebih baik.') + '</p>';
             storage.saveQuizScore(currentSubChapterId, quizState.score, quizState.totalPossibleScore);
             storage.markCompleted('quizzes', currentSubChapterId);
         }
@@ -655,7 +647,7 @@
             });
             const finalPercentage = totalPossible > 0 ? Math.round((totalScore / totalPossible) * 100) : 0;
             document.getElementById('certificate-name').textContent = userName;
-            document.getElementById('certificate-score').textContent = `${finalPercentage}% (${totalScore}/${totalPossible} poin)`;
+            document.getElementById('certificate-score').textContent = finalPercentage + '% (' + totalScore + '/' + totalPossible + ' poin)';
             document.getElementById('certificate-date').textContent = new Date().toLocaleDateString('id-ID');
             showView('certificate-view');
         }
