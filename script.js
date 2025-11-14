@@ -598,8 +598,8 @@ const courseData = [
                         </div>
                     `
                 }
-                ],
-                quiz: { questions: [
+             ],
+             quiz: { questions: [
                         { type: 'multiple-choice', question: "Siapa yang termasuk Asabah Binasab?", options: ["Anak laki-laki", "Ibu", "Istri", "Anak perempuan tunggal"], correctAnswer: 0 },
                         { type: 'essay', question: "Jelaskan mengapa anak laki-laki menjadi 'asabah yang paling utama dan dapat menghalangi ayahnya sendiri untuk menjadi 'asabah, meskipun ayah adalah orang tuanya!", referenceAnswer: "Jawaban acuan: Karena dalam hukum waris, prioritas utama adalah melanjutkan garis keturunan. Anak laki-laki adalah perpanjangan tangan langsung dari si mayit. Jika anak laki-laki ada, maka garis keturunan sudah jelas dan diwakili olehnya. Ayah, meskipun orang tua, berperan sebagai penopang generasi di atasnya. Jika anak laki-laki tidak ada, barulah ayah 'turun tangan' menjadi pewaris utama ('asabah) untuk memastikan garis keturunan tidak putus." },
                         // Soal HOTS Pilihan Ganda Kompleks
