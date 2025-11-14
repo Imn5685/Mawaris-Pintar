@@ -549,57 +549,57 @@ const courseData = [
                         `
                     },
                     {
-                    title: 'Hirarki Ashabah',
-                    content: `
-                        <p><strong>Hirarki Ashabah:</strong></p>
-                        <ol>
-                            <li>Anak Laki-laki (dan keturunannya).</li>
-                            <li>Ayah (dan kakek).</li>
-                            <li>Saudara Laki-laki Kandung (dan keturunannya).</li>
-                            <li>Saudara Seayah Laki-laki (dan keturunannya).</li>
-                            <li>Paman Kandung (dan keturunannya).</li>
-                            <li>Paman Seayah (dan keturunannya).</li>
-                        </ol>
-                        <p>Prinsip utama: <strong>yang lebih dekat nasabnya menghalangi yang lebih jauh</strong>.</p>
-                        <div class="example-box">
-                            <p><strong>Contoh Penerapan Hirarki:</strong></p>
-                            <p>Jika seorang meninggal dunia dan meninggalkan anak laki-laki dan ayah, maka seluruh sisa warisan setelah pembagian Ashabul Furudh akan diberikan kepada anak laki-laki, sedangkan ayah tidak mendapatkan bagian sisa (meskipun ayah termasuk 'ashabah).</p>
-                            <p>Hal ini karena anak laki-laki memiliki kedudukan yang lebih tinggi dalam hirarki daripada ayah.</p>
-                        </div>
-                        <div class="note-box">
-                            <p><strong>Kaidah Penting dalam Hirarki Asabah:</strong></p>
+                        title: 'Hirarki Ashabah',
+                        content: `
+                            <p><strong>Hirarki Ashabah:</strong></p>
                             <ol>
-                                <li>Ahli waris yang berhubungan dengan jenazah melalui perantara seseorang, maka ia tidak mendapatkan warisan selama perantara tersebut masih ada.</li>
-                                <li>Ahli waris yang lebih dekat didahulukan daripada ahli waris yang lebih jauh.</li>
+                                <li>Anak Laki-laki (dan keturunannya).</li>
+                                <li>Ayah (dan kakek).</li>
+                                <li>Saudara Laki-laki Kandung (dan keturunannya).</li>
+                                <li>Saudara Seayah Laki-laki (dan keturunannya).</li>
+                                <li>Paman Kandung (dan keturunannya).</li>
+                                <li>Paman Seayah (dan keturunannya).</li>
                             </ol>
-                            <p><strong>Ahli Waris yang Tidak Terkena Hajb Hirman:</strong> Bapak, Ibu, Anak laki-laki, Anak perempuan, Suami atau Isteri.</p>
-                        </div>
-                    `
-                },
-                {
-                    title: 'Kasus Khusus Ashabah',
-                    content: `
-                        <p><strong>Kasus-Kasus Khusus dalam Ashabah:</strong></p>
-                        <div class="case-box">
-                            <h4>1. 'Ashabah Ma'al Ghairi</h4>
-                            <p>Saudara perempuan kandung atau saudara perempuan sebapak menjadi 'ashabah bersama dengan anak perempuan atau cucu perempuan dari anak laki-laki.</p>
-                            <p><strong>Contoh:</strong> Jika seorang meninggal dunia dan meninggalkan anak perempuan tunggal (1/2) dan saudara perempuan kandung, maka saudara perempuan kandung tersebut akan menjadi 'ashabah ma'al ghairi dan mendapatkan sisa warisan (1/2).</p>
-                        </div>
-                        <div class="case-box">
-                            <h4>2. 'Ashabah Sababiyah</h4>
-                            <p>Orang yang mendapatkan sisa warisan karena memerdekakan hamba sahaya yang meninggal tanpa ahli waris 'ashabah nasabiyah.</p>
-                            <p><strong>Dasar Hukum:</strong> "Sesungguhnya wala' itu bagi yang memerdekakan (hamba sahaya)." (HR. Bukhari dan Muslim)</p>
-                            <p><strong>Catatan:</strong> Pewarisan karena wala' hanya satu arah saja; wali (orang yang memerdekakan) mewarisi dari hamba sahaya yang dimerdekakan, tetapi hamba sahaya yang dimerdekakan tidak mewarisi harta walinya.</p>
-                        </div>
-                        <div class="case-box">
-                            <h4>3. Perbedaan 'Ashabah Bil Ghairi dan Ma'al Ghairi</h4>
-                            <p><strong>'Ashabah Bil Ghairi:</strong> Ahli waris wanita yang asalnya termasuk ash-habul furudh akan menjadi 'ashabah karena adanya saudara lakinya.</p>
-                            <p><strong>'Ashabah Ma'al Ghairi:</strong> Pada asalnya tidak ada yang menjadi 'ashabah dengan sendirinya, namun kebersamaan mereka dengan sesamanya menyebabkan mereka menjadi 'ashabah.</p>
-                        </div>
-                    `
-                }
-             ],
-             quiz: { questions: [
+                            <p>Prinsip utama: <strong>yang lebih dekat nasabnya menghalangi yang lebih jauh</strong>.</p>
+                            <div class="example-box">
+                                <p><strong>Contoh Penerapan Hirarki:</strong></p>
+                                <p>Jika seorang meninggal dunia dan meninggalkan anak laki-laki dan ayah, maka seluruh sisa warisan setelah pembagian Ashabul Furudh akan diberikan kepada anak laki-laki, sedangkan ayah tidak mendapatkan bagian sisa (meskipun ayah termasuk 'ashabah).</p>
+                                <p>Hal ini karena anak laki-laki memiliki kedudukan yang lebih tinggi dalam hirarki daripada ayah.</p>
+                            </div>
+                            <div class="note-box">
+                                <p><strong>Kaidah Penting dalam Hirarki Asabah:</strong></p>
+                                <ol>
+                                    <li>Ahli waris yang berhubungan dengan jenazah melalui perantara seseorang, maka ia tidak mendapatkan warisan selama perantara tersebut masih ada.</li>
+                                    <li>Ahli waris yang lebih dekat didahulukan daripada ahli waris yang lebih jauh.</li>
+                                </ol>
+                                <p><strong>Ahli Waris yang Tidak Terkena Hajb Hirman:</strong> Bapak, Ibu, Anak laki-laki, Anak perempuan, Suami atau Isteri.</p>
+                            </div>
+                        `
+                    },
+                    {
+                        title: 'Kasus Khusus Ashabah',
+                        content: `
+                            <p><strong>Kasus-Kasus Khusus dalam Ashabah:</strong></p>
+                            <div class="case-box">
+                                <h4>1. 'Ashabah Ma'al Ghairi</h4>
+                                <p>Saudara perempuan kandung atau saudara perempuan sebapak menjadi 'ashabah bersama dengan anak perempuan atau cucu perempuan dari anak laki-laki.</p>
+                                <p><strong>Contoh:</strong> Jika seorang meninggal dunia dan meninggalkan anak perempuan tunggal (1/2) dan saudara perempuan kandung, maka saudara perempuan kandung tersebut akan menjadi 'ashabah ma'al ghairi dan mendapatkan sisa warisan (1/2).</p>
+                            </div>
+                            <div class="case-box">
+                                <h4>2. 'Ashabah Sababiyah</h4>
+                                <p>Orang yang mendapatkan sisa warisan karena memerdekakan hamba sahaya yang meninggal tanpa ahli waris 'ashabah nasabiyah.</p>
+                                <p><strong>Dasar Hukum:</strong> "Sesungguhnya wala' itu bagi yang memerdekakan (hamba sahaya)." (HR. Bukhari dan Muslim)</p>
+                                <p><strong>Catatan:</strong> Pewarisan karena wala' hanya satu arah saja; wali (orang yang memerdekakan) mewarisi dari hamba sahaya yang dimerdekakan, tetapi hamba sahaya yang dimerdekakan tidak mewarisi harta walinya.</p>
+                            </div>
+                            <div class="case-box">
+                                <h4>3. Perbedaan 'Ashabah Bil Ghairi dan Ma'al Ghairi</h4>
+                                <p><strong>'Ashabah Bil Ghairi:</strong> Ahli waris wanita yang asalnya termasuk ash-habul furudh akan menjadi 'ashabah karena adanya saudara lakinya.</p>
+                                <p><strong>'Ashabah Ma'al Ghairi:</strong> Pada asalnya tidak ada yang menjadi 'ashabah dengan sendirinya, namun kebersamaan mereka dengan sesamanya menyebabkan mereka menjadi 'ashabah.</p>
+                            </div>
+                        `
+                    }
+                 ],
+                 quiz: { questions: [
                         { type: 'multiple-choice', question: "Siapa yang termasuk Asabah Binasab?", options: ["Anak laki-laki", "Ibu", "Istri", "Anak perempuan tunggal"], correctAnswer: 0 },
                         { type: 'essay', question: "Jelaskan mengapa anak laki-laki menjadi 'asabah yang paling utama dan dapat menghalangi ayahnya sendiri untuk menjadi 'asabah, meskipun ayah adalah orang tuanya!", referenceAnswer: "Jawaban acuan: Karena dalam hukum waris, prioritas utama adalah melanjutkan garis keturunan. Anak laki-laki adalah perpanjangan tangan langsung dari si mayit. Jika anak laki-laki ada, maka garis keturunan sudah jelas dan diwakili olehnya. Ayah, meskipun orang tua, berperan sebagai penopang generasi di atasnya. Jika anak laki-laki tidak ada, barulah ayah 'turun tangan' menjadi pewaris utama ('asabah) untuk memastikan garis keturunan tidak putus." },
                         // Soal HOTS Pilihan Ganda Kompleks
