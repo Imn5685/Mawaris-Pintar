@@ -505,7 +505,7 @@ const courseData = [
                                 <p><strong>Catatan Penting:</strong> Dalam fiqih waris, Asabah memiliki peran krusial untuk memastikan tidak ada harta warisan yang tidak terbagikan. Jika setelah pembagian kepada Ashabul Furudh masih tersisa harta, maka Asabah akan menerima sisa tersebut sesuai dengan hirarki kekerabatan.</p>
                             </div>
                         `
-                    }
+                    },
                     {
                         title: 'Jenis-jenis Asabah',
                         content: `
@@ -547,7 +547,7 @@ const courseData = [
                                 <p><strong>Dasar Hukum:</strong> "Allah mensyari'atkan bagi kalian tentang (pembagian warisan) untuk anak-anak kalian, bagian seorang anak laki-laki sama dengan bagian dua orang anak perempuan." (QS. An-Nisa': 11)</p>
                             </div>
                         `
-                    }
+                    },
                     {
                     title: 'Hirarki Ashabah',
                     content: `
@@ -575,7 +575,7 @@ const courseData = [
                             <p><strong>Ahli Waris yang Tidak Terkena Hajb Hirman:</strong> Bapak, Ibu, Anak laki-laki, Anak perempuan, Suami atau Isteri.</p>
                         </div>
                     `
-                }
+                },
                 {
                     title: 'Kasus Khusus Ashabah',
                     content: `
