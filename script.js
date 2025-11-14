@@ -1,5 +1,5 @@
 // --- DATA MATERI PEMBELAJARAN LENGKAP ---
-export default const courseData = [
+const courseData = [
     {
         id: 'bab0', title: 'Bab 0: Mengapa Kita WAJIB Belajar Faraidh',
         subChapters: [
@@ -576,9 +576,6 @@ export default const courseData = [
         ]
     }
 ];
-
-// --- IMPORT DATA MATERI ---
-import courseData from './data.js';
 
 // --- APLIKASI LOGIKA ---
 let currentChapterId = null, currentSubChapterId = null, currentSlideIndex = 0;
