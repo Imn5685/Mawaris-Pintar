@@ -494,47 +494,163 @@ const courseData = [
                         title: 'Definisi Asabah',
                         content: `
                             <p><strong>Definisi Asabah:</strong> Ahli waris yang tidak memiliki bagian tertentu (fardh). Mereka hanya mendapat bagian jika ada harta yang tersisa setelah semua ahli waris Ashabul Furudh menerima bagian mereka. Jika tidak ada sisa, mereka tidak mendapat apa-apa.</p>
+                            <p>Berdasarkan dokumen Fiqih Pembagian Warisan, Asabah adalah orang-orang yang mendapatkan sisa warisan setelah ash-habul furudh mengambil bagian mereka.</p>
                             <div class="hadith-text">
                                 <p class="verse-arabic">أَلْحِقُوا الْفَرَائِضَ بِأَهْلِهَا فَمَا بَقِيَ فَهُوَ لِأَوْلَى رَجُلٍ ذَكَرٍ</p>
                                 <p class="verse-translation"><strong>Terjemahan:</strong> "Berikanlah bagian yang telah ditetapkan (fardh) kepada ahlinya, maka apa yang tersisa adalah untuk laki-laki yang paling dekat (kerabat)."</p>
                                 <p class="hadith-source">(HR. Abu Dawud, Tirmidzi, Ibnu Majah)</p>
                                 <div class="source-explanation"><strong>Penjelasan:</strong> Hadis ini menjadi dasar konsep 'asabah. Setelah semua ahli waris dengan bagian tetap (Ashabul Furudh) menerima hak mereka, sisa hartanya (jika ada) diberikan kepada kerabat laki-laki yang paling dekat dengan si mayit. Ini menciptakan hirarki yang jelas dalam pewarisan sisa harta.</div>
                             </div>
+                            <div class="note-box">
+                                <p><strong>Catatan Penting:</strong> Dalam fiqih waris, Asabah memiliki peran krusial untuk memastikan tidak ada harta warisan yang tidak terbagikan. Jika setelah pembagian kepada Ashabul Furudh masih tersisa harta, maka Asabah akan menerima sisa tersebut sesuai dengan hirarki kekerabatan.</p>
+                            </div>
                         `
-                    },
+                    }
                     {
                         title: 'Jenis-jenis Asabah',
                         content: `
                             <p><strong>Jenis-jenis Asabah:</strong></p>
                             <ul>
-                                <li><strong>Asabah Binasab (Karena Keturunan):</strong> Ini adalah golongan utama. Contoh: Anak laki-laki, ayah, kakek, saudara laki-laki kandung, paman kandung, dll.</li>
-                                <li><strong>Asabah Sabab (Karena Sebab):</strong> Hanya satu golongan, yaitu <strong>budak yang telah membebaskan tuannya</strong> (mu'allat).</li>
+                                <li><strong>'Ashabah Nasabiyah (Karena Keturunan):</strong> Ahli waris yang berhak mendapat sisa warisan karena memiliki hubungan keturunan dengan si mayit.</li>
+                                <ul>
+                                    <li><strong>'Ashabah Bin Nafsi:</strong> Laki-laki yang garis keturunannya sampai kepada jenazah dan tidak diselingi oleh wanita.</li>
+                                    <li><strong>'Ashabah Bil Ghairi:</strong> Empat ahli waris wanita yang menjadi 'ashabah karena keberadaan ahli waris laki-laki.</li>
+                                    <li><strong>'Ashabah Ma'al Ghairi:</strong> Perempuan yang menjadi 'ashabah bersama perempuan yang lainnya.</li>
+                                </ul>
+                                <li><strong>'Ashabah Sababiyah (Karena Sebab):</strong> Hanya satu golongan, yaitu <strong>budak yang telah membebaskan tuannya</strong> (mu'allat).</li>
                             </ul>
-                        `
-                    },
-                    {
-                        title: 'Hirarki Asabah',
-                        content: `
-                            <p><strong>Hirarki Asabah:</strong></p>
-                            <ol>
-                                <li>Anak Laki-laki (dan keturunannya).</li>
-                                <li>Ayah (dan kakek).</li>
-                                <li>Saudara Laki-laki Kandung (dan keturunannya).</li>
-                                <li>Saudara Seayah Laki-laki (dan keturunannya).</li>
-                                <li>Paman Kandung (dan keturunannya).</li>
-                                <li>Paman Seayah (dan keturunannya).</li>
-                            </ol>
-                            <p>Prinsip utama: <strong>yang lebih dekat nasabnya menghalangi yang lebih jauh</strong>.</p>
+                            <div class="info-box">
+                                <p><strong>Daftar 'Ashabah Bin Nafsi:</strong></p>
+                                <ol>
+                                    <li>Anak laki-laki</li>
+                                    <li>Cucu laki-laki dari anak laki-laki</li>
+                                    <li>Bapak</li>
+                                    <li>Kakek dari pihak bapak</li>
+                                    <li>Saudara laki-laki kandung</li>
+                                    <li>Saudara laki-laki sebapak</li>
+                                    <li>Anak dari saudara laki-laki kandung</li>
+                                    <li>Anak dari saudara laki-laki sebapak</li>
+                                    <li>Paman yang sekandung dengan bapak</li>
+                                    <li>Paman yang sebapak dengan bapak</li>
+                                    <li>Anak paman yang sekandung dengan bapak</li>
+                                    <li>Anak paman yang sebapak dengan bapak</li>
+                                </ol>
+                            </div>
+                            <div class="info-box">
+                                <p><strong>Daftar 'Ashabah Bil Ghairi:</strong></p>
+                                <ol>
+                                    <li>Anak perempuan (menjadi ashabah karena keberadaan anak laki-laki)</li>
+                                    <li>Cucu perempuan dari anak laki-laki (menjadi ashabah karena keberadaan cucu laki-laki)</li>
+                                    <li>Saudara perempuan kandung (menjadi ashabah karena keberadaan saudara laki-laki kandung)</li>
+                                    <li>Saudara perempuan sebapak (menjadi ashabah karena keberadaan saudara laki-laki sebapak)</li>
+                                </ol>
+                                <p><strong>Dasar Hukum:</strong> "Allah mensyari'atkan bagi kalian tentang (pembagian warisan) untuk anak-anak kalian, bagian seorang anak laki-laki sama dengan bagian dua orang anak perempuan." (QS. An-Nisa': 11)</p>
+                            </div>
                         `
                     }
+                    {
+                    title: 'Hirarki Asabah',
+                    content: `
+                        <p><strong>Hirarki Asabah:</strong></p>
+                        <ol>
+                            <li>Anak Laki-laki (dan keturunannya).</li>
+                            <li>Ayah (dan kakek).</li>
+                            <li>Saudara Laki-laki Kandung (dan keturunannya).</li>
+                            <li>Saudara Seayah Laki-laki (dan keturunannya).</li>
+                            <li>Paman Kandung (dan keturunannya).</li>
+                            <li>Paman Seayah (dan keturunannya).</li>
+                        </ol>
+                        <p>Prinsip utama: <strong>yang lebih dekat nasabnya menghalangi yang lebih jauh</strong>.</p>
+                        <div class="example-box">
+                            <p><strong>Contoh Penerapan Hirarki:</strong></p>
+                            <p>Jika seorang meninggal dunia dan meninggalkan anak laki-laki dan ayah, maka seluruh sisa warisan setelah pembagian Ashabul Furudh akan diberikan kepada anak laki-laki, sedangkan ayah tidak mendapatkan bagian sisa (meskipun ayah termasuk 'ashabah).</p>
+                            <p>Hal ini karena anak laki-laki memiliki kedudukan yang lebih tinggi dalam hirarki daripada ayah.</p>
+                        </div>
+                        <div class="note-box">
+                            <p><strong>Kaidah Penting dalam Hirarki Asabah:</strong></p>
+                            <ol>
+                                <li>Ahli waris yang berhubungan dengan jenazah melalui perantara seseorang, maka ia tidak mendapatkan warisan selama perantara tersebut masih ada.</li>
+                                <li>Ahli waris yang lebih dekat didahulukan daripada ahli waris yang lebih jauh.</li>
+                            </ol>
+                            <p><strong>Ahli Waris yang Tidak Terkena Hajb Hirman:</strong> Bapak, Ibu, Anak laki-laki, Anak perempuan, Suami atau Isteri.</p>
+                        </div>
+                    `
+                }
+                {
+                    title: 'Kasus Khusus Asabah',
+                    content: `
+                        <p><strong>Kasus-Kasus Khusus dalam Asabah:</strong></p>
+                        <div class="case-box">
+                            <h4>1. 'Ashabah Ma'al Ghairi</h4>
+                            <p>Saudara perempuan kandung atau saudara perempuan sebapak menjadi 'ashabah bersama dengan anak perempuan atau cucu perempuan dari anak laki-laki.</p>
+                            <p><strong>Contoh:</strong> Jika seorang meninggal dunia dan meninggalkan anak perempuan tunggal (1/2) dan saudara perempuan kandung, maka saudara perempuan kandung tersebut akan menjadi 'ashabah ma'al ghairi dan mendapatkan sisa warisan (1/2).</p>
+                        </div>
+                        <div class="case-box">
+                            <h4>2. 'Ashabah Sababiyah</h4>
+                            <p>Orang yang mendapatkan sisa warisan karena memerdekakan hamba sahaya yang meninggal tanpa ahli waris 'ashabah nasabiyah.</p>
+                            <p><strong>Dasar Hukum:</strong> "Sesungguhnya wala' itu bagi yang memerdekakan (hamba sahaya)." (HR. Bukhari dan Muslim)</p>
+                            <p><strong>Catatan:</strong> Pewarisan karena wala' hanya satu arah saja; wali (orang yang memerdekakan) mewarisi dari hamba sahaya yang dimerdekakan, tetapi hamba sahaya yang dimerdekakan tidak mewarisi harta walinya.</p>
+                        </div>
+                        <div class="case-box">
+                            <h4>3. Perbedaan 'Ashabah Bil Ghairi dan Ma'al Ghairi</h4>
+                            <p><strong>'Ashabah Bil Ghairi:</strong> Ahli waris wanita yang asalnya termasuk ash-habul furudh akan menjadi 'ashabah karena adanya saudara lakinya.</p>
+                            <p><strong>'Ashabah Ma'al Ghairi:</strong> Pada asalnya tidak ada yang menjadi 'ashabah dengan sendirinya, namun kebersamaan mereka dengan sesamanya menyebabkan mereka menjadi 'ashabah.</p>
+                        </div>
+                    `
+                }
                 ],
-                quiz: { questions: [
-                    { type: 'multiple-choice', question: "Siapa yang termasuk Asabah Binasab?", options: ["Anak laki-laki", "Ibu", "Istri", "Anak perempuan tunggal"], correctAnswer: 0 },
-                    { type: 'essay', question: "Jelaskan mengapa anak laki-laki menjadi 'asabah yang paling utama dan dapat menghalangi ayahnya sendiri untuk menjadi 'asabah, meskipun ayah adalah orang tuanya!", referenceAnswer: "Jawaban acuan: Karena dalam hukum waris, prioritas utama adalah melanjutkan garis keturunan. Anak laki-laki adalah perpanjangan tangan langsung dari si mayit. Jika anak laki-laki ada, maka garis keturunan sudah jelas dan diwakili olehnya. Ayah, meskipun orang tua, berperan sebagai penopang generasi di atasnya. Jika anak laki-laki tidak ada, barulah ayah 'turun tangan' menjadi pewaris utama ('asabah) untuk memastikan garis keturunan tidak putus." }
-                ]}
-            }
-        ]
-    },
+                quiz: { 
+                    questions: [
+                        { 
+                            type: 'multiple-choice', 
+                            question: "Siapa yang termasuk Asabah Binasab?", 
+                            options: ["Anak laki-laki", "Ibu", "Istri", "Anak perempuan tunggal"], 
+                            correctAnswer: 0 
+                        },
+                        { 
+                            type: 'essay', 
+                            question: "Jelaskan mengapa anak laki-laki menjadi 'asabah yang paling utama dan dapat menghalangi ayahnya sendiri untuk menjadi 'asabah, meskipun ayah adalah orang tuanya!", 
+                            referenceAnswer: "Jawaban acuan: Karena dalam hukum waris, prioritas utama adalah melanjutkan garis keturunan. Anak laki-laki adalah perpanjangan tangan langsung dari si mayit. Jika anak laki-laki ada, maka garis keturunan sudah jelas dan diwakili olehnya. Ayah, meskipun orang tua, berperan sebagai penopang generasi di atasnya. Jika anak laki-laki tidak ada, barulah ayah 'turun tangan' menjadi pewaris utama ('asabah) untuk memastikan garis keturunan tidak putus." 
+                        },
+                        // Soal HOTS Pilihan Ganda Kompleks
+                        {
+                            type: 'multiple-choice-complex',
+                            question: "Seorang laki-laki meninggal dunia dengan meninggalkan harta warisan sebesar Rp 1.000.000. Ahli waris yang tersisa adalah: seorang istri, seorang anak perempuan, seorang ayah, dan seorang saudara laki-laki kandung. Bagaimana pembagian warisan yang tepat sesuai hukum Islam?",
+                            options: [
+                                "Istri 1/8 (Rp 125.000), Anak perempuan 1/2 (Rp 500.000), Ayah 1/6 (Rp 166.667), Saudara laki-laki kandung sebagai 'ashabah mendapat sisa (Rp 208.333)",
+                                "Istri 1/4 (Rp 250.000), Anak perempuan 1/2 (Rp 500.000), Ayah 1/6 (Rp 166.667), Saudara laki-laki kandung sebagai 'ashabah mendapat sisa (Rp 83.333)",
+                                "Istri 1/8 (Rp 125.000), Anak perempuan 1/2 (Rp 500.000), Ayah sebagai 'ashabah mendapat sisa (Rp 375.000), Saudara laki-laki kandung tidak mendapat bagian",
+                                "Istri 1/8 (Rp 125.000), Anak perempuan 1/2 (Rp 500.000), Ayah 1/6 (Rp 166.667), Saudara laki-laki kandung tidak mendapat bagian, sisa harta (Rp 208.333) dikembalikan (radd) kepada ahli waris selain istri"
+                            ],
+                            correctAnswer: 3,
+                            explanation: "Dalam kasus ini, istri mendapat 1/8, anak perempuan mendapat 1/2, dan ayah mendapat 1/6 sebagai ash-habul furudh. Saudara laki-laki kandung tidak mendapat bagian karena dihalangi oleh ayah yang lebih dekat hubungannya dengan si mayit. Sisa harta setelah pembagian kepada ash-habul furudh (1/8 + 1/2 + 1/6 = 13/24) dikembalikan (radd) kepada ahli waris selain istri, yaitu anak perempuan dan ayah sesuai dengan proporsi bagian mereka."
+                        },
+                        {
+                            type: 'multiple-choice-complex',
+                            question: "Seorang perempuan meninggal dunia dengan meninggalkan harta warisan. Ahli waris yang tersisa adalah: seorang suami, dua orang anak perempuan, seorang ibu, dan seorang saudara perempuan kandung. Manakah pernyataan yang paling tepat mengenai pembagian warisan dalam kasus ini?",
+                            options: [
+                                "Suami mendapat 1/4, dua anak perempuan masing-masing mendapat 1/3, ibu mendapat 1/6, dan saudara perempuan kandung tidak mendapat bagian",
+                                "Suami mendapat 1/4, dua anak perempuan bersama mendapat 2/3, ibu mendapat 1/6, dan saudara perempuan kandung tidak mendapat bagian",
+                                "Suami mendapat 1/4, dua anak perempuan bersama mendapat 2/3, ibu mendapat 1/6, dan sisa harta diberikan kepada saudara perempuan kandung sebagai 'ashabah ma'al ghairi",
+                                "Suami mendapat 1/4, dua anak perempuan bersama mendapat 2/3, ibu mendapat 1/6, dan terjadi 'aul karena total bagian melebihi 1"
+                            ],
+                            correctAnswer: 2,
+                            explanation: "Dalam kasus ini, suami mendapat 1/4, dua anak perempuan bersama mendapat 2/3, dan ibu mendapat 1/6 sebagai ash-habul furudh. Saudara perempuan kandung menjadi 'ashabah ma'al ghairi karena bersama dengan anak perempuan dan mendapatkan sisa warisan. Total bagian ash-habul furudh adalah 1/4 + 2/3 + 1/6 = 13/12, yang melebihi 1, sehingga terjadi 'aul (penyesuaian proporsi) dan saudara perempuan kandung tetap mendapat bagian sebagai 'ashabah ma'al ghairi."
+                        },
+                        {
+                            type: 'multiple-choice-complex',
+                            question: "Seorang laki-laki meninggal dunia dengan meninggalkan harta warisan. Ahli waris yang tersisa adalah: seorang istri, seorang cucu perempuan dari anak laki-laki, seorang ayah, dan seorang saudara perempuan seayah. Manakah pernyataan yang paling tepat mengenai pembagian warisan dalam kasus ini?",
+                            options: [
+                                "Istri mendapat 1/8, cucu perempuan mendapat 1/2, ayah mendapat 1/6, dan saudara perempuan seayah mendapat sisa sebagai 'ashabah",
+                                "Istri mendapat 1/8, cucu perempuan mendapat 1/6 (menggenapkan 2/3 dengan saudara perempuan seayah), ayah mendapat 1/6, dan saudara perempuan seayah mendapat 1/2",
+                                "Istri mendapat 1/8, cucu perempuan mendapat 1/2, ayah mendapat 1/6, dan saudara perempuan seayah tidak mendapat bagian karena dihalangi oleh ayah",
+                                "Istri mendapat 1/8, cucu perempuan mendapat 1/2, ayah sebagai 'ashabah mendapat sisa, dan saudara perempuan seayah tidak mendapat bagian"
+                            ],
+                            correctAnswer: 2,
+                            explanation: "Dalam kasus ini, istri mendapat 1/8, cucu perempuan mendapat 1/2, dan ayah mendapat 1/6 sebagai ash-habul furudh. Saudara perempuan seayah tidak mendapat bagian karena dihalangi oleh ayah yang lebih dekat hubungannya dengan si mayit. Sisa harta setelah pembagian kepada ash-habul furudh (1/8 + 1/2 + 1/6 = 11/24) diberikan kepada ayah sebagai 'ashabah, bukan kepada saudara perempuan seayah."
+                        }
+                    ]
+                },
     {
         id: 'bab6', title: 'Bab 6: Praktik Pembagian & Kasus Khusus',
         subChapters: [
