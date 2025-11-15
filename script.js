@@ -1117,9 +1117,10 @@ function generateResultsHTML(questions, userAnswers, score, totalPossibleScore) 
                     <div class="options">
                         ${question.options.map((option, i) => 
                             `<div class="option ${i === question.correctAnswer ? 'correct-answer' : ''} ${i === userAnswer ? 'user-answer' : ''}">
-                                ${option}
+                                <span class="option-text">${option}</span>
                                 ${i === question.correctAnswer ? '<span class="badge correct">Jawaban Benar</span>' : ''}
                                 ${i === userAnswer && i !== question.correctAnswer ? '<span class="badge incorrect">Jawaban Anda</span>' : ''}
+                                ${i === userAnswer ? '<span class="selection-indicator"><i class="fas fa-check-circle"></i></span>' : ''}
                             </div>`
                         ).join('')}
                     </div>
@@ -1189,9 +1190,10 @@ function generateResultsHTML(questions, userAnswers, score, totalPossibleScore) 
                             <div class="options">
                                 ${subQ.options.map((option, i) => 
                                     `<div class="option ${i === subQ.correctAnswer ? 'correct-answer' : ''} ${i === subUserAnswer ? 'user-answer' : ''}">
-                                        ${option}
+                                        <span class="option-text">${option}</span>
                                         ${i === subQ.correctAnswer ? '<span class="badge correct">Jawaban Benar</span>' : ''}
                                         ${i === subUserAnswer && i !== subQ.correctAnswer ? '<span class="badge incorrect">Jawaban Anda</span>' : ''}
+                                        ${i === subUserAnswer ? '<span class="selection-indicator"><i class="fas fa-check-circle"></i></span>' : ''}
                                     </div>`
                                 ).join('')}
                             </div>
@@ -1317,6 +1319,7 @@ function enableNextButton() {
     document.getElementById('quiz-next-btn').disabled = false;
 }
 
+// PERBAIKAN: Fungsi renderMultipleChoice yang diperbaiki dengan indikator visual
 function renderMultipleChoice(question) {
     document.getElementById('quiz-options').style.display = 'block';
     document.getElementById('question-text').textContent = question.question;
@@ -1332,7 +1335,23 @@ function renderMultipleChoice(question) {
         if (userSelectedIndex !== null && userSelectedIndex === index) {
             li.classList.add('selected');
         }
-        li.textContent = option;
+        
+        // Create option content with text and indicator
+        const optionContent = document.createElement('div');
+        optionContent.className = 'option-content';
+        
+        const optionText = document.createElement('span');
+        optionText.className = 'option-text';
+        optionText.textContent = option;
+        
+        const indicator = document.createElement('span');
+        indicator.className = 'selection-indicator';
+        indicator.innerHTML = '<i class="fas fa-check-circle"></i>';
+        
+        optionContent.appendChild(optionText);
+        optionContent.appendChild(indicator);
+        li.appendChild(optionContent);
+        
         li.onclick = () => {
             // Remove previous selection
             document.querySelectorAll('.quiz-option').forEach(opt => {
@@ -1439,6 +1458,7 @@ function renderMatching(question) {
     }
 }
 
+// PERBAIKAN: Fungsi renderCaseStudy yang diperbaiki dengan indikator visual
 function renderCaseStudy(question) {
     document.getElementById('quiz-case-study-container').style.display = 'block';
     const container = document.getElementById('quiz-case-study-container');
@@ -1457,7 +1477,14 @@ function renderCaseStudy(question) {
             html += '<ul class="quiz-options">';
             subQ.options.forEach((opt, i) => {
                 const isSelected = userAnswers[index] !== undefined && userAnswers[index] === i;
-                html += `<li class="quiz-option ${isSelected ? 'selected' : ''}" data-sub-index="${index}" data-option-index="${i}">${opt}</li>`;
+                html += `
+                    <li class="quiz-option ${isSelected ? 'selected' : ''}" data-sub-index="${index}" data-option-index="${i}">
+                        <div class="option-content">
+                            <span class="option-text">${opt}</span>
+                            <span class="selection-indicator"><i class="fas fa-check-circle"></i></span>
+                        </div>
+                    </li>
+                `;
             });
             html += '</ul>';
         } else if (subQ.type === 'essay') {
