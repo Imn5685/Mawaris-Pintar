@@ -150,8 +150,7 @@ const courseData = [
                         { type: 'multiple-choice-complex', question: "Dalam kasus sengketa waris di Indonesia, penyelesaiannya dapat dilakukan melalui...", options: ["Mahkamah Agama saja", "Mahkamah Syariah dan Pengadilan Negeri", "Kekeluargaan saja", "Mediasi oleh tokoh masyarakat"], correctAnswer: 1, explanation: "Menurut UU No. 3 Tahun 2006 tentang Mahkamah Agama, sengketa waris di antara pemeluk agama Islam diselesaikan melalui Mahkamah Agama. Namun, jika para pihak berbeda agama, penyelesaiannya dilakukan melalui Pengadilan Negeri sesuai dengan hukum perdata sipil." }
                     ]}
                 }
-            }
-        ]
+            ]
     },
     {
         id: 'bab1', title: 'Bab 1: Konsep Dasar Ilmu Mawaris',
