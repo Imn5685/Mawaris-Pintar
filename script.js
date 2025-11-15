@@ -398,6 +398,79 @@ const courseData = [
                         `
                     },
                     {
+                        title: 'Sejarah Panjang Ilmu Waris: Dari Zalim Menjadi Adil',
+                        content: `
+                            <p>Ilmu waris Islam tidak lahir dalam kekosongan. Ia adalah sebuah revolusi sosial dan hukum yang menghapus praktik waris yang penuh ketidakadilan di masa Jahiliyah dan menggantinya dengan sistem yang adil, transparan, dan berasal dari wahyu ilahi. Memahami sejarahnya adalah kunci untuk menghargai kemuliaan ilmu ini.</p>
+                    
+                            <div class="example-box">
+                                <h4>📜 Praktik Waris di Masa Jahiliyah (Sebelum Islam)</h4>
+                                <p>Sebelum Islam datang, praktik pembagian waris di bangsa Arab sangat tidak teratur dan cenderung zalim:</p>
+                                <ul>
+                                    <li><strong>Hanya Laki-Laki Dewasa yang Kuat:</strong> Hanya anak laki-laki yang sudah dewasa dan kuat yang berhak mewarisi. Anak-anak dan perempuan diabaikan.</li>
+                                    <li><strong>Yang Terkuat Mengambil Semua:</strong> Kerabat laki-laki terdekat yang paling kuat (bukan necessarily yang paling dekat nasabnya) akan menguasai seluruh harta, mengabaikan hak lainnya.</li>
+                                    <li><strong>Perempuan Dihindari dari Warisan:</strong> Perempuan dianggap tidak memiliki hak atas warisan, bahkan kadang dianggap bagian dari harta yang bisa diwariskan.</li>
+                                    <li><strong>Adat yang Beragam dan Tidak Adil:</strong> Setiap suku memiliki adatnya sendiri, yang seringkali merugikan pihak-pihak lemah.</li>
+                                </ul>
+                            </div>
+                    
+                            <div class="source-detail">
+                                <h4>🌟 Titik Balik Sejarah: Turunnya Wahyu Al-Qur'an</h4>
+                                <p>Islam datang dan membawa perubahan fundamental. Ayat-ayat Al-Qur'an, khususnya dalam Surah An-Nisa', menjadi konstitusi pertama di dunia yang mengatur hak waris secara adil bagi semua pihak.</p>
+                                <div class="source-context"><strong>Asbabun Nuzul Kisah Sa'ad bin Rabi' ra.:</strong> Sa'ad gugur sebagai syuhada di Perang Uhud. Ia meninggalkan dua orang putri. Namun, pamannya (saudara laki-laki ayahnya) justru mengambil seluruh harta Sa'ad dan tidak memberikan apa-apa kepada kedua putrinya. Janda Sa'ad datang kepada Rasulullah SAW mengeluhkan nasib anak-anaknya. Maka, turunlah ayat ke-11 Surah An-Nisa' yang menetapkan hak anak perempuan.</div>
+                                <div class="source-explanation"><strong>Revolusi Hak:</strong> Ayat-ayat ini secara revolusioner memberikan hak kepada:
+                                    <ul>
+                                        <li><strong>Anak Perempuan:</strong> Mendapat bagian yang pasti (1/2 jika tunggal, 2/3 jika dua atau lebih).</li>
+                                        <li><strong>Ibu dan Ayah:</strong> Mendapat bagian (1/6) meskipun ada anak.</li>
+                                        <li><strong>Istri:</strong> Mendapat bagian (1/4 atau 1/8) yang sebelumnya tidak diakui.</li>
+                                    </ul>
+                                    Ini adalah perubahan drastis dari sistem yang tidak adil menjadi sistem yang paling adil di masanya.
+                                </div>
+                            </div>
+                    
+                            <div class="hadith-text">
+                                <h4>📖 Era Penafsiran & Praktik Nabi SAW</h4>
+                                <p>Rasulullah SAW tidak hanya menyampaikan wahyu, tetapi juga menjadi guru pertama yang mempraktikkan dan menjelaskan detail-detailnya.</p>
+                                <p class="verse-arabic">أَلْحِقُوا الْفَرَائِضَ بِأَهْلِهَا فَمَا بَقِيَ فَهُوَ لِأَوْلَى رَجُلٍ ذَكَرٍ</p>
+                                <p class="verse-translation"><strong>Terjemahan:</strong> "Berikanlah bagian yang telah ditetapkan (fardh) kepada ahlinya, maka apa yang tersisa adalah untuk laki-laki yang paling dekat (kerabat)."</p>
+                                <p class="hadith-source">(HR. Abu Dawud, Tirmidzi)</p>
+                                <p><strong>Peran Para Sahabat:</strong> Para sahabat seperti Umar, Ali, Zaid bin Tsabit, dan Abdullah bin Mas'ud menjadi ahli ilmu waris generasi pertama. Rasulullah SAW bahkan mengutus para sahabat seperti Mu'adz bin Jabal dan Abu Musa al-As'ari ke Yaman untuk mengajarkan ilmu Al-Qur'an dan waris kepada masyarakat sana.</p>
+                            </div>
+                    
+                            <div class="info-box">
+                                <h4>👳‍♂️ Era Khulafa' ar-Rasyidin: Pelestarian dan Penekanan</h4>
+                                <p>Setelah wafatnya Nabi SAW, para khulafa' melanjutkan dan menekankan pentingnya ilmu ini.</p>
+                                <p><strong>Sayyidina Umar bin Khattab ra.</strong> sangat menekankan pentingnya ilmu waris. Beliau bahkan mengkhawatirkan ilmu ini akan hilang. Beliau bersabda:</p>
+                                <blockquote style="border-left: 4px solid #ccc; padding-left: 20px; font-style: italic;">
+                                    "Pelajarilah ilmu faraidh, karena ia termasuk dari agama kalian, dan ia adalah bagian dari Al-Qur'an. Sesungguhnya ia adalah ilmu pertama yang akan diangkat dari umatku."
+                                </blockquote>
+                                <p><strong>Sayyidina Ali bin Abi Thalib ra.</strong> juga dikenal sebagai ahli fiqih yang sangat mendalam dalam ilmu waris, dan banyak riwayat darinya menjadi rujukan para ulama.</p>
+                            </div>
+                    
+                            <div class="info-box">
+                                <h4>📚 Era Kodifikasi Ilmu (Abad ke-2 Hijriah): Lahirnya Mazhab</h4>
+                                <p>Di abad kedua Hijriah, para ulama besar mulai menuliskan dan mengkodifikasi ilmu waris secara sistematis dalam kitab-kitab fiqih mereka. Inilah era dimana ilmu waris menjadi disiplin ilmu yang formal.</p>
+                                <ul>
+                                    <li><strong>Imam Abu Hanifah (w. 150 H):</strong> Merintis metodologi logis dan rasional dalam menyelesaikan kasus-kasus waris.</li>
+                                    <li><strong>Imam Malik (w. 179 H):</strong> Dalam kitabnya <em>Al-Muwatta</em>, ia menempatkan bab waris setelah shalat, menunjukkan prioritasnya.</li>
+                                    <li><strong>Imam Al-Shafi'i (w. 204 H):</strong> Dalam <em>Al-Umm</em>, ia menyusun metodologi yang sangat detail, menjadi acuan bagi banyak ulama setelahnya.</li>
+                                    <li><strong>Imam Ahmad bin Hanbal (w. 241 H):</strong> Dalam <em>Al-Musnad</em>, ia banyak meriwayatkan hadis-hits yang menjadi dasar hukum waris.</li>
+                                </ul>
+                                <p>Mereka tidak menciptakan aturan baru, melainkan <strong>menyistematisasi</strong> wahyu dan sunnah, serta mengembangkan metodologi untuk menangani kasus-kasus baru yang belum ada di zaman sahabat.</p>
+                            </div>
+                    
+                            <div class="indonesian-law">
+                                <h4>🇮🇩 Era Modern: Relevansi dan Kodifikasi Nasional</h4>
+                                <p>Sejarah ilmu waris terus berlanjut hingga hari ini. Di Indonesia, ilmu ini tidak lagi hanya diajarkan di pesantren, tetapi telah menjadi bagian dari hukum positif.</p>
+                                <ul>
+                                    <li><strong>Kompilasi Hukum Islam (KHI):</strong> Merupakan kodifikasi resmi hukum Islam (termasuk waris) yang berlaku di peradilan agama di Indonesia, yang sebagian besar mengikuti Mazhab Syafi'i.</li>
+                                    <li><strong>Majelis Ulama Indonesia (MUI):</strong> Secara berkala mengeluarkan fatwa untuk menjawab tantangan modern, seperti waris aset digital atau harta lintas negara.</li>
+                                    <li><strong>Pendidikan Formal:</strong> Materi dasar waris diajarkan dalam kurikulum pendidikan agama Islam di sekolah dan perguruan tinggi untuk menjaga keberlangsungan ilmu ini.</li>
+                                </ul>
+                                <p>Perjalanan panjang dari praktik zalim di Jahiliyah hingga menjadi hukum yang diakui negara menunjukkan betapa mulia dan fundamentalnya ilmu waris dalam peradaban Islam.</p>
+                            </div>
+                        `
+                    },
+                    {
                         title: 'Dasar Hukum Utama: Al-Qur\'an',
                         content: `
                             <p>Hukum waris Islam bersumber dari wahyu ilahi, terutama Al-Qur'an. Ayat-ayat yang paling rinci mengenai pembagian warisan terdapat dalam Surah An-Nisa' (ayat 11, 12, dan 176).</p>
