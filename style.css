@@ -257,18 +257,45 @@ header h1 {
 }
 
 .quiz-option {
-    background-color: var(--background-color);
-    border: 1px solid var(--border-color);
-    padding: 15px;
-    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    border: 1px solid #ddd;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.2s, border-color 0.2s;
+    transition: all 0.3s ease;
 }
 
 .quiz-option:hover {
-    background-color: #edf2f7;
-    border-color: var(--secondary-color);
+    background-color: #f5f5f5;
+}
+
+.quiz-option.selected {
+    background-color: #e3f2fd;
+    border-color: #2196f3;
+}
+
+.option-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.option-text {
+    flex-grow: 1;
+}
+
+.selection-indicator {
+    display: none;
+    color: #2196f3;
+    font-size: 1.2em;
+    margin-left: 10px;
+}
+
+.quiz-option.selected .selection-indicator {
+    display: inline-block;
 }
 
 .quiz-option.correct {
@@ -501,4 +528,5 @@ header h1 {
     color: #777;
     text-align: right;
     font-style: italic;
+
 }
