@@ -880,7 +880,7 @@ const courseData = [
                             </div>
                             <div class="source-detail">
                                 <h4>Hadis Dasar:</h4>
-                                <p class="verse-arabic">لَا يَتَوَارَثُ الْمُسْلِمُ مِنَ الْكَافِرِ وَلَا الْكَافِرُ مِنَ الْمُسْلِمِ</p>
+                                <p class="verse-arabic">لَا يَتَوَارَثُ الْمُسْلِمِمُ مِنَ الْكَافِرِ وَلَا الْكَافِرُ مِنَ الْمُسْلِمِ</p>
                                 <p class="verse-translation"><strong>Terjemahan:</strong> "Seorang Muslim tidak mewarisi (harta) orang kafir, dan orang kafir tidak mewarisi (harta) orang Muslim."</p>
                                 <p class="hadith-source">(HR. Bukhari dan Muslim)</p>
                             </div>
@@ -980,7 +980,7 @@ const courseData = [
                                 <ul>
                                     <li><strong>Thalaq Raj'i:</strong> Cerai yang masih dalam masa iddah, hak waris masih terjaga.</li>
                                     <li><strong>Thalaq Bain:</strong> Cerai setelah masa iddah, hak waris putus.</li>
-                                    <li><strong>Khulu':strong> Cerai dengan tebusan (khulu'), hak waris putus.</li>
+                                    <li><strong>Khulu':</strong> Cerai dengan tebusan (khulu'), hak waris putus.</li>
                                 </ul>
                             </div>
                             <div class="source-detail">
@@ -1002,7 +1002,7 @@ const courseData = [
                             </div>
                             <div class="real-case-example">
                                 <h4>📋 Kasus Nyata:</h4>
-                                <p>Seorang suami menceraikan istrinya di pengadilan. Setelah perceraian, hak waris antara keduanya putus. Mereka tidak lagi mewarisi harta satu sama lain, kecuali harta yang menjadi hak bersama selama pernikahan.</p>
+                                <p>Seorang suami menceraikan istrinya di pengadilan agama. Setelah perceraian, hak waris antara keduanya putus. Mereka tidak lagi mewarisi harta satu sama lain, kecuali harta yang menjadi hak bersama selama pernikahan.</p>
                             </div>
                         `
                     }
@@ -1014,7 +1014,7 @@ const courseData = [
                         { type: 'matching', question: "Jodohkan kasus dengan hukum yang berlaku!", pairs: [{ term: "Muslim mewarisi non-Muslim", match: "Tidak sah" }, { term: "Janin dalam kandungan", match: "Mewarisi jika lahir hidup" }, { term: "Thalaq bain", match: "Hak waris putus" }, { term: "Harta tak bertuan", match: "Milik negara setelah 5 tahun" }] },
                         { type: 'case-study', scenario: "Seorang Muslim meninggal di Indonesia, meninggalkan istri non-Muslim, 2 anak Muslim, dan 1 saudara perempuan non-Muslim. Istri non-Muslim mengklaim semua harta karena menurut hukum negaranya ia berhak mendapat bagian.", questions: [
                             { type: 'multiple-choice', question: "Bagaimana hukum Islam dalam kasus ini?", options: ["Istri non-Muslim mewarisi semua harta", "Anak-anak Muslim mewarisi semua harta", "Harta dibagi sesuai hukum Islam dan hukum perdata sipil", "Anak-anak Muslim tidak mewarisi sama sekali"], correctAnswer: 2 },
-                            { type: 'essay', question: "Jelaskan bagaimana penyelesaian kasus ini menurut hukum Islam dan hukum di Indonesia!", referenceAnswer: "Jawaban acuan: Menurut hukum Islam, istri non-Muslim tidak mewarisi harta warisan. Anak-anak Muslim mewarisi harta warisan ayahnya. Saudara perempuan non-Muslim tidak mewarisi karena beda agama. Menurut KHI Pasal 171 ayat (1), pembagian waris antara pewaris dan ahli waris yang berbeda agama diatur sesuai hukum masing-masing. Jadi, istri non-Muslim mewarisi sesuai hukum perdata sipil (hukum waris Kristen), sementara anak-anak Muslim mewarisi sesuai hukum Islam." }
+                            { type: 'essay', question: "Jelaskan bagaimana penyelesaian kasus ini menurut hukum Islam dan hukum di Indonesia!", referenceAnswer: "Jawaban acuan: Menurut hukum Islam, istri non-Muslim tidak mewarisi harta warisan. Anak-anak Muslim mewarisi harta warisan ayahnya. Saudara perempuan non-Muslim tidak mewarisi karena beda agama. Menurut KHI Pasal 171 ayat (1), pembagian waris antara pewaris dan ahli waris yang berbeda agama diatur sesuai dengan hukum masing-masing. Jadi, istri non-Muslim mewarisi sesuai hukum perdata sipil, anak-anak Muslim mewarisi sesuai hukum Islam." }
                         ]}
                     ]
                 }
