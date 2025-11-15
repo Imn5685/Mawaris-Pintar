@@ -727,11 +727,228 @@ const courseData = [
         ]
     },
     {
-        id: 'bab6', title: 'Bab 6: Praktik Pembagian & Kasus Khusus',
+    id: 'bab6', title: 'Bab 6: Kasus Khusus Pembagian (Radd & Aul)',
+    subChapters: [
+        {
+            id: 'sub6-1', 
+            title: '6.1 Konsep dan Implementasi Radd & Aul',
+            slides: [
+                {
+                    title: 'Pengantar Radd & Aul',
+                    content: `
+                        <p>Dalam pembagian waris, ada dua kondisi khusus yang membuat perhitungan tidak sesederhana menjumlahkan bagian. Kedua kondisi ini adalah <strong>'Aul</strong> dan <strong>'Radd</strong>.</p>
+                        <ul>
+                            <li><strong>'Aul (عَوْل)</strong> terjadi ketika jumlah bagian Ashabul Furudh (ahli waris dengan bagian tetap) <strong>lebih besar</strong> dari total harta (1). Ini seperti membagi kue yang tidak cukup untuk semua pihak sesuai porsi semula, sehingga porsi semua harus dikurangi secara proporsional.</li>
+                            <li><strong>'Radd (رَدّ)</strong> terjadi ketika jumlah bagian Ashabul Furudh <strong>lebih kecil</strong> dari total harta (1) dan <strong>tidak ada</strong> ahli waris Asabah (pewaris sisa). Sisa harta ini kemudian dikembalikan (dipulangkan) kepada Ashabul Furudh yang berhak, secara proporsional.</li>
+                        </ul>
+                        <p>Kedua konsep ini penting untuk memastikan <strong>tidak ada harta yang tersisa tanpa pemilik</strong> dan <strong>pembagian tetap adil</strong> meskipun ada perubahan kondisi.</p>
+                    `
+                },
+                {
+                    title: 'Konsep \'Aul (Pengurangan Bagian)',
+                    content: `
+                        <p><strong>Definisi 'Aul:</strong> 'Aul secara bahasa berarti 'condong' atau 'berlebih'. Dalam istilah fikih, 'Aul adalah pengurangan bagian (bagian tetap) seluruh Ashabul Furudh secara proporsional karena jumlah bagian mereka melebihi satu (seluruh harta).</p>
+                        <div class="info-box">
+                            <h4>Kapan Terjadi 'Aul?</h4>
+                            <p>'Aul hanya terjadi jika semua ahli waris adalah dari golongan Ashabul Furudh, dan jumlah pecahan bagian mereka lebih dari 1.</p>
+                            <p><strong>Contoh Kasus Klasik:</strong> Seorang mayit meninggalkan <strong>suami, ibu, dan dua saudara perempuan kandung.</strong></p>
+                            <ul>
+                                <li>Suami mendapat: 1/2</li>
+                                <li>Ibu mendapat: 1/6</li>
+                                <li>Dua saudara perempuan mendapat: 2/3</li>
+                            </ul>
+                            <p><strong>Perhitungan:</strong> 1/2 + 1/6 + 2/3 = 3/6 + 1/6 + 4/6 = 8/6. Karena 8/6 > 1, maka terjadi 'Aul.</p>
+                        </div>
+                        <div class="mazhab-reference">
+                            <h4>Pandangan Mazhab & Muhammadiyah tentang 'Aul:</h4>
+                            <p><strong>Mazhab Syafi'i, Maliki, dan Hanbali:</strong> Menerapkan 'Aul. Cara penyelesaiannya adalah dengan mencari penyebut (KPK) yang sama dan menjadikan total bagian baru sebagai dasar pembagian.</p>
+                            <p><strong>Mazhab Hanafi:</strong> Juga menerapkan 'Aul', tetapi dengan istilah <em>tasbīh</em> (penyerupaan). Mekanismenya serupa, yaitu menyesuaikan bagian agar totalnya menjadi 1.</p>
+                            <p><strong>Pandangan Muhammadiyah:</strong> Mengikuti Mazhab Syafi'i. 'Aul diterapkan dengan cara mencari KPK dari penyebut dan membagi sisa harta secara proporsional.</p>
+                        </div>
+                    `
+                },
+                {
+                    title: 'Konsep \'Radd (Pengembalian Sisa Harta)',
+                    content: `
+                        <p><strong>Definisi 'Radd:</strong> 'Radd secara bahasa berarti 'kembali'. Dalam istilah fikih, 'Radd adalah pengembalian sisa harta warisan kepada Ashabul Furudh jika tidak ada ahli waris Asabah yang menerima sisanya.</p>
+                        <div class="info-box">
+                            <h4>Kapan Terjadi 'Radd?</h4>
+                            <p>'Radd terjadi jika:</p>
+                            <ol>
+                                <li>Jumlah bagian Ashabul Furudh kurang dari 1.</li>
+                                <li>Tidak ada ahli waris Asabah yang menerima sisa harta.</li>
+                            </ol>
+                            <p><strong>Contoh Kasus:</strong> Seorang mayit meninggalkan <strong>ibu dan seorang anak perempuan.</strong></p>
+                            <ul>
+                                <li>Ibu mendapat: 1/6</li>
+                                <li>Anak perempuan mendapat: 1/2</li>
+                            </ul>
+                            <p><strong>Perhitungan:</strong> 1/6 + 1/2 = 1/6 + 3/6 = 4/6. Sisa harta adalah 1 - 4/6 = 2/6. Karena tidak ada Asabah, sisa ini (2/6) dilakukan 'Radd.</p>
+                        </div>
+                        <div class="mazhab-reference">
+                            <h4>Pandangan Mazhab & Muhammadiyah tentang 'Radd:</h4>
+                            <p><strong>Mazhab Syafi'i, Maliki, dan Hanbali:</strong> Menerapkan 'Radd. Namun, <strong>suami dan istri tidak menerima bagian Radd</strong>. Sisa harta hanya dibagikan kepada Ashabul Furudh lainnya (seperti anak, ibu, nenek, saudara perempuan) secara proporsional.</p>
+                            <p><strong>Mazhab Hanafi:</strong> Juga menerapkan 'Radd', tetapi dengan pandangan yang unik. Mereka memberikan 'Radd kepada <strong>semua Ashabul Furudh kecuali suami atau istri</strong>. Jika ahli warisnya hanya istri (atau beberapa istri) dan Dzu Arham (kerabat jauh), menurut mereka sisa harta menjadi milik Baitul Mal (bukan 'Radd).</p>
+                            <p><strong>Pandangan Muhammadiyah:</strong> Mengikuti Mazhab Syafi'i. Suami dan istri tidak menerima bagian 'Radd.</p>
+                        </div>
+                    `
+                },
+                {
+                    title: 'Contoh Kasus \'Aul: Suami, Ibu, 2 Saudari',
+                    content: `
+                        <p><strong>Skenario:</strong> Seorang laki-laki meninggal dunia. Ahli waris yang tersisa adalah: seorang <strong>suami</strong>, seorang <strong>ibu</strong>, dan dua <strong>saudara perempuan kandung</strong>. Total harta warisan adalah Rp 600 juta.</p>
+                        <div class="example-box">
+                            <h4>Langkah 1: Tentukan Bagian Masing-Masing</h4>
+                            <ul>
+                                <li>Suami: 1/2</li>
+                                <li>Ibu: 1/6</li>
+                                <li>2 Saudara Perempuan: 2/3</li>
+                            </ul>
+                        </div>
+                        <div class="example-box">
+                            <h4>Langkah 2: Jumlahkan Bagian</h4>
+                            <p>1/2 + 1/6 + 2/3 = 3/6 + 1/6 + 4/6 = 8/6.</p>
+                            <p>Karena 8/6 > 1, maka terjadi <strong>'Aul</strong>.</p>
+                        </div>
+                        <div class="example-box">
+                            <h4>Langkah 3: Penyelesaian dengan 'Aul (Metode Syafi'i/Muhammadiyah)</h4>
+                            <ol>
+                                <li>Cari KPK dari penyebut (2, 6, 3) adalah 6.</li>
+                                <li>Jumlahkan semua bagian menjadi bilangan bulat: 3 (dari 3/6) + 1 (dari 1/6) + 4 (dari 4/6) = <strong>8 bagian</strong>.</li>
+                                <li>Total harta (Rp 600 juta) sekarang dianggap memiliki 8 bagian.</li>
+                                <li>Hitung nilai per bagian: Rp 600.000.000 / 8 = Rp 75.000.000.</li>
+                            </ol>
+                        </div>
+                        <div class="example-box">
+                            <h4>Langkah 4: Bagikan Harta</h4>
+                            <ul>
+                                <li><strong>Suami:</strong> 3 bagian x Rp 75.000.000 = <strong>Rp 225.000.000</strong> (awalnya 1/2 = Rp 300 juta, berkurang).</li>
+                                <li><strong>Ibu:</strong> 1 bagian x Rp 75.000.000 = <strong>Rp 75.000.000</strong> (awalnya 1/6 = Rp 100 juta, berkurang).</li>
+                                <li><strong>Masing-masing Saudari:</strong> 2 bagian x Rp 75.000.000 = <strong>Rp 150.000.000</strong> (awalnya 1/3 = Rp 200 juta, berkurang).</li>
+                            </ul>
+                            <p>Total: 225 + 75 + 150 + 150 = 600 juta. Semua harta terbagi dengan adil.</p>
+                        </div>
+                    `
+                },
+                {
+                    title: 'Contoh Kasus \'Radd: Ibu dan Anak Perempuan',
+                    content: `
+                        <p><strong>Skenario:</strong> Seorang ibu meninggal dunia. Ahli waris yang tersisa adalah: seorang <strong>ayah</strong>, seorang <strong>ibu</strong> (nenek dari pihak ayah), dan seorang <strong>anak perempuan</strong>. Total harta warisan adalah Rp 1,2 miliar.</p>
+                        <div class="example-box">
+                            <h4>Langkah 1: Tentukan Bagian Masing-Masing</h4>
+                            <ul>
+                                <li>Ayah: Menjadi 'Asabah (karena ada anak perempuan).</li>
+                                <li>Ibu (nenek): 1/6</li>
+                                <li>Anak Perempuan: 1/2</li>
+                            </ul>
+                        </div>
+                        <div class="example-box">
+                            <h4>Langkah 2: Jumlahkan Bagian Ashabul Furudh</h4>
+                            <p>1/6 (nenek) + 1/2 (anak perempuan) = 1/6 + 3/6 = 4/6.</p>
+                            <p>Sisa harta setelah bagian Furudh adalah 1 - 4/6 = 2/6.</p>
+                            <p>Karena ada Asabah (ayah), sisa 2/6 ini <strong>diserahkan kepada ayah</strong>. <strong>Tidak terjadi 'Radd</strong> dalam kasus ini.</p>
+                        </div>
+                        <hr>
+                        <p><strong>Mari kita ubah skenario agar terjadi 'Radd':</strong> Seorang perempuan meninggal dunia. Ahli warisnya: <strong>ibu</strong> dan <strong>anak perempuan</strong>. Total harta Rp 1,2 miliar.</p>
+                        <div class="example-box">
+                            <h4>Langkah 1 (Baru): Tentukan Bagian</h4>
+                            <ul>
+                                <li>Ibu: 1/6</li>
+                                <li>Anak Perempuan: 1/2</li>
+                            </ul>
+                        </div>
+                        <div class="example-box">
+                            <h4>Langkah 2 (Baru): Jumlahkan Bagian</h4>
+                            <p>1/6 + 1/2 = 4/6. Sisa harta = 1 - 4/6 = 2/6.</p>
+                            <p>Karena tidak ada Asabah, maka terjadi <strong>'Radd</strong>. Sisa 2/6 dikembalikan kepada Ibu dan Anak Perempuan.</p>
+                        </div>
+                        <div class="example-box">
+                            <h4>Langkah 3 (Baru): Penyelesaian dengan 'Radd (Metode Syafi'i/Muhammadiyah)</h4>
+                            <ol>
+                                <li><strong>Proporsi bagian:</strong> Ibu : Anak Perempuan = 1/6 : 1/2 = 1 : 3. Total proporsi = 4 bagian.</li>
+                                <li><strong>Sisa harta (2/6)</strong> dibagi berdasarkan proporsi. Setiap 1 bagian proporsi mendapat: (2/6) / 4 = 2/24 = 1/12.</li>
+                                <li><strong>Hitung bagian akhir:</strong>
+                                    <ul>
+                                        <li><strong>Ibu:</strong> 1/6 + 1/12 = 2/12 + 1/12 = 3/12 = 1/4.</li>
+                                        <li><strong>Anak Perempuan:</strong> 1/2 + 3/12 = 6/12 + 3/12 = 9/12 = 3/4.</li>
+                                    </ul>
+                                </li>
+                            </ol>
+                        </div>
+                        <div class="example-box">
+                            <h4>Langkah 4 (Baru): Bagikan Harta</h4>
+                            <ul>
+                                <li><strong>Ibu:</strong> 1/4 x Rp 1.200.000.000 = <strong>Rp 300.000.000</strong>.</li>
+                                <li><strong>Anak Perempuan:</strong> 3/4 x Rp 1.200.000.000 = <strong>Rp 900.000.000</strong>.</li>
+                            </ul>
+                            <p>Total: 300 + 900 = 1,2 miliar. Semua harta terbagi.</p>
+                        </div>
+                    `
+                },
+                {
+                    title: 'Tabel Perbandingan Pandangan',
+                    content: `
+                        <p>Berikut adalah ringkasan perbedaan pandangan mengenai 'Aul dan 'Radd:</p>
+                        <table style="width:100%; border-collapse: collapse; font-size: 14px;">
+                            <tr style="background-color:#f2f2f2;">
+                                <th style="border:1px solid #ddd;padding:8px;">Konsep</th>
+                                <th style="border:1px solid #ddd;padding:8px;">Mazhab Syafi'i, Maliki, Hanbali</th>
+                                <th style="border:1px solid #ddd;padding:8px;">Mazhab Hanafi</th>
+                                <th style="border:1px solid #ddd;padding:8px;">Pandangan Muhammadiyah</th>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid #ddd;padding:8px;"><strong>'Aul (Pengurangan)</strong></td>
+                                <td style="border:1px solid #ddd;padding:8px;">Diterapkan. Jumlah bagian Ashabul Furudh > 1.</td>
+                                <td style="border:1px solid #ddd;padding:8px;">Diterapkan (disebut <em>tasbīh</em>).</td>
+                                <td style="border:1px solid #ddd;padding:8px;">Mengikuti Mazhab Syafi'i. Diterapkan.</td>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid #ddd;padding:8px;"><strong>'Radd (Pengembalian)</strong></td>
+                                <td style="border:1px solid #ddd;padding:8px;">Diterapkan. Jumlah bagian Ashabul Furudh < 1 dan tidak ada Asabah.</td>
+                                <td style="border:1px solid #ddd;padding:8px;">Diterapkan, dengan catatan khusus.</td>
+                                <td style="border:1px solid #ddd;padding:8px;">Mengikuti Mazhab Syafi'i. Diterapkan.</td>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid #ddd;padding:8px;"><strong>Penerima 'Radd</strong></td>
+                                <td style="border:1px solid #ddd;padding:8px;">Ashabul Furudh kecuali suami/istri.</td>
+                                <td style="border:1px solid #ddd;padding:8px;">Semua Ashabul Furudh kecuali suami/istri. Jika hanya istri & Dzu Arham, sisa ke Baitul Mal.</td>
+                                <td style="border:1px solid #ddd;padding:8px;">Ashabul Furudh kecuali suami/istri.</td>
+                            </tr>
+                        </table>
+                        <div class="note-box">
+                            <p><strong>Catatan Penting:</strong> Perbedaan pandangan ini penting untuk dipahami, terutama dalam kasus di mana ahli warisnya hanya suami/istri atau ada kerabat jauh (Dzu Arham). Di Indonesia, KHI umumnya mengikuti Mazhab Syafi'i, namun pengadilan dapat mempertimbangkan pendapat lain untuk mencapai keadilan.</p>
+                        </div>
+                    `
+                }
+            ],
+            quiz: { 
+                questions: [
+                    { type: 'multiple-choice', question: "Kapan terjadi 'Aul dalam pembagian waris?", options: ["Ketika total bagian Ashabul Furudh kurang dari 1", "Ketika total bagian Ashabul Furudh lebih dari 1", "Ketika ada ahli waris Asabah", "Ketika tidak ada ahli waris"], correctAnswer: 1 },
+                    { type: 'multiple-choice', question: "Menurut Mazhab Syafi'i dan Muhammadiyah, siapa yang TIDAK menerima bagian 'Radd?", options: ["Anak perempuan", "Ibu", "Suami", "Nenek"], correctAnswer: 2 },
+                    { type: 'essay', question: "Jelaskan perbedaan utama antara 'Aul dan 'Radd! Berikan contoh skenario singkat untuk masing-masing konsep!", referenceAnswer: "Jawaban acuan: 'Aul terjadi ketika jumlah bagian Ashabul Furudh melebihi total harta (>1), sehingga semua bagian harus dikurangi secara proporsional. Contoh: Mayit meninggalkan suami (1/2), ibu (1/6), dan 2 saudari (2/3). Totalnya 8/6, terjadi 'Aul. 'Radd terjadi ketika jumlah bagian Ashabul Furudh kurang dari total harta (<1) dan tidak ada Asabah, sehingga sisa harta dikembalikan kepada Ashabul Furudh (kecuali suami/istri). Contoh: Mayit meninggalkan ibu (1/6) dan anak perempuan (1/2). Totalnya 4/6, sisa 2/6 dilakukan 'Radd." },
+                    { type: 'matching', question: "Jodohkan istilah dengan penjelasannya!", pairs: [{ term: "'Aul", match: "Pengurangan bagian karena total > 1" }, { term: "'Radd", match: "Pengembalian sisa harta karena total < 1" }, { term: "Asabah", match: "Ahli waris penerima sisa harta" }, { term: "Hijb", match: "Penghalang bagi ahli waris" }] },
+                    { type: 'case-study', scenario: "Seorang wanita meninggal dunia dengan harta Rp 480 juta. Ahli warisnya: seorang suami, seorang ibu, dan seorang anak perempuan.", questions: [
+                        { type: 'multiple-choice', question: "Berdasarkan skenario di atas, konsep apa yang akan diterapkan?", options: ["'Aul", "'Radd", "Tidak keduanya, karena ada Asabah", "Tidak keduanya, karena total bagian kurang dari 1"], correctAnswer: 1 },
+                        { type: 'essay', question: "Hitunglah bagian masing-masing ahli waris secara lengkap menurut pandangan Mazhab Syafi'i/Muhammadiyah!", referenceAnswer: "Jawaban acuan: 1. Bagian awal: Suami 1/4, Ibu 1/6, Anak Perempuan 1/2. 2. Total bagian: 1/4 + 1/6 + 1/2 = 3/12 + 2/12 + 6/12 = 11/12. 3. Sisa harta: 1 - 11/12 = 1/12. 4. Terjadi 'Radd karena tidak ada Asabah. 5. Penerima 'Radd adalah Ibu dan Anak Perempuan (suami tidak menerima). 6. Proporsi Ibu : Anak Perempuan = 1/6 : 1/2 = 1:3. Total proporsi 4. 7. Sisa harta (1/12) dibagi 4 = 1/48 per proporsi. 8. Bagian akhir: Suami = 1/4 = 12/48 = Rp 120 juta. Ibu = 1/6 + 1/48 = 8/48 + 1/48 = 9/48 = Rp 90 juta. Anak Perempuan = 1/2 + 3/48 = 24/48 + 3/48 = 27/48 = Rp 270 juta. Total: 120+90+270 = 480 juta." }
+                    ]},
+                    { type: 'multiple-choice', question: "Seorang mayit meninggalkan istri, seorang anak laki-laki, dan seorang anak perempuan. Bagaimana pembagiannya?", options: ["Terjadi 'Aul", "Terjadi 'Radd", "Tidak keduanya", "Anak laki-laki mendapat semua sisa"], correctAnswer: 2 },
+                    { type: 'essay', question: "Seorang mayit meninggalkan ibu, seorang istri, dan dua saudara perempuan kandung. Total harta Rp 300 juta. Jelaskan apakah terjadi 'Aul atau 'Radd, lalu hitung bagian masing-masing!", referenceAnswer: "Jawaban acuan: 1. Bagian awal: Ibu 1/6, Istri 1/4, 2 Saudari 2/3. 2. Total bagian: 1/6 + 1/4 + 2/3 = 2/12 + 3/12 + 8/12 = 13/12. 3. Karena 13/12 > 1, terjadi 'Aul. 4. KPK penyebut (6,4,3) adalah 12. 5. Total bagian baru: 2 + 3 + 8 = 13 bagian. 6. Nilai per bagian: Rp 300.000.000 / 13 ≈ Rp 23.076.923. 7. Bagian akhir: Ibu = 2 bagian ≈ Rp 46.153.846. Istri = 3 bagian ≈ Rp 69.230.769. Masing-masing Saudari = 4 bagian ≈ Rp 92.307.692." },
+                    { type: 'case-study', scenario: "Pak Ahmad meninggal dan hanya meninggalkan seorang istri dan seorang ibu (nenek dari pihak Pak Ahmad). Total harta Rp 500 juta.", questions: [
+                        { type: 'multiple-choice', question: "Menurut Mazhab Syafi'i, bagaimana sisa harta setelah pembagian awal ditangani?", options: ["Diberikan kepada istri dan ibu secara 'Radd", "Diberikan kepada ibu saja secara 'Radd", "Menjadi milik Baitul Mal", "Dibagi dua sama rata"], correctAnswer: 2 },
+                        { type: 'essay', question: "Bandingkan hasil pembagian antara Mazhab Syafi'i dan Hanafi untuk kasus Pak Ahmad!", referenceAnswer: "Jawaban acuan: 1. Bagian awal: Istri 1/4, Ibu (nenek) 1/6. Total = 5/12. Sisa = 7/12. 2. <strong>Menurut Mazhab Syafi'i:</strong> Istri tidak menerima 'Radd. Sisa 7/12 seluruhnya diberikan kepada Ibu (nenek). Bagian akhir: Istri = 1/4 x 500 juta = Rp 125 juta. Ibu = 1/6 + 7/12 = 2/12 + 7/12 = 9/12 = 3/4. Ibu mendapat 3/4 x 500 juta = Rp 375 juta. 3. <strong>Menurut Mazhab Hanafi:</strong> Karena ahli warisnya hanya istri dan Dzu Arham (ibu/nenek), maka sisa harta (7/12) menjadi milik Baitul Mal. Bagian akhir: Istri = 1/4 x 500 juta = Rp 125 juta. Ibu = 1/6 x 500 juta = Rp 83,33 juta. Sisa harta Rp 291,67 juta menjadi milik Baitul Mal." }
+                    ]},
+                    { type: 'multiple-choice-complex', question: "Dalam kasus 'Aul, metode yang digunakan oleh Mazhab Syafi'i untuk menyelesaikannya adalah...", options: ["Mencari KPK penyebut dan menjadikan total bagian baru sebagai dasar", "Memberikan sisa harta kepada yang paling dekat", "Mengurangi bagian yang paling besar", "Membatalkan bagian ahli waris paling jauh"], correctAnswer: 0, explanation: "Metode Mazhab Syafi'i adalah dengan mencari Kelipatan Persekutuan Terkecil (KPK) dari penyebut semua pecahan bagian, lalu menjumlahkan pembilangnya untuk mendapatkan total bagian baru. Total harta kemudian dibagi dengan total bagian baru ini." },
+                    { type: 'multiple-choice-complex', question: "Konsep 'Radd adalah penerapan dari kaidah 'la yuratsu', yang berarti...", options: ["Harta tidak boleh mubazir/tidak ada pemilik", "Yang lebih dekat menghalangi yang lebih jauh", "Bagian laki-laki sama dengan 2 bagian perempuan", "Hutang harus dilunasi terlebih dahulu"], correctAnswer: 0, explanation: "Kaidah 'la yuratsu' (لا يراث) adalah prinsip bahwa dalam Islam, harta tidak boleh terbengkalai tanpa pemilik. Konsep 'Radd adalah manifestasi dari kaidah ini untuk memastikan sisa harta tidak mubazir dan tetap berada di kalangan ahli waris yang berhak." }
+                ]}
+            }
+        ]
+    },
+    {
+        id: 'bab7', title: 'Bab 7: Praktik Pembagian & Kasus Khusus',
         subChapters: [
             {
-                id: 'sub6-1', 
-                title: '6.1 Prosedur Pembagian Waris',
+                id: 'sub7-1', 
+                title: '7.1 Prosedur Pembagian Waris',
                 slides: [
                     {
                         title: 'Prosedur Pembagian Waris',
@@ -909,8 +1126,7 @@ const courseData = [
                         ]},
                         { type: 'multiple-choice-complex', question: "Menurut KHI Pasal 176, harta tak bertuan menjadi milik negara setelah 5 tahun jika...", options: ["Hanya jika tidak ada ahli waris", "Jika tidak ada ahli waris", "Setelah 5 tahun", "Setelah 2 tahun"], correctAnswer: 2, explanation: "Menurut KHI Pasal 176, harta tak bertuan menjadi milik negara setelah 5 tahun jika tidak ada ahli waris." }
                         ]
-                    
-                }
+                    }
             }
         ]
     }
