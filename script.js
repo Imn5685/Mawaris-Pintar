@@ -778,22 +778,53 @@ const views = document.querySelectorAll('.view');
 
 // --- UTILITAS PENYIMPANAN (STORAGE) ---
 const storage = {
-    get: (key) => { const data = localStorage.getItem(key); return data ? JSON.parse(data) : null; },
-    set: (key, value) => localStorage.setItem(key, JSON.stringify(value)),
+    get: (key) => { 
+        try {
+            const data = localStorage.getItem(key); 
+            return data ? JSON.parse(data) : null; 
+        } catch (error) {
+            console.error('Error getting data from storage:', error);
+            return null;
+        }
+    },
+    set: (key, value) => { 
+        try {
+            localStorage.setItem(key, JSON.stringify(value)); 
+        } catch (error) {
+            console.error('Error setting data to storage:', error);
+        }
+    },
     getProgress: () => storage.get('mawarisProgress') || {},
     saveProgress: (progress) => storage.set('mawarisProgress', progress),
-    markCompleted: (type, id) => { const p = storage.getProgress(); if (!p[type]) p[type] = {}; p[type][id] = true; storage.saveProgress(p); },
-    isCompleted: (type, id) => { const p = storage.getProgress(); return !!(p[type] && p[type][id]); },
+    markCompleted: (type, id) => { 
+        const p = storage.getProgress(); 
+        if (!p[type]) p[type] = {}; 
+        p[type][id] = true; 
+        storage.saveProgress(p); 
+    },
+    isCompleted: (type, id) => { 
+        const p = storage.getProgress(); 
+        return !!(p[type] && p[type][id]); 
+    },
     getQuizScores: () => storage.get('mawarisQuizScores') || {},
-    saveQuizScore: (id, score, total) => { const s = storage.getQuizScores(); s[id] = { score: score, total: total }; storage.set('mawarisQuizScores', s); },
+    saveQuizScore: (id, score, total) => { 
+        const s = storage.getQuizScores(); 
+        s[id] = { score: score, total: total }; 
+        storage.set('mawarisQuizScores', s); 
+    },
     getQuizUserAnswers: () => storage.get('mawarisQuizUserAnswers') || {},
-    saveQuizUserAnswers: (id, answers) => { const a = storage.getQuizUserAnswers(); a[id] = answers; storage.set('mawarisQuizUserAnswers', a); },
+    saveQuizUserAnswers: (id, answers) => { 
+        const a = storage.getQuizUserAnswers(); 
+        a[id] = answers; 
+        storage.set('mawarisQuizUserAnswers', a); 
+    },
     getUserName: () => storage.get('mawarisUserName') || 'Pengguna',
     saveUserName: (name) => storage.set('mawarisUserName', name)
 };
 
 // --- UTILITAS RANDOMISASI ---
 function shuffleArray(array) {
+    if (!Array.isArray(array)) return [];
     const newArray = [...array];
     for (let i = newArray.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -803,14 +834,19 @@ function shuffleArray(array) {
 }
 
 function randomizeQuestions(questions) {
+    // Validasi input
+    if (!Array.isArray(questions)) return [];
+    
     // Acak urutan soal
     const randomizedQuestions = shuffleArray(questions);
     
     // Untuk setiap soal, acak pilihan jawaban jika ada
     return randomizedQuestions.map(question => {
+        if (!question || typeof question !== 'object') return question;
+        
         const newQuestion = { ...question };
         
-        if (question.type === 'multiple-choice' && question.options) {
+        if (question.type === 'multiple-choice' && Array.isArray(question.options)) {
             // Simpan indeks jawaban benar asli
             const originalCorrectAnswer = question.correctAnswer;
             
@@ -825,16 +861,34 @@ function randomizeQuestions(questions) {
             newQuestion.correctAnswer = newCorrectAnswer;
         }
         
-        if (question.type === 'matching' && question.pairs) {
+        // Tambahkan penanganan untuk multiple-choice-complex
+        if (question.type === 'multiple-choice-complex' && Array.isArray(question.options)) {
+            // Simpan indeks jawaban benar asli
+            const originalCorrectAnswer = question.correctAnswer;
+            
+            // Acak opsi jawaban
+            const shuffledOptions = shuffleArray(question.options);
+            
+            // Cari indeks baru dari jawaban benar setelah diacak
+            const newCorrectAnswer = shuffledOptions.indexOf(question.options[originalCorrectAnswer]);
+            
+            // Update soal dengan opsi yang sudah diacak
+            newQuestion.options = shuffledOptions;
+            newQuestion.correctAnswer = newCorrectAnswer;
+        }
+        
+        if (question.type === 'matching' && Array.isArray(question.pairs)) {
             // Acak urutan pasangan
             newQuestion.pairs = shuffleArray(question.pairs);
         }
         
-        if (question.type === 'case-study' && question.questions) {
+        if (question.type === 'case-study' && Array.isArray(question.questions)) {
             // Acak urutan sub-soal dalam case study
             newQuestion.questions = shuffleArray(question.questions).map(subQ => {
+                if (!subQ || typeof subQ !== 'object') return subQ;
+                
                 const newSubQ = { ...subQ };
-                if (subQ.type === 'multiple-choice' && subQ.options) {
+                if (subQ.type === 'multiple-choice' && Array.isArray(subQ.options)) {
                     // Simpan indeks jawaban benar asli
                     const originalCorrectAnswer = subQ.correctAnswer;
                     
@@ -858,12 +912,21 @@ function randomizeQuestions(questions) {
 
 // --- KONTROLER TAMPILAN (VIEW CONTROLLER) ---
 function showView(viewId) { 
+    if (!document.getElementById(viewId)) {
+        console.error(`View with ID ${viewId} not found`);
+        return;
+    }
     views.forEach(v => v.classList.remove('active')); 
     document.getElementById(viewId).classList.add('active'); 
 }
 
 function renderDashboard() {
     const chapterList = document.getElementById('chapter-list'); 
+    if (!chapterList) {
+        console.error('Chapter list element not found');
+        return;
+    }
+    
     chapterList.innerHTML = '';
     const userName = storage.getUserName();
     if (!userName) { 
@@ -874,15 +937,19 @@ function renderDashboard() {
     let previousChapterCompleted = true;
     
     courseData.forEach((chapter, chapterIndex) => {
+        if (!chapter || !chapter.subChapters) return;
+        
         const card = document.createElement('div'); 
         card.className = 'chapter-card';
-        card.innerHTML = `<h3>${chapter.title}</h3>`;
+        card.innerHTML = `<h3>${chapter.title || 'Chapter'}</h3>`;
         const list = document.createElement('ul'); 
         list.className = 'sub-chapter-list';
         
         let chapterCompleted = true;
         
         chapter.subChapters.forEach((sub, subIndex) => {
+            if (!sub || !sub.id) return;
+            
             const item = document.createElement('li'); 
             item.className = 'sub-chapter-item';
             const isLessonDone = storage.isCompleted('lessons', sub.id);
@@ -891,7 +958,7 @@ function renderDashboard() {
             // Check if previous chapter is completed
             let isAccessible = previousChapterCompleted;
             
-            // For the first chapter, check if previous subchapter is completed
+            // For first chapter, check if previous subchapter is completed
             if (chapterIndex === 0 && subIndex > 0) {
                 const prevSubId = chapter.subChapters[subIndex - 1].id;
                 isAccessible = storage.isCompleted('lessons', prevSubId) && storage.isCompleted('quizzes', prevSubId);
@@ -900,9 +967,11 @@ function renderDashboard() {
             // For subsequent chapters, check if all subchapters in previous chapter are completed
             if (chapterIndex > 0) {
                 const prevChapter = courseData[chapterIndex - 1];
-                isAccessible = prevChapter.subChapters.every(prevSub => 
-                    storage.isCompleted('lessons', prevSub.id) && storage.isCompleted('quizzes', prevSub.id)
-                );
+                if (prevChapter && prevChapter.subChapters) {
+                    isAccessible = prevChapter.subChapters.every(prevSub => 
+                        storage.isCompleted('lessons', prevSub.id) && storage.isCompleted('quizzes', prevSub.id)
+                    );
+                }
             }
             
             if (!isAccessible) {
@@ -912,7 +981,7 @@ function renderDashboard() {
             
             if (isLessonDone && isQuizDone) item.classList.add('completed');
             
-            item.innerHTML = `<a href="#">${sub.title}</a><span class="status-icon">${isLessonDone && isQuizDone ? '✅' : (isAccessible ? '⏳' : '🔒')}</span>`;
+            item.innerHTML = `<a href="#">${sub.title || 'Subchapter'}</a><span class="status-icon">${isLessonDone && isQuizDone ? '✅' : (isAccessible ? '⏳' : '🔒')}</span>`;
             
             if (isAccessible) {
                 item.querySelector('a').onclick = (e) => { 
@@ -940,23 +1009,30 @@ function renderDashboard() {
 }
 
 function updateProgressBar() {
-    const totalSubChapters = courseData.reduce((acc, ch) => acc + ch.subChapters.length, 0);
+    const progressBar = document.getElementById('progress-bar');
+    if (!progressBar) return;
+    
+    const totalSubChapters = courseData.reduce((acc, ch) => acc + (ch.subChapters ? ch.subChapters.length : 0), 0);
     const progress = storage.getProgress();
     const completedLessons = Object.keys(progress.lessons || {}).length;
     const completedQuizzes = Object.keys(progress.quizzes || {}).length;
     const totalTasks = totalSubChapters * 2;
     const completedTasks = completedLessons + completedQuizzes;
     const percentage = totalTasks > 0 ? Math.round((completedTasks / totalTasks) * 100) : 0;
-    const progressBar = document.getElementById('progress-bar');
+    
     progressBar.style.width = `${percentage}%`; 
     progressBar.textContent = `${percentage}%`;
 }
 
 function checkCompletionStatus() {
-    const totalSubChapters = courseData.reduce((acc, ch) => acc + ch.subChapters.length, 0);
+    const certificateContainer = document.getElementById('certificate-button-container');
+    if (!certificateContainer) return;
+    
+    const totalSubChapters = courseData.reduce((acc, ch) => acc + (ch.subChapters ? ch.subChapters.length : 0), 0);
     const progress = storage.getProgress();
     const completedQuizzes = Object.keys(progress.quizzes || {}).length;
-    document.getElementById('certificate-button-container').style.display = 
+    
+    certificateContainer.style.display = 
         (completedQuizzes === totalSubChapters) ? 'block' : 'none';
 }
 
@@ -967,9 +1043,21 @@ function showLesson(chapterId, subChapterId) {
     currentSlideIndex = 0;
     
     const chapter = courseData.find(ch => ch.id === chapterId);
-    const subChapter = chapter.subChapters.find(sub => sub.id === subChapterId);
+    if (!chapter) {
+        console.error(`Chapter with ID ${chapterId} not found`);
+        return;
+    }
     
-    document.getElementById('lesson-title').textContent = subChapter.title;
+    const subChapter = chapter.subChapters.find(sub => sub.id === subChapterId);
+    if (!subChapter) {
+        console.error(`Subchapter with ID ${subChapterId} not found in chapter ${chapterId}`);
+        return;
+    }
+    
+    const lessonTitle = document.getElementById('lesson-title');
+    if (lessonTitle) {
+        lessonTitle.textContent = subChapter.title || 'Lesson';
+    }
     
     renderSlide();
     
@@ -977,12 +1065,14 @@ function showLesson(chapterId, subChapterId) {
     const isQuizCompleted = storage.isCompleted('quizzes', subChapterId);
     const startQuizBtn = document.getElementById('start-quiz-btn');
     
-    if (isQuizCompleted) {
-        startQuizBtn.textContent = 'Lihat Hasil Quiz';
-        startQuizBtn.className = 'btn btn-info';
-    } else {
-        startQuizBtn.textContent = 'Mulai Quiz';
-        startQuizBtn.className = 'btn btn-primary';
+    if (startQuizBtn) {
+        if (isQuizCompleted) {
+            startQuizBtn.textContent = 'Lihat Hasil Quiz';
+            startQuizBtn.className = 'btn btn-info';
+        } else {
+            startQuizBtn.textContent = 'Mulai Quiz';
+            startQuizBtn.className = 'btn btn-primary';
+        }
     }
     
     showView('lesson-view'); 
@@ -991,76 +1081,143 @@ function showLesson(chapterId, subChapterId) {
 
 function renderSlide() {
     const chapter = courseData.find(ch => ch.id === currentChapterId);
+    if (!chapter) return;
+    
     const subChapter = chapter.subChapters.find(sub => sub.id === currentSubChapterId);
+    if (!subChapter || !subChapter.slides) return;
+    
     const slide = subChapter.slides[currentSlideIndex];
+    if (!slide) return;
     
-    document.getElementById('lesson-content').innerHTML = `
-        <h3>${slide.title}</h3>
-        ${slide.content}
-    `;
+    const lessonContent = document.getElementById('lesson-content');
+    if (lessonContent) {
+        lessonContent.innerHTML = `
+            <h3>${slide.title || 'Slide'}</h3>
+            ${slide.content || ''}
+        `;
+    }
     
-    document.getElementById('slide-counter').textContent = `Slide ${currentSlideIndex + 1}/${subChapter.slides.length}`;
+    const slideCounter = document.getElementById('slide-counter');
+    if (slideCounter) {
+        slideCounter.textContent = `Slide ${currentSlideIndex + 1}/${subChapter.slides.length}`;
+    }
     
-    document.getElementById('prev-slide-btn').disabled = currentSlideIndex === 0;
-    document.getElementById('next-slide-btn').disabled = currentSlideIndex === subChapter.slides.length - 1;
+    const prevBtn = document.getElementById('prev-slide-btn');
+    if (prevBtn) {
+        prevBtn.disabled = currentSlideIndex === 0;
+    }
+    
+    const nextBtn = document.getElementById('next-slide-btn');
+    if (nextBtn) {
+        nextBtn.disabled = currentSlideIndex === subChapter.slides.length - 1;
+    }
 }
 
 // --- KONTROLER KUIS (QUIZ CONTROLLER) ---
 function startQuiz() {
-    const chapter = courseData.find(ch => ch.id === currentChapterId);
-    const subChapter = chapter.subChapters.find(sub => sub.id === currentSubChapterId);
-    
-    // Check if quiz is already completed
-    const isQuizCompleted = storage.isCompleted('quizzes', currentSubChapterId);
-    
-    if (isQuizCompleted) {
-        // Enter review mode
-        quizState.isReviewMode = true;
-        quizState.originalQuestions = JSON.parse(JSON.stringify(subChapter.quiz.questions));
-        quizState.questions = quizState.originalQuestions; // Use original order for review
-        quizState.userAnswers = storage.getQuizUserAnswers()[currentSubChapterId] || [];
-        quizState.score = storage.getQuizScores()[currentSubChapterId]?.score || 0;
-        quizState.totalPossibleScore = calculateTotalPossibleScore(quizState.questions);
+    try {
+        const chapter = courseData.find(ch => ch.id === currentChapterId);
+        if (!chapter) {
+            console.error(`Chapter with ID ${currentChapterId} not found`);
+            return;
+        }
         
-        document.getElementById('quiz-title').textContent = `Review Asesmen: ${subChapter.title}`;
-        document.getElementById('back-to-dashboard-quiz').style.display = 'inline-block';
-        document.getElementById('quiz-container').style.display = 'block';
-        document.getElementById('quiz-result').style.display = 'block';
+        const subChapter = chapter.subChapters.find(sub => sub.id === currentSubChapterId);
+        if (!subChapter || !subChapter.quiz || !subChapter.quiz.questions) {
+            console.error(`Quiz not found for subchapter ${currentSubChapterId}`);
+            alert('Quiz tidak tersedia untuk bab ini.');
+            return;
+        }
         
-        renderQuizReview();
-        showView('quiz-view');
-    } else {
-        // Start new quiz
-        quizState.isReviewMode = false;
-        quizState.originalQuestions = JSON.parse(JSON.stringify(subChapter.quiz.questions));
-        quizState.questions = randomizeQuestions(subChapter.quiz.questions);
-        quizState.isRandomized = true;
+        // Check if quiz is already completed
+        const isQuizCompleted = storage.isCompleted('quizzes', currentSubChapterId);
         
-        quizState.currentQuestionIndex = 0;
-        quizState.score = 0;
-        quizState.totalPossibleScore = calculateTotalPossibleScore(quizState.questions);
-        quizState.userAnswers = new Array(quizState.questions.length).fill(null);
-        quizState.canGoBack = true;
-        caseStudyState.answeredSubQuestions = new Set(); // Reset case study state
+        if (isQuizCompleted) {
+            // Enter review mode
+            quizState.isReviewMode = true;
+            quizState.originalQuestions = JSON.parse(JSON.stringify(subChapter.quiz.questions));
+            quizState.questions = quizState.originalQuestions; // Use original order for review
+            quizState.userAnswers = storage.getQuizUserAnswers()[currentSubChapterId] || [];
+            quizState.score = storage.getQuizScores()[currentSubChapterId]?.score || 0;
+            quizState.totalPossibleScore = calculateTotalPossibleScore(quizState.questions);
+            
+            const quizTitle = document.getElementById('quiz-title');
+            if (quizTitle) {
+                quizTitle.textContent = `Review Asesmen: ${subChapter.title || 'Quiz'}`;
+            }
+            
+            const backToDashboardBtn = document.getElementById('back-to-dashboard-quiz');
+            if (backToDashboardBtn) {
+                backToDashboardBtn.style.display = 'inline-block';
+            }
+            
+            const quizContainer = document.getElementById('quiz-container');
+            if (quizContainer) {
+                quizContainer.style.display = 'block';
+            }
+            
+            const resultContainer = document.getElementById('quiz-result');
+            if (resultContainer) {
+                resultContainer.style.display = 'block';
+            }
+            
+            renderQuizReview();
+            showView('quiz-view');
+        } else {
+            // Start new quiz
+            quizState.isReviewMode = false;
+            quizState.originalQuestions = JSON.parse(JSON.stringify(subChapter.quiz.questions));
+            quizState.questions = randomizeQuestions(subChapter.quiz.questions);
+            quizState.isRandomized = true;
+            
+            quizState.currentQuestionIndex = 0;
+            quizState.score = 0;
+            quizState.totalPossibleScore = calculateTotalPossibleScore(quizState.questions);
+            quizState.userAnswers = new Array(quizState.questions.length).fill(null);
+            quizState.canGoBack = true;
+            caseStudyState.answeredSubQuestions = new Set(); // Reset case study state
 
-        document.getElementById('quiz-title').textContent = `Asesmen: ${subChapter.title}`;
-        document.getElementById('back-to-dashboard-quiz').style.display = 'none';
-        document.getElementById('quiz-result').style.display = 'none';
-        document.getElementById('quiz-container').style.display = 'block';
-        
-        renderQuestion();
-        showView('quiz-view');
+            const quizTitle = document.getElementById('quiz-title');
+            if (quizTitle) {
+                quizTitle.textContent = `Asesmen: ${subChapter.title || 'Quiz'}`;
+            }
+            
+            const backToDashboardBtn = document.getElementById('back-to-dashboard-quiz');
+            if (backToDashboardBtn) {
+                backToDashboardBtn.style.display = 'none';
+            }
+            
+            const resultContainer = document.getElementById('quiz-result');
+            if (resultContainer) {
+                resultContainer.style.display = 'none';
+            }
+            
+            const quizContainer = document.getElementById('quiz-container');
+            if (quizContainer) {
+                quizContainer.style.display = 'block';
+            }
+            
+            renderQuestion();
+            showView('quiz-view');
+        }
+    } catch (error) {
+        console.error('Error starting quiz:', error);
+        alert('Terjadi kesalahan saat memulai quiz. Silakan coba lagi.');
     }
 }
 
 function calculateTotalPossibleScore(questions) {
+    if (!Array.isArray(questions)) return 0;
+    
     let score = 0;
     questions.forEach(q => {
-        if (q.type === 'multiple-choice' || q.type === 'essay') score += 1;
-        else if (q.type === 'matching') score += q.pairs.length;
-        else if (q.type === 'case-study') {
+        if (!q || !q.type) return;
+        
+        if (q.type === 'multiple-choice' || q.type === 'essay' || q.type === 'multiple-choice-complex') score += 1;
+        else if (q.type === 'matching' && Array.isArray(q.pairs)) score += q.pairs.length;
+        else if (q.type === 'case-study' && Array.isArray(q.questions)) {
             q.questions.forEach(cq => {
-                if (cq.type === 'multiple-choice' || cq.type === 'essay') score += 1;
+                if (cq && (cq.type === 'multiple-choice' || cq.type === 'essay' || cq.type === 'multiple-choice-complex')) score += 1;
             });
         }
     });
@@ -1069,51 +1226,76 @@ function calculateTotalPossibleScore(questions) {
 
 // PERBAIKAN: Fungsi baru untuk merender review quiz
 function renderQuizReview() {
-    // Hide navigation buttons
-    const navContainer = document.getElementById('quiz-navigation');
-    if (navContainer) {
-        navContainer.style.display = 'none';
-    }
-    
-    // Hide question-specific containers
-    document.getElementById('quiz-options').style.display = 'none';
-    document.getElementById('quiz-essay-container').style.display = 'none';
-    document.getElementById('quiz-matching-container').style.display = 'none';
-    document.getElementById('quiz-case-study-container').style.display = 'none';
-    
-    // Clear question text
-    document.getElementById('question-text').textContent = '';
-    document.getElementById('quiz-progress-info').textContent = '';
-    
-    // Show results
-    const resultContainer = document.getElementById('quiz-result');
-    const resultsHTML = generateResultsHTML(quizState.questions, quizState.userAnswers, quizState.score, quizState.totalPossibleScore);
-    
-    resultContainer.innerHTML = `
-        <h3>📊 Hasil Asesmen Anda</h3>
-        <p>Anda mendapat skor <strong>${quizState.score} dari ${quizState.totalPossibleScore}</strong>.</p>
-        <p>${quizState.score === quizState.totalPossibleScore ? 'Luar biasa! Anda sempurna.' : 'Bagus! Terus belajar untuk hasil yang lebih baik.'}</p>
+    try {
+        // Hide navigation buttons
+        const navContainer = document.getElementById('quiz-navigation');
+        if (navContainer) {
+            navContainer.style.display = 'none';
+        }
         
-        <div class="results-details">
-            <h4>Detail Jawaban:</h4>
-            ${resultsHTML}
-        </div>
-    `;
+        // Hide question-specific containers
+        const optionsContainer = document.getElementById('quiz-options');
+        if (optionsContainer) optionsContainer.style.display = 'none';
+        
+        const essayContainer = document.getElementById('quiz-essay-container');
+        if (essayContainer) essayContainer.style.display = 'none';
+        
+        const matchingContainer = document.getElementById('quiz-matching-container');
+        if (matchingContainer) matchingContainer.style.display = 'none';
+        
+        const caseStudyContainer = document.getElementById('quiz-case-study-container');
+        if (caseStudyContainer) caseStudyContainer.style.display = 'none';
+        
+        // Hide complex multiple choice container
+        const complexContainer = document.getElementById('quiz-complex-container');
+        if (complexContainer) complexContainer.style.display = 'none';
+        
+        // Clear question text
+        const questionText = document.getElementById('question-text');
+        if (questionText) questionText.textContent = '';
+        
+        const progressInfo = document.getElementById('quiz-progress-info');
+        if (progressInfo) progressInfo.textContent = '';
+        
+        // Show results
+        const resultContainer = document.getElementById('quiz-result');
+        if (resultContainer) {
+            const resultsHTML = generateResultsHTML(quizState.questions, quizState.userAnswers, quizState.score, quizState.totalPossibleScore);
+            
+            resultContainer.innerHTML = `
+                <h3>📊 Hasil Asesmen Anda</h3>
+                <p>Anda mendapat skor <strong>${quizState.score} dari ${quizState.totalPossibleScore}</strong>.</p>
+                <p>${quizState.score === quizState.totalPossibleScore ? 'Luar biasa! Anda sempurna.' : 'Bagus! Terus belajar untuk hasil yang lebih baik.'}</p>
+                
+                <div class="results-details">
+                    <h4>Detail Jawaban:</h4>
+                    ${resultsHTML}
+                </div>
+            `;
+        }
+    } catch (error) {
+        console.error('Error rendering quiz review:', error);
+        alert('Terjadi kesalahan saat menampilkan hasil quiz. Silakan coba lagi.');
+    }
 }
 
 function generateResultsHTML(questions, userAnswers, score, totalPossibleScore) {
+    if (!Array.isArray(questions)) return '<p>Tidak ada soal untuk ditampilkan.</p>';
+    
     const resultsHTML = [];
     
     questions.forEach((question, qIndex) => {
+        if (!question || !question.type) return;
+        
         const userAnswer = userAnswers[qIndex];
         let resultHTML = '';
         
-        if (question.type === 'multiple-choice') {
+        if (question.type === 'multiple-choice' && Array.isArray(question.options)) {
             const isCorrect = userAnswer === question.correctAnswer;
             
             resultHTML = `
                 <div class="result-item ${isCorrect ? 'correct' : 'incorrect'}">
-                    <h4>Soal ${qIndex + 1}: ${question.question}</h4>
+                    <h4>Soal ${qIndex + 1}: ${question.question || 'Pertanyaan'}</h4>
                     <div class="options">
                         ${question.options.map((option, i) => 
                             `<div class="option ${i === question.correctAnswer ? 'correct-answer' : ''} ${i === userAnswer ? 'user-answer' : ''}">
@@ -1126,12 +1308,34 @@ function generateResultsHTML(questions, userAnswers, score, totalPossibleScore) 
                     </div>
                 </div>
             `;
-        } else if (question.type === 'essay') {
+        } 
+        // Tambahkan penanganan untuk multiple-choice-complex
+        else if (question.type === 'multiple-choice-complex' && Array.isArray(question.options)) {
+            const isCorrect = userAnswer === question.correctAnswer;
+            
+            resultHTML = `
+                <div class="result-item ${isCorrect ? 'correct' : 'incorrect'}">
+                    <h4>Soal ${qIndex + 1}: ${question.question || 'Pertanyaan'}</h4>
+                    <div class="options">
+                        ${question.options.map((option, i) => 
+                            `<div class="option ${i === question.correctAnswer ? 'correct-answer' : ''} ${i === userAnswer ? 'user-answer' : ''}">
+                                <span class="option-text">${option}</span>
+                                ${i === question.correctAnswer ? '<span class="badge correct">Jawaban Benar</span>' : ''}
+                                ${i === userAnswer && i !== question.correctAnswer ? '<span class="badge incorrect">Jawaban Anda</span>' : ''}
+                                ${i === userAnswer ? '<span class="selection-indicator"><i class="fas fa-check-circle"></i></span>' : ''}
+                            </div>`
+                        ).join('')}
+                    </div>
+                    ${question.explanation ? `<div class="explanation"><strong>Penjelasan:</strong> ${question.explanation}</div>` : ''}
+                </div>
+            `;
+        }
+        else if (question.type === 'essay') {
             const isCorrect = userAnswer && userAnswer.trim().length > 0;
             
             resultHTML = `
                 <div class="result-item ${isCorrect ? 'correct' : 'incorrect'}">
-                    <h4>Soal ${qIndex + 1}: ${question.question}</h4>
+                    <h4>Soal ${qIndex + 1}: ${question.question || 'Pertanyaan'}</h4>
                     <div class="essay-result">
                         <div class="user-answer">
                             <h5>Jawaban Anda:</h5>
@@ -1139,16 +1343,18 @@ function generateResultsHTML(questions, userAnswers, score, totalPossibleScore) 
                         </div>
                         <div class="reference-answer">
                             <h5>Jawaban Acuan:</h5>
-                            <p>${question.referenceAnswer}</p>
+                            <p>${question.referenceAnswer || 'Tidak ada jawaban acuan'}</p>
                         </div>
                     </div>
                 </div>
             `;
-        } else if (question.type === 'matching') {
+        } else if (question.type === 'matching' && Array.isArray(question.pairs)) {
             let correctCount = 0;
             const matchingResults = [];
             
             question.pairs.forEach(pair => {
+                if (!pair || !pair.term) return;
+                
                 const userMatch = userAnswer && userAnswer[pair.term] ? userAnswer[pair.term] : '';
                 const isMatchCorrect = userMatch === pair.match;
                 if (isMatchCorrect) correctCount++;
@@ -1157,7 +1363,7 @@ function generateResultsHTML(questions, userAnswers, score, totalPossibleScore) 
                     <div class="matching-result ${isMatchCorrect ? 'correct' : 'incorrect'}">
                         <span class="term">${pair.term}:</span>
                         <span class="user-match">${userMatch || 'Tidak dijawab'}</span>
-                        <span class="correct-match">${pair.match}</span>
+                        <span class="correct-match">${pair.match || ''}</span>
                         ${isMatchCorrect ? '<span class="badge correct">Benar</span>' : '<span class="badge incorrect">Salah</span>'}
                     </div>
                 `);
@@ -1165,28 +1371,30 @@ function generateResultsHTML(questions, userAnswers, score, totalPossibleScore) 
             
             resultHTML = `
                 <div class="result-item">
-                    <h4>Soal ${qIndex + 1}: ${question.question}</h4>
+                    <h4>Soal ${qIndex + 1}: ${question.question || 'Pertanyaan'}</h4>
                     <div class="matching-results">
                         ${matchingResults.join('')}
                     </div>
                     <p>Skor: ${correctCount} dari ${question.pairs.length}</p>
                 </div>
             `;
-        } else if (question.type === 'case-study') {
+        } else if (question.type === 'case-study' && Array.isArray(question.questions)) {
             let subScore = 0;
             const subResults = [];
             
             question.questions.forEach((subQ, subIndex) => {
+                if (!subQ || !subQ.type) return;
+                
                 const subUserAnswer = userAnswer && userAnswer[subIndex] !== undefined ? userAnswer[subIndex] : null;
                 let isSubCorrect = false;
                 
-                if (subQ.type === 'multiple-choice') {
+                if (subQ.type === 'multiple-choice' && Array.isArray(subQ.options)) {
                     isSubCorrect = subUserAnswer === subQ.correctAnswer;
                     if (isSubCorrect) subScore++;
                     
                     subResults.push(`
                         <div class="sub-result ${isSubCorrect ? 'correct' : 'incorrect'}">
-                            <h5>Sub-soal ${subIndex + 1}: ${subQ.question}</h5>
+                            <h5>Sub-soal ${subIndex + 1}: ${subQ.question || 'Pertanyaan'}</h5>
                             <div class="options">
                                 ${subQ.options.map((option, i) => 
                                     `<div class="option ${i === subQ.correctAnswer ? 'correct-answer' : ''} ${i === subUserAnswer ? 'user-answer' : ''}">
@@ -1199,13 +1407,36 @@ function generateResultsHTML(questions, userAnswers, score, totalPossibleScore) 
                             </div>
                         </div>
                     `);
-                } else if (subQ.type === 'essay') {
+                } 
+                // Tambahkan penanganan untuk multiple-choice-complex dalam case study
+                else if (subQ.type === 'multiple-choice-complex' && Array.isArray(subQ.options)) {
+                    isSubCorrect = subUserAnswer === subQ.correctAnswer;
+                    if (isSubCorrect) subScore++;
+                    
+                    subResults.push(`
+                        <div class="sub-result ${isSubCorrect ? 'correct' : 'incorrect'}">
+                            <h5>Sub-soal ${subIndex + 1}: ${subQ.question || 'Pertanyaan'}</h5>
+                            <div class="options">
+                                ${subQ.options.map((option, i) => 
+                                    `<div class="option ${i === subQ.correctAnswer ? 'correct-answer' : ''} ${i === subUserAnswer ? 'user-answer' : ''}">
+                                        <span class="option-text">${option}</span>
+                                        ${i === subQ.correctAnswer ? '<span class="badge correct">Jawaban Benar</span>' : ''}
+                                        ${i === subUserAnswer && i !== subQ.correctAnswer ? '<span class="badge incorrect">Jawaban Anda</span>' : ''}
+                                        ${i === subUserAnswer ? '<span class="selection-indicator"><i class="fas fa-check-circle"></i></span>' : ''}
+                                    </div>`
+                                ).join('')}
+                            </div>
+                            ${subQ.explanation ? `<div class="explanation"><strong>Penjelasan:</strong> ${subQ.explanation}</div>` : ''}
+                        </div>
+                    `);
+                }
+                else if (subQ.type === 'essay') {
                     isSubCorrect = subUserAnswer && subUserAnswer.trim().length > 0;
                     if (isSubCorrect) subScore++;
                     
                     subResults.push(`
                         <div class="sub-result ${isSubCorrect ? 'correct' : 'incorrect'}">
-                            <h5>Sub-soal ${subIndex + 1}: ${subQ.question}</h5>
+                            <h5>Sub-soal ${subIndex + 1}: ${subQ.question || 'Pertanyaan'}</h5>
                             <div class="essay-result">
                                 <div class="user-answer">
                                     <h6>Jawaban Anda:</h6>
@@ -1213,7 +1444,7 @@ function generateResultsHTML(questions, userAnswers, score, totalPossibleScore) 
                                 </div>
                                 <div class="reference-answer">
                                     <h6>Jawaban Acuan:</h6>
-                                    <p>${subQ.referenceAnswer}</p>
+                                    <p>${subQ.referenceAnswer || 'Tidak ada jawaban acuan'}</p>
                                 </div>
                             </div>
                         </div>
@@ -1223,7 +1454,7 @@ function generateResultsHTML(questions, userAnswers, score, totalPossibleScore) 
             
             resultHTML = `
                 <div class="result-item">
-                    <h4>Soal ${qIndex + 1}: ${question.question}</h4>
+                    <h4>Soal ${qIndex + 1}: ${question.question || 'Pertanyaan'}</h4>
                     <div class="case-study-results">
                         ${subResults.join('')}
                     </div>
@@ -1239,450 +1470,777 @@ function generateResultsHTML(questions, userAnswers, score, totalPossibleScore) 
 }
 
 function renderQuestion() {
-    if (quizState.currentQuestionIndex >= quizState.questions.length) { 
-        showQuizResult(); 
-        return; 
-    }
-    
-    const question = quizState.questions[quizState.currentQuestionIndex];
-    const progressInfo = `Soal ${quizState.currentQuestionIndex + 1} / ${quizState.questions.length}`;
-    document.getElementById('quiz-progress-info').textContent = progressInfo;
-    
-    document.getElementById('quiz-options').style.display = 'none';
-    document.getElementById('quiz-essay-container').style.display = 'none';
-    document.getElementById('quiz-matching-container').style.display = 'none';
-    document.getElementById('quiz-case-study-container').style.display = 'none';
-    
-    // Setup navigation buttons
-    setupQuizNavigation();
+    try {
+        if (quizState.currentQuestionIndex >= quizState.questions.length) { 
+            showQuizResult(); 
+            return; 
+        }
+        
+        const question = quizState.questions[quizState.currentQuestionIndex];
+        if (!question || !question.type) {
+            console.error('Invalid question data:', question);
+            quizState.currentQuestionIndex++;
+            renderQuestion();
+            return;
+        }
+        
+        const progressInfo = `Soal ${quizState.currentQuestionIndex + 1} / ${quizState.questions.length}`;
+        const progressInfoElement = document.getElementById('quiz-progress-info');
+        if (progressInfoElement) {
+            progressInfoElement.textContent = progressInfo;
+        }
+        
+        // Hide all question containers first
+        const optionsContainer = document.getElementById('quiz-options');
+        if (optionsContainer) optionsContainer.style.display = 'none';
+        
+        const essayContainer = document.getElementById('quiz-essay-container');
+        if (essayContainer) essayContainer.style.display = 'none';
+        
+        const matchingContainer = document.getElementById('quiz-matching-container');
+        if (matchingContainer) matchingContainer.style.display = 'none';
+        
+        const caseStudyContainer = document.getElementById('quiz-case-study-container');
+        if (caseStudyContainer) caseStudyContainer.style.display = 'none';
+        
+        // Hide complex multiple choice container
+        const complexContainer = document.getElementById('quiz-complex-container');
+        if (complexContainer) complexContainer.style.display = 'none';
+        
+        // Setup navigation buttons
+        setupQuizNavigation();
 
-    switch(question.type) {
-        case 'multiple-choice': renderMultipleChoice(question); break;
-        case 'essay': renderEssay(question); break;
-        case 'matching': renderMatching(question); break;
-        case 'case-study': renderCaseStudy(question); break;
+        switch(question.type) {
+            case 'multiple-choice': renderMultipleChoice(question); break;
+            case 'multiple-choice-complex': renderMultipleChoiceComplex(question); break; // Tambahkan ini
+            case 'essay': renderEssay(question); break;
+            case 'matching': renderMatching(question); break;
+            case 'case-study': renderCaseStudy(question); break;
+            default:
+                console.error('Unknown question type:', question.type);
+                quizState.currentQuestionIndex++;
+                renderQuestion();
+        }
+    } catch (error) {
+        console.error('Error rendering question:', error);
+        alert('Terjadi kesalahan saat menampilkan soal. Silakan coba lagi.');
     }
 }
 
 function setupQuizNavigation() {
-    const navContainer = document.getElementById('quiz-navigation');
-    if (!navContainer) {
-        const newNavContainer = document.createElement('div');
-        newNavContainer.id = 'quiz-navigation';
-        newNavContainer.className = 'quiz-navigation';
-        document.getElementById('quiz-container').appendChild(newNavContainer);
+    try {
+        let navContainer = document.getElementById('quiz-navigation');
+        if (!navContainer) {
+            navContainer = document.createElement('div');
+            navContainer.id = 'quiz-navigation';
+            navContainer.className = 'quiz-navigation';
+            
+            const quizContainer = document.getElementById('quiz-container');
+            if (quizContainer) {
+                quizContainer.appendChild(navContainer);
+            } else {
+                console.error('Quiz container not found');
+                return;
+            }
+        }
+        
+        navContainer.style.display = 'flex'; // Make sure it's visible
+        
+        navContainer.innerHTML = `
+            <button id="quiz-prev-btn" class="btn btn-secondary" ${quizState.currentQuestionIndex === 0 || !quizState.canGoBack ? 'disabled' : ''}>
+                <i class="fas fa-arrow-left"></i> Kembali
+            </button>
+            <button id="quiz-hesitate-btn" class="btn btn-warning">
+                <i class="fas fa-question-circle"></i> Ragu-ragu
+            </button>
+            <button id="quiz-next-btn" class="btn btn-primary" ${quizState.userAnswers[quizState.currentQuestionIndex] !== null ? '' : 'disabled'}>
+                Lanjut <i class="fas fa-arrow-right"></i>
+            </button>
+        `;
+        
+        const prevBtn = document.getElementById('quiz-prev-btn');
+        if (prevBtn) {
+            prevBtn.onclick = () => {
+                if (quizState.canGoBack && quizState.currentQuestionIndex > 0) {
+                    quizState.currentQuestionIndex--;
+                    renderQuestion();
+                }
+            };
+        }
+        
+        const hesitateBtn = document.getElementById('quiz-hesitate-btn');
+        if (hesitateBtn) {
+            hesitateBtn.onclick = () => {
+                // Mark question as hesitant for review
+                const hesitantQuestions = storage.get('mawarisHesitantQuestions') || [];
+                const questionId = `${currentSubChapterId}-${quizState.currentQuestionIndex}`;
+                if (!hesitantQuestions.includes(questionId)) {
+                    hesitantQuestions.push(questionId);
+                    storage.set('mawarisHesitantQuestions', hesitantQuestions);
+                }
+                alert('Soal ditandai untuk review nanti.');
+            };
+        }
+        
+        const nextBtn = document.getElementById('quiz-next-btn');
+        if (nextBtn) {
+            nextBtn.onclick = () => {
+                if (quizState.userAnswers[quizState.currentQuestionIndex] !== null) {
+                    quizState.canGoBack = false; // Disable going back after moving forward
+                    quizState.currentQuestionIndex++;
+                    renderQuestion();
+                }
+            };
+        }
+    } catch (error) {
+        console.error('Error setting up quiz navigation:', error);
     }
-    
-    navContainer.style.display = 'flex'; // Make sure it's visible
-    
-    const navButtons = document.getElementById('quiz-navigation');
-    navButtons.innerHTML = `
-        <button id="quiz-prev-btn" class="btn btn-secondary" ${quizState.currentQuestionIndex === 0 || !quizState.canGoBack ? 'disabled' : ''}>
-            <i class="fas fa-arrow-left"></i> Kembali
-        </button>
-        <button id="quiz-hesitate-btn" class="btn btn-warning">
-            <i class="fas fa-question-circle"></i> Ragu-ragu
-        </button>
-        <button id="quiz-next-btn" class="btn btn-primary" ${quizState.userAnswers[quizState.currentQuestionIndex] !== null ? '' : 'disabled'}>
-            Lanjut <i class="fas fa-arrow-right"></i>
-        </button>
-    `;
-    
-    document.getElementById('quiz-prev-btn').onclick = () => {
-        if (quizState.canGoBack && quizState.currentQuestionIndex > 0) {
-            quizState.currentQuestionIndex--;
-            renderQuestion();
-        }
-    };
-    
-    document.getElementById('quiz-hesitate-btn').onclick = () => {
-        // Mark question as hesitant for review
-        const hesitantQuestions = storage.get('mawarisHesitantQuestions') || [];
-        const questionId = `${currentSubChapterId}-${quizState.currentQuestionIndex}`;
-        if (!hesitantQuestions.includes(questionId)) {
-            hesitantQuestions.push(questionId);
-            storage.set('mawarisHesitantQuestions', hesitantQuestions);
-        }
-        alert('Soal ditandai untuk review nanti.');
-    };
-    
-    document.getElementById('quiz-next-btn').onclick = () => {
-        if (quizState.userAnswers[quizState.currentQuestionIndex] !== null) {
-            quizState.canGoBack = false; // Disable going back after moving forward
-            quizState.currentQuestionIndex++;
-            renderQuestion();
-        }
-    };
 }
 
 function enableNextButton() {
-    document.getElementById('quiz-next-btn').disabled = false;
+    const nextBtn = document.getElementById('quiz-next-btn');
+    if (nextBtn) {
+        nextBtn.disabled = false;
+    }
 }
 
 // PERBAIKAN: Fungsi renderMultipleChoice yang diperbaiki dengan indikator visual
 function renderMultipleChoice(question) {
-    document.getElementById('quiz-options').style.display = 'block';
-    document.getElementById('question-text').textContent = question.question;
-    const optionsContainer = document.getElementById('quiz-options');
-    optionsContainer.innerHTML = '';
-    
-    // Check if user has already answered this question
-    const userSelectedIndex = quizState.userAnswers[quizState.currentQuestionIndex];
-    
-    question.options.forEach((option, index) => {
-        const li = document.createElement('li'); 
-        li.className = 'quiz-option';
-        if (userSelectedIndex !== null && userSelectedIndex === index) {
-            li.classList.add('selected');
+    try {
+        if (!question || !Array.isArray(question.options)) {
+            console.error('Invalid question data for multiple choice:', question);
+            return;
         }
         
-        // Create option content with text and indicator
-        const optionContent = document.createElement('div');
-        optionContent.className = 'option-content';
+        const optionsContainer = document.getElementById('quiz-options');
+        if (!optionsContainer) {
+            console.error('Options container not found');
+            return;
+        }
         
-        const optionText = document.createElement('span');
-        optionText.className = 'option-text';
-        optionText.textContent = option;
+        optionsContainer.style.display = 'block';
         
-        const indicator = document.createElement('span');
-        indicator.className = 'selection-indicator';
-        indicator.innerHTML = '<i class="fas fa-check-circle"></i>';
+        const questionText = document.getElementById('question-text');
+        if (questionText) {
+            questionText.textContent = question.question || 'Pertanyaan';
+        }
         
-        optionContent.appendChild(optionText);
-        optionContent.appendChild(indicator);
-        li.appendChild(optionContent);
+        optionsContainer.innerHTML = '';
         
-        li.onclick = () => {
-            // Remove previous selection
-            document.querySelectorAll('.quiz-option').forEach(opt => {
-                opt.classList.remove('selected');
+        // Check if user has already answered this question
+        const userSelectedIndex = quizState.userAnswers[quizState.currentQuestionIndex];
+        
+        question.options.forEach((option, index) => {
+            const li = document.createElement('li'); 
+            li.className = 'quiz-option';
+            if (userSelectedIndex !== null && userSelectedIndex === index) {
+                li.classList.add('selected');
+            }
+            
+            // Create option content with text and indicator
+            const optionContent = document.createElement('div');
+            optionContent.className = 'option-content';
+            
+            const optionText = document.createElement('span');
+            optionText.className = 'option-text';
+            optionText.textContent = option || '';
+            
+            const indicator = document.createElement('span');
+            indicator.className = 'selection-indicator';
+            indicator.innerHTML = '<i class="fas fa-check-circle"></i>';
+            
+            optionContent.appendChild(optionText);
+            optionContent.appendChild(indicator);
+            li.appendChild(optionContent);
+            
+            li.onclick = () => {
+                // Remove previous selection
+                document.querySelectorAll('.quiz-option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                
+                // Mark current selection
+                li.classList.add('selected');
+                
+                // Save user answer
+                quizState.userAnswers[quizState.currentQuestionIndex] = index;
+                
+                enableNextButton();
+            };
+            optionsContainer.appendChild(li);
+        });
+    } catch (error) {
+        console.error('Error rendering multiple choice question:', error);
+    }
+}
+
+// PERBAIKAN: Fungsi baru untuk menangani multiple-choice-complex
+function renderMultipleChoiceComplex(question) {
+    try {
+        // Buat container untuk complex multiple choice jika belum ada
+        let complexContainer = document.getElementById('quiz-complex-container');
+        if (!complexContainer) {
+            complexContainer = document.createElement('div');
+            complexContainer.id = 'quiz-complex-container';
+            
+            const quizContainer = document.getElementById('quiz-container');
+            if (quizContainer) {
+                quizContainer.appendChild(complexContainer);
+            } else {
+                console.error('Quiz container not found');
+                return;
+            }
+        }
+        
+        complexContainer.style.display = 'block';
+        
+        const questionText = document.getElementById('question-text');
+        if (questionText) {
+            questionText.textContent = question.question || 'Pertanyaan';
+        }
+        
+        // Buat HTML untuk soal kompleks
+        complexContainer.innerHTML = `
+            <div class="complex-question">
+                <div class="options-container">
+                    ${question.options.map((option, index) => `
+                        <div class="quiz-option ${quizState.userAnswers[quizState.currentQuestionIndex] === index ? 'selected' : ''}" data-index="${index}">
+                            <div class="option-content">
+                                <span class="option-text">${option}</span>
+                                <span class="selection-indicator"><i class="fas fa-check-circle"></i></span>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        `;
+        
+        // Tambahkan event listener untuk setiap opsi
+        document.querySelectorAll('#quiz-complex-container .quiz-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const index = parseInt(this.dataset.index);
+                
+                // Hapus pilihan sebelumnya
+                document.querySelectorAll('#quiz-complex-container .quiz-option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                
+                // Tandai pilihan saat ini
+                this.classList.add('selected');
+                
+                // Simpan jawaban pengguna
+                quizState.userAnswers[quizState.currentQuestionIndex] = index;
+                
+                enableNextButton();
             });
-            
-            // Mark current selection
-            li.classList.add('selected');
-            
-            // Save user answer
-            quizState.userAnswers[quizState.currentQuestionIndex] = index;
-            
-            enableNextButton();
-        };
-        optionsContainer.appendChild(li);
-    });
+        });
+    } catch (error) {
+        console.error('Error rendering multiple choice complex question:', error);
+    }
 }
 
 function renderEssay(question) {
-    document.getElementById('quiz-essay-container').style.display = 'block';
-    document.getElementById('question-text').textContent = question.question;
-    const container = document.getElementById('quiz-essay-container');
-    
-    // Get user's previous answer if exists
-    const userAnswer = quizState.userAnswers[quizState.currentQuestionIndex] || '';
-    
-    container.innerHTML = `
-        <textarea id="essay-answer" placeholder="Ketik jawaban Anda di sini...">${userAnswer}</textarea>
-    `;
-    
-    const essayAnswer = document.getElementById('essay-answer');
-    essayAnswer.addEventListener('input', () => {
-        if (essayAnswer.value.trim().length > 0) {
-            quizState.userAnswers[quizState.currentQuestionIndex] = essayAnswer.value.trim();
-            enableNextButton();
-        } else {
-            quizState.userAnswers[quizState.currentQuestionIndex] = null;
-            document.getElementById('quiz-next-btn').disabled = true;
+    try {
+        if (!question) {
+            console.error('Invalid question data for essay:', question);
+            return;
         }
-    });
-    
-    // Enable next button if user already has an answer
-    if (userAnswer.length > 0) {
-        enableNextButton();
+        
+        const essayContainer = document.getElementById('quiz-essay-container');
+        if (!essayContainer) {
+            console.error('Essay container not found');
+            return;
+        }
+        
+        essayContainer.style.display = 'block';
+        
+        const questionText = document.getElementById('question-text');
+        if (questionText) {
+            questionText.textContent = question.question || 'Pertanyaan';
+        }
+        
+        // Get user's previous answer if exists
+        const userAnswer = quizState.userAnswers[quizState.currentQuestionIndex] || '';
+        
+        essayContainer.innerHTML = `
+            <textarea id="essay-answer" placeholder="Ketik jawaban Anda di sini...">${userAnswer}</textarea>
+        `;
+        
+        const essayAnswer = document.getElementById('essay-answer');
+        if (essayAnswer) {
+            essayAnswer.addEventListener('input', () => {
+                if (essayAnswer.value.trim().length > 0) {
+                    quizState.userAnswers[quizState.currentQuestionIndex] = essayAnswer.value.trim();
+                    enableNextButton();
+                } else {
+                    quizState.userAnswers[quizState.currentQuestionIndex] = null;
+                    const nextBtn = document.getElementById('quiz-next-btn');
+                    if (nextBtn) {
+                        nextBtn.disabled = true;
+                    }
+                }
+            });
+            
+            // Enable next button if user already has an answer
+            if (userAnswer.length > 0) {
+                enableNextButton();
+            }
+        }
+    } catch (error) {
+        console.error('Error rendering essay question:', error);
     }
 }
 
 function renderMatching(question) {
-    document.getElementById('quiz-matching-container').style.display = 'block';
-    document.getElementById('question-text').textContent = question.question;
-    const container = document.getElementById('quiz-matching-container');
-    container.innerHTML = `<div class="matching-container"></div>`;
-    const matchingContainer = container.querySelector('.matching-container');
-    
-    // Get user's previous answers if exist
-    const userAnswers = quizState.userAnswers[quizState.currentQuestionIndex] || {};
-    
-    question.pairs.forEach((pair, index) => {
-        const itemDiv = document.createElement('div'); 
-        itemDiv.className = 'matching-item';
-        itemDiv.innerHTML = `<label>${pair.term}:</label><select data-term="${pair.term}"><option value="">-- Pilih --</option></select>`;
-        matchingContainer.appendChild(itemDiv);
-    });
-    
-    const allMatches = [...new Set(question.pairs.map(p => p.match))];
-    document.querySelectorAll('#quiz-matching-container select').forEach(select => {
-        allMatches.forEach(match => {
-            const option = document.createElement('option'); 
-            option.value = match; 
-            option.textContent = match; 
-            select.appendChild(option);
-        });
-        
-        // Set previous user answer if exists
-        const term = select.dataset.term;
-        if (userAnswers[term]) {
-            select.value = userAnswers[term];
+    try {
+        if (!question || !Array.isArray(question.pairs)) {
+            console.error('Invalid question data for matching:', question);
+            return;
         }
         
-        select.addEventListener('change', () => {
-            // Save user answers
-            const currentAnswers = quizState.userAnswers[quizState.currentQuestionIndex] || {};
-            document.querySelectorAll('#quiz-matching-container select').forEach(s => {
-                currentAnswers[s.dataset.term] = s.value;
-            });
-            quizState.userAnswers[quizState.currentQuestionIndex] = currentAnswers;
+        const matchingContainer = document.getElementById('quiz-matching-container');
+        if (!matchingContainer) {
+            console.error('Matching container not found');
+            return;
+        }
+        
+        matchingContainer.style.display = 'block';
+        
+        const questionText = document.getElementById('question-text');
+        if (questionText) {
+            questionText.textContent = question.question || 'Pertanyaan';
+        }
+        
+        matchingContainer.innerHTML = `<div class="matching-container"></div>`;
+        const matchingInnerContainer = matchingContainer.querySelector('.matching-container');
+        
+        // Get user's previous answers if exist
+        const userAnswers = quizState.userAnswers[quizState.currentQuestionIndex] || {};
+        
+        question.pairs.forEach((pair, index) => {
+            if (!pair || !pair.term) return;
             
-            // Check if all selects have a value
-            const allSelected = Array.from(document.querySelectorAll('#quiz-matching-container select'))
-                .every(s => s.value !== '');
-            
-            if (allSelected) {
-                enableNextButton();
-            } else {
-                document.getElementById('quiz-next-btn').disabled = true;
-            }
+            const itemDiv = document.createElement('div'); 
+            itemDiv.className = 'matching-item';
+            itemDiv.innerHTML = `<label>${pair.term}:</label><select data-term="${pair.term}"><option value="">-- Pilih --</option></select>`;
+            matchingInnerContainer.appendChild(itemDiv);
         });
-    });
-    
-    // Enable next button if all questions are already answered
-    if (Object.keys(userAnswers).length === question.pairs.length && 
-        Object.values(userAnswers).every(val => val !== '')) {
-        enableNextButton();
+        
+        const allMatches = [...new Set(question.pairs.map(p => p.match).filter(m => m))];
+        document.querySelectorAll('#quiz-matching-container select').forEach(select => {
+            allMatches.forEach(match => {
+                const option = document.createElement('option'); 
+                option.value = match; 
+                option.textContent = match; 
+                select.appendChild(option);
+            });
+            
+            // Set previous user answer if exists
+            const term = select.dataset.term;
+            if (userAnswers[term]) {
+                select.value = userAnswers[term];
+            }
+            
+            select.addEventListener('change', () => {
+                // Save user answers
+                const currentAnswers = quizState.userAnswers[quizState.currentQuestionIndex] || {};
+                document.querySelectorAll('#quiz-matching-container select').forEach(s => {
+                    currentAnswers[s.dataset.term] = s.value;
+                });
+                quizState.userAnswers[quizState.currentQuestionIndex] = currentAnswers;
+                
+                // Check if all selects have a value
+                const allSelected = Array.from(document.querySelectorAll('#quiz-matching-container select'))
+                    .every(s => s.value !== '');
+                
+                if (allSelected) {
+                    enableNextButton();
+                } else {
+                    const nextBtn = document.getElementById('quiz-next-btn');
+                    if (nextBtn) {
+                        nextBtn.disabled = true;
+                    }
+                }
+            });
+        });
+        
+        // Enable next button if all questions are already answered
+        if (Object.keys(userAnswers).length === question.pairs.length && 
+            Object.values(userAnswers).every(val => val !== '')) {
+            enableNextButton();
+        }
+    } catch (error) {
+        console.error('Error rendering matching question:', error);
     }
 }
 
 // PERBAIKAN: Fungsi renderCaseStudy yang diperbaiki dengan indikator visual
 function renderCaseStudy(question) {
-    document.getElementById('quiz-case-study-container').style.display = 'block';
-    const container = document.getElementById('quiz-case-study-container');
-    
-    // Build complete HTML structure first
-    let html = `<div class="case-study-scenario"><strong>Skenario:</strong><br>${question.scenario}</div>`;
-    html += '<div id="sub-questions-container">';
-    
-    // Get user's previous answers if exist
-    const userAnswers = quizState.userAnswers[quizState.currentQuestionIndex] || {};
-    
-    question.questions.forEach((subQ, index) => {
-        html += `<div class="case-study-sub-question"><p><strong>${index + 1}. ${subQ.question}</strong></p>`;
-        
-        if (subQ.type === 'multiple-choice') {
-            html += '<ul class="quiz-options">';
-            subQ.options.forEach((opt, i) => {
-                const isSelected = userAnswers[index] !== undefined && userAnswers[index] === i;
-                html += `
-                    <li class="quiz-option ${isSelected ? 'selected' : ''}" data-sub-index="${index}" data-option-index="${i}">
-                        <div class="option-content">
-                            <span class="option-text">${opt}</span>
-                            <span class="selection-indicator"><i class="fas fa-check-circle"></i></span>
-                        </div>
-                    </li>
-                `;
-            });
-            html += '</ul>';
-        } else if (subQ.type === 'essay') {
-            const userEssayAnswer = userAnswers[index] || '';
-            html += `<textarea id="case-essay-${index}" placeholder="Ketik jawaban Anda..." data-sub-index="${index}">${userEssayAnswer}</textarea>`;
+    try {
+        if (!question || !Array.isArray(question.questions)) {
+            console.error('Invalid question data for case study:', question);
+            return;
         }
+        
+        const caseStudyContainer = document.getElementById('quiz-case-study-container');
+        if (!caseStudyContainer) {
+            console.error('Case study container not found');
+            return;
+        }
+        
+        caseStudyContainer.style.display = 'block';
+        
+        // Build complete HTML structure first
+        let html = `<div class="case-study-scenario"><strong>Skenario:</strong><br>${question.scenario || ''}</div>`;
+        html += '<div id="sub-questions-container">';
+        
+        // Get user's previous answers if exist
+        const userAnswers = quizState.userAnswers[quizState.currentQuestionIndex] || {};
+        
+        question.questions.forEach((subQ, index) => {
+            if (!subQ || !subQ.type) return;
+            
+            html += `<div class="case-study-sub-question"><p><strong>${index + 1}. ${subQ.question || 'Pertanyaan'}</strong></p>`;
+            
+            if (subQ.type === 'multiple-choice' && Array.isArray(subQ.options)) {
+                html += '<ul class="quiz-options">';
+                subQ.options.forEach((opt, i) => {
+                    const isSelected = userAnswers[index] !== undefined && userAnswers[index] === i;
+                    html += `
+                        <li class="quiz-option ${isSelected ? 'selected' : ''}" data-sub-index="${index}" data-option-index="${i}">
+                            <div class="option-content">
+                                <span class="option-text">${opt}</span>
+                                <span class="selection-indicator"><i class="fas fa-check-circle"></i></span>
+                            </div>
+                        </li>
+                    `;
+                });
+                html += '</ul>';
+            } 
+            // Tambahkan penanganan untuk multiple-choice-complex dalam case study
+            else if (subQ.type === 'multiple-choice-complex' && Array.isArray(subQ.options)) {
+                html += '<div class="quiz-options">';
+                subQ.options.forEach((opt, i) => {
+                    const isSelected = userAnswers[index] !== undefined && userAnswers[index] === i;
+                    html += `
+                        <div class="quiz-option ${isSelected ? 'selected' : ''}" data-sub-index="${index}" data-option-index="${i}">
+                            <div class="option-content">
+                                <span class="option-text">${opt}</span>
+                                <span class="selection-indicator"><i class="fas fa-check-circle"></i></span>
+                            </div>
+                        </div>
+                    `;
+                });
+                html += '</div>';
+            }
+            else if (subQ.type === 'essay') {
+                const userEssayAnswer = userAnswers[index] || '';
+                html += `<textarea id="case-essay-${index}" placeholder="Ketik jawaban Anda..." data-sub-index="${index}">${userEssayAnswer}</textarea>`;
+            }
+            html += '</div>';
+        });
+        
         html += '</div>';
-    });
-    
-    html += '</div>';
-    container.innerHTML = html;
-    
-    // Attach event listeners after DOM is created
-    document.querySelectorAll('#sub-questions-container .quiz-option').forEach(option => {
-        option.addEventListener('click', function() {
-            const subIndex = parseInt(this.dataset.subIndex);
-            const optionIndex = parseInt(this.dataset.optionIndex);
-            
-            // Remove previous selection for this sub-question
-            document.querySelectorAll(`#sub-questions-container .quiz-option[data-sub-index="${subIndex}"]`).forEach(opt => {
-                opt.classList.remove('selected');
+        caseStudyContainer.innerHTML = html;
+        
+        // Attach event listeners after DOM is created
+        document.querySelectorAll('#sub-questions-container .quiz-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const subIndex = parseInt(this.dataset.subIndex);
+                const optionIndex = parseInt(this.dataset.optionIndex);
+                
+                // Remove previous selection for this sub-question
+                document.querySelectorAll(`#sub-questions-container .quiz-option[data-sub-index="${subIndex}"]`).forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                
+                // Mark current selection
+                this.classList.add('selected');
+                
+                // Save user answer
+                const currentAnswers = quizState.userAnswers[quizState.currentQuestionIndex] || {};
+                currentAnswers[subIndex] = optionIndex;
+                quizState.userAnswers[quizState.currentQuestionIndex] = currentAnswers;
+                
+                checkCaseStudyCompletion();
             });
-            
-            // Mark current selection
-            this.classList.add('selected');
-            
-            // Save user answer
-            const currentAnswers = quizState.userAnswers[quizState.currentQuestionIndex] || {};
-            currentAnswers[subIndex] = optionIndex;
-            quizState.userAnswers[quizState.currentQuestionIndex] = currentAnswers;
-            
-            checkCaseStudyCompletion();
         });
-    });
-    
-    document.querySelectorAll('#sub-questions-container textarea').forEach(textarea => {
-        textarea.addEventListener('input', function() {
-            const subIndex = parseInt(this.dataset.subIndex);
-            
-            // Save user answer
-            const currentAnswers = quizState.userAnswers[quizState.currentQuestionIndex] || {};
-            currentAnswers[subIndex] = this.value.trim();
-            quizState.userAnswers[quizState.currentQuestionIndex] = currentAnswers;
-            
-            checkCaseStudyCompletion();
+        
+        document.querySelectorAll('#sub-questions-container textarea').forEach(textarea => {
+            textarea.addEventListener('input', function() {
+                const subIndex = parseInt(this.dataset.subIndex);
+                
+                // Save user answer
+                const currentAnswers = quizState.userAnswers[quizState.currentQuestionIndex] || {};
+                currentAnswers[subIndex] = this.value.trim();
+                quizState.userAnswers[quizState.currentQuestionIndex] = currentAnswers;
+                
+                checkCaseStudyCompletion();
+            });
         });
-    });
-    
-    document.getElementById('question-text').textContent = 'Analisislah skenario berikut dengan cermat.';
-    
-    // Check if all sub-questions are already answered
-    checkCaseStudyCompletion();
+        
+        const questionText = document.getElementById('question-text');
+        if (questionText) {
+            questionText.textContent = 'Analisislah skenario berikut dengan cermat.';
+        }
+        
+        // Check if all sub-questions are already answered
+        checkCaseStudyCompletion();
+    } catch (error) {
+        console.error('Error rendering case study question:', error);
+    }
 }
 
 function checkCaseStudyCompletion() {
-    const currentQuestion = quizState.questions[quizState.currentQuestionIndex];
-    const userAnswers = quizState.userAnswers[quizState.currentQuestionIndex] || {};
-    
-    // Check if all multiple choice questions are answered
-    const mcQuestions = currentQuestion.questions.filter(q => q.type === 'multiple-choice');
-    const mcAnswered = mcQuestions.every((q, index) => {
-        const qIndex = currentQuestion.questions.indexOf(q);
-        return userAnswers[qIndex] !== undefined;
-    });
-    
-    // Check if all essay questions have content
-    const essayQuestions = currentQuestion.questions.filter(q => q.type === 'essay');
-    const essayAnswered = essayQuestions.every((q, index) => {
-        const qIndex = currentQuestion.questions.indexOf(q);
-        return userAnswers[qIndex] && userAnswers[qIndex].trim().length > 0;
-    });
-    
-    if (mcAnswered && essayAnswered) {
-        enableNextButton();
+    try {
+        const currentQuestion = quizState.questions[quizState.currentQuestionIndex];
+        if (!currentQuestion || !Array.isArray(currentQuestion.questions)) return;
+        
+        const userAnswers = quizState.userAnswers[quizState.currentQuestionIndex] || {};
+        
+        // Check if all multiple choice questions are answered
+        const mcQuestions = currentQuestion.questions.filter(q => q.type === 'multiple-choice');
+        const mcAnswered = mcQuestions.every((q, index) => {
+            const qIndex = currentQuestion.questions.indexOf(q);
+            return userAnswers[qIndex] !== undefined;
+        });
+        
+        // Check if all multiple choice complex questions are answered
+        const mcComplexQuestions = currentQuestion.questions.filter(q => q.type === 'multiple-choice-complex');
+        const mcComplexAnswered = mcComplexQuestions.every((q, index) => {
+            const qIndex = currentQuestion.questions.indexOf(q);
+            return userAnswers[qIndex] !== undefined;
+        });
+        
+        // Check if all essay questions have content
+        const essayQuestions = currentQuestion.questions.filter(q => q.type === 'essay');
+        const essayAnswered = essayQuestions.every((q, index) => {
+            const qIndex = currentQuestion.questions.indexOf(q);
+            return userAnswers[qIndex] && userAnswers[qIndex].trim().length > 0;
+        });
+        
+        if (mcAnswered && mcComplexAnswered && essayAnswered) {
+            enableNextButton();
+        }
+    } catch (error) {
+        console.error('Error checking case study completion:', error);
     }
 }
 
 function showQuizResult() {
-    document.getElementById('quiz-container').style.display = 'none';
-    document.getElementById('back-to-dashboard-quiz').style.display = 'inline-block';
-    const resultContainer = document.getElementById('quiz-result');
-    resultContainer.style.display = 'block';
-    
-    // Save user answers before showing results
-    storage.saveQuizUserAnswers(currentSubChapterId, quizState.userAnswers);
-    
-    // Calculate score based on user answers
-    let score = 0;
-    const resultsHTML = generateResultsHTML(quizState.questions, quizState.userAnswers, score, quizState.totalPossibleScore);
-    
-    quizState.questions.forEach((question, qIndex) => {
-        const userAnswer = quizState.userAnswers[qIndex];
-        
-        if (question.type === 'multiple-choice') {
-            if (userAnswer === question.correctAnswer) score++;
-        } else if (question.type === 'essay') {
-            if (userAnswer && userAnswer.trim().length > 0) score++;
-        } else if (question.type === 'matching') {
-            question.pairs.forEach(pair => {
-                const userMatch = userAnswer && userAnswer[pair.term] ? userAnswer[pair.term] : '';
-                if (userMatch === pair.match) score++;
-            });
-        } else if (question.type === 'case-study') {
-            question.questions.forEach((subQ, subIndex) => {
-                const subUserAnswer = userAnswer && userAnswer[subIndex] !== undefined ? userAnswer[subIndex] : null;
-                
-                if (subQ.type === 'multiple-choice') {
-                    if (subUserAnswer === subQ.correctAnswer) score++;
-                } else if (subQ.type === 'essay') {
-                    if (subUserAnswer && subUserAnswer.trim().length > 0) score++;
-                }
-            });
+    try {
+        const quizContainer = document.getElementById('quiz-container');
+        if (quizContainer) {
+            quizContainer.style.display = 'none';
         }
-    });
-    
-    // Update quiz state with calculated score
-    quizState.score = score;
-    
-    resultContainer.innerHTML = `
-        <h3>🎉 Asesmen Selesai!</h3>
-        <p>Anda mendapat skor <strong>${quizState.score} dari ${quizState.totalPossibleScore}</strong>.</p>
-        <p>${quizState.score === quizState.totalPossibleScore ? 'Luar biasa! Anda sempurna.' : 'Bagus! Terus belajar untuk hasil yang lebih baik.'}</p>
         
-        <div class="results-details">
-            <h4>Detail Jawaban:</h4>
-            ${resultsHTML}
-        </div>
-    `;
-    
-    storage.saveQuizScore(currentSubChapterId, quizState.score, quizState.totalPossibleScore);
-    storage.markCompleted('quizzes', currentSubChapterId);
+        const backToDashboardBtn = document.getElementById('back-to-dashboard-quiz');
+        if (backToDashboardBtn) {
+            backToDashboardBtn.style.display = 'inline-block';
+        }
+        
+        const resultContainer = document.getElementById('quiz-result');
+        if (!resultContainer) {
+            console.error('Result container not found');
+            return;
+        }
+        
+        resultContainer.style.display = 'block';
+        
+        // Save user answers before showing results
+        storage.saveQuizUserAnswers(currentSubChapterId, quizState.userAnswers);
+        
+        // Calculate score based on user answers
+        let score = 0;
+        const resultsHTML = generateResultsHTML(quizState.questions, quizState.userAnswers, score, quizState.totalPossibleScore);
+        
+        quizState.questions.forEach((question, qIndex) => {
+            if (!question || !question.type) return;
+            
+            const userAnswer = quizState.userAnswers[qIndex];
+            
+            if (question.type === 'multiple-choice') {
+                if (userAnswer === question.correctAnswer) score++;
+            } 
+            // Tambahkan penanganan untuk multiple-choice-complex
+            else if (question.type === 'multiple-choice-complex') {
+                if (userAnswer === question.correctAnswer) score++;
+            }
+            else if (question.type === 'essay') {
+                if (userAnswer && userAnswer.trim().length > 0) score++;
+            } else if (question.type === 'matching' && Array.isArray(question.pairs)) {
+                question.pairs.forEach(pair => {
+                    if (!pair || !pair.term) return;
+                    
+                    const userMatch = userAnswer && userAnswer[pair.term] ? userAnswer[pair.term] : '';
+                    if (userMatch === pair.match) score++;
+                });
+            } else if (question.type === 'case-study' && Array.isArray(question.questions)) {
+                question.questions.forEach((subQ, subIndex) => {
+                    if (!subQ || !subQ.type) return;
+                    
+                    const subUserAnswer = userAnswer && userAnswer[subIndex] !== undefined ? userAnswer[subIndex] : null;
+                    
+                    if (subQ.type === 'multiple-choice') {
+                        if (subUserAnswer === subQ.correctAnswer) score++;
+                    } 
+                    // Tambahkan penanganan untuk multiple-choice-complex dalam case study
+                    else if (subQ.type === 'multiple-choice-complex') {
+                        if (subUserAnswer === subQ.correctAnswer) score++;
+                    }
+                    else if (subQ.type === 'essay') {
+                        if (subUserAnswer && subUserAnswer.trim().length > 0) score++;
+                    }
+                });
+            }
+        });
+        
+        // Update quiz state with calculated score
+        quizState.score = score;
+        
+        resultContainer.innerHTML = `
+            <h3>🎉 Asesmen Selesai!</h3>
+            <p>Anda mendapat skor <strong>${quizState.score} dari ${quizState.totalPossibleScore}</strong>.</p>
+            <p>${quizState.score === quizState.totalPossibleScore ? 'Luar biasa! Anda sempurna.' : 'Bagus! Terus belajar untuk hasil yang lebih baik.'}</p>
+            
+            <div class="results-details">
+                <h4>Detail Jawaban:</h4>
+                ${resultsHTML}
+            </div>
+        `;
+        
+        storage.saveQuizScore(currentSubChapterId, quizState.score, quizState.totalPossibleScore);
+        storage.markCompleted('quizzes', currentSubChapterId);
+    } catch (error) {
+        console.error('Error showing quiz result:', error);
+        alert('Terjadi kesalahan saat menampilkan hasil quiz. Silakan coba lagi.');
+    }
 }
 
 function showCertificate() {
-    const userName = storage.getUserName();
-    const scores = storage.getQuizScores();
-    let totalScore = 0, totalPossible = 0;
-    
-    courseData.forEach(ch => {
-        ch.subChapters.forEach(sub => {
-            if (scores[sub.id]) {
+    try {
+        const userName = storage.getUserName();
+        const scores = storage.getQuizScores();
+        let totalScore = 0, totalPossible = 0;
+        
+        courseData.forEach(ch => {
+            if (!ch || !ch.subChapters) return;
+            
+            ch.subChapters.forEach(sub => {
+                if (!sub || !sub.id || !scores[sub.id]) return;
+                
                 totalScore += scores[sub.id].score;
                 totalPossible += scores[sub.id].total;
-            }
+            });
         });
-    });
-    const finalPercentage = totalPossible > 0 ? Math.round((totalScore / totalPossible) * 100) : 0;
-    
-    document.getElementById('certificate-name').textContent = userName;
-    document.getElementById('certificate-score').textContent = `${finalPercentage}% (${totalScore}/${totalPossible} poin)`;
-    document.getElementById('certificate-date').textContent = new Date().toLocaleDateString('id-ID');
-    showView('certificate-view');
+        const finalPercentage = totalPossible > 0 ? Math.round((totalScore / totalPossible) * 100) : 0;
+        
+        const certificateName = document.getElementById('certificate-name');
+        if (certificateName) {
+            certificateName.textContent = userName;
+        }
+        
+        const certificateScore = document.getElementById('certificate-score');
+        if (certificateScore) {
+            certificateScore.textContent = `${finalPercentage}% (${totalScore}/${totalPossible} poin)`;
+        }
+        
+        const certificateDate = document.getElementById('certificate-date');
+        if (certificateDate) {
+            certificateDate.textContent = new Date().toLocaleDateString('id-ID');
+        }
+        
+        showView('certificate-view');
+    } catch (error) {
+        console.error('Error showing certificate:', error);
+        alert('Terjadi kesalahan saat menampilkan sertifikat. Silakan coba lagi.');
+    }
 }
 
 // --- EVENT LISTENERS ---
 document.addEventListener('DOMContentLoaded', () => {
     console.log("DOM fully loaded and parsed. Attaching event listeners.");
     
-    document.getElementById('start-learning-btn').onclick = () => {
-        const name = document.getElementById('user-name-input').value.trim();
-        if (name) { 
-            storage.saveUserName(name); 
+    try {
+        const startLearningBtn = document.getElementById('start-learning-btn');
+        if (startLearningBtn) {
+            startLearningBtn.onclick = () => {
+                const nameInput = document.getElementById('user-name-input');
+                const name = nameInput ? nameInput.value.trim() : '';
+                if (name) { 
+                    storage.saveUserName(name); 
+                    renderDashboard(); 
+                } else { 
+                    alert('Silakan masukkan nama Anda.'); 
+                }
+            };
+        }
+        
+        const backToDashboardLessonBtn = document.getElementById('back-to-dashboard-lesson');
+        if (backToDashboardLessonBtn) {
+            backToDashboardLessonBtn.onclick = () => renderDashboard();
+        }
+        
+        const backToDashboardQuizBtn = document.getElementById('back-to-dashboard-quiz');
+        if (backToDashboardQuizBtn) {
+            backToDashboardQuizBtn.onclick = () => renderDashboard();
+        }
+        
+        const startQuizBtn = document.getElementById('start-quiz-btn');
+        if (startQuizBtn) {
+            startQuizBtn.onclick = startQuiz;
+        }
+        
+        const viewCertificateBtn = document.getElementById('view-certificate-btn');
+        if (viewCertificateBtn) {
+            viewCertificateBtn.onclick = showCertificate;
+        }
+        
+        const printCertificateBtn = document.getElementById('print-certificate-btn');
+        if (printCertificateBtn) {
+            printCertificateBtn.onclick = () => window.print();
+        }
+        
+        const backToDashboardCertBtn = document.getElementById('back-to-dashboard-cert');
+        if (backToDashboardCertBtn) {
+            backToDashboardCertBtn.onclick = () => renderDashboard();
+        }
+        
+        // Slide navigation
+        const prevSlideBtn = document.getElementById('prev-slide-btn');
+        if (prevSlideBtn) {
+            prevSlideBtn.onclick = () => {
+                if (currentSlideIndex > 0) {
+                    currentSlideIndex--;
+                    renderSlide();
+                }
+            };
+        }
+        
+        const nextSlideBtn = document.getElementById('next-slide-btn');
+        if (nextSlideBtn) {
+            nextSlideBtn.onclick = () => {
+                const chapter = courseData.find(ch => ch.id === currentChapterId);
+                if (!chapter) return;
+                
+                const subChapter = chapter.subChapters.find(sub => sub.id === currentSubChapterId);
+                if (!subChapter || !subChapter.slides) return;
+                
+                if (currentSlideIndex < subChapter.slides.length - 1) {
+                    currentSlideIndex++;
+                    renderSlide();
+                }
+            };
+        }
+
+        const userName = storage.getUserName();
+        // PERBAIKAN: Cek apakah nama yang tersimpan bukan nama default
+        if (userName !== 'Pengguna') { 
             renderDashboard(); 
         } else { 
-            alert('Silakan masukkan nama Anda.'); 
+            showView('welcome-view'); 
         }
-    };
-    
-    document.getElementById('back-to-dashboard-lesson').onclick = () => renderDashboard();
-    document.getElementById('back-to-dashboard-quiz').onclick = () => renderDashboard();
-    document.getElementById('start-quiz-btn').onclick = startQuiz;
-    document.getElementById('view-certificate-btn').onclick = showCertificate;
-    document.getElementById('print-certificate-btn').onclick = () => window.print();
-    document.getElementById('back-to-dashboard-cert').onclick = () => renderDashboard();
-    
-    // Slide navigation
-    document.getElementById('prev-slide-btn').onclick = () => {
-        if (currentSlideIndex > 0) {
-            currentSlideIndex--;
-            renderSlide();
-        }
-    };
-    
-    document.getElementById('next-slide-btn').onclick = () => {
-        const chapter = courseData.find(ch => ch.id === currentChapterId);
-        const subChapter = chapter.subChapters.find(sub => sub.id === currentSubChapterId);
-        
-        if (currentSlideIndex < subChapter.slides.length - 1) {
-            currentSlideIndex++;
-            renderSlide();
-        }
-    };
-
-    const userName = storage.getUserName();
-    // PERBAIKAN: Cek apakah nama yang tersimpan bukan nama default
-    if (userName !== 'Pengguna') { 
-        renderDashboard(); 
-    } else { 
-        showView('welcome-view'); 
+    } catch (error) {
+        console.error('Error initializing event listeners:', error);
     }
 });
