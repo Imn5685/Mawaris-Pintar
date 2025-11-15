@@ -757,8 +757,6 @@ const courseData = [
         ]
     }
 ];
-// --- IMPORT DATA MATERI ---
-import courseData from './data.js';
 
 // --- APLIKASI LOGIKA ---
 let currentChapterId = null, currentSubChapterId = null, currentSlideIndex = 0;
