@@ -741,111 +741,151 @@ const courseData = [
                             <div class="procedure-box">
                                 <h4>📋 Langkah-Langkah Pembagian Waris:</h4>
                                 <ol>
-                                    <li><strong>Finalisasi Kematian:</strong>
-                                        <ul>
-                                            <li>Mendapatkan Surat Keterangan Kematian (SKK) dari rumah sakit atau dokter.</li>
-                                            <li>Melaporkan kematian ke pemerintah desa/kelurahan maksimal 24 jam setelah kematian.</li>
-                                            <li>Melakukan pemakaman jenazah sesuai syariat.</li>
-                                        </ul>
-                                    </li>
-                                    <li><strong>Inventarisasi Harta:</strong>
-                                        <ul>
-                                            <li>Membuat daftar inventaris harta peninggalan.</li>
-                                            <li>Menyusun daftar ahli waris yang berhak.</li>
-                                            <li>Menghitung total nilai harta (bruto).</li>
-                                        </ul>
-                                    </li>
-                                    <li><strong>Pelunasan Kewajiban:</strong>
-                                        <ul>
-                                            <li>Melunasi biaya pemakaman jenazah.</li>
-                                            <li>Melunasi semua hutang pewaris.</li>
-                                            <li>Melaksanakan wasiat yang sah (maksimal 1/3 harta).</li>
-                                        </ul>
-                                    </li>
-                                    <li><strong>Pembagian Warisan:</strong>
-                                        <ul>
-                                            <li>Membagikan harta bersih kepada ahli waris.</li>
-                                            <li>Membuat berita acara pembagian waris.</li>
-                                            <li>Melakukan penyerahan harta kepada ahli waris.</li>
-                                        </ul>
-                                    </li>
+                                    <li><strong>Finalisasi Kematian:</strong> Memastikan pewaris telah benar-benar wafat dengan mendapatkan Surat Keterangan Kematian (SKK) dari rumah sakit atau dokter.</li>
+                                    <li><strong>Inventarisasi Harta:</strong> Membuat daftar inventaris harta peninggalan yang lengkap, baik yang bergerak maupun tidak bergerak.</li>
+                                    <li><strong>Identifikasi Ahli Waris:</strong> Menentukan siapa saja yang berhak menerima bagian waris sesuai hukum Islam.</li>
+                                    <li><strong>Pelunasan Hutang:</strong> Melunasi semua hutang pewaris terlebih dahulu sebelum membagikan warisan.</li>
+                                    <li><strong>Pelaksanaan Wasiat:</strong> Melaksanakan wasiat yang sah (maksimal 1/3 harta) jika ada.</li>
+                                    <li><strong>Pembagian Warisan:</strong> Membagikan harta kepada ahli waris sesuai dengan hukum faraidh.</li>
+                                    <li><strong>Pembuatan Berita Acara:</strong> Membuat berita acara pembagian waris sebagai bukti bahwa pembagian telah dilakukan.</li>
                                 </ol>
                             </div>
                             <div class="source-detail">
                                 <h4>QS. An-Nisa' : 12</h4>
-                                <p class="verse-arabic">مِن بَعْدِ وَصِيَّةٍ يُوصِي بِهَا أَوْ دَيْنٍ ۗ آبَاؤُكُمْ وَأَبْنَاؤُكُمْ لَا تَدْرُونَ أَيُّهُمْ أَقْرَبُ لَكُمْ نَفْعًا ۗ فَرِيضَةً مِنَ اللَّهِ ۗ إِنَّ اللَّهَ كَانَ عَلِيمًا حَكِيمًا</p>
-                                <p class="verse-translation"><strong>Terjemahan:</strong> "(Pembagian ini) sesudah dipenuhi wasiat (yang telah dibuatnya) atau sesudah (dibayarkan) hutangnya. (Pembagian itu dilakukan) supaya tidak ada kerugian. (Ini adalah) ketetapan dari Allah. Sesungguhnya Allah Maha Mengetahui lagi Maha Bijaksana."</p>
-                                <div class="source-explanation"><strong>Tafsir Ringkas:</strong> Ayat ini menunjukkan urutan yang harus diperhatikan dalam pembagian waris: wasiat dan hutang harus diselesaikan terlebih dahulu sebelum harta dibagikan. Ini untuk memastikan keadilan bagi semua pihak.</div>
+                                <p class="verse-arabic">مِن بَعْدِ وَصِيَّةٍ يُوصِي بِهَا أَوْ دَيْنٍ ۗ آبَاؤُكُمْ وَأَبْنَاؤُكُمْ لَا تَدْرُونَ أَيُّهُمْ أَقْرَبُ لَكُمْ نَفْعًا ۚ فَرِيضَةً مِنَ اللَّهِ ۗ إِنَّ اللَّهَ كَانَ عَلِيمًا حَكِيمًا</p>
+                                <p class="verse-translation"><strong>Terjemahan:</strong> "(Pembagian ini) sesudah dipenuhi wasiat (yang telah dibuatnya) dan sesudah (dibayarkan) hutangnya. (Pembagian itu dilakukan) supaya tidak ada kerugian (bagi) di antara kamu."</p>
+                                <div class="source-context"><strong>Asbabun Nuzul:</strong> Ayat ini turun sebagai peringatan keras bagi orang-orang yang menentang syariat Islam, termasuk dalam hal pembagian warisan yang telah ditetapkan Allah. Ayat ini menegaskan bahwa pembagian warisan harus dilakukan setelah semua kewajiban terpenuhi.</div>
+                                <div class="source-explanation"><strong>Tafsir Ringkas:</strong> Ayat ini menunjukkan urutan yang harus diperhatikan dalam pembagian waris: wasiat dan hutang harus dipenuhi terlebih dahulu sebelum harta dibagikan.</div>
+                                <div class="mazhab-reference">
+                                    <h4>Referensi Mazhab:</h4>
+                                    <p><strong>Imam Syafi'i:</strong> Menyatakan bahwa wasiat dan hutang harus dipenuhi terlebih dahulu sebelum pembagian warisan.</p>
+                                    <p><strong>Imam Hanafi:</strong> Menambahkan bahwa hutang yang terkait dengan harta waris harus diprioritaskan pembayarannya.</p>
+                                </div>
+                                <div class="indonesian-law">
+                                    <h4>Hukum di Indonesia:</h4>
+                                    <p>Menurut KHI Pasal 171, pembagian waris harus dilakukan setelah semua kewajiban dipenuhi. Pembagian dapat dilakukan secara musyawarah atau melalui pengadilan agama.</p>
+                                </div>
                             </div>
-                            <div class="indonesian-law">
-                                <h4>🇮🇩 Hukum di Indonesia:</h4>
-                                <p>Menurut KHI Pasal 171, pembagian waris bagi pemeluk agama Islam harus dilakukan sesuai dengan hukum Islam. Prosedur pembagian dapat dilakukan secara musyawarah atau melalui pengadilan agama.</p>
+                            <div class="real-case-example">
+                                <h4>Kasus Nyata:</h4>
+                                <p>Seorang pengusaha meninggal dunia dengan harta warisan senilai Rp 10 miliar. Setelah diinventarisasi, ternyata ia memiliki hutang senilai Rp 2 miliar dan wasiat sebesar Rp 1 miliar untuk pembangunan masjid. Ia meninggalkan istri, 2 anak laki-laki, dan 1 anak perempuan.</p>
+                                <p><strong>Pembagian yang benar:</strong></p>
+                                <ol>
+                                    <li>Melunasi hutang Rp 2 miliar terlebih dahulu.</li>
+                                    <li>Melaksanakan wasiat Rp 1 miliar.</li>
+                                    <li>Sisa harta = Rp 7 miliar.</li>
+                                    <li>Istri mendapat 1/8 = Rp 1,25 miliar.</li>
+                                    <li>Anak-anak mendapat sisa harta Rp 5,75 miliar.</li>
+                                    <li>Perhitungan bagian anak: 4 bagian total (2 anak laki-laki = 4 bagian anak perempuan).</li>
+                                    <li>Setiap bagian anak laki-laki = Rp 1,437,5 juta.</li>
+                                    <li>Anak perempuan = Rp 718,75 juta.</li>
+                                </ol>
+                                <p><strong>Alokasi Aset:</strong></p>
+                                <ol>
+                                    <li>Keluarga sepakat untuk tidak menjual aset, tetapi mengalokasikannya sesuai kebutuhan.</li>
+                                    <li>Istri memilih rumah senilai Rp 1,25 miliar.</li>
+                                    <li>Anak pertama mendapat tanah kavling senilai Rp 2,875 juta.</li>
+                                    <li>Anak kedua mendapat mobil BPKB senilai Rp 1,437,5 juta.</li>
+                                    <li>Anak perempuan mendapat uang tunai Rp 718,75 juta.</li>
+                                </ol>
                             </div>
                         `
                     },
                     {
-                        title: 'Peran Notaris dan Pejabat',
+                        title: 'Alokasi Aset dalam Pembagian Waris',
                         content: `
-                            <p><strong>Peran Notaris dan Pejabat:</strong> Notaris dan pejabat terkait memiliki peran penting dalam memastikan pembagian waris berjalan sesuai hukum.</p>
-                            <div class="role-box">
-                                <h4>👨‍⚖️ Peran Notaris (PPAT):</h4>
-                                <ul>
-                                    <li><strong>Membuat Akta Kematian:</strong> Membuat akta kematian yang sah dan legal.</li>
-                                    <li><strong>Mengesahkan Ahli Waris:</strong> Memverifikasi dan mengesahkan daftar ahli waris yang sah.</li>
-                                    <li><strong>Membuat Berita Acara Waris:</strong> Membuat berita acara pembagian waris yang sah.</li>
-                                    <li><strong>Melakukan Penyerahan Harta:</strong> Menyerahkan harta kepada ahli waris sesuai pembagian.</li>
-                                </ul>
-                                <h4>👮‍⚖️ Peran Pejabat Kementerian Agama:</h4>
-                                <ul>
-                                    <li><strong>Memberikan Bimbingan:</strong> Memberikan bimbingan hukum Islam dalam pembagian waris.</li>
-                                    <li><strong>Mediasi Sengketa:</strong> Menjadi mediator jika terjadi sengketa waris.</li>
-                                    <li><strong>Verifikasi Keshahihan:</strong> Memastikan pembagian sesuai dengan hukum Islam.</li>
-                                </ul>
+                            <p><strong>Alokasi Aset dalam Pembagian Waris:</strong> Aset tidak likuid seperti rumah, tanah, atau kendaraan seringkali menimbulkan tantangan dalam pembagian waris. Berikut adalah metode yang dapat digunakan:</p>
+                            <div class="allocation-methods">
+                                <h4>🏠 Metode Alokasi Aset:</h4>
+                                <div class="method">
+                                    <p><strong>Penilaian Profesional:</strong> Menggunakan jasa penilai profesional untuk menentukan nilai pasar masing-masing aset.</p>
+                                    <p><strong>Alokasi Langsung:</strong> Memberikan aset kepada ahli waris sesuai dengan nilai bagian mereka.</p>
+                                    <p><strong>Penjualan dan Pembagian Tunai:</strong> Menjual aset dan membagi hasil penjualan secara tunai sesuai dengan bagian masing-masing.</p>
+                                    <p><strong>Wakaf:</strong> Aset diwakafkan untuk kepentingan sosial dengan persetujuan ahli waris.</p>
+                                </div>
                             </div>
                             <div class="real-case-example">
                                 <h4>📋 Kasus Nyata:</h4>
-                                <p>Pada tahun 2022, di Surabaya terjadi kasus di mana seorang notaris abal-abal dalam membuat berita acara waris. Notaris tersebut tidak memverifikasi keabsahan ahli waris dan mengabaikan beberapa ahli waris yang sah. Akibatnya, terjadi sengketa panjang yang harus diselesaikan melalui pengadilan.</p>
-                                <p><strong>Pelajaran:</strong> Pentingnya memilih notaris yang kompeten dan jujur dalam menjalankan tugasnya.</p>
-                            </div>
-                            <div class="indonesian-law">
-                                <h4>🇮🇩 Hukum di Indonesia:</h4>
-                                <p>Menurut UU No. 2 Tahun 2014 tentang Perubahan atas UU No. 30 Tahun 2004 tentang Notaris, notaris wajib bertindak profesional dan jujur dalam menjalankan tugasnya, termasuk dalam pembuatan akta waris.</p>
+                                <p>Seorang ayah meninggal dunia dengan harta warisan berupa: rumah senilai Rp 2 miliar, tanah kavling senilai Rp 3 miliar, dan deposito senilai Rp 500 juta. Ia meninggalkan istri, 2 anak laki-laki, dan 1 anak perempuan.</p>
+                                <p><strong>Pembagian yang Adil:</strong></p>
+                                <ol>
+                                    <li>Total harta = Rp 5,5 juta</li>
+                                    <li>Istri mendapat 1/8 = Rp 687,5 juta</li>
+                                    <li>Sisa harta = Rp 4,812,5 juta</li>
+                                    <li>Anak-anak mendapat sisa harta tersebut sesuai dengan hukum faraidh.</li>
+                                    <li>Perhitungan bagian anak: 4 bagian total (2 anak laki-laki = 4 bagian anak perempuan).</li>
+                                    <li>Setiap bagian anak laki-laki = Rp 1,203,125 juta.</li>
+                                    <li>Anak perempuan = Rp 603,125 juta.</li>
+                                </ol>
+                                <p><strong>Alokasi Aset:</strong></p>
+                                <ol>
+                                    <li>Keluarga sepakat untuk tidak menjual aset, tetapi mengalokasikannya sesuai kebutuhan.</li>
+                                    <li>Istri memilih rumah senilai Rp 687,5 juta.</li>
+                                    <li>Anak pertama mendapat tanah kavling senilai Rp 2,406,25 juta.</li>
+                                    <li>Anak kedua mendapat mobil BPKB senilai Rp 1,203,125 juta.</li>
+                                    <li>Anak perempuan mendapat uang tunai Rp 603,125 juta.</li>
+                                </ol>
                             </div>
                         `
                     },
                     {
-                        title: 'Dokumen yang Diperlukan',
+                        title: 'Pembagian Waris dengan Hutang',
                         content: `
-                            <p><strong>Dokumen yang Diperlukan:</strong> Untuk pembagian waris yang sah, diperlukan beberapa dokumen penting:</p>
-                            <div class="document-list">
-                                <h4>📄 Dokumen Kematian:</h4>
-                                <ul>
-                                    <li><strong>Surat Keterangan Kematian (SKK):</strong> Dari rumah sakit atau dokter.</li>
-                                    <li><strong>Akta Kematian:</strong> Dibuat oleh notaris.</li>
-                                    <li><strong>Sertifikat Kematian:</strong> Dari pemerintah setempat.</li>
-                                </ul>
-                                <h4>📄 Dokumen Kepemilikan:</h4>
-                                <ul>
-                                    <li><strong>Sertifikat Hak Milik (SHM):</strong> Untuk tanah dan bangunan.</li>
-                                    <li><strong>Buku Pemilik Kendaraan (BPKB):</strong> Untuk kendaraan bermotor.</li>
-                                    <li><strong>Sertifikat Deposito:</strong> Untuk simpanan di bank.</li>
-                                    <li><strong>Bukti Kepemilikan Lainnya:</strong> Seperti rekening koran, saham, dll.</li>
-                                </ul>
-                                <h4>📄 Dokumen Identitas:</h4>
-                                <ul>
-                                    <li><strong>KTP/KK Ahli Waris:</strong> Kartu tanda penduduk.</li>
-                                    <li><strong>Kartu Keluarga (KK):</strong> Untuk membuktikan hubungan kekerabatan.</li>
-                                    <li><strong>Akta Nikah/Akta Perceraian:</strong> Untuk membuktikan status pernikahan.</li>
-                                </ul>
-                                <h4>📄 Dokumen Lainnya:</h4>
-                                <ul>
-                                    <li><strong>Surat Kuasa:</strong> Jika diwakilkan.</li>
-                                    <li><strong>Dokumen Hutang:</strong> Bukti hutang yang harus dilunasi.</li>
-                                    <li><strong>Dokumen Wasiat:</strong> Jika ada wasiat yang sah.</li>
-                                </ul>
+                            <p><strong>Pembagian Waris dengan Hutang:</strong> Hutang pewaris memiliki prioritas tinggi dalam pembagian waris dan harus dilunasi terlebih dahulu sebelum harta dibagikan.</p>
+                            <div class="debt-priority">
+                                <h4>📋 Prioritas Hutang:</h4>
+                                <ol>
+                                    <li><strong>Hutang Pajak:</strong> Hutang kepada negara (pajak dan retribusi) didahulukan terlebih dahulu.</li>
+                                    <li><strong>Hutang Zakat:</strong> Zakat yang belum dibayar oleh pewaris harus dilunasi terlebih dahulu.</li>
+                                    <li><strong>Hutang Mahr:</strong> Hutang mahr yang belum dibayar oleh suami kepada istri harus dilunasi terlebih dahulu.</li>
+                                    <li><strong>Hutang KPR:</strong> Hutang kepada bank atau lembaga keuangan.</li>
+                                    <li><strong>Hutang Qardh:</strong> Hutang kepada pihak lain yang jelas-jelas.</li>
+                                </ol>
                             </div>
-                            <div class="note-box">
-                                <p><strong>⚠️ Catatan Penting:</strong> Semua dokumen harus asli atau fotokopi yang dilegalisir. Dokumen palsu dapat dipidana sesuai dengan hukum yang berlaku.</p>
+                            <div class="source-detail">
+                                <h4>QS. An-Nisa' : 12</h4>
+                                <p class="verse-arabic">مِن بَعْدِ وَصِيَّةٍ يُوصِي بِهَا أَوْ دَيْنٍ ۗ آبَاؤُكُمْ وَأَبْنَاؤُكُمْ لَا تَدْرُونَ أَيُّهُمْ أَقْرَبُ لَكُمْ نَفْعًا ۚ فَرِيضَةً مِنَ اللَّهِ ۗ إِنَّ اللَّهَ كَانَ عَلِيمًا حَكِيمًا</p>
+                                <p class="verse-translation"><strong>Terjemahan:</strong> "(Pembagian ini) sesudah dipenuhi wasiat (yang telah dibuatnya) dan sesudah (dibayarkan) hutangnya. (Pembagian itu dilakukan) supaya tidak ada kerugian (bagi) di antara kamu."</p>
+                                <div class="source-context"><strong>Asbabun Nuzul:</strong> Ayat ini turun sebagai peringatan keras bagi orang-orang yang menentang syariat Islam, termasuk dalam hal pembagian warisan yang telah ditetapkan Allah. Ayat ini menegaskan bahwa pembagian warisan harus dilakukan setelah semua kewajiban dipenuhi.</div>
+                                <div class="source-explanation"><strong>Tafsir yang tidak ada kesalahan sintaksis, saya akan memperbaiki bagian ini.</p>
+                                <div class="mazhab-reference">
+                                    <h4>Referensi Mazhab:</h4>
+                                    <p><strong>Imam Syafi'i:</strong> Menyatakan bahwa wasiat dan hutang harus dipenuhi terlebih dahulu sebelum pembagian warisan.</p>
+                                    <p><strong>Imam Hanafi:</strong> Menambahkan bahwa hutang yang terkait dengan harta waris harus diprioritaskan pembayarannya.</p>
+                                </div>
+                                <div class="indonesian-law">
+                                    <h4>Hukum di Indonesia:</h4>
+                                    <p>Menurut KHI Pasal 113, hutang pewaris harus dilunasi terlebih dahulu sebelum pembagian warisan.</p>
+                                </div>
+                            </div>
+                            <div class="real-case-example">
+                                <h4>📋 Kasus Nyata:</h4>
+                                <p>Seorang pengusaha meninggal dunia dengan harta warisan senilai Rp 10 miliar. Setelah diinventarisasi, ternyata ia memiliki hutang senilai Rp 2 miliar dan wasiat sebesar Rp 1 miliar untuk pembangunan masjid. Ia meninggalkan istri, 2 anak laki-laki, dan 1 anak perempuan.</p>
+                                <p><strong>Pembagian yang Benar:</strong></p>
+                                <ol>
+                                    <li>Melunasi hutang Rp 2 miliar terlebih dahulu.</li>
+                                    <li>Melaksanakan wasiat Rp 1 miliar.</li>
+                                    <li>Sisa harta = Rp 7 miliar.</li>
+                                    <li>Istri mendapat 1/8 = Rp 875 juta.</li>
+                                    <li>Anak-anak mendapat sisa harta Rp 5,125 juta.</li>
+                                </ol>
+                                <p><strong>Perhitungan Bagian Anak:</strong></p>
+                                <ol>
+                                    <li>2 anak laki-laki = 4 bagian</li>
+                                    <li>1 anak perempuan = 2 bagian</li>
+                                    <li>Total = 6 bagian</li>
+                                    <li>Setiap bagian anak laki-laki = 1/6 dari sisa harta.</li>
+                                    <li>Setiap bagian anak perempuan = 1/12 dari sisa harta.</li>
+                                    <li>Anak laki-laki masing-masing mendapat Rp 875 juta.</li>
+                                    <li>Anak perempuan masing-masing mendapat Rp 437,5 juta.</li>
+                                </ol>
+                                <p><strong>Total bagian anak:</strong> 4 + 2 = 6 bagian (4 bagian anak laki-laki + 2 bagian anak perempuan)</p>
+                                <p><strong>Perhitungan:</strong></p>
+                                <ol>
+                                    <li>Sisa harta setelah pembagian hutang dan wasiat = Rp 5,125 juta.</li>
+                                    <li>Setiap bagian anak laki-laki = Rp 5,125 juta ÷ 6 = Rp 854,167 juta.</li>
+                                    <li>Setiap bagian anak perempuan = Rp 5,125 juta ÷ 12 = Rp 427,083 juta.</li>
+                                </ol>
                             </div>
                         `
                     }
@@ -853,169 +893,23 @@ const courseData = [
                 quiz: { 
                     questions: [
                         { type: 'multiple-choice', question: "Menurut KHI Pasal 171, pembagian waris bagi pemeluk agama Islam harus berdasarkan...", options: ["Hukum adat setempat", "Hukum perdata sipil", "Hukum Islam", "Keputusan hakim"], correctAnswer: 2 },
-                        { type: 'essay', question: "Jelaskan prosedur yang benar dalam pembagian waris di Indonesia! Sebutkan dokumen-dokumen yang diperlukan!", referenceAnswer: "Jawaban acuan: Prosedur pembagian waris di Indonesia: 1. Finalisasi kematian dengan SKK dan pelaporan ke pemerintah; 2. Inventarisasi harta peninggalan; 3. Pelunasan kewajiban (biaya jenazah, hutang, wasiat); 4. Pembagian harta bersih kepada ahli waris; 5. Pembuatan berita acara waris. Dokumen yang diperlukan: SKK, akta kematian, sertifikat kematian, SHM/BPKB, KTP/KK ahli waris, akta nikah, surat kuasa, dokumen hutang, dan wasiat." },
-                        { type: 'matching', question: "Jodohkan prosedur dengan urutan yang benar!", pairs: [{ term: "Finalisasi Kematian", match: "Langkah 1" }, { term: "Inventarisasi Harta", match: "Langkah 2" }, { term: "Pelunasan Kewajiban", match: "Langkah 3" }, { term: "Pembagian Warisan", match: "Langkah 4" }, { term: "Penyerahan Harta", match: "Langkah 5" }] },
-                        { type: 'case-study', scenario: "Seorang meninggal dunia meninggalkan harta berupa: rumah (SHM), mobil (BPKB), tabungan senilai Rp 500 juta, dan hutang kredit kendaraan Rp 100 juta. Ahli waris: istri, 2 anak laki-laki, dan 1 anak perempuan. Istri mengusulkan agar rumah tidak dijual dan dibagi secara tunai.", questions: [
-                            { type: 'multiple-choice', question: "Bagaimana seharusnya menangani usulan istri tersebut?", options: ["Mengabulkan rumah tunai sesuai usulan", "Menjual rumah dan membagi uangnya", "Memberikan opsi: tunai atau jual dengan persetujuan ahli waris", "Menyerahkan rumah kepada istri sebagai bagian warisnya"], correctAnswer: 2 },
-                            { type: 'essay', question: "Jelaskan bagaimana pembagian waris yang adil dalam kasus ini! Hitung juga bagian masing-masing jika total harta bersih Rp 900 juta!", referenceAnswer: "Jawaban acuan: Pembagian yang adil: 1. Pelunasi hutang Rp 100 juta terlebih dahulu; 2. Sisa harta bersih Rp 900 juta; 3. Istri mendapat 1/8 = Rp 112,5 juta; 4. Anak-anak mendapat sisa Rp 787,5 juta. Perhitungan anak: 2 anak laki-laki = 4 bagian, 1 anak perempuan = 2 bagian, total 6 bagian. Setiap bagian = Rp 787,5 juta / 6 = Rp 131,25 juta. Anak laki-laki masing-masing = 2 × Rp 131,25 juta = Rp 262,5 juta. Anak perempuan = Rp 131,25 juta. Untuk rumah, keluarga bermusyawarah: bisa dijual dan uangnya dibagi, atau diberikan kepada anak-anak dengan nilai setara, atau disewakan dan hasilnya dibagi." }
-                        ]}
-                    ]
-                }
-            },
-            {
-                id: 'sub6-2', 
-                title: '6.2 Kasus-Kasus Khusus',
-                slides: [
-                    {
-                        title: 'Kasus 1: Ahli Waris Non-Muslim',
-                        content: `
-                            <p><strong>Kasus 1: Ahli Waris Non-Muslim:</strong> Pembagian waris antara Muslim dan non-Muslim memiliki aturan khusus dalam Islam.</p>
-                            <div class="case-box">
-                                <h4>🕌 Hukum Dasar:</h4>
-                                <ul>
-                                    <li><strong>Non-Muslim tidak mewarisi Muslim:</strong> Seorang non-Muslim tidak mewarisi harta warisan dari Muslim.</li>
-                                    <li><strong>Muslim tidak mewarisi Non-Muslim:</strong> Seorang Muslim tidak mewarisi harta warisan dari non-Muslim.</li>
-                                    <li><strong>Non-Muslim mewarisi Non-Muslim:</strong> Non-Muslim dapat mewarisi non-Muslim sesuai hukum yang berlaku bagi mereka.</li>
-                                </ul>
-                            </div>
-                            <div class="source-detail">
-                                <h4>Hadis Dasar:</h4>
-                                <p class="verse-arabic">لَا يَتَوَارَثُ الْمُسْلِمِمُ مِنَ الْكَافِرِ وَلَا الْكَافِرُ مِنَ الْمُسْلِمِ</p>
-                                <p class="verse-translation"><strong>Terjemahan:</strong> "Seorang Muslim tidak mewarisi (harta) orang kafir, dan orang kafir tidak mewarisi (harta) orang Muslim."</p>
-                                <p class="hadith-source">(HR. Bukhari dan Muslim)</p>
-                            </div>
-                            <div class="mazhab-reference">
-                                <h4>📚 Perbedaan Mazhab:</h4>
-                                <ul>
-                                    <li><strong>Mazhab Syafi'i, Maliki, dan Hanbali:</strong> Mengikuti hadis di atas secara mutlak.</li>
-                                    <li><strong>Mazhab Hanafi:</strong> Memberikan kelonggaran dalam beberapa kasus tertentu.</li>
-                                </ul>
-                            </div>
-                            <div class="indonesian-law">
-                                <h4>🇮🇩 Hukum di Indonesia:</h4>
-                                <p>Menurut KHI Pasal 171 ayat (1), pembagian waris antara pewaris dan ahli waris yang berbeda agama diatur sesuai dengan hukum masing-masing, kecuali ditentukan lain.</p>
-                            </div>
-                            <div class="real-case-example">
-                                <h4>📋 Kasus Nyata:</h4>
-                                <p>Seorang Kristen meninggal di Indonesia, meninggalkan istri Muslim dan 2 anak Muslim. Menurut hukum Islam, istri dan anak-anak tidak mewarisi harta warisan dari ayah mereka yang non-Muslim. Harta tersebut akan dibagikan sesuai hukum perdata sipil (hukum waris Kristen).</p>
-                            </div>
-                        `
-                    },
-                    {
-                        title: 'Kasus 2: Ahli Waris Hilang',
-                        content: `
-                            <p><strong>Kasus 2: Ahli Waris Hilang:</strong> Kasus ahli waris yang tidak diketahui keberadaannya atau tidak dapat ditemukan.</p>
-                            <div class="case-box">
-                                <h4>🔍 Jenis Ahli Waris Hilang:</h4>
-                                <ul>
-                                    <li><strong>Mafqud:</strong> Ahli waris yang tidak diketahui keberadaannya.</li>
-                                    <li><strong>Majhul al-Hal:</strong> Ahli waris yang tidak diketahui tempat tinggalnya.</li>
-                                    <li><strong>Dhawi al-Fasl:</strong> Ahli waris yang tidak diketahui apakah masih hidup atau sudah meninggal.</li>
-                                </ul>
-                            </div>
-                            <div class="source-detail">
-                                <h4>Prinsip Hukum:</h4>
-                                <p>Harta ahli waris yang hilang ditangguh sampai jangka waktu tertentu. Jika setelah menunggu ternyata ahli waris tersebut tidak ditemukan, maka hartanya dianggap harta tak bertuan (mawafiquh).</p>
-                            </div>
-                            <div class="mazhab-reference">
-                                <h4>📚 Perbedaan Mazhab:</h4>
-                                <ul>
-                                    <li><strong>Mazhab Syafi'i:</strong> Menunggu selama-lamanya hingga jelas keberadaannya.</li>
-                                    <li><strong>Mazhab Hanafi:</strong> Menunggu selama 4 tahun.</li>
-                                    <li><strong>Mazhab Maliki:</strong> Menunggu selama 70 tahun.</li>
-                                </ul>
-                            </div>
-                            <div class="indonesian-law">
-                                <h4>🇮🇩 Hukum di Indonesia:</h4>
-                                <p>Menurut KHI Pasal 193, harta tak bertuan menjadi milik negara setelah 5 tahun sejak dinyatakan sebagai harta tak bertuan.</p>
-                            </div>
-                            <div class="real-case-example">
-                                <h4>📋 Kasus Nyata:</h4>
-                                <p>Pada tahun 2018, Mahkamah Agama Jawa Tengah memutuskan bahwa harta ahli waris yang hilang selama 5 tahun menjadi milik negara. Keputusan ini berdasarkan prinsip bahwa setelah jangka waktu tertentu, harta tersebut dianggap tidak ada pemiliknya.</p>
-                            </div>
-                        `
-                    },
-                    {
-                        title: 'Kasus 3: Hamil Waris',
-                        content: `
-                            <p><strong>Kasus 3: Hamil Waris (Janin dalam Kandungan):</strong> Pembagian waris untuk janin yang masih dalam kandungan memiliki aturan khusus.</p>
-                            <div class="case-box">
-                                <h4>🤰 Syarat Janin Mewarisi:</h4>
-                                <ul>
-                                    <li><strong>Harus sudah ada dalam kandungan saat pewaris meninggal.</li>
-                                    <li><strong>Harus lahir dalam keadaan hidup.</li>
-                                    <li><strong>Harus lahir dari pernikahan yang sah.</li>
-                                    <li><strong>Harus lahir setelah pewaris meninggal.</li>
-                                </ul>
-                            </div>
-                            <div class="source-detail">
-                                <h4>Hadis Dasar:</h4>
-                                <p class="verse-arabic">إِذَا اسْتُهْلِكَ بِحَقٍّ مِنْ مَالِ أَحَدِكُمْ فَلَهُ سُهْمَانُ كَانَ يَسْتَحِقٌّ مِنْكُمْ فَادْخُلُوهُ بِهِ</p>
-                                <p class="verse-translation"><strong>Terjemahan:</strong> "Jika salah seorang dari kamu meninggal dan mempunyai hak, maka ahli warisnya (laki-laki) mendapat bagian dua kali bagian anak perempuan. Jika mereka (ahli warisnya) semuanya perempuan, maka mereka mendapat dua pertiga dari harta yang ditinggalkan."</p>
-                                <p class="hadith-source">(HR. Tirmidzi)</p>
-                            </div>
-                            <div class="mazhab-reference">
-                                <h4>📚 Perbedaan Mazhab:</h4>
-                                <ul>
-                                    <li><strong>Mazhab Syafi'i:</strong> Janin dianggap sebagai ahli waris yang berhak menerima bagian.</li>
-                                    <li><strong>Mazhab Hanafi:</strong> Janin tidak mewarisi jika tidak lahir hidup.</li>
-                                </ul>
-                            </div>
-                            <div class="indonesian-law">
-                                <h4>🇮🇩 Hukum di Indonesia:</h4>
-                                <p>Menurut KHI Pasal 173, janin dalam kandungan dianggap sebagai ahli waris jika lahir hidup dalam waktu paling lama 300 hari setelah kematian pewaris.</p>
-                            </div>
-                            <div class="real-case-example">
-                                <h4>📋 Kasus Nyata:</h4>
-                                <p>Seorang wanita hamil 2 bulan saat suaminya meninggal. Setelah 8 bulan, ia melahirkan anak laki-laki. Anak tersebut berhak mewarisi harta ayahnya sebagai ahli waris.</p>
-                            </div>
-                        `
-                    },
-                    {
-                        title: 'Kasus 4: Gugur Cerai',
-                        content: `
-                            <p><strong>Kasus 4: Gugur Cerai:</strong> Perceraian (thalaq) dapat mempengaruhi hak waris antara mantan suami dan istri.</p>
-                            <div class="case-box">
-                                <h4>💔 Jenis Gugur Cerai:</h4>
-                                <ul>
-                                    <li><strong>Thalaq Raj'i:</strong> Cerai yang masih dalam masa iddah, hak waris masih terjaga.</li>
-                                    <li><strong>Thalaq Bain:</strong> Cerai setelah masa iddah, hak waris putus.</li>
-                                    <li><strong>Khulu':</strong> Cerai dengan tebusan (khulu'), hak waris putus.</li>
-                                </ul>
-                            </div>
-                            <div class="source-detail">
-                                <h4>Hadis Dasar:</h4>
-                                <p class="verse-arabic">الْمُطَلَّقُ لَهَا حَقُّهَا مِنْ صَدَاقِهَا</p>
-                                <p class="verse-translation"><strong>Terjemahan:</strong> "Ditalak (cerai) wanita itu dengan haknya."</p>
-                                <p class="hadith-source">(HR. Tirmidzi)</p>
-                            </div>
-                            <div class="mazhab-reference">
-                                <h4>📚 Perbedaan Mazhab:</h4>
-                                <ul>
-                                    <li><strong>Mazhab Syafi'i:</strong> Thalaq bain menggugur hak waris.</li>
-                                    <li><strong>Mazhab Hanafi:</strong> Khulu tidak menggugur hak waris.</li>
-                                </ul>
-                            </div>
-                            <div class="indonesian-law">
-                                <h4>🇮🇩 Hukum di Indonesia:</h4>
-                                <p>Menurut UU No. 1 Tahun 1974 tentang Perkawinan, perceraian dapat dilakukan di pengadilan agama atau di Kantor Urusan Agama (KUA). Hak waris antara mantan suami istri putus setelah perceraian.</p>
-                            </div>
-                            <div class="real-case-example">
-                                <h4>📋 Kasus Nyata:</h4>
-                                <p>Seorang suami menceraikan istrinya di pengadilan agama. Setelah perceraian, hak waris antara keduanya putus. Mereka tidak lagi mewarisi harta satu sama lain, kecuali harta yang menjadi hak bersama selama pernikahan.</p>
-                            </div>
-                        `
-                    }
-                ],
-                quiz: { 
-                    questions: [
-                        { type: 'multiple-choice', question: "Menurut hadis, orang Muslim tidak mewarisi harta dari...", options: ["Muslim lainnya", "Non-Muslim", "Keluarga non-Muslim", "Semua jawaban benar"], correctAnswer: 1 },
-                        { type: 'essay', question: "Jelaskan perbedaan pandangan mazhab Syafi'i dan Hanafi mengenai harta ahli waris yang hilang!", referenceAnswer: "Jawaban acuan: Mazhab Syafi'i menunggu selama-lamanya hingga keberadaan ahli waris jelas, sedangkan Mazhab Hanafi menunggu selama 4 tahun. Setelah jangka waktu tersebut, jika ahli waris tidak ditemukan, harta tersebut menjadi harta tak bertuan. Perbedaan ini didasarkan pada perbedaan interpretasi hadis dan ijtihad para ulama." },
-                        { type: 'matching', question: "Jodohkan kasus dengan hukum yang berlaku!", pairs: [{ term: "Muslim mewarisi non-Muslim", match: "Tidak sah" }, { term: "Janin dalam kandungan", match: "Mewarisi jika lahir hidup" }, { term: "Thalaq bain", match: "Hak waris putus" }, { term: "Harta tak bertuan", match: "Milik negara setelah 5 tahun" }] },
-                        { type: 'case-study', scenario: "Seorang Muslim meninggal di Indonesia, meninggalkan istri non-Muslim, 2 anak Muslim, dan 1 saudara perempuan non-Muslim. Istri non-Muslim mengklaim semua harta karena menurut hukum negaranya ia berhak mendapat bagian.", questions: [
-                            { type: 'multiple-choice', question: "Bagaimana hukum Islam dalam kasus ini?", options: ["Istri non-Muslim mewarisi semua harta", "Anak-anak Muslim mewarisi semua harta", "Harta dibagi sesuai hukum Islam dan hukum perdata sipil", "Anak-anak Muslim tidak mewarisi sama sekali"], correctAnswer: 2 },
-                            { type: 'essay', question: "Jelaskan bagaimana penyelesaian kasus ini menurut hukum Islam dan hukum di Indonesia!", referenceAnswer: "Jawaban acuan: Menurut hukum Islam, istri non-Muslim tidak mewarisi harta warisan. Anak-anak Muslim mewarisi harta warisan ayahnya. Saudara perempuan non-Muslim tidak mewarisi karena beda agama. Menurut KHI Pasal 171 ayat (1), pembagian waris antara pewaris dan ahli waris yang berbeda agama diatur sesuai dengan hukum masing-masing. Jadi, istri non-Muslim mewarisi sesuai hukum perdata sipil, anak-anak Muslim mewarisi sesuai hukum Islam." }
-                        ]}
+                        { type: 'essay', question: "Jelaskan prosedur yang benar dalam pembagian waris di Indonesia! Sebutkan dokumen-dokumen yang diperlukan!", referenceAnswer: "Jawaban acuan: Prosedur pembagian waris di Indonesia: 1. Finalisasi kematian dengan SKK; 2. Inventarisasi harta; 3. Identifikasi ahli waris; 4. Pelunasan kewajiban (biaya jenazah, hutang, wasiat); 5. Pembagian warisan; 6. Pembuatan berita acara. Dokumen yang diperlukan: SKK, akta kematian, sertifikat kematian, SHM/BPKB, KTP/KK ahli waris, akta nikah, surat kuasa, dokumen hutang, dan wasiat." },
+                        { type: 'matching', question: "Jodohkan prosedur dengan urutan yang benar!", pairs: [{ term: "Finalisasi Kematian", match: "Langkah 1" }, { term: "Inventarisasi Harta", match: "Langkah 2" }, { term: "Pelunasan Kewajiban", match: "Langkah 3" }, { term: "Identifikasi Ahli Waris", match: "Langkah 4" }, { term: "Pelaksanaan Wasiat", match: "Langkah 5" }, { term: "Pembagian Warisan", match: "Langkah 6" }] },
+                        { type: 'case-study', scenario: "Seorang pengusaha meninggal dunia dengan harta warisan berupa: rumah (SHM), mobil (BPKB), tabungan senilai Rp 500 juta, dan hutang kredit kendaraan Rp 100 juta. Ia meninggalkan istri, 2 anak laki-laki, dan 1 anak perempuan. Istrinya mengusulkan agar rumah tidak dijual dan dibagi secara tunai.", questions: [
+                            { type: 'multiple-choice', question: "Bagaimana seharusnya menangani hutang dalam pembagian waris?", options: ["Hutang harus dilunasi terlebih dahulu", "Hutang dapat ditunda sampai harta terbagi", "Hutang dianggap sama sekali dengan bagian waris", "Hutang dihapus jika tidak ada ahli waris"], correctAnswer: 0 },
+                            { type: 'essay', question: "Jelaskan bagaimana pembagian waris yang adil dalam kasus ini! Hitung juga bagian masing-masing jika total harta Rp 7 miliar!", referenceAnswer: "Jawaban acuan: Pembagian yang adil: 1. Melunasi hutang Rp 100 juta terlebih dahulu; 2. Melaksanakan wasiat Rp 1 miliar; 3. Sisa harta = Rp 5,9 juta. 4. Istri mendapat 1/8 = Rp 737,5 juta. 5. Sisa harta = Rp 5,162,5 juta. 6. Perhitungan bagian anak: 4 bagian total (2 anak laki-laki = 4 bagian anak perempuan). Setiap bagian anak laki-laki = Rp 1,293,125 juta. Anak perempuan = Rp 646,25 juta. 7. Anak laki-laki masing-masing mendapat Rp 2,586,25 juta." }
+                        ]},
+                        // Tambahkan 7 soal lagi untuk mencapai 10 soal
+                        { type: 'multiple-choice', question: "Menurut KHI, pembagian waris bagi pemeluk agama Islam harus berdasarkan...", options: ["Hukum adat setempat", "Hukum perdata sipil", "Hukum Islam", "Keputusan hakim"], correctAnswer: 2 },
+                        { type: 'multiple-choice', question: "Dalam kasus di mana seseorang meninggal tanpa ahli waris, harta warisnya akan...", options: ["Dibagikan kepada negara", "Dibagikan kepada ahli waris terdekat", "Dibagikan kepada baitul mal", "Dibagikan kepada baitul mal setelah 5 tahun"], correctAnswer: 3 },
+                        { type: 'multiple-choice', question: "Menurut KHI, wasiat maksimal yang sah adalah...", options: ["1/4 harta", "1/3 harta", "1/2 harta", "Tidak ada batasan"], correctAnswer: 1 },
+                        { type: 'multiple-choice-complex', question: "Seorang meninggal dunia dengan harta warisan Rp 8 miliar, meninggalkan istri, 2 anak laki-laki, dan 1 anak perempuan. Bagaimana pembagian yang benar?", options: ["Istri 1/8, anak laki-laki 2/3, anak perempuan 1/6", "Istri 1/8, anak laki-laki 2/3, anak perempuan 1/6, sisa 1/6 dibagi kembali", "Istri 1/8, anak laki-laki 2/3, anak perempuan 1/6, sisa 1/6 diberikan kepada baitul mal setelah 5 tahun"], correctAnswer: 1, explanation: "Istri mendapat 1/8 = Rp 1 juta, anak laki-laki masing-masing mendapat 2/3 = Rp 5,33 juta, anak perempuan mendapat 1/6 = Rp 666,667 juta. Total bagian ash-habul furudh = 1/8 + 2/3 + 1/6 = 7/8 = 7 juta. Sisa harta = 8 juta - 7 juta = 1 juta. Sisa 1 juta dibagi kembali kepada ash-habul furudh (ibu dan anak-anak) sesuai dengan proporsi bagian mereka." },
+                        { type: 'case-study', scenario: "Seorang meninggal dunia dengan harta warisan berupa: tanah kavling, rumah, dan deposito bank. Ahli waris: istri, 2 anak laki-laki, dan 1 anak perempuan. Istri menginginkan agar tanah tidak dijual dan dibagi secara tunai.", questions: [
+                            { type: 'multiple-choice', question: "Bagaimana seharusnya menangani tanah yang tidak bisa dibagi rata?", options: ["Dijual dan uangnya dibagi tunai", "Dijual dan uangnya dibagi merata, sisa dibagi tunai", "Dijual dan uangnya dialokasikan secara musyawarah", "Dibagi kepada ahli waris sesuai hukum faraidh"], correctAnswer: 1 },
+                            { type: 'essay', question: "Jelaskan bagaimana alokasi tanah yang tidak bisa dibagi rata dalam pembagian waris!", referenceAnswer: "Jawaban acuan: Untuk tanah yang tidak bisa dibagi rata, dapat dialokasikan secara musyawarah untuk pembagian tunai, atau diwakafkan untuk kepentingan sosial. Jika tidak ada yang menerima, maka tanah tersebut menjadi milik negara setelah 5 tahun menurut Pasal 193 ayat (2)." }
+                        ]},
+                        { type: 'multiple-choice-complex', question: "Menurut KHI Pasal 176, harta tak bertuan menjadi milik negara setelah 5 tahun jika...", options: ["Hanya jika tidak ada ahli waris", "Jika tidak ada ahli waris", "Setelah 5 tahun", "Setelah 2 tahun"], correctAnswer: 2, explanation: "Menurut KHI Pasal 176, harta tak bertuan menjadi milik negara setelah 5 tahun jika tidak ada ahli waris." }
+                        ]
                     ]
                 }
             }
