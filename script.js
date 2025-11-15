@@ -768,7 +768,8 @@ let quizState = {
     totalPossibleScore: 0,
     userAnswers: [], // Menyimpan jawaban pengguna
     canGoBack: true,
-    isRandomized: false // Flag untuk menandai apakah soal sudah diacak
+    isRandomized: false, // Flag untuk menandai apakah soal sudah diacak
+    isReviewMode: false // Flag untuk menandai mode review
 };
 let caseStudyState = { answeredSubQuestions: new Set() };
 let totalScore = 0, totalPossibleScore = 0;
@@ -785,6 +786,8 @@ const storage = {
     isCompleted: (type, id) => { const p = storage.getProgress(); return !!(p[type] && p[type][id]); },
     getQuizScores: () => storage.get('mawarisQuizScores') || {},
     saveQuizScore: (id, score, total) => { const s = storage.getQuizScores(); s[id] = { score: score, total: total }; storage.set('mawarisQuizScores', s); },
+    getQuizUserAnswers: () => storage.get('mawarisQuizUserAnswers') || {},
+    saveQuizUserAnswers: (id, answers) => { const a = storage.getQuizUserAnswers(); a[id] = answers; storage.set('mawarisQuizUserAnswers', a); },
     getUserName: () => storage.get('mawarisUserName') || 'Pengguna',
     saveUserName: (name) => storage.set('mawarisUserName', name)
 };
@@ -969,6 +972,19 @@ function showLesson(chapterId, subChapterId) {
     document.getElementById('lesson-title').textContent = subChapter.title;
     
     renderSlide();
+    
+    // Check if quiz is already completed
+    const isQuizCompleted = storage.isCompleted('quizzes', subChapterId);
+    const startQuizBtn = document.getElementById('start-quiz-btn');
+    
+    if (isQuizCompleted) {
+        startQuizBtn.textContent = 'Lihat Hasil Quiz';
+        startQuizBtn.className = 'btn btn-info';
+    } else {
+        startQuizBtn.textContent = 'Mulai Quiz';
+        startQuizBtn.className = 'btn btn-primary';
+    }
+    
     showView('lesson-view'); 
     storage.markCompleted('lessons', subChapterId);
 }
@@ -994,27 +1010,47 @@ function startQuiz() {
     const chapter = courseData.find(ch => ch.id === currentChapterId);
     const subChapter = chapter.subChapters.find(sub => sub.id === currentSubChapterId);
     
-    // Simpan soal asli
-    quizState.originalQuestions = JSON.parse(JSON.stringify(subChapter.quiz.questions));
+    // Check if quiz is already completed
+    const isQuizCompleted = storage.isCompleted('quizzes', currentSubChapterId);
     
-    // Acak soal
-    quizState.questions = randomizeQuestions(subChapter.quiz.questions);
-    quizState.isRandomized = true;
-    
-    quizState.currentQuestionIndex = 0;
-    quizState.score = 0;
-    quizState.totalPossibleScore = calculateTotalPossibleScore(quizState.questions);
-    quizState.userAnswers = new Array(quizState.questions.length).fill(null);
-    quizState.canGoBack = true;
-    caseStudyState.answeredSubQuestions = new Set(); // Reset case study state
+    if (isQuizCompleted) {
+        // Enter review mode
+        quizState.isReviewMode = true;
+        quizState.originalQuestions = JSON.parse(JSON.stringify(subChapter.quiz.questions));
+        quizState.questions = quizState.originalQuestions; // Use original order for review
+        quizState.userAnswers = storage.getQuizUserAnswers()[currentSubChapterId] || [];
+        quizState.score = storage.getQuizScores()[currentSubChapterId]?.score || 0;
+        quizState.totalPossibleScore = calculateTotalPossibleScore(quizState.questions);
+        
+        document.getElementById('quiz-title').textContent = `Review Asesmen: ${subChapter.title}`;
+        document.getElementById('back-to-dashboard-quiz').style.display = 'inline-block';
+        document.getElementById('quiz-container').style.display = 'block';
+        document.getElementById('quiz-result').style.display = 'block';
+        
+        renderQuizReview();
+        showView('quiz-view');
+    } else {
+        // Start new quiz
+        quizState.isReviewMode = false;
+        quizState.originalQuestions = JSON.parse(JSON.stringify(subChapter.quiz.questions));
+        quizState.questions = randomizeQuestions(subChapter.quiz.questions);
+        quizState.isRandomized = true;
+        
+        quizState.currentQuestionIndex = 0;
+        quizState.score = 0;
+        quizState.totalPossibleScore = calculateTotalPossibleScore(quizState.questions);
+        quizState.userAnswers = new Array(quizState.questions.length).fill(null);
+        quizState.canGoBack = true;
+        caseStudyState.answeredSubQuestions = new Set(); // Reset case study state
 
-    document.getElementById('quiz-title').textContent = `Asesmen: ${subChapter.title}`;
-    document.getElementById('back-to-dashboard-quiz').style.display = 'none';
-    document.getElementById('quiz-result').style.display = 'none';
-    document.getElementById('quiz-container').style.display = 'block';
-    
-    renderQuestion();
-    showView('quiz-view');
+        document.getElementById('quiz-title').textContent = `Asesmen: ${subChapter.title}`;
+        document.getElementById('back-to-dashboard-quiz').style.display = 'none';
+        document.getElementById('quiz-result').style.display = 'none';
+        document.getElementById('quiz-container').style.display = 'block';
+        
+        renderQuestion();
+        showView('quiz-view');
+    }
 }
 
 function calculateTotalPossibleScore(questions) {
@@ -1029,6 +1065,175 @@ function calculateTotalPossibleScore(questions) {
         }
     });
     return score;
+}
+
+// PERBAIKAN: Fungsi baru untuk merender review quiz
+function renderQuizReview() {
+    // Hide navigation buttons
+    const navContainer = document.getElementById('quiz-navigation');
+    if (navContainer) {
+        navContainer.style.display = 'none';
+    }
+    
+    // Hide question-specific containers
+    document.getElementById('quiz-options').style.display = 'none';
+    document.getElementById('quiz-essay-container').style.display = 'none';
+    document.getElementById('quiz-matching-container').style.display = 'none';
+    document.getElementById('quiz-case-study-container').style.display = 'none';
+    
+    // Clear question text
+    document.getElementById('question-text').textContent = '';
+    document.getElementById('quiz-progress-info').textContent = '';
+    
+    // Show results
+    const resultContainer = document.getElementById('quiz-result');
+    const resultsHTML = generateResultsHTML(quizState.questions, quizState.userAnswers, quizState.score, quizState.totalPossibleScore);
+    
+    resultContainer.innerHTML = `
+        <h3>📊 Hasil Asesmen Anda</h3>
+        <p>Anda mendapat skor <strong>${quizState.score} dari ${quizState.totalPossibleScore}</strong>.</p>
+        <p>${quizState.score === quizState.totalPossibleScore ? 'Luar biasa! Anda sempurna.' : 'Bagus! Terus belajar untuk hasil yang lebih baik.'}</p>
+        
+        <div class="results-details">
+            <h4>Detail Jawaban:</h4>
+            ${resultsHTML}
+        </div>
+    `;
+}
+
+function generateResultsHTML(questions, userAnswers, score, totalPossibleScore) {
+    const resultsHTML = [];
+    
+    questions.forEach((question, qIndex) => {
+        const userAnswer = userAnswers[qIndex];
+        let resultHTML = '';
+        
+        if (question.type === 'multiple-choice') {
+            const isCorrect = userAnswer === question.correctAnswer;
+            
+            resultHTML = `
+                <div class="result-item ${isCorrect ? 'correct' : 'incorrect'}">
+                    <h4>Soal ${qIndex + 1}: ${question.question}</h4>
+                    <div class="options">
+                        ${question.options.map((option, i) => 
+                            `<div class="option ${i === question.correctAnswer ? 'correct-answer' : ''} ${i === userAnswer ? 'user-answer' : ''}">
+                                ${option}
+                                ${i === question.correctAnswer ? '<span class="badge correct">Jawaban Benar</span>' : ''}
+                                ${i === userAnswer && i !== question.correctAnswer ? '<span class="badge incorrect">Jawaban Anda</span>' : ''}
+                            </div>`
+                        ).join('')}
+                    </div>
+                </div>
+            `;
+        } else if (question.type === 'essay') {
+            const isCorrect = userAnswer && userAnswer.trim().length > 0;
+            
+            resultHTML = `
+                <div class="result-item ${isCorrect ? 'correct' : 'incorrect'}">
+                    <h4>Soal ${qIndex + 1}: ${question.question}</h4>
+                    <div class="essay-result">
+                        <div class="user-answer">
+                            <h5>Jawaban Anda:</h5>
+                            <p>${userAnswer || 'Tidak ada jawaban'}</p>
+                        </div>
+                        <div class="reference-answer">
+                            <h5>Jawaban Acuan:</h5>
+                            <p>${question.referenceAnswer}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        } else if (question.type === 'matching') {
+            let correctCount = 0;
+            const matchingResults = [];
+            
+            question.pairs.forEach(pair => {
+                const userMatch = userAnswer && userAnswer[pair.term] ? userAnswer[pair.term] : '';
+                const isMatchCorrect = userMatch === pair.match;
+                if (isMatchCorrect) correctCount++;
+                
+                matchingResults.push(`
+                    <div class="matching-result ${isMatchCorrect ? 'correct' : 'incorrect'}">
+                        <span class="term">${pair.term}:</span>
+                        <span class="user-match">${userMatch || 'Tidak dijawab'}</span>
+                        <span class="correct-match">${pair.match}</span>
+                        ${isMatchCorrect ? '<span class="badge correct">Benar</span>' : '<span class="badge incorrect">Salah</span>'}
+                    </div>
+                `);
+            });
+            
+            resultHTML = `
+                <div class="result-item">
+                    <h4>Soal ${qIndex + 1}: ${question.question}</h4>
+                    <div class="matching-results">
+                        ${matchingResults.join('')}
+                    </div>
+                    <p>Skor: ${correctCount} dari ${question.pairs.length}</p>
+                </div>
+            `;
+        } else if (question.type === 'case-study') {
+            let subScore = 0;
+            const subResults = [];
+            
+            question.questions.forEach((subQ, subIndex) => {
+                const subUserAnswer = userAnswer && userAnswer[subIndex] !== undefined ? userAnswer[subIndex] : null;
+                let isSubCorrect = false;
+                
+                if (subQ.type === 'multiple-choice') {
+                    isSubCorrect = subUserAnswer === subQ.correctAnswer;
+                    if (isSubCorrect) subScore++;
+                    
+                    subResults.push(`
+                        <div class="sub-result ${isSubCorrect ? 'correct' : 'incorrect'}">
+                            <h5>Sub-soal ${subIndex + 1}: ${subQ.question}</h5>
+                            <div class="options">
+                                ${subQ.options.map((option, i) => 
+                                    `<div class="option ${i === subQ.correctAnswer ? 'correct-answer' : ''} ${i === subUserAnswer ? 'user-answer' : ''}">
+                                        ${option}
+                                        ${i === subQ.correctAnswer ? '<span class="badge correct">Jawaban Benar</span>' : ''}
+                                        ${i === subUserAnswer && i !== subQ.correctAnswer ? '<span class="badge incorrect">Jawaban Anda</span>' : ''}
+                                    </div>`
+                                ).join('')}
+                            </div>
+                        </div>
+                    `);
+                } else if (subQ.type === 'essay') {
+                    isSubCorrect = subUserAnswer && subUserAnswer.trim().length > 0;
+                    if (isSubCorrect) subScore++;
+                    
+                    subResults.push(`
+                        <div class="sub-result ${isSubCorrect ? 'correct' : 'incorrect'}">
+                            <h5>Sub-soal ${subIndex + 1}: ${subQ.question}</h5>
+                            <div class="essay-result">
+                                <div class="user-answer">
+                                    <h6>Jawaban Anda:</h6>
+                                    <p>${subUserAnswer || 'Tidak ada jawaban'}</p>
+                                </div>
+                                <div class="reference-answer">
+                                    <h6>Jawaban Acuan:</h6>
+                                    <p>${subQ.referenceAnswer}</p>
+                                </div>
+                            </div>
+                        </div>
+                    `);
+                }
+            });
+            
+            resultHTML = `
+                <div class="result-item">
+                    <h4>Soal ${qIndex + 1}: ${question.question}</h4>
+                    <div class="case-study-results">
+                        ${subResults.join('')}
+                    </div>
+                    <p>Skor: ${subScore} dari ${question.questions.length}</p>
+                </div>
+            `;
+        }
+        
+        resultsHTML.push(resultHTML);
+    });
+    
+    return resultsHTML.join('');
 }
 
 function renderQuestion() {
@@ -1065,6 +1270,8 @@ function setupQuizNavigation() {
         newNavContainer.className = 'quiz-navigation';
         document.getElementById('quiz-container').appendChild(newNavContainer);
     }
+    
+    navContainer.style.display = 'flex'; // Make sure it's visible
     
     const navButtons = document.getElementById('quiz-navigation');
     navButtons.innerHTML = `
@@ -1232,12 +1439,11 @@ function renderMatching(question) {
     }
 }
 
-// PERBAIKAN: Fungsi renderCaseStudy yang diperbaiki
 function renderCaseStudy(question) {
     document.getElementById('quiz-case-study-container').style.display = 'block';
     const container = document.getElementById('quiz-case-study-container');
     
-    // Build the complete HTML structure first
+    // Build complete HTML structure first
     let html = `<div class="case-study-scenario"><strong>Skenario:</strong><br>${question.scenario}</div>`;
     html += '<div id="sub-questions-container">';
     
@@ -1335,145 +1541,36 @@ function showQuizResult() {
     const resultContainer = document.getElementById('quiz-result');
     resultContainer.style.display = 'block';
     
+    // Save user answers before showing results
+    storage.saveQuizUserAnswers(currentSubChapterId, quizState.userAnswers);
+    
     // Calculate score based on user answers
     let score = 0;
-    const resultsHTML = [];
+    const resultsHTML = generateResultsHTML(quizState.questions, quizState.userAnswers, score, quizState.totalPossibleScore);
     
     quizState.questions.forEach((question, qIndex) => {
         const userAnswer = quizState.userAnswers[qIndex];
-        let isCorrect = false;
-        let resultHTML = '';
         
         if (question.type === 'multiple-choice') {
-            isCorrect = userAnswer === question.correctAnswer;
-            if (isCorrect) score++;
-            
-            resultHTML = `
-                <div class="result-item ${isCorrect ? 'correct' : 'incorrect'}">
-                    <h4>Soal ${qIndex + 1}: ${question.question}</h4>
-                    <div class="options">
-                        ${question.options.map((option, i) => 
-                            `<div class="option ${i === question.correctAnswer ? 'correct-answer' : ''} ${i === userAnswer ? 'user-answer' : ''}">
-                                ${option}
-                                ${i === question.correctAnswer ? '<span class="badge correct">Jawaban Benar</span>' : ''}
-                                ${i === userAnswer && i !== question.correctAnswer ? '<span class="badge incorrect">Jawaban Anda</span>' : ''}
-                            </div>`
-                        ).join('')}
-                    </div>
-                </div>
-            `;
+            if (userAnswer === question.correctAnswer) score++;
         } else if (question.type === 'essay') {
-            // Essay questions are self-assessed, so we'll mark them as correct
-            isCorrect = userAnswer && userAnswer.trim().length > 0;
-            if (isCorrect) score++;
-            
-            resultHTML = `
-                <div class="result-item ${isCorrect ? 'correct' : 'incorrect'}">
-                    <h4>Soal ${qIndex + 1}: ${question.question}</h4>
-                    <div class="essay-result">
-                        <div class="user-answer">
-                            <h5>Jawaban Anda:</h5>
-                            <p>${userAnswer || 'Tidak ada jawaban'}</p>
-                        </div>
-                        <div class="reference-answer">
-                            <h5>Jawaban Acuan:</h5>
-                            <p>${question.referenceAnswer}</p>
-                        </div>
-                    </div>
-                </div>
-            `;
+            if (userAnswer && userAnswer.trim().length > 0) score++;
         } else if (question.type === 'matching') {
-            let correctCount = 0;
-            const matchingResults = [];
-            
             question.pairs.forEach(pair => {
                 const userMatch = userAnswer && userAnswer[pair.term] ? userAnswer[pair.term] : '';
-                const isMatchCorrect = userMatch === pair.match;
-                if (isMatchCorrect) correctCount++;
-                
-                matchingResults.push(`
-                    <div class="matching-result ${isMatchCorrect ? 'correct' : 'incorrect'}">
-                        <span class="term">${pair.term}:</span>
-                        <span class="user-match">${userMatch || 'Tidak dijawab'}</span>
-                        <span class="correct-match">${pair.match}</span>
-                        ${isMatchCorrect ? '<span class="badge correct">Benar</span>' : '<span class="badge incorrect">Salah</span>'}
-                    </div>
-                `);
+                if (userMatch === pair.match) score++;
             });
-            
-            score += correctCount;
-            
-            resultHTML = `
-                <div class="result-item">
-                    <h4>Soal ${qIndex + 1}: ${question.question}</h4>
-                    <div class="matching-results">
-                        ${matchingResults.join('')}
-                    </div>
-                    <p>Skor: ${correctCount} dari ${question.pairs.length}</p>
-                </div>
-            `;
         } else if (question.type === 'case-study') {
-            let subScore = 0;
-            const subResults = [];
-            
             question.questions.forEach((subQ, subIndex) => {
                 const subUserAnswer = userAnswer && userAnswer[subIndex] !== undefined ? userAnswer[subIndex] : null;
-                let isSubCorrect = false;
                 
                 if (subQ.type === 'multiple-choice') {
-                    isSubCorrect = subUserAnswer === subQ.correctAnswer;
-                    if (isSubCorrect) subScore++;
-                    
-                    subResults.push(`
-                        <div class="sub-result ${isSubCorrect ? 'correct' : 'incorrect'}">
-                            <h5>Sub-soal ${subIndex + 1}: ${subQ.question}</h5>
-                            <div class="options">
-                                ${subQ.options.map((option, i) => 
-                                    `<div class="option ${i === subQ.correctAnswer ? 'correct-answer' : ''} ${i === subUserAnswer ? 'user-answer' : ''}">
-                                        ${option}
-                                        ${i === subQ.correctAnswer ? '<span class="badge correct">Jawaban Benar</span>' : ''}
-                                        ${i === subUserAnswer && i !== subQ.correctAnswer ? '<span class="badge incorrect">Jawaban Anda</span>' : ''}
-                                    </div>`
-                                ).join('')}
-                            </div>
-                        </div>
-                    `);
+                    if (subUserAnswer === subQ.correctAnswer) score++;
                 } else if (subQ.type === 'essay') {
-                    isSubCorrect = subUserAnswer && subUserAnswer.trim().length > 0;
-                    if (isSubCorrect) subScore++;
-                    
-                    subResults.push(`
-                        <div class="sub-result ${isSubCorrect ? 'correct' : 'incorrect'}">
-                            <h5>Sub-soal ${subIndex + 1}: ${subQ.question}</h5>
-                            <div class="essay-result">
-                                <div class="user-answer">
-                                    <h6>Jawaban Anda:</h6>
-                                    <p>${subUserAnswer || 'Tidak ada jawaban'}</p>
-                                </div>
-                                <div class="reference-answer">
-                                    <h6>Jawaban Acuan:</h6>
-                                    <p>${subQ.referenceAnswer}</p>
-                                </div>
-                            </div>
-                        </div>
-                    `);
+                    if (subUserAnswer && subUserAnswer.trim().length > 0) score++;
                 }
             });
-            
-            score += subScore;
-            
-            resultHTML = `
-                <div class="result-item">
-                    <h4>Soal ${qIndex + 1}: ${question.question}</h4>
-                    <div class="case-study-results">
-                        ${subResults.join('')}
-                    </div>
-                    <p>Skor: ${subScore} dari ${question.questions.length}</p>
-                </div>
-            `;
         }
-        
-        resultsHTML.push(resultHTML);
     });
     
     // Update quiz state with calculated score
@@ -1486,7 +1583,7 @@ function showQuizResult() {
         
         <div class="results-details">
             <h4>Detail Jawaban:</h4>
-            ${resultsHTML.join('')}
+            ${resultsHTML}
         </div>
     `;
     
