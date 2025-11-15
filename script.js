@@ -440,7 +440,7 @@ const courseData = [
         ]
     },
     {
-        id: 'bab3', title: 'Bab 3: Ahli Waris Bagian Tetap (Ashabul Furudh) - Bagian 1',
+        id: 'bab3', title: 'Bab 3: Ahli Waris Bagian Tetap (Ashabul Furudh)',
         subChapters: [
             {
                 id: 'sub3-1', 
@@ -488,15 +488,10 @@ const courseData = [
                     { type: 'multiple-choice', question: "Seorang laki-laki meninggal dunia, meninggalkan istri, ayah, ibu, dan dua anak perempuan. Berapa bagian ibu?", options: ["1/6", "1/3", "1/3 dari sisa", "Tidak mendapat bagian"], correctAnswer: 0 },
                     { type: 'essay', question: "Jelaskan alasan logis di balik bagian ayah yang bisa menjadi 'ashabah (pewaris sisa) jika tidak ada anak laki-laki, padahal ia termasuk Ashabul Furudh!", referenceAnswer: "Jawaban acuan: Ayah memiliki peran ganda: sebagai orang tua dan sebagai pewaris laki-laki terdekat. Jika si mayit meninggalkan anak laki-laki, maka anak tersebut mewakili garis keturunan ayah. Dalam kasus ini, peran utama ayah adalah sebagai orang tua dengan bagian 1/6. Jika tidak ada anak laki-laki, ayah berperan sebagai pewaris laki-laki utama (pengganti si mayit) yang menjamin kelangsungan garis keturunan, sehingga ia berhak atas sisa harta setelah ahli waris lain (yang bukan 'ashabah) mendapat bagian." }
                 ]}
-            }
-        ]
-    },
-    {
-        id: 'bab4', title: 'Bab 4: Ahli Waris Bagian Tetap (Ashabul Furudh) - Bagian 2',
-        subChapters: [
+            },
             {
-                id: 'sub4-1', 
-                title: '4.1 Anak Perempuan dan Saudara Kandung Perempuan',
+                id: 'sub3-2', 
+                title: '3.2 Anak Perempuan dan Saudara Kandung Perempuan',
                 slides: [
                     {
                         title: 'Hak Anak Perempuan dalam Warisan',
@@ -543,11 +538,11 @@ const courseData = [
         ]
     },
     {
-        id: 'bab5', title: 'Bab 5: Ahli Waris Pewaris Sisa (Asabah)',
+        id: 'bab4', title: 'Bab 4: Ahli Waris Pewaris Sisa (Asabah)',
         subChapters: [
             {
-                id: 'sub5-1', 
-                title: '5.1 Definisi, Jenis, dan Hirarki Asabah',
+                id: 'sub4-1', 
+                title: '4.1 Definisi, Jenis, dan Hirarki Asabah',
                 slides: [
                     {
                         title: 'Definisi Asabah',
@@ -727,11 +722,11 @@ const courseData = [
         ]
     },
     {
-    id: 'bab6', title: 'Bab 6: Kasus Khusus Pembagian (Radd & Aul)',
+    id: 'bab5', title: 'Bab 5: Kasus Khusus Pembagian (Radd & Aul)',
     subChapters: [
         {
-            id: 'sub6-1', 
-            title: '6.1 Konsep dan Implementasi Radd & Aul',
+            id: 'sub5-1', 
+            title: '5.1 Konsep dan Implementasi Radd & Aul',
             slides: [
                 {
                     title: 'Pengantar Radd & Aul',
@@ -944,11 +939,11 @@ const courseData = [
         ]
     },
     {
-        id: 'bab7', title: 'Bab 7: Praktik Pembagian & Kasus Khusus',
+        id: 'bab6', title: 'Bab 6: Praktik Pembagian & Kasus Khusus',
         subChapters: [
             {
-                id: 'sub7-1', 
-                title: '7.1 Prosedur Pembagian Waris',
+                id: 'sub6-1', 
+                title: '6.1 Prosedur Pembagian Waris',
                 slides: [
                     {
                         title: 'Prosedur Pembagian Waris',
