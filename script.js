@@ -30,6 +30,27 @@ const courseData = [
                         `
                     },
                     {
+                        title: 'Allah Ajarkan Langsung',
+                        content: `
+                            <p>Keistimewaan ilmu waris (faraidh) dalam Islam adalah bahwa rinciannya tidaklah lahir dari hasil ijtihad semata, melainkan merupakan wahyu langsung dari Allah SWT yang tertulis secara jelas dalam Al-Qur'an. Ini menunjukkan betapa fundamental dan pentingnya aturan ini bagi kesejahteraan umat manusia.</p>
+                            <div class="source-detail">
+                                <h4>QS. An-Nisa' : 11</h4>
+                                <p class="verse-arabic">يُوصِيكُمُ اللَّهُ فِي أَوْلَادِكُمْ ۖ لِلذَّكَرِ مِثْلُ حَظِّ الْأُنثَيَيْنِ ۚ فَإِن كُنَّ نِسَاءً فَوْقَ اثْنَتَيْنِ فَلَهُنَّ ثُلُثَا مَا تَرَكَ ۚ وَإِن كَانَتْ وَاحِدَةً فَلَهَا النِّصْفُ ۚ وَلِأَبَوَيْهِ لِكُلِّ وَاحِدٍ مِنْهُمَا السُّدُسُ مِمَّا تَرَكَ إِن كَانَ لَهُ وَلَدٌ ۚ فَإِن لَّمْ يَكُن لَّهُ وَلَدٌ وَوَرِثَهُ أَبَوَاهُ فَلِأُمِّهِ الثُّلُثُ ۚ فَإِن كَانَ لَهُ إِخْوَةٌ فَلِأُمِّهِ السُّدُسُ مِن بَعْدِ وَصِيَّةٍ يُوصِي بِهَا أَوْ دَيْنٍ ۗ آبَاؤُكُمْ وَأَبْنَاؤُكُمْ لَا تَدْرُونَ أَيُّهُمْ أَقْرَبُ لَكُمْ نَفْعًا ۚ فَرِيضَةً مِنَ اللَّهِ ۗ إِنَّ اللَّهَ كَانَ عَلِيمًا حَكِيمًا</p>
+                                <p class="verse-translation"><strong>Terjemahan:</strong> Allah mensyariatkan bagimu (berbuat baik) terhadap anak-anakmu. Bagian anak laki-laki sama dengan bagian dua anak perempuan. Jika anak perempuan itu lebih dari dua, maka bagi mereka dua pertiga dari harta yang ditinggalkan. Jika anak perempuan itu seorang saja, maka dia mendapat seperdua harta. Dan untuk dua orang ibu-bapak, bagi masing-masing seperenam dari harta yang ditinggalkan, jika yang meninggal itu mempunyai anak. Jika yang meninggal tidak mempunyai anak dan ia diwarisi oleh ibu-bapaknya (saja), maka ibunya mendapat sepertiga. Jika yang meninggal itu mempunyai beberapa saudara, maka ibunya mendapat seperenam. (Pembagian ini) sesudah dipenuhi wasiat yang dibuatnya atau sesudah hutangnya dilunasi. (Tentang) orang tuamu dan anak-anakmu, kamu tidak mengetahui siapa di antara mereka yang lebih dekat (memberi) manfaat bagimu. Ini adalah ketetapan dari Allah. Sesungguhnya Allah Maha Mengetahui, Mahabijaksana.</p>
+                                <div class="source-context"><strong>Asbabun Nuzul:</strong> Ayat ini turun sebagai respons terhadap praktik waris yang tidak adil pada masa Jahiliyah. Sebuah riwayat menceritakan kasus Sa'ad bin Rabi' yang gugur dalam Perang Uhud dan meninggalkan harta, istri, dan dua orang putri. Namun, saudara laki-lakinya (paman dari anak-anaknya) justru mengambil seluruh harta tersebut, mengabaikan hak para wanita. Ayat ini kemudian diturunkan untuk menetapkan hak-hak yang adil bagi anak perempuan dan orang tua, serta membatasi kekuasaan kerabat lain.</div>
+                                <div class="source-explanation"><strong>Tafsir Ringkas:</strong> Ayat ini adalah pilar utama hukum waris Islam. Allah secara langsung menetapkan bagian-bagian yang spesifik (fardh) untuk anak, ayah, dan ibu dengan berbagai kondisinya. Ayat ini juga memperkenalkan prinsip fundamental keadilan dalam Islam, yaitu bagian anak laki-laki setara dengan dua anak perempuan, bukan sebagai bentuk diskriminasi, melainkan sebagai bentuk keadilan sosial yang mempertimbangkan tanggung jawab finansial yang berbeda. Penutup ayat, "fariidatan minallaah" (sebuah ketetapan dari Allah), menegaskan bahwa ini bukanlah hukum buatan manusia, melainkan perintah ilahi yang wajib dijalankan.</div>
+                                <div class="mazhab-reference">
+                                    <h4>Referensi Mazhab:</h4>
+                                    <p>Keempat mazhab utama (Syafi'i, Maliki, Hanafi, dan Hanbali) sepakat bahwa ayat ini, bersama dengan ayat 12 dan 176 dari surah yang sama, adalah sumber hukum primer dan paling fundamental dalam ilmu waris. Semua perincian hukum waris, prinsip 'ashabah, 'aul, dan 'radd dalam masing-masing mazhab, semuanya berpijak pada fondasi Al-Qur'an ini.</p>
+                                </div>
+                                <div class="indonesian-law">
+                                    <h4>Hukum di Indonesia:</h4>
+                                    <p>Kompilasi Hukum Islam (KHI) yang menjadi acuan hukum peradilan agama di Indonesia secara eksplisit menyatakan bahwa hukum waris Islam bersumber dari Al-Qur'an dan Hadis. Pasal 171 KHI adalah perwujudan dari bagaimana wahyu ilahi ini diadopsi menjadi hukum positif yang berlaku bagi jutaan umat Islam di Indonesia.</p>
+                                </div>
+                            </div>
+                        `
+                    },
+                    {
                         title: 'Perintah Nabi Khusus',
                         content: `
                             <p>Rasulullah SAW secara khusus memerintahkan agar umatnya belajar dan mengajarkan ilmu waris, karena ia adalah ilmu yang akan pertama kali diangkat dari masyarakat.</p>
@@ -81,6 +102,46 @@ const courseData = [
                         `
                     },
                     {
+                        title: 'Ilmu yang Akan Hilang Pertama Kali',
+                        content: `
+                            <p>Salah satu prediksi paling mengejutkan dari Rasulullah SAW adalah bahwa ilmu waris (faraidh) akan menjadi ilmu pertama yang diangkat dari umatnya. Ini bukan sekadar peringatan, tetapi sebuah realitas yang kita lihat hari ini: semakin sedikit orang yang memahami ilmu ini secara mendalam.</p>
+                            <div class="hadith-text">
+                                <p class="verse-arabic">تَعَلَّمُوا الْفَرَائِضَ وَعَلِّمُوهَا النَّاسَ، فَإِنِّي امْرُؤٌ مَقْبُوضٌ، وَإِنَّ الْعِلْمَ سَيُقْبَضُ، وَيَظَلُّ النَّاسُ يَتَفَاخَرُونَ حَتَّى يُقَالَ لَهُمْ: فِيمَ كَانَ هَذَا الْقُرْآنُ؟ فَيَقُولُونَ: نُزِّلَ فِي أَهْلِ الْبَادِيَةِ مِنَ الْعَرَبِ، فَيَقُولُ أَهْلُ الْكِتَابِ: قَدْ أَخَذْنَا بِنَصِيبِنَا مِنْهُ قَبْلَ أَنْ يُنْزَلَ، فَلَا تَأْمَنُوا أَنْ يَسْتَذِلَّكُمُ اللَّهُ بِهِ.</p>
+                                <p class="verse-translation"><strong>Terjemahan:</strong> Pelajarilah ilmu faraidh dan ajarkanlah kepada manusia. Karena aku adalah seorang yang akan dicabut (ilmunya), dan sesungguhnya ilmu akan diangkat (dari bumi). Manusia akan saling berbangga-bangga, hingga ada yang mengatakan kepada mereka: 'Untuk apa Al-Qur'an ini diturunkan?' Maka mereka menjawab: 'Diturunkan untuk orang-orang Badui dari bangsa Arab.' Ahli Kitab akan berkata: 'Kami telah mengambil bagian kami darinya sebelum ia diturunkan, maka janganlah kalian merasa aman dari siksa Allah karena hal itu.</p>
+                                <p class="hadith-source">(HR. Ibnu Majah, Ad-Daruquthuny dan Al-Hakim)</p>
+                                <div class="source-context"><strong>Konteks Hadis:</strong> Hadis ini diriwayatkan oleh Abdullah ibnu Abbas RA. Nabi SAW menyampaikannya di hadapan para sahabat untuk menekankan urgensi ilmu faraidh. Beliau melihat masa depan di mana umatnya akan lalai, sehingga ilmu ini menjadi langka dan akhirnya lenyap dari pemahaman umum.</div>
+                                <div class="source-explanation"><strong>Penjelasan:</strong> "Diangkatnya ilmu" bukan berarti teks Al-Qur'an-nya hilang, melainkan <strong>kefahaman dan kemampuan untuk mengamalkannya</strong> yang hilang. Ini terjadi ketika tidak ada lagi ulama yang ahli, tidak ada lagi yang mau belajar, dan masyarakat mengabaikannya.</div>
+                            </div>
+                            <div class="example-box">
+                                <h4>🤔 Mengapa Ilmu Ini Bisa Langka?</h4>
+                                <ol>
+                                    <li><strong>Kompleksitasnya Tinggi:</strong> Ilmu waris melibatkan matematika, silsilah keluarga (nasab), dan banyak kondisi khusus ('hijb, 'aul, 'radd). Ini membuat banyak orang enggan mendalaminya.</li>
+                                    <li><strong>Dikalahkan oleh Materi Lain:</strong> Orang seringkali lebih tertarik mempelajari fiqih lain yang dianggap lebih "praktis" seperti thaharah, shalat, atau puasa, dan menganggap waris adalah urusan "nanti" saat ada kematian.</li>
+                                    <li><strong>Tabu dan Ketidaknyamanan:</strong> Membahas kematian dan pembagian harta sering dianggap tabu dalam keluarga. Orang enggan membicarakannya saat sehat, sehingga ilmu ini tidak diajarkan dari generasi ke generasi.</li>
+                                    <li><strong>Dominasi Adat yang Salah:</strong> Banyak masyarakat yang lebih memegang teguh adat istiadat waris yang salah (misalnya, anak perempuan tidak dapat waris) daripada belajar hukum syariat yang benar.</li>
+                                </ol>
+                            </div>
+                            <div class="real-case-example">
+                                <h4>📉 Dampak Kelangkaan Ilmu Waris di Masyarakat</h4>
+                                <p>Ketika ilmu ini langka, dampaknya sangat nyata dan merusak:</p>
+                                <ul>
+                                    <li><strong>Maraknya Sengketa Waris:</strong> Data Mahkamah Agung menunjukkan >60% kasus perdata agama adalah sengketa waris. Ini adalah bukti konkret dari ketidaktahuan.</li>
+                                    <li><strong>Ketidakadilan Sosial:</strong> Pihak yang paling rentan—seperti anak perempuan, janda, dan anak yatim—sering menjadi korban dan kehilangan hak mereka.</li>
+                                    <li><strong>Harta Terbengkalai:</strong> Banyak aset keluarga (tanah, rumah) yang tidak bisa diurus selama puluhan tahun karena ahli waris tidak bisa sepakat, akibatnya tidak tahu cara pembagian yang benar.</li>
+                                    <li><strong>Runtuhnya Kewibawaan Syariat:</strong> Ketika umat Islam tidak bisa menerapkan hukum waris yang jelas dalam Al-Qur'an, ini menjadi aib dan memperlemah posisi syariat dalam kehidupan sehari-hari.</li>
+                                </ul>
+                            </div>
+                            <div class="mazhab-reference">
+                                <h4>Referensi Mazhab:</h4>
+                                <p>Semua mazhab—Syafi'i, Maliki, Hanafi, dan Hanbali—memberikan perhatian yang sangat besar pada ilmu waris. Dalam setiap kitab fiqih utama mereka, bab waris selalu ditempatkan di posisi penting, menunjukkan bahwa menjaga keberadaan ilmu ini adalah kewajiban bersama seluruh umat Islam.</p>
+                            </div>
+                            <div class="indonesian-law">
+                                <h4>Hukum di Indonesia:</h4>
+                                <p>Menyadari dampak negatif dari kelangkaan ini, Majelis Ulama Indonesia (MUI) secara berkala mengeluarkan fatwa yang mendorong sosialisasi hukum waris Islam. Kementerian Agama juga telah memasukkan materi dasar waris ke dalam kurikulum pendidikan agama Islam di sekolah untuk mencegah kepunahan ilmu ini di kalangan generasi muda.</p>
+                            </div>
+                        `
+                    },
+                    {
                         title: 'Sejajar dengan Belajar Al-Qur\'an',
                         content: `
                             <p>Para sahabat menempatkan ilmu waris setara dengan ilmu Al-Qur'an, menunjukkan tingginya kedudukan ilmu ini.</p>
@@ -105,6 +166,72 @@ const courseData = [
                         `
                     },
                     {
+                        title: 'Membongkar Mitos: Ilmu Waris Itu Mudah & Sederhana',
+                        content: `
+                            <p>Banyak yang berpikir ilmu waris itu rumit, penuh istilah asing, dan hanya untuk ulama. Anggapan ini seringkali menghalangi kita untuk mempelajarinya. Padahal, pada intinya, ilmu ini dibangun atas logika dan keadilan yang sangat sederhana, dirancang agar bisa dipahami dan dijalankan oleh siapa saja.</p>
+                            <div class="example-box">
+                                <h4>📦 Kotak Pembagian Sederhana: Logika Dasar Faraidh</h4>
+                                <p>Bayangkan harta warisan sebagai sebuah kotak. Cara membaginya sangat terstruktur:</p>
+                                <ol>
+                                    <li><strong>Identifikasi Para Penerima Bagian Tetap (Ashabul Furudh):</strong> Siapa saja yang punya "kupon" bagian? (Suami/Istri, Ayah/Ibu, Anak Perempuan, dll.).</li>
+                                    <li><strong>Beri Mereka Bagian dari Kotak:</strong> Berikan mereka bagian sesuai "kupon" yang mereka pegang (1/2, 1/4, 1/6, 1/3, dll.).</li>
+                                    <li><strong>Lihat Sisa di Kotak:</strong> Apakah masih ada harta yang tersisa?</li>
+                                    <li>
+                                        <strong>Jika ADA SISA:</strong> Berikan sisa itu kepada <strong>Pewaris Sisa (Asabah)</strong> dalam urutan yang jelas (Anak Laki-laki -> Ayah -> Saudara Laki-laki, dst.).
+                                        <br><strong>Jika TIDAK ADA SISA:</strong> Pembagian selesai.
+                                    </li>
+                                </ol>
+                                <p>Itulah intinya. Sisanya adalah detail-detail untuk kasus-kasus spesifik.</p>
+                            </div>
+                            <div class="example-box">
+                                <h4>🧮 Matematika yang Digunakan Hanya... SD/SMP</h4>
+                                <p>Jangan takut pada angka. Matematika dalam ilmu waris adalah matematika dasar yang kita pelajari di sekolah:</p>
+                                <ul>
+                                    <li><strong>Penjumlahan:</strong> Untuk menjumlahkan semua bagian (1/2 + 1/6 = ...).</li>
+                                    <li><strong>Pengurangan:</strong> Untuk mencari sisa harta (1 - 3/4 = ...).</li>
+                                    <li><strong>Perkalian & Pembagian:</strong> Untuk menghitung nilai uang dari bagian pecahan (1/8 x Rp 800 juta).</li>
+                                </ul>
+                                <p>Bagian yang paling "rumit" sekalipun hanyalah mencari penyebut yang sama (KPK) untuk menjumlahkan pecahan, sebuah keterampilan yang sudah kita kuasai. Tidak ada kalkulus, aljabar tingkat tinggi, atau rumus rahasia.</p>
+                            </div>
+                            <div class="source-detail">
+                                <h4>QS. An-Nisa' : 28</h4>
+                                <p class="verse-arabic">يُرِيدُ اللَّهُ أَن يُخَفِّفَ عَنكُمْ ۚ وَخُلِقَ الْإِنْسَانُ ضَعِيفًا</p>
+                                <p class="verse-translation"><strong>Terjemahan:</strong> Allah hendak memberikan kemudahan kepadamu, dan manusia dijadikan bersifat lemah.</p>
+                                <div class="source-explanation"><strong>Tafsir Ringkas:</strong> Ayat ini adalah prinsip dasar bahwa syariat Islam, termasuk hukum waris, tidak pernah dibuat untuk memberatkan. Tujuannya adalah kemudahan dan keadilan. Kesulitan yang kita rasakan seringkali berasal dari ketidaktahuan kita, bukan dari aturan itu sendiri. Allah, yang menciptakan manusia, mengetahui kapasitas kita dan memberikan sistem yang bisa dipelajari.</div>
+                            </div>
+                            <div class="real-case-example">
+                                <h4>🧩 Kasus Sederhana yang Sering Terjadi</h4>
+                                <p><strong>Skenario:</strong> Seorang ayah meninggal, meninggalkan harta Rp 1,8 miliar. Ahli warisnya: seorang <strong>ibu</strong>, seorang <strong>anak laki-laki</strong>, dan seorang <strong>anak perempuan</strong>.</p>
+                                <p><strong>Pembagian dengan Logika Sederhana:</strong></p>
+                                <ol>
+                                    <li><strong>Bagian Tetap?</strong> Ya, <strong>ibu</strong> dapat bagian tetap: <strong>1/6</strong>.</li>
+                                    <li><strong>Hitung Bagian Ibu:</strong> 1/6 x Rp 1,8 miliar = <strong>Rp 300 juta</strong>.</li>
+                                    <li><strong>Sisa Harta?</strong> Rp 1,8 miliar - Rp 300 juta = <strong>Rp 1,5 miliar</strong>.</li>
+                                    <li><strong>Ada Sisa, Siapa Pewaris Sisa (Asabah)?</strong> <strong>Anak laki-laki dan perempuan.</strong></li>
+                                    <li><strong>Bagaimana Aturannya?</strong> Bagian anak laki-laki = 2x bagian anak perempuan. Total bagian = 2 + 1 = 3 bagian.</li>
+                                    <li><strong>Bagikan Sisa Harta:</strong> Rp 1,5 miliar / 3 = <strong>Rp 500 juta per bagian</strong>.</li>
+                                </ol>
+                                <p><strong>Hasil Akhir:</strong></p>
+                                <ul>
+                                    <li>Ibu: <strong>Rp 300 juta</strong>.</li>
+                                    <li>Anak Laki-laki: 2 bagian x Rp 500 juta = <strong>Rp 1 miliar</strong>.</li>
+                                    <li>Anak Perempuan: 1 bagian x Rp 500 juta = <strong>Rp 500 juta</strong>.</li>
+                                </ul>
+                                <p>Lihat? Dengan langkah demi langkah, masalah yang tampak rumit menjadi sangat terstruktur dan mudah dipecahkan.</p>
+                            </div>
+                            <div class="note-box">
+                                <h4>💡 Kunci Kesederhanaannya</h4>
+                                <p>Untuk memudahkan pembelajaran, fokus pada:</p>
+                                <ul>
+                                    <li><strong>Mulai dengan yang Utama:</strong> Kuasai dulu 10 ahli waris utama dan bagian mereka. Ini sudah mencakup 90% kasus yang terjadi.</li>
+                                    <li><strong>Pahami Logikanya, Bukan Hafal Semua:</strong> Pahami mengapa anak laki-laki dapat 2 bagian, mengapa suami/istri dapat bagian tertentu. Logika akan membantu Anda mengingat aturan.</li>
+                                    <li><strong>Gunakan Alat Bantu:</strong> Gunakan tabel atau flowchart saat memulai. Tidak apa-apa untuk "mencontek" aturan dasar.</li>
+                                </ul>
+                                <p>Ilmu waris bukan untuk ditakuti, melainkan untuk dipelajari dan diamalkan demi keadilan dan kebaikan keluarga.</p>
+                            </div>
+                        `
+                    },
+                    {
                         title: 'Kesimpulan: Mengapa Wajib?',
                         content: `
                             <p>Mempelajari ilmu waris adalah kewajiban karena:</p>
@@ -112,12 +239,13 @@ const courseData = [
                                 <h4>WHY WE MUST LEARN</h4>
                                 <ul>
                                     <li><strong>Ancaman Kekal di Neraka:</strong> Menentang hukum waris adalah maksiat yang diancam neraka.</li>
-                                    <li><strong>Allah Jelaskan Langsung:</strong> Hukum ini datang langsung dari wahyu, bukan hasil pemikiran manusia.</li>
+                                    <li><strong>Allah Ajarkan Langsung:</strong> Hukum ini datang langsung dari wahyu, bukan hasil pemikiran manusia.</li>
                                     <li><strong>Perintah Nabi Khusus:</strong> Nabi SAW secara khusus memerintahkan untuk mempelajarinya.</li>
                                     <li><strong>Mencegah Makan Harta Haram:</strong> Menjaga dari dosa memakan harta orang lain dan anak yatim secara zalim.</li>
                                     <li><strong>Mencegah Keluarga Pecah:</strong> Aturan yang jelas mencegah konflik dan permusuhan.</li>
                                     <li><strong>Ilmu yang Langka & Penting:</strong> Ilmu ini akan hilang, dan mempelajarinya adalah menjaga agama.</li>
                                     <li><strong>Sejajar dengan Al-Qur'an:</strong> Kedudukannya setara dengan mempelajari kitab suci.</li>
+                                    <li><strong>Membongkar Mitos: Ilmu Waris Itu Mudah & Sederhana:</strong> ilmu ini dibangun atas logika dan keadilan yang sangat sederhana.</li>
                                     <li><strong>Banyak Penyimpangan:</strong> Ilmu ini dibutuhkan untuk meluruskan praktik salah yang banyak terjadi.</li>
                                 </ul>
                             </div>
