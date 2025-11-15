@@ -761,12 +761,14 @@ const courseData = [
 // --- APLIKASI LOGIKA ---
 let currentChapterId = null, currentSubChapterId = null, currentSlideIndex = 0;
 let quizState = { 
-    questions: [], 
+    originalQuestions: [], // Menyimpan soal asli
+    questions: [], // Menyimpan soal yang sudah diacak
     currentQuestionIndex: 0, 
     score: 0, 
     totalPossibleScore: 0,
-    currentAnswer: null,
-    canGoBack: true
+    userAnswers: [], // Menyimpan jawaban pengguna
+    canGoBack: true,
+    isRandomized: false // Flag untuk menandai apakah soal sudah diacak
 };
 let caseStudyState = { answeredSubQuestions: new Set() };
 let totalScore = 0, totalPossibleScore = 0;
@@ -786,6 +788,70 @@ const storage = {
     getUserName: () => storage.get('mawarisUserName') || 'Pengguna',
     saveUserName: (name) => storage.set('mawarisUserName', name)
 };
+
+// --- UTILITAS RANDOMISASI ---
+function shuffleArray(array) {
+    const newArray = [...array];
+    for (let i = newArray.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+    }
+    return newArray;
+}
+
+function randomizeQuestions(questions) {
+    // Acak urutan soal
+    const randomizedQuestions = shuffleArray(questions);
+    
+    // Untuk setiap soal, acak pilihan jawaban jika ada
+    return randomizedQuestions.map(question => {
+        const newQuestion = { ...question };
+        
+        if (question.type === 'multiple-choice' && question.options) {
+            // Simpan indeks jawaban benar asli
+            const originalCorrectAnswer = question.correctAnswer;
+            
+            // Acak opsi jawaban
+            const shuffledOptions = shuffleArray(question.options);
+            
+            // Cari indeks baru dari jawaban benar setelah diacak
+            const newCorrectAnswer = shuffledOptions.indexOf(question.options[originalCorrectAnswer]);
+            
+            // Update soal dengan opsi yang sudah diacak
+            newQuestion.options = shuffledOptions;
+            newQuestion.correctAnswer = newCorrectAnswer;
+        }
+        
+        if (question.type === 'matching' && question.pairs) {
+            // Acak urutan pasangan
+            newQuestion.pairs = shuffleArray(question.pairs);
+        }
+        
+        if (question.type === 'case-study' && question.questions) {
+            // Acak urutan sub-soal dalam case study
+            newQuestion.questions = shuffleArray(question.questions).map(subQ => {
+                const newSubQ = { ...subQ };
+                if (subQ.type === 'multiple-choice' && subQ.options) {
+                    // Simpan indeks jawaban benar asli
+                    const originalCorrectAnswer = subQ.correctAnswer;
+                    
+                    // Acak opsi jawaban
+                    const shuffledOptions = shuffleArray(subQ.options);
+                    
+                    // Cari indeks baru dari jawaban benar setelah diacak
+                    const newCorrectAnswer = shuffledOptions.indexOf(subQ.options[originalCorrectAnswer]);
+                    
+                    // Update sub-soal dengan opsi yang sudah diacak
+                    newSubQ.options = shuffledOptions;
+                    newSubQ.correctAnswer = newCorrectAnswer;
+                }
+                return newSubQ;
+            });
+        }
+        
+        return newQuestion;
+    });
+}
 
 // --- KONTROLER TAMPILAN (VIEW CONTROLLER) ---
 function showView(viewId) { 
@@ -927,11 +993,18 @@ function renderSlide() {
 function startQuiz() {
     const chapter = courseData.find(ch => ch.id === currentChapterId);
     const subChapter = chapter.subChapters.find(sub => sub.id === currentSubChapterId);
-    quizState.questions = subChapter.quiz.questions;
+    
+    // Simpan soal asli
+    quizState.originalQuestions = JSON.parse(JSON.stringify(subChapter.quiz.questions));
+    
+    // Acak soal
+    quizState.questions = randomizeQuestions(subChapter.quiz.questions);
+    quizState.isRandomized = true;
+    
     quizState.currentQuestionIndex = 0;
     quizState.score = 0;
     quizState.totalPossibleScore = calculateTotalPossibleScore(quizState.questions);
-    quizState.currentAnswer = null;
+    quizState.userAnswers = new Array(quizState.questions.length).fill(null);
     quizState.canGoBack = true;
     caseStudyState.answeredSubQuestions = new Set(); // Reset case study state
 
@@ -968,9 +1041,6 @@ function renderQuestion() {
     const progressInfo = `Soal ${quizState.currentQuestionIndex + 1} / ${quizState.questions.length}`;
     document.getElementById('quiz-progress-info').textContent = progressInfo;
     
-    // Reset current answer
-    quizState.currentAnswer = null;
-    
     document.getElementById('quiz-options').style.display = 'none';
     document.getElementById('quiz-essay-container').style.display = 'none';
     document.getElementById('quiz-matching-container').style.display = 'none';
@@ -1004,7 +1074,7 @@ function setupQuizNavigation() {
         <button id="quiz-hesitate-btn" class="btn btn-warning">
             <i class="fas fa-question-circle"></i> Ragu-ragu
         </button>
-        <button id="quiz-next-btn" class="btn btn-primary" disabled>
+        <button id="quiz-next-btn" class="btn btn-primary" ${quizState.userAnswers[quizState.currentQuestionIndex] !== null ? '' : 'disabled'}>
             Lanjut <i class="fas fa-arrow-right"></i>
         </button>
     `;
@@ -1028,7 +1098,7 @@ function setupQuizNavigation() {
     };
     
     document.getElementById('quiz-next-btn').onclick = () => {
-        if (quizState.currentAnswer !== null) {
+        if (quizState.userAnswers[quizState.currentQuestionIndex] !== null) {
             quizState.canGoBack = false; // Disable going back after moving forward
             quizState.currentQuestionIndex++;
             renderQuestion();
@@ -1046,12 +1116,28 @@ function renderMultipleChoice(question) {
     const optionsContainer = document.getElementById('quiz-options');
     optionsContainer.innerHTML = '';
     
+    // Check if user has already answered this question
+    const userSelectedIndex = quizState.userAnswers[quizState.currentQuestionIndex];
+    
     question.options.forEach((option, index) => {
         const li = document.createElement('li'); 
-        li.className = 'quiz-option'; 
+        li.className = 'quiz-option';
+        if (userSelectedIndex !== null && userSelectedIndex === index) {
+            li.classList.add('selected');
+        }
         li.textContent = option;
         li.onclick = () => {
-            selectAnswer(index, question.correctAnswer);
+            // Remove previous selection
+            document.querySelectorAll('.quiz-option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            
+            // Mark current selection
+            li.classList.add('selected');
+            
+            // Save user answer
+            quizState.userAnswers[quizState.currentQuestionIndex] = index;
+            
             enableNextButton();
         };
         optionsContainer.appendChild(li);
@@ -1062,58 +1148,42 @@ function renderEssay(question) {
     document.getElementById('quiz-essay-container').style.display = 'block';
     document.getElementById('question-text').textContent = question.question;
     const container = document.getElementById('quiz-essay-container');
+    
+    // Get user's previous answer if exists
+    const userAnswer = quizState.userAnswers[quizState.currentQuestionIndex] || '';
+    
     container.innerHTML = `
-        <textarea id="essay-answer" placeholder="Ketik jawaban Anda di sini..."></textarea>
-        <div id="reference-answer" class="essay-reference" style="display:none;">
-            <strong>Jawaban Acuan:</strong>
-            <p>${question.referenceAnswer}</p>
-        </div>
+        <textarea id="essay-answer" placeholder="Ketik jawaban Anda di sini...">${userAnswer}</textarea>
     `;
     
     const essayAnswer = document.getElementById('essay-answer');
     essayAnswer.addEventListener('input', () => {
         if (essayAnswer.value.trim().length > 0) {
+            quizState.userAnswers[quizState.currentQuestionIndex] = essayAnswer.value.trim();
             enableNextButton();
         } else {
+            quizState.userAnswers[quizState.currentQuestionIndex] = null;
             document.getElementById('quiz-next-btn').disabled = true;
         }
     });
     
-    // Override the next button behavior for essay questions
-    const originalNextBtn = document.getElementById('quiz-next-btn');
-    const newNextBtn = originalNextBtn.cloneNode(true);
-    originalNextBtn.parentNode.replaceChild(newNextBtn, originalNextBtn);
-    
-    newNextBtn.onclick = () => {
-        if (essayAnswer.value.trim().length > 0) {
-            // Show reference answer when clicking next
-            document.getElementById('reference-answer').style.display = 'block';
-            quizState.score++;
-            
-            // Disable the textarea
-            essayAnswer.disabled = true;
-            
-            // Change the button text to "Lanjut"
-            newNextBtn.textContent = 'Lanjut';
-            newNextBtn.onclick = () => {
-                quizState.canGoBack = false;
-                quizState.currentQuestionIndex++;
-                renderQuestion();
-            };
-        }
-    };
+    // Enable next button if user already has an answer
+    if (userAnswer.length > 0) {
+        enableNextButton();
+    }
 }
 
 function renderMatching(question) {
     document.getElementById('quiz-matching-container').style.display = 'block';
     document.getElementById('question-text').textContent = question.question;
     const container = document.getElementById('quiz-matching-container');
-    container.innerHTML = `<div class="matching-container"></div><button id="check-matching-btn" class="btn btn-primary">Cocokkan Jawaban</button>`;
+    container.innerHTML = `<div class="matching-container"></div>`;
     const matchingContainer = container.querySelector('.matching-container');
-    const matches = {};
+    
+    // Get user's previous answers if exist
+    const userAnswers = quizState.userAnswers[quizState.currentQuestionIndex] || {};
     
     question.pairs.forEach((pair, index) => {
-        matches[pair.term] = pair.match;
         const itemDiv = document.createElement('div'); 
         itemDiv.className = 'matching-item';
         itemDiv.innerHTML = `<label>${pair.term}:</label><select data-term="${pair.term}"><option value="">-- Pilih --</option></select>`;
@@ -1129,7 +1199,20 @@ function renderMatching(question) {
             select.appendChild(option);
         });
         
+        // Set previous user answer if exists
+        const term = select.dataset.term;
+        if (userAnswers[term]) {
+            select.value = userAnswers[term];
+        }
+        
         select.addEventListener('change', () => {
+            // Save user answers
+            const currentAnswers = quizState.userAnswers[quizState.currentQuestionIndex] || {};
+            document.querySelectorAll('#quiz-matching-container select').forEach(s => {
+                currentAnswers[s.dataset.term] = s.value;
+            });
+            quizState.userAnswers[quizState.currentQuestionIndex] = currentAnswers;
+            
             // Check if all selects have a value
             const allSelected = Array.from(document.querySelectorAll('#quiz-matching-container select'))
                 .every(s => s.value !== '');
@@ -1142,39 +1225,11 @@ function renderMatching(question) {
         });
     });
     
-    // Override the next button behavior for matching questions
-    const originalNextBtn = document.getElementById('quiz-next-btn');
-    const newNextBtn = originalNextBtn.cloneNode(true);
-    originalNextBtn.parentNode.replaceChild(newNextBtn, originalNextBtn);
-    
-    newNextBtn.onclick = () => {
-        let correctCount = 0;
-        document.querySelectorAll('#quiz-matching-container select').forEach(select => {
-            const term = select.dataset.term;
-            const userAnswer = select.value;
-            if (userAnswer === matches[term]) { 
-                select.style.borderColor = 'var(--success-color)'; 
-                correctCount++; 
-            }
-            else { 
-                select.style.borderColor = 'var(--danger-color)'; 
-            }
-        });
-        quizState.score += correctCount;
-        
-        // Disable all selects
-        document.querySelectorAll('#quiz-matching-container select').forEach(select => {
-            select.disabled = true;
-        });
-        
-        // Change the button text to "Lanjut"
-        newNextBtn.textContent = 'Lanjut';
-        newNextBtn.onclick = () => {
-            quizState.canGoBack = false;
-            quizState.currentQuestionIndex++;
-            renderQuestion();
-        };
-    };
+    // Enable next button if all questions are already answered
+    if (Object.keys(userAnswers).length === question.pairs.length && 
+        Object.values(userAnswers).every(val => val !== '')) {
+        enableNextButton();
+    }
 }
 
 function renderCaseStudy(question) {
@@ -1184,37 +1239,58 @@ function renderCaseStudy(question) {
     const subQuestionsContainer = document.createElement('div');
     subQuestionsContainer.id = 'sub-questions-container';
     
+    // Get user's previous answers if exist
+    const userAnswers = quizState.userAnswers[quizState.currentQuestionIndex] || {};
+    
     question.questions.forEach((subQ, index) => {
         const subQDiv = document.createElement('div'); 
         subQDiv.className = 'case-study-sub-question';
         subQDiv.innerHTML = `<p><strong>${index + 1}. ${subQ.question}</strong></p>`;
+        
         if (subQ.type === 'multiple-choice') {
             const optionsList = document.createElement('ul'); 
             optionsList.className = 'quiz-options';
+            
             subQ.options.forEach((opt, i) => {
                 const li = document.createElement('li'); 
-                li.className = 'quiz-option'; 
+                li.className = 'quiz-option';
+                
+                // Check if user has already answered this sub-question
+                if (userAnswers[index] !== undefined && userAnswers[index] === i) {
+                    li.classList.add('selected');
+                }
+                
                 li.textContent = opt;
                 li.onclick = () => {
-                    selectSubAnswer(index, i, subQ.correctAnswer);
+                    // Remove previous selection
+                    document.querySelectorAll(`#sub-questions-container .case-study-sub-question:nth-of-type(${index + 1}) .quiz-option`).forEach(opt => {
+                        opt.classList.remove('selected');
+                    });
+                    
+                    // Mark current selection
+                    li.classList.add('selected');
+                    
+                    // Save user answer
+                    const currentAnswers = quizState.userAnswers[quizState.currentQuestionIndex] || {};
+                    currentAnswers[index] = i;
+                    quizState.userAnswers[quizState.currentQuestionIndex] = currentAnswers;
+                    
                     checkCaseStudyCompletion();
                 };
                 optionsList.appendChild(li);
             });
             subQDiv.appendChild(optionsList);
         } else if (subQ.type === 'essay') {
+            const userEssayAnswer = userAnswers[index] || '';
             subQDiv.innerHTML += `
-                <textarea id="case-essay-${index}" placeholder="Ketik jawaban Anda..."></textarea>
-                <div id="case-ref-${index}" class="essay-reference" style="display:none;"><strong>Acuan:</strong><p>${subQ.referenceAnswer}</p></div>
+                <textarea id="case-essay-${index}" placeholder="Ketik jawaban Anda...">${userEssayAnswer}</textarea>
             `;
             
             const essayAnswer = document.getElementById(`case-essay-${index}`);
             essayAnswer.addEventListener('input', () => {
-                if (essayAnswer.value.trim().length > 0) {
-                    caseStudyState.answeredSubQuestions.add(index);
-                } else {
-                    caseStudyState.answeredSubQuestions.delete(index);
-                }
+                const currentAnswers = quizState.userAnswers[quizState.currentQuestionIndex] || {};
+                currentAnswers[index] = essayAnswer.value.trim();
+                quizState.userAnswers[quizState.currentQuestionIndex] = currentAnswers;
                 checkCaseStudyCompletion();
             });
         }
@@ -1223,76 +1299,31 @@ function renderCaseStudy(question) {
     container.appendChild(subQuestionsContainer);
     
     document.getElementById('question-text').textContent = 'Analisislah skenario berikut dengan cermat.';
-}
-
-function selectSubAnswer(qIndex, aIndex, correctAnswer) {
-    const options = document.querySelectorAll(`#sub-questions-container .case-study-sub-question:nth-of-type(${qIndex + 1}) .quiz-option`);
-    options.forEach(o => o.classList.add('disabled'));
-    if (aIndex === correctAnswer) { 
-        options[aIndex].classList.add('correct'); 
-        quizState.score++; 
-    }
-    else { 
-        options[aIndex].classList.add('incorrect'); 
-        options[correctAnswer].classList.add('correct'); 
-    }
-    caseStudyState.answeredSubQuestions.add(qIndex);
+    
+    // Check if all sub-questions are already answered
+    checkCaseStudyCompletion();
 }
 
 function checkCaseStudyCompletion() {
     const currentQuestion = quizState.questions[quizState.currentQuestionIndex];
-    const totalSubQuestions = currentQuestion.questions.length;
+    const userAnswers = quizState.userAnswers[quizState.currentQuestionIndex] || {};
     
     // Check if all multiple choice questions are answered
     const mcQuestions = currentQuestion.questions.filter(q => q.type === 'multiple-choice');
-    const mcAnswered = mcQuestions.every((q, index) => 
-        caseStudyState.answeredSubQuestions.has(index)
-    );
+    const mcAnswered = mcQuestions.every((q, index) => {
+        const qIndex = currentQuestion.questions.indexOf(q);
+        return userAnswers[qIndex] !== undefined;
+    });
     
     // Check if all essay questions have content
     const essayQuestions = currentQuestion.questions.filter(q => q.type === 'essay');
     const essayAnswered = essayQuestions.every((q, index) => {
-        const essayIndex = currentQuestion.questions.indexOf(q);
-        const essayElement = document.getElementById(`case-essay-${essayIndex}`);
-        return essayElement && essayElement.value.trim().length > 0;
+        const qIndex = currentQuestion.questions.indexOf(q);
+        return userAnswers[qIndex] && userAnswers[qIndex].trim().length > 0;
     });
     
-    if (mcAnswered && essayAnswered && caseStudyState.answeredSubQuestions.size === totalSubQuestions) {
+    if (mcAnswered && essayAnswered) {
         enableNextButton();
-        
-        // Show reference answers for essay questions
-        essayQuestions.forEach((q, index) => {
-            const essayIndex = currentQuestion.questions.indexOf(q);
-            const refElement = document.getElementById(`case-ref-${essayIndex}`);
-            if (refElement) {
-                refElement.style.display = 'block';
-            }
-        });
-        
-        // Override the next button behavior for case study questions
-        const originalNextBtn = document.getElementById('quiz-next-btn');
-        const newNextBtn = originalNextBtn.cloneNode(true);
-        originalNextBtn.parentNode.replaceChild(newNextBtn, originalNextBtn);
-        
-        newNextBtn.onclick = () => {
-            quizState.canGoBack = false;
-            quizState.currentQuestionIndex++;
-            renderQuestion();
-        };
-    }
-}
-
-function selectAnswer(selectedIndex, correctAnswer) {
-    quizState.currentAnswer = selectedIndex;
-    const options = document.querySelectorAll('.quiz-option');
-    options.forEach(option => option.classList.add('disabled'));
-    if (selectedIndex === correctAnswer) { 
-        options[selectedIndex].classList.add('correct'); 
-        quizState.score++; 
-    }
-    else { 
-        options[selectedIndex].classList.add('incorrect'); 
-        options[correctAnswer].classList.add('correct'); 
     }
 }
 
@@ -1301,11 +1332,162 @@ function showQuizResult() {
     document.getElementById('back-to-dashboard-quiz').style.display = 'inline-block';
     const resultContainer = document.getElementById('quiz-result');
     resultContainer.style.display = 'block';
+    
+    // Calculate score based on user answers
+    let score = 0;
+    const resultsHTML = [];
+    
+    quizState.questions.forEach((question, qIndex) => {
+        const userAnswer = quizState.userAnswers[qIndex];
+        let isCorrect = false;
+        let resultHTML = '';
+        
+        if (question.type === 'multiple-choice') {
+            isCorrect = userAnswer === question.correctAnswer;
+            if (isCorrect) score++;
+            
+            resultHTML = `
+                <div class="result-item ${isCorrect ? 'correct' : 'incorrect'}">
+                    <h4>Soal ${qIndex + 1}: ${question.question}</h4>
+                    <div class="options">
+                        ${question.options.map((option, i) => 
+                            `<div class="option ${i === question.correctAnswer ? 'correct-answer' : ''} ${i === userAnswer ? 'user-answer' : ''}">
+                                ${option}
+                                ${i === question.correctAnswer ? '<span class="badge correct">Jawaban Benar</span>' : ''}
+                                ${i === userAnswer && i !== question.correctAnswer ? '<span class="badge incorrect">Jawaban Anda</span>' : ''}
+                            </div>`
+                        ).join('')}
+                    </div>
+                </div>
+            `;
+        } else if (question.type === 'essay') {
+            // Essay questions are self-assessed, so we'll mark them as correct
+            isCorrect = userAnswer && userAnswer.trim().length > 0;
+            if (isCorrect) score++;
+            
+            resultHTML = `
+                <div class="result-item ${isCorrect ? 'correct' : 'incorrect'}">
+                    <h4>Soal ${qIndex + 1}: ${question.question}</h4>
+                    <div class="essay-result">
+                        <div class="user-answer">
+                            <h5>Jawaban Anda:</h5>
+                            <p>${userAnswer || 'Tidak ada jawaban'}</p>
+                        </div>
+                        <div class="reference-answer">
+                            <h5>Jawaban Acuan:</h5>
+                            <p>${question.referenceAnswer}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        } else if (question.type === 'matching') {
+            let correctCount = 0;
+            const matchingResults = [];
+            
+            question.pairs.forEach(pair => {
+                const userMatch = userAnswer && userAnswer[pair.term] ? userAnswer[pair.term] : '';
+                const isMatchCorrect = userMatch === pair.match;
+                if (isMatchCorrect) correctCount++;
+                
+                matchingResults.push(`
+                    <div class="matching-result ${isMatchCorrect ? 'correct' : 'incorrect'}">
+                        <span class="term">${pair.term}:</span>
+                        <span class="user-match">${userMatch || 'Tidak dijawab'}</span>
+                        <span class="correct-match">${pair.match}</span>
+                        ${isMatchCorrect ? '<span class="badge correct">Benar</span>' : '<span class="badge incorrect">Salah</span>'}
+                    </div>
+                `);
+            });
+            
+            score += correctCount;
+            
+            resultHTML = `
+                <div class="result-item">
+                    <h4>Soal ${qIndex + 1}: ${question.question}</h4>
+                    <div class="matching-results">
+                        ${matchingResults.join('')}
+                    </div>
+                    <p>Skor: ${correctCount} dari ${question.pairs.length}</p>
+                </div>
+            `;
+        } else if (question.type === 'case-study') {
+            let subScore = 0;
+            const subResults = [];
+            
+            question.questions.forEach((subQ, subIndex) => {
+                const subUserAnswer = userAnswer && userAnswer[subIndex] !== undefined ? userAnswer[subIndex] : null;
+                let isSubCorrect = false;
+                
+                if (subQ.type === 'multiple-choice') {
+                    isSubCorrect = subUserAnswer === subQ.correctAnswer;
+                    if (isSubCorrect) subScore++;
+                    
+                    subResults.push(`
+                        <div class="sub-result ${isSubCorrect ? 'correct' : 'incorrect'}">
+                            <h5>Sub-soal ${subIndex + 1}: ${subQ.question}</h5>
+                            <div class="options">
+                                ${subQ.options.map((option, i) => 
+                                    `<div class="option ${i === subQ.correctAnswer ? 'correct-answer' : ''} ${i === subUserAnswer ? 'user-answer' : ''}">
+                                        ${option}
+                                        ${i === subQ.correctAnswer ? '<span class="badge correct">Jawaban Benar</span>' : ''}
+                                        ${i === subUserAnswer && i !== subQ.correctAnswer ? '<span class="badge incorrect">Jawaban Anda</span>' : ''}
+                                    </div>`
+                                ).join('')}
+                            </div>
+                        </div>
+                    `);
+                } else if (subQ.type === 'essay') {
+                    isSubCorrect = subUserAnswer && subUserAnswer.trim().length > 0;
+                    if (isSubCorrect) subScore++;
+                    
+                    subResults.push(`
+                        <div class="sub-result ${isSubCorrect ? 'correct' : 'incorrect'}">
+                            <h5>Sub-soal ${subIndex + 1}: ${subQ.question}</h5>
+                            <div class="essay-result">
+                                <div class="user-answer">
+                                    <h6>Jawaban Anda:</h6>
+                                    <p>${subUserAnswer || 'Tidak ada jawaban'}</p>
+                                </div>
+                                <div class="reference-answer">
+                                    <h6>Jawaban Acuan:</h6>
+                                    <p>${subQ.referenceAnswer}</p>
+                                </div>
+                            </div>
+                        </div>
+                    `);
+                }
+            });
+            
+            score += subScore;
+            
+            resultHTML = `
+                <div class="result-item">
+                    <h4>Soal ${qIndex + 1}: ${question.question}</h4>
+                    <div class="case-study-results">
+                        ${subResults.join('')}
+                    </div>
+                    <p>Skor: ${subScore} dari ${question.questions.length}</p>
+                </div>
+            `;
+        }
+        
+        resultsHTML.push(resultHTML);
+    });
+    
+    // Update quiz state with calculated score
+    quizState.score = score;
+    
     resultContainer.innerHTML = `
         <h3>🎉 Asesmen Selesai!</h3>
         <p>Anda mendapat skor <strong>${quizState.score} dari ${quizState.totalPossibleScore}</strong>.</p>
         <p>${quizState.score === quizState.totalPossibleScore ? 'Luar biasa! Anda sempurna.' : 'Bagus! Terus belajar untuk hasil yang lebih baik.'}</p>
+        
+        <div class="results-details">
+            <h4>Detail Jawaban:</h4>
+            ${resultsHTML.join('')}
+        </div>
     `;
+    
     storage.saveQuizScore(currentSubChapterId, quizState.score, quizState.totalPossibleScore);
     storage.markCompleted('quizzes', currentSubChapterId);
 }
