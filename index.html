@@ -5,11 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mawaris Pintar - Aplikasi Pembelajaran Ilmu Waris</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <div class="background-overlay"></div>
+    
     <header>
         <div class="container">
-            <h1>🕌 Mawaris Pintar</h1>
+            <div class="header-content">
+                <h1><i class="fas fa-mosque"></i> Mawaris Pintar</h1>
+                <p class="subtitle">Pembelajaran Ilmu Waris Islam</p>
+            </div>
         </div>
     </header>
 
@@ -17,24 +24,53 @@
         <!-- Welcome View -->
         <div id="welcome-view" class="view active">
             <div class="welcome-card">
+                <div class="welcome-icon">
+                    <i class="fas fa-book-open"></i>
+                </div>
                 <h2>Selamat Datang di Aplikasi Mawaris Pintar!</h2>
-                <p>Silakan masukkan nama Anda untuk memulai pembelajaran mendalam Ilmu Mawaris.</p>
+                <p>Silakan masukkan nama Anda untuk memulai pembelajaran mendalam Ilmu Mawaris dengan metode interaktif dan komprehensif.</p>
                 <div class="input-group">
-                    <input type="text" id="user-name-input" placeholder="Ketik nama Anda di sini...">
-                    <button id="start-learning-btn" class="btn btn-primary">Mulai Belajar</button>
+                    <div class="input-wrapper">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="user-name-input" placeholder="Ketik nama Anda di sini...">
+                    </div>
+                    <button id="start-learning-btn" class="btn btn-primary">
+                        <i class="fas fa-play"></i>
+                        Mulai Belajar
+                    </button>
                 </div>
             </div>
         </div>
 
         <!-- Dashboard View -->
         <div id="dashboard-view" class="view">
-            <h2>📚 Menu Pembelajaran</h2>
-            <div class="progress-container">
-                <div id="progress-bar" class="progress-bar" style="width: 0%;">0%</div>
+            <div class="dashboard-header">
+                <h2><i class="fas fa-graduation-cap"></i> Menu Pembelajaran</h2>
+                <div class="user-greeting">
+                    <span id="user-greeting-text"></span>
+                </div>
             </div>
-            <div id="chapter-list"></div>
-            <div id="certificate-button-container" style="text-align: center; margin-top: 20px; display: none;">
-                <button id="view-certificate-btn" class="btn btn-success">🎉 Lihat Sertifikat Anda</button>
+            
+            <div class="progress-section">
+                <h3>Progress Pembelajaran Anda</h3>
+                <div class="progress-container">
+                    <div id="progress-bar" class="progress-bar" style="width: 0%;">
+                        <span class="progress-text">0%</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="chapter-list" class="chapter-grid"></div>
+            
+            <div id="certificate-button-container" class="certificate-section" style="display: none;">
+                <div class="achievement-badge">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <h3>Selamat! Anda telah menyelesaikan semua materi</h3>
+                <button id="view-certificate-btn" class="btn btn-success">
+                    <i class="fas fa-certificate"></i>
+                    Lihat Sertifikat Anda
+                </button>
             </div>
         </div>
 
@@ -43,52 +79,92 @@
             <div class="lesson-header">
                 <h2 id="lesson-title"></h2>
                 <div class="slide-navigation">
-                    <button id="prev-slide-btn" class="btn btn-secondary" disabled>←</button>
-                    <span id="slide-counter">Slide 1/1</span>
-                    <button id="next-slide-btn" class="btn btn-secondary">→</button>
+                    <button id="prev-slide-btn" class="btn btn-nav" disabled>
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <span id="slide-counter" class="slide-counter">Slide 1/1</span>
+                    <button id="next-slide-btn" class="btn btn-nav">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
                 </div>
             </div>
             <div id="lesson-content" class="lesson-content"></div>
             <div class="navigation-buttons">
-                <button id="back-to-dashboard-lesson" class="btn btn-primary">← Kembali ke Menu</button>
-                <button id="start-quiz-btn" class="btn btn-secondary">Mulai Asesmen →</button>
+                <button id="back-to-dashboard-lesson" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i>
+                    Kembali ke Menu
+                </button>
+                <button id="start-quiz-btn" class="btn btn-primary">
+                    Mulai Asesmen
+                    <i class="fas fa-arrow-right"></i>
+                </button>
             </div>
         </div>
 
         <!-- Quiz View -->
         <div id="quiz-view" class="view">
-            <h2 id="quiz-title"></h2>
-            <div id="quiz-progress-info" style="text-align: center; margin-bottom: 20px; font-weight: bold;"></div>
-            <div id="quiz-container">
-                <p class="quiz-question" id="question-text"></p>
-                <ul id="quiz-options" class="quiz-options"></ul>
-                <div id="quiz-essay-container" class="quiz-essay" style="display: none;"></div>
-                <div id="quiz-matching-container" class="quiz-matching" style="display: none;"></div>
-                <div id="quiz-case-study-container" class="quiz-case-study" style="display: none;"></div>
+            <div class="quiz-header">
+                <h2 id="quiz-title"></h2>
+                <div id="quiz-progress-info" class="quiz-progress"></div>
             </div>
+            
+            <div id="quiz-container" class="quiz-container">
+                <div class="question-card">
+                    <p class="quiz-question" id="question-text"></p>
+                    <ul id="quiz-options" class="quiz-options"></ul>
+                    <div id="quiz-essay-container" class="quiz-essay" style="display: none;"></div>
+                    <div id="quiz-matching-container" class="quiz-matching" style="display: none;"></div>
+                    <div id="quiz-case-study-container" class="quiz-case-study" style="display: none;"></div>
+                </div>
+            </div>
+            
             <div id="quiz-result" class="quiz-result" style="display: none;"></div>
+            
             <div class="navigation-buttons">
-                <button id="back-to-dashboard-quiz" class="btn btn-primary" style="display: none;">← Kembali ke Menu</button>
+                <button id="back-to-dashboard-quiz" class="btn btn-secondary" style="display: none;">
+                    <i class="fas fa-arrow-left"></i>
+                    Kembali ke Menu
+                </button>
             </div>
         </div>
 
         <!-- Certificate View -->
         <div id="certificate-view" class="view">
             <div class="certificate-container">
-                <h1>SERTIFIKAT</h1>
-                <h2>Pencapaian Pembelajaran Ilmu Mawaris</h2>
-                <div class="certificate-body">
-                    <p>Dengan ini menyatakan bahwa</p>
-                    <p><strong id="certificate-name"></strong></p>
-                    <p>telah berhasil menyelesaikan seluruh materi dan asesmen pada aplikasi "Mawaris Pintar" dengan hasil yang sangat memuaskan.</p>
-                    <p>Nilai Akhir: <strong id="certificate-score"></strong></p>
+                <div class="certificate-border">
+                    <div class="certificate-header">
+                        <i class="fas fa-award certificate-icon"></i>
+                        <h1>SERTIFIKAT</h1>
+                        <h2>Pencapaian Pembelajaran Ilmu Mawaris</h2>
+                    </div>
+                    
+                    <div class="certificate-body">
+                        <p>Dengan ini menyatakan bahwa</p>
+                        <p class="certificate-name-display"><strong id="certificate-name"></strong></p>
+                        <p>telah berhasil menyelesaikan seluruh materi dan asesmen pada aplikasi "Mawaris Pintar" dengan hasil yang sangat memuaskan.</p>
+                        <div class="score-badge">
+                            <span>Nilai Akhir</span>
+                            <strong id="certificate-score"></strong>
+                        </div>
+                    </div>
+                    
+                    <div class="certificate-footer">
+                        <div class="certificate-seal">
+                            <i class="fas fa-seal"></i>
+                        </div>
+                        <p>Dikeluarkan pada: <span id="certificate-date"></span></p>
+                    </div>
                 </div>
-                <div class="certificate-footer">
-                    <p>Dikeluarkan pada: <span id="certificate-date"></span></p>
-                </div>
-                <div class="no-print" style="margin-top: 30px;">
-                    <button id="print-certificate-btn" class="btn btn-secondary">Cetak Sertifikat</button>
-                    <button id="back-to-dashboard-cert" class="btn btn-primary">Kembali ke Menu</button>
+                
+                <div class="no-print certificate-actions">
+                    <button id="print-certificate-btn" class="btn btn-secondary">
+                        <i class="fas fa-print"></i>
+                        Cetak Sertifikat
+                    </button>
+                    <button id="back-to-dashboard-cert" class="btn btn-primary">
+                        <i class="fas fa-home"></i>
+                        Kembali ke Menu
+                    </button>
                 </div>
             </div>
         </div>
