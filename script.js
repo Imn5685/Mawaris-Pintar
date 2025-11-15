@@ -331,7 +331,7 @@ const courseData = [
         subChapters: [
             {
                 id: 'sub1-1', 
-                title: '1.1 Definisi, Pentingnya, dan Dasar Hukum',
+                title: '1.1 Definisi, Sejarah, dan Dasar Hukum',
                 slides: [
                     {
                         title: 'Definisi Ilmu Mawaris (Faraidh)',
@@ -471,42 +471,139 @@ const courseData = [
                         `
                     },
                     {
-                        title: 'Dasar Hukum Utama: Al-Qur\'an',
+                        title: 'Dasar Hukum Utama: Al-Qur\'an (Tiga Pilar Waris)',
                         content: `
-                            <p>Hukum waris Islam bersumber dari wahyu ilahi, terutama Al-Qur'an. Ayat-ayat yang paling rinci mengenai pembagian warisan terdapat dalam Surah An-Nisa' (ayat 11, 12, dan 176).</p>
+                            <p>Hukum waris Islam bersumber dari wahyu ilahi, yang secara rinci dijabarkan dalam tiga ayat utama di Surah An-Nisa'. Ketiga ayat ini (11, 12, dan 176) menjadi konstitusi lengkap bagi pembagian harta waris, mencakup hampir semua skenario yang mungkin terjadi.</p>
                             
                             <div class="source-detail">
-                                <h4>Surah An-Nisa' Ayat 11</h4>
+                                <h4>1. Surah An-Nisa' Ayat 11 (Pilar Anak & Orang Tua)</h4>
                                 <p class="verse-arabic">يُوصِيكُمُ اللَّهُ فِي أَوْلَادِكُمْ ۖ لِلذَّكَرِ مِثْلُ حَظِّ الْأُنثَيَيْنِ ۚ فَإِن كُنَّ نِسَاءً فَوْقَ اثْنَتَيْنِ فَلَهُنَّ ثُلُثَا مَا تَرَكَ ۚ وَإِن كَانَتْ وَاحِدَةً فَلَهَا النِّصْفُ ۚ وَلِأَبَوَيْهِ لِكُلِّ وَاحِدٍ مِنْهُمَا السُّدُسُ مِمَّا تَرَكَ إِن كَانَ لَهُ وَلَدٌ ۚ فَإِن لَّمْ يَكُن لَّهُ وَلَدٌ وَوَرِثَهُ أَبَوَاهُ فَلِأُمِّهِ الثُّلُثُ ۚ فَإِن كَانَ لَهُ إِخْوَةٌ فَلِأُمِّهِ السُّدُسُ مِن بَعْدِ وَصِيَّةٍ يُوصِي بِهَا أَوْ دَيْنٍ ۗ آبَاؤُكُمْ وَأَبْنَاؤُكُمْ لَا تَدْرُونَ أَيُّهُمْ أَقْرَبُ لَكُمْ نَفْعًا ۚ فَرِيضَةً مِنَ اللَّهِ ۗ إِنَّ اللَّهَ كَانَ عَلِيمًا حَكِيمًا</p>
                                 <p class="verse-translation"><strong>Terjemahan:</strong> Allah mensyariatkan bagimu (berbuat baik) terhadap anak-anakmu. Bagian anak laki-laki sama dengan bagian dua anak perempuan. Jika anak perempuan itu lebih dari dua, maka bagi mereka dua pertiga dari harta yang ditinggalkan. Jika anak perempuan itu seorang saja, maka dia mendapat seperdua harta. Dan untuk dua orang ibu-bapak, bagi masing-masing seperenam dari harta yang ditinggalkan, jika yang meninggal itu mempunyai anak. Jika yang meninggal tidak mempunyai anak dan ia diwarisi oleh ibu-bapaknya (saja), maka ibunya mendapat sepertiga. Jika yang meninggal itu mempunyai beberapa saudara, maka ibunya mendapat seperenam. (Pembagian ini) sesudah dipenuhi wasiat yang dibuatnya atau sesudah hutangnya dilunasi. (Tentang) orang tuamu dan anak-anakmu, kamu tidak mengetahui siapa di antara mereka yang lebih dekat (memberi) manfaat bagimu. Ini adalah ketetapan dari Allah. Sesungguhnya Allah Maha Mengetahui, Mahabijaksana.</p>
                                 <div class="source-context"><strong>Asbabun Nuzul:</strong> Ayat ini turun untuk menjelaskan hukum waris setelah adanya perselisihan di masyarakat Jahiliyah dan awal Islam. Sebuah riwayat menceritakan tentang Jabir bin Abdullah RA, ia berkata: "Saya sakit seperti akan mati, lalu Rasulullah SAW datang menjenguk saya. Saya berkata: 'Wahai Rasulullah, saya mempunyai saudara perempuan.' Maka turunlah ayat tentang hukum waris."</div>
                                 <div class="source-explanation"><strong>Tafsir Ringkas:</strong> Ayat ini adalah pilar utama hukum waris Islam. Ia menetapkan prinsip dasar pembagian harta untuk anak (bagian laki-laki 2x perempuan), orang tua (1/6 jika ada anak, ibu 1/3 jika tidak ada anak dan tidak ada saudara), dan memperkenalkan konsep bahwa wasiat dan hutang harus diselesaikan terlebih dahulu. Ayat ini menunjukkan keadilan dan kebijakan Allah dalam mengatur urusan harta.</div>
                             </div>
+                    
+                            <div class="source-detail">
+                                <h4>2. Surah An-Nisa' Ayat 12 (Pilar Suami & Istri)</h4>
+                                <p class="verse-arabic">وَلَكُمْ نِصْفُ مَا تَرَكَ أَزْوَاجُكُمْ إِن لَّمْ يَكُن لَّهُنَّ وَلَدٌ ۚ فَإِن كَانَ لَهُنَّ وَلَدٌ فَلَكُمُ الرُّبُعُ مِمَّا تَرَكُوا ۗ مِن بَعْدِ وَصِيَّةٍ يُوصَى بِهَا أَوْ دَيْنٍ ۗ وَلَهُنَّ الرُّبُعُ مِمَّا تَرَكْتُمْ إِن لَّمْ يَكُمْ وَلَدٌ ۚ فَإِن كَانَ لَكُمْ وَلَدٌ فَلَهُنَّ الثُّمُنُ مِمَّا تَرَكْتُم ۗ مِن بَعْدِ وَصِيَّةٍ يُوصَى بِهَا أَوْ دَيْنٍ ۗ وَإِن كَانَ رَجُلٌ يُورَثُ كَلَالَةً أَوِ امْرَأَةٌ وَلَهُ أَخٌ أَوْ أُخْتٌ فَلِكُلِّ وَاحِدٍ مِنْهُمَا السُّدُسُ ۚ فَإِن كَانُوا أَكْثَرَ مِنْ ذَٰلِكَ فَهُمْ شُرَكَاءُ فِي الثُّلُثِ ۗ مِن بَعْدِ وَصِيَّةٍ يُوصَىٰ بِهَا أَوْ دَيْنٍ غَيْرَ مُضَارٍّ ۗ وَصِيَّةً مِنَ اللَّهِ ۗ وَاللَّهُ عَلِيمٌ حَلِيمٌ</p>
+                                <p class="verse-translation"><strong>Terjemahan:</strong> Bagimu (suami-suami) seperdua dari harta yang ditinggalkan oleh istri-istrimu, jika mereka tidak mempunyai anak. Jika istri-istrimu itu mempunyai anak, maka kamu (suami-suami) mendapat seperempat dari harta yang ditinggalkan oleh mereka sesudah dipenuhi wasiat yang mereka buat atau (dan) sesudah hutangnya dilunasi. Para istri memperoleh seperempat harta yang kamu tinggalkan jika kamu tidak mempunyai anak. Jika kamu mempunyai anak, maka para istri memperoleh seperdelapan dari harta yang kamu tinggalkan sesudah dipenuhi wasiat yang kamu buat atau (dan) sesudah hutangnya dilunasi. Dan jika seorang laki-laki (yang meninggal) atau perempuan mempunyai harta warisan tetapi tidak mempunyai bapak dan tidak mempunyai anak, sedang ia mempunyai seorang saudara laki-laki (seibu saja) atau seorang saudara perempuan (seibu saja), maka masing-masing dari keduanya mendapat seperenam. Tetapi jika saudara-saudara itu lebih dari satu, maka mereka bersekutu dalam yang sepertiga, sesudah dipenuhi wasiat yang dibuat olehnya atau sesudah hutangnya dilunasi, dengan tidak memberi mudharat (kepada ahli waris). (Semua ini adalah) ketetapan dari Allah. Dan Allah Maha Mengetahui lagi Maha Penyantun.</p>
+                                <div class="source-context"><strong>Asbabun Nuzul:</strong> Ayat ini adalah kelanjutan dari ayat sebelumnya, menjelaskan hak-hak ahli waris lain yang belum disebutkan, yaitu suami dan istri. Ia turun untuk melengkapi sistem keadilan Islam dalam warisan, termasuk juga kasus waris saudara seibu (kalalah kecil).</div>
+                                <div class="source-explanation"><strong>Tafsir Ringkas:</strong> Ayat ini secara eksplisit menetapkan bagian suami (1/2 atau 1/4) dan istri (1/4 atau 1/8) dengan kondisi yang jelas. Perbedaan bagian ini terkait dengan tanggung jawab finansial masing-masing dalam pernikahan. Ayat ini juga mengatur kasus khusus waris saudara seibu dan kembali menegaskan prioritas hutang dan wasiat sebelum pembagian.</div>
+                            </div>
+                    
+                            <div class="source-detail">
+                                <h4>3. Surah An-Nisa' Ayat 176 (Pilar Saudara Kandung / Kalalah)</h4>
+                                <p class="verse-arabic">يَسْتَفْتُونَكَ قُلِ اللَّهُ يُفْتِيكُمْ فِي الْكَلَالَةِ ۛ إِنِ امْرُؤٌ هَلَكَ لَيْسَ لَهُ وَلَدٌ وَلَهُ أُخْتٌ فَلَهَا نِصْفُ مَا تَرَكَ ۚ وَهُوَ يَرِثُهَا إِن لَّمْ يَكُن لَّهَا وَلَدٌ ۚ فَإِن كَانَتَا اثْنَتَيْنِ فَلَهُمَا الثُّلُثَانِ مِمَّا تَرَكَ ۚ وَإِن كَانُوا إِخْوَةً رِجَالًا وَنِسَاءً فَلِلذَّكَرِ مِثْلُ حَظِّ الْأُنثَيَيْنِ ۗ يُبَيِّنُ اللَّهُ لَكُمْ أَن تَضِلُّوا ۗ وَاللَّهُ بِكُلِّ شَيْءٍ عَلِيمٌ</p>
+                                <p class="verse-translation"><strong>Terjemahan:</strong> Mereka meminta fatwa kepadamu (tentang kalalah). Katakanlah: "Allah memberi fatwa kepadamu tentang kalalah (yaitu: jika seorang meninggal dunia, dan ia tidak mempunyai anak dan mempunyai saudara perempuan), maka bagi saudara perempuan itu seperdua dari harta yang ditinggalkannya. Dan saudara laki-lakinya mewarisi seluruhnya jika ia tidak mempunyai anak. Jika (saudara-saudara perempuan itu) dua orang, maka keduanya mendapat dua pertiga dari harta yang ditinggalkan. Dan jika mereka (ahli waris) terdiri dari laki-laki dan perempuan, maka bagian seorang laki-laki sama dengan bagian dua orang perempuan. Allah menjelaskan (ketentuan ini) kepadamu, agar kamu tidak sesat. Dan Allah Maha Mengetahui segala sesuatu.</p>
+                                <div class="source-context"><strong>Asbabun Nuzul:</strong> Ayat ini turun untuk menjawab pertanyaan para sahabat tentang 'kalalah', yaitu orang yang meninggal tanpa meninggalkan orang tua dan anak. Jabir bin Abdillah ra. diriwayatkan datang kepada Nabi SAW dan bertanya tentang hukum warisnya, karena ia hanya memiliki seorang saudara perempuan. Maka turunlah ayat ini sebagai penjelas.</div>
+                                <div class="source-explanation"><strong>Tafsir Ringkas:</strong> Ayat ini adalah ayat spesifik yang mengatur waris untuk saudara kandung (dan seayah) jika tidak ada ahli waris dari jalur anak dan orang tua. Prinsipnya sama: bagian laki-laki dua kali bagian perempuan. Jika hanya ada satu saudara perempuan, ia dapat 1/2. Jika lebih dari dua, mereka dapat 2/3. Jika ada saudara laki-laki, ia menjadi 'ashabah dan mewarisi sisanya, menjadikan saudara perempuan 'ashabah ma'al ghairi.</div>
+                            </div>
+                    
+                            <div class="note-box">
+                                <h4>💡 Kesimpulan: Fondasi yang Sempurna</h4>
+                                <p>Ketiga ayat ini, meskipun jumlahnya sedikit, memberikan kerangka hukum yang sangat lengkap dan adil. Mereka menjadi sumber primer bagi semua perincian hukum waris dalam Islam, yang kemudian dijelaskan lebih lanjut oleh As-Sunnah dan ijtihad para ulama. Memahami ketiga ayat ini adalah kunci untuk memahami seluruh ilmu Mawaris.</p>
+                            </div>
                         `
                     },
                     {
-                        title: 'Dasar Hukum: As-Sunnah (Hadis)',
+                        title: 'Dasar Hukum: As-Sunnah (Hadis) - Penjelas & Pelengkap',
                         content: `
-                            <p>Setelah Al-Qur'an, As-Sunnah atau hadis Rasulullah SAW menjadi sumber hukum kedua yang menjelaskan dan memperkuat ketentuan waris.</p>
+                            <p>Setelah Al-Qur'an, As-Sunnah atau hadis Rasulullah SAW menjadi sumber hukum kedua yang menjelaskan, memperkuat, dan terkadang memberikan ketentuan baru dalam hukum waris. Hadis-hadis ini mengisi detail-detail yang mungkin tidak secara eksplisit disebutkan dalam ayat-ayat Al-Qur'an.</p>
                             
                             <div class="hadith-text">
+                                <h4>1. Kewajiban Mempelajari dan Mengajarkan Ilmu Waris</h4>
+                                <p class="verse-arabic">تَعَلَّمُوا الْفَرَائِضَ وَعَلِّمُوهَا النَّاسَ، فَإِنِّي امْرُؤٌ مَقْبُوضٌ، وَإِنَّ الْعِلْمَ سَيُقْبَضُ، وَيَظَلُّ النَّاسُ يَتَفَاخَرُونَ حَتَّى يُقَالَ لَهُمْ: فِيمَ كَانَ هَذَا الْقُرْآنُ؟ فَيَقُولُونَ: نُزِّلَ فِي أَهْلِ الْبَادِيَةِ مِنَ الْعَرَبِ، فَيَقُولُ أَهْلُ الْكِتَابِ: قَدْ أَخَذْنَا بِنَصِيبِنَا مِنْهُ قَبْلَ أَنْ يُنْزَلَ، فَلَا تَأْمَنُوا أَنْ يَسْتَذِلَّكُمُ اللَّهُ بِهِ.</p>
+                                <p class="verse-translation"><strong>Terjemahan:</strong> "Pelajarilah ilmu faraidh dan ajarkanlah kepada manusia. Karena aku adalah seorang yang akan dicabut (ilmunya), dan sesungguhnya ilmu akan diangkat (dari bumi). Manusia akan saling berbangga-bangga, hingga ada yang mengatakan kepada mereka: 'Untuk apa Al-Qur'an ini diturunkan?' Maka mereka menjawab: 'Diturunkan untuk orang-orang Badui dari bangsa Arab.' Ahli Kitab akan berkata: 'Kami telah mengambil bagian kami darinya sebelum ia diturunkan, maka janganlah kalian merasa aman dari siksa Allah karena hal itu."</p>
+                                <p class="hadith-source">(HR. Ibnu Majah, Ad-Daruquthuny, dan Al-Hakim)</p>
+                                <div class="source-explanation"><strong>Penjelasan:</strong> Hadis ini menunjukkan betapa tingginya kedudukan ilmu waris. Nabi SAW memerintahkan untuk mempelajari dan mengajarkannya, serta memprediksi bahwa kelalaian dalam ilmu ini akan membuat umat Islam direndahkan oleh Ahli Kitab.</div>
+                            </div>
+                    
+                            <div class="hadith-text">
+                                <h4>2. Dasar Hukum Pewaris Sisa ('Asabah)</h4>
                                 <p class="verse-arabic">أَلْحِقُوا الْفَرَائِضَ بِأَهْلِهَا فَمَا بَقِيَ فَهُوَ لِأَوْلَى رَجُلٍ ذَكَرٍ</p>
                                 <p class="verse-translation"><strong>Terjemahan:</strong> "Berikanlah bagian yang telah ditetapkan (fardh) kepada ahlinya, maka apa yang tersisa adalah untuk laki-laki yang paling dekat (kerabat)."</p>
                                 <p class="hadith-source">(HR. Abu Dawud, Tirmidzi, Ibnu Majah)</p>
                                 <div class="source-explanation"><strong>Penjelasan:</strong> Hadis ini menjadi dasar konsep 'asabah. Setelah semua ahli waris dengan bagian tetap (Ashabul Furudh) menerima hak mereka, sisa hartanya (jika ada) diberikan kepada kerabat laki-laki yang paling dekat dengan si mayit. Ini menciptakan hirarki yang jelas dalam pewarisan sisa harta.</div>
                             </div>
+                    
+                            <div class="hadith-text">
+                                <h4>3. Contoh Praktis Pembagian oleh Nabi SAW</h4>
+                                <p class="verse-arabic">عَنْ جَابِرِ بْنِ عَبْدِاللَّهِ أَنَّ أَبَاهُ مَاتَ وَتَرَكَ تِسْعَ بَنَاتٍ وَتِسْعَ دَرَاهِمَ، فَقَسَمَ رَسُولُ اللَّهِ صلى الله عليه وسلم لِكُلِّ بِنْتٍ دِرْهَمًا وَاسْتَعْمَلَ دِرْهَمًا.</p>
+                                <p class="verse-translation"><strong>Terjemahan:</strong> Dari Jabir bin Abdullah, bahwa ayahnya meninggal dunia dan meninggalkan sembilan anak perempuan dan sembilan dirham. Maka Rasulullah SAW membagikan untuk setiap anak perempuan satu dirham dan menggunakan satu dirham (untuk biaya pemakaman).</p>
+                                <p class="hadith-source">(HR. Bukhari dan Muslim)</p>
+                                <div class="source-explanation"><strong>Penjelasan:</strong> Hadis ini menunjukkan praktik langsung Nabi SAW. Ayah Jabir meninggalkan 9 anak perempuan (berhak 2/3 harta) dan tidak ada ahli waris lain selain mereka. Hadis ini juga menjadi dasar bahwa <strong>biaya pemakaman (takfif)</strong> harus dikeluarkan dari harta warisan sebelum dibagikan.</div>
+                            </div>
+                    
+                            <div class="hadith-text">
+                                <h4>4. Larangan Menghalangi Hak Waris</h4>
+                                <p class="verse-arabic">مَنْ حَالَتْ شَفَاعَتُهُ دُونَ حَقٍّ مِنْ حَقٍّ أَوْ قَطَعَ بِهَا طَرِيقًا مِنْ طُرُقِ اللَّهِ أَوْ أَعَانَ بِهَا عَلَى إِثْمٍ لَقِيَ اللَّهَ عَزَّ وَجَلَّ يَوْمَ الْقِيَامَةِ وَهُوَ عَلَيْهِ غَضْبَانُ، قِيلَ يَا رَسُولَ اللَّهِ وَإِنْ كَانَ ذَلِكَ فِي سَخْبَرٍ (قَلِيلٍ) قَالَ وَإِنْ كَانَ سَخْبَرًا</p>
+                                <p class="verse-translation"><strong>Terjemahan:</strong> "Barangsiapa yang syafaatnya menghalangi sebuah hak (hak waris), atau memutuskan dengannya jalan Allah, atau menolong dengannya dalam kemaksiatan, maka ia akan menemui Allah 'Azza wa Jalla pada hari kiamat dalam keadaan murka kepadanya." Dikatakan, "Wahai Rasulullah, meskipun itu hanya sedikit?" Beliau menjawab, "Meskipun itu hanya sedikit."</p>
+                                <p class="hadith-source">(HR. Bukhari dan Muslim)</p>
+                                <div class="source-explanation"><strong>Penjelasan:</strong> Hadis ini adalah ancaman keras bagi siapa pun yang mencoba menghalangi atau mengurangi hak waris seseorang, sekecil apapun nilainya. Ini menunjukkan bahwa menghalangi hak waris adalah dosa besar yang mendatangkan murka Allah.</div>
+                            </div>
+                            
+                            <div class="source-detail">
+                                <h4>Peran As-Sunnah dalam Hukum Waris</h4>
+                                <p>Dari hadis-hadis di atas, kita dapat melihat peran krusial As-Sunnah:</p>
+                                <ul>
+                                    <li><strong>Menjelaskan yang Global:</strong> Memperjelas ayat-ayat Al-Qur'an yang umum, seperti hadis tentang pembagian harta Jabir.</li>
+                                    <li><strong>Menetapkan yang Tidak Ada:</strong> Menetapkan aturan yang tidak disebutkan secara eksplisit dalam Al-Qur'an, seperti konsep 'asabah.</li>
+                                    <li><strong>Menentukan Urutan:</strong> Menjelaskan urutan pelaksanaan, seperti prioritas pembayaran hutang dan biaya pemakaman.</li>
+                                    <li><strong>Motivasi dan Peringatan:</strong> Memberikan motivasi untuk belajar dan peringatan keras bagi yang mengabaikan atau menzalimi dalam masalah waris.</li>
+                                </ul>
+                            </div>
                         `
                     },
                     {
-                        title: 'Pentingnya Ilmu Mawaris',
+                        title: 'Dasar Hukum di Indonesia: Kompilasi Hukum Islam (KHI)',
                         content: `
-                            <p><strong>Pentingnya Ilmu Mawaris:</strong> Ilmu waris bukan sekadar teori matematika harta, tetapi fondasi dari keadilan sosial, stabilitas keluarga, dan implementasi syariat secara nyata.</p>
-                            <ul>
-                                <li><strong>Keadilan Sosial:</strong> Memastikan setiap anggota keluarga yang berhak mendapatkan bagian yang adil, mencegah dominasi dan ketidakadilan yang sering terjadi dalam sistem waris lain.</li>
-                                <li><strong>Stabilitas Keluarga:</strong> Dengan aturan yang jelas, potensi konflik dan permusuhan pasca kematian dapat diminimalisir. Keluarga tahu bagian masing-masing dan dapat melanjutkan hidup dengan damai.</li>
-                                <li><strong>Implementasi Syariat:</strong> Menerapkan perintah Allah dan Rasul-Nya dalam aspek kehidupan yang sangat fundamental. Meninggalkan waris adalah bagian dari ibadah.</li>
-                                <li><strong>Kesejahteraan Ekonomi:</strong> Pembagian yang adil membantu sirkulasi kekayaan di tengah masyarakat dan mencegah konsentrasi harta pada satu pihak saja.</li>
-                            </ul>
+                            <p>Di Indonesia, ilmu waris (faraidh) bukan lagi sekadar ajaran agama yang berlaku secara normatif, melainkan telah menjadi bagian dari hukum positif yang berlaku secara mengikat. Ini berarti pembagian waris bagi umat Islam diatur secara formal oleh negara melalui peraturan perundang-undangan.</p>
+                    
+                            <div class="info-box">
+                                <h4>🇮🇩 Apa itu Kompilasi Hukum Islam (KHI)?</h4>
+                                <p>Kompilasi Hukum Islam (KHI) adalah sumber hukum utama yang menjadi acuan bagi peradilan agama di Indonesia dalam menangani kasus-kasus hukum keluarga Islam, termasuk waris.</p>
+                                <ul>
+                                    <li><strong>Dasar Hukum:</strong> Dibentuk melalui <strong>Keputusan Presiden (Keppres) No. 1 Tahun 1991</strong>.</li>
+                                    <li><strong>Tujuan:</strong> Memberikan kepastian hukum dan menyatukan berbagai pemahaman fiqih dari mazhab-mazhab yang ada di Indonesia, terutama untuk memudahkan kerja hakim.</li>
+                                    <li><strong>Status Hukum:</strong> Meskipun bukan Undang-Undang yang disahkan DPR, KHI memiliki kekuatan hukum yang mengikat bagi para hakim di lingkungan Peradilan Agama dan menjadi rujukan utama bagi masyarakat.</li>
+                                </ul>
+                            </div>
+                    
+                            <div class="source-detail">
+                                <h4>📖 KHI dan Hukum Waris (Pasal 171 - 210)</h4>
+                                <p>Bab V KHI secara khusus membahas tentang <strong>Warisan</strong>. Beberapa pasal kunci adalah:</p>
+                                <ul>
+                                    <li><strong>Pasal 171:</strong> Menegaskan bahwa pembagian warisan bagi pemeluk agama Islam harus dilakukan menurut hukum Islam. Ini adalah landasan yuridis formalnya.</li>
+                                    <li><strong>Pasal 176:</strong> Menjelaskan urutan (hirarki) ahli waris, yang secara umum mengikuti Mazhab Syafi'i.</li>
+                                    <li><strong>Pasal 177 - 193:</strong> Merinci bagian masing-masing ahli waris (Ashabul Furudh dan Asabah), aturan tentang 'hijb (penghalangan), 'aul (pengurangan), dan 'radd (pengembalian).</li>
+                                    <li><strong>Pasal 193:</strong> Mengatur tentang harta tak bertuan (<em>harta tak bertuan</em>) yang tidak memiliki ahli waris, yang setelah 5 tahun menjadi milik negara (Baitul Mal).</li>
+                                </ul>
+                            </div>
+                    
+                            <div class="example-box">
+                                <h4>⚖️ Lembaga Penegak Hukum: Peradilan Agama</h4>
+                                <p>Dasar hukum waris Islam ini ditegakkan melalui lembaga formal:</p>
+                                <ul>
+                                    <li><strong>Undang-Undang No. 3 Tahun 2006 tentang Peradilan Agama:</strong> Memberikan kewenangan eksklusif kepada Pengadilan Agama untuk memeriksa, memutus, dan menyelesaikan sengketa waris di antara para pihak yang beragama Islam.</li>
+                                    <li><strong>Apa artinya secara praktis?</strong> Jika terjadi sengketa atau kebingungan dalam pembagian waris, keluarga dapat mengajukan permohonan (penetapan) atau gugatan (sengketa) ke Pengadilan Agama. Hakim akan menggunakan KHI sebagai pedoman utamanya untuk membuat keputusan yang adil dan mengikat.</li>
+                                </ul>
+                            </div>
+                    
+                            <div class="mazhab-reference">
+                                <h4>🕌 Dominasi Mazhab Syafi'i dan Fleksibilitas</h4>
+                                <p>KHI secara umum menganut paham atau mazhab <strong>Syafi'i</strong>, yang merupakan mazhab yang paling banyak diikuti di Indonesia.</p>
+                                <p>Namun, KHI tidak sepenuhnya kaku. Dalam beberapa kasus, KHI mengambil pendapat dari mazhab lain jika dianggap lebih memberikan keadilan (<em>maslahah</em>) atau sesuai dengan kondisi sosial masyarakat Indonesia. Ini menunjukkan adanya fleksibilitas dalam penerapan hukum Islam di Indonesia.</p>
+                            </div>
+                    
+                            <div class="real-case-example">
+                                <h4>📋 Implikasi Praktis bagi Masyarakat</h4>
+                                <p>Adanya dasar hukum ini memberikan kepastian:</p>
+                                <ol>
+                                    <li><strong>Legitimasi Hukum:</strong> Pembagian waris yang dilakukan sesuai KHI dan disahkan melalui <strong>Akta Pembagian Waris</strong> atau <strong>Penetapan Hakim</strong> memiliki kekuatan hukum yang sah dan dapat digunakan untuk peralihan hak atas aset (seperti balik nama sertifikat tanah atau BPKB kendaraan).</li>
+                                    <li><strong>Mencegah Konflik:</strong> Dengan adanya aturan yang jelas dan lembaga resmi, potensi konflik dapat diminimalisir karena keputusan final berada di tangan pihak ketiga yang netral (hakim).</li>
+                                    <li><strong>Mewajibkan Kepatuhan:</strong> Membagi waris bukan lagi sekadar kewajiban agama, tetapi juga kewajiban hukum yang jika dilanggar dapat berakibat hukum (misalnya, jika ada pihak yang menahan harta secara tidak sah).</li>
+                                </ol>
+                            </div>
                         `
                     }
                 ],
