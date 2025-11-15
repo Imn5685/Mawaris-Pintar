@@ -757,6 +757,8 @@ const courseData = [
         ]
     }
 ];
+// --- IMPORT DATA MATERI ---
+import courseData from './data.js';
 
 // --- APLIKASI LOGIKA ---
 let currentChapterId = null, currentSubChapterId = null, currentSlideIndex = 0;
@@ -1232,71 +1234,73 @@ function renderMatching(question) {
     }
 }
 
+// PERBAIKAN: Fungsi renderCaseStudy yang diperbaiki
 function renderCaseStudy(question) {
     document.getElementById('quiz-case-study-container').style.display = 'block';
     const container = document.getElementById('quiz-case-study-container');
-    container.innerHTML = `<div class="case-study-scenario"><strong>Skenario:</strong><br>${question.scenario}</div>`;
-    const subQuestionsContainer = document.createElement('div');
-    subQuestionsContainer.id = 'sub-questions-container';
+    
+    // Build the complete HTML structure first
+    let html = `<div class="case-study-scenario"><strong>Skenario:</strong><br>${question.scenario}</div>`;
+    html += '<div id="sub-questions-container">';
     
     // Get user's previous answers if exist
     const userAnswers = quizState.userAnswers[quizState.currentQuestionIndex] || {};
     
     question.questions.forEach((subQ, index) => {
-        const subQDiv = document.createElement('div'); 
-        subQDiv.className = 'case-study-sub-question';
-        subQDiv.innerHTML = `<p><strong>${index + 1}. ${subQ.question}</strong></p>`;
+        html += `<div class="case-study-sub-question"><p><strong>${index + 1}. ${subQ.question}</strong></p>`;
         
         if (subQ.type === 'multiple-choice') {
-            const optionsList = document.createElement('ul'); 
-            optionsList.className = 'quiz-options';
-            
+            html += '<ul class="quiz-options">';
             subQ.options.forEach((opt, i) => {
-                const li = document.createElement('li'); 
-                li.className = 'quiz-option';
-                
-                // Check if user has already answered this sub-question
-                if (userAnswers[index] !== undefined && userAnswers[index] === i) {
-                    li.classList.add('selected');
-                }
-                
-                li.textContent = opt;
-                li.onclick = () => {
-                    // Remove previous selection
-                    document.querySelectorAll(`#sub-questions-container .case-study-sub-question:nth-of-type(${index + 1}) .quiz-option`).forEach(opt => {
-                        opt.classList.remove('selected');
-                    });
-                    
-                    // Mark current selection
-                    li.classList.add('selected');
-                    
-                    // Save user answer
-                    const currentAnswers = quizState.userAnswers[quizState.currentQuestionIndex] || {};
-                    currentAnswers[index] = i;
-                    quizState.userAnswers[quizState.currentQuestionIndex] = currentAnswers;
-                    
-                    checkCaseStudyCompletion();
-                };
-                optionsList.appendChild(li);
+                const isSelected = userAnswers[index] !== undefined && userAnswers[index] === i;
+                html += `<li class="quiz-option ${isSelected ? 'selected' : ''}" data-sub-index="${index}" data-option-index="${i}">${opt}</li>`;
             });
-            subQDiv.appendChild(optionsList);
+            html += '</ul>';
         } else if (subQ.type === 'essay') {
             const userEssayAnswer = userAnswers[index] || '';
-            subQDiv.innerHTML += `
-                <textarea id="case-essay-${index}" placeholder="Ketik jawaban Anda...">${userEssayAnswer}</textarea>
-            `;
-            
-            const essayAnswer = document.getElementById(`case-essay-${index}`);
-            essayAnswer.addEventListener('input', () => {
-                const currentAnswers = quizState.userAnswers[quizState.currentQuestionIndex] || {};
-                currentAnswers[index] = essayAnswer.value.trim();
-                quizState.userAnswers[quizState.currentQuestionIndex] = currentAnswers;
-                checkCaseStudyCompletion();
-            });
+            html += `<textarea id="case-essay-${index}" placeholder="Ketik jawaban Anda..." data-sub-index="${index}">${userEssayAnswer}</textarea>`;
         }
-        subQuestionsContainer.appendChild(subQDiv);
+        html += '</div>';
     });
-    container.appendChild(subQuestionsContainer);
+    
+    html += '</div>';
+    container.innerHTML = html;
+    
+    // Attach event listeners after DOM is created
+    document.querySelectorAll('#sub-questions-container .quiz-option').forEach(option => {
+        option.addEventListener('click', function() {
+            const subIndex = parseInt(this.dataset.subIndex);
+            const optionIndex = parseInt(this.dataset.optionIndex);
+            
+            // Remove previous selection for this sub-question
+            document.querySelectorAll(`#sub-questions-container .quiz-option[data-sub-index="${subIndex}"]`).forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            
+            // Mark current selection
+            this.classList.add('selected');
+            
+            // Save user answer
+            const currentAnswers = quizState.userAnswers[quizState.currentQuestionIndex] || {};
+            currentAnswers[subIndex] = optionIndex;
+            quizState.userAnswers[quizState.currentQuestionIndex] = currentAnswers;
+            
+            checkCaseStudyCompletion();
+        });
+    });
+    
+    document.querySelectorAll('#sub-questions-container textarea').forEach(textarea => {
+        textarea.addEventListener('input', function() {
+            const subIndex = parseInt(this.dataset.subIndex);
+            
+            // Save user answer
+            const currentAnswers = quizState.userAnswers[quizState.currentQuestionIndex] || {};
+            currentAnswers[subIndex] = this.value.trim();
+            quizState.userAnswers[quizState.currentQuestionIndex] = currentAnswers;
+            
+            checkCaseStudyCompletion();
+        });
+    });
     
     document.getElementById('question-text').textContent = 'Analisislah skenario berikut dengan cermat.';
     
