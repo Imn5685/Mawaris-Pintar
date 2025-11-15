@@ -724,7 +724,6 @@ const courseData = [
                         { type: 'multiple-choice-complex', question: "Dalam kasus di mana seseorang meninggal tanpa ahli waris asabah nasabiyah, sisa harta setelah pembagian kepada ash-habul furudh akan...", options: ["Dikembalikan kepada negara", "Dibagikan kembali kepada ash-habul furudh (radd)", "Diberikan kepada ahli waris terdekat non-muslim", "Dibagikan kepada kerabat terdekat yang muslim"], correctAnswer: 3, explanation: "Menurut KHI Pasal 193, jika seseorang meninggal tanpa ahli waris asabah, maka harta warisnya diserahkan kepada baitul mal untuk kepentingan sosial." }
                     ]}
                 }
-            }
         ]
     },
     {
