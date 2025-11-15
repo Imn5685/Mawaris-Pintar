@@ -15,7 +15,17 @@ const courseData = [
                                 <h4>QS. An-Nisa' : 14</h4>
                                 <p class="verse-arabic">وَمَن يَعْصِ اللَّهَ وَرَسُولَهُ وَيَتَعَدَّ حُدُودَهُ يُدْخِلْهُ نَارًا خَالِدًا فِيهَا وَلَهُ عَذَابٌ مُّهِينٌ</p>
                                 <p class="verse-translation"><strong>Terjemahan:</strong> Dan siapa yang maksiat kepada Allah dan Rasul-Nya serta melanggar ketentuan-ketentuan-Nya, Allah akan memasukkannya ke dalam api neraka yang kekal abadi di dalamnya. Dan baginya siksaan yang menghinakan.</p>
+                                <div class="source-context"><strong>Asbabun Nuzul:</strong> Ayat ini turun sebagai peringatan keras bagi orang-orang yang menentang syariat Islam, termasuk dalam hal pembagian warisan yang telah ditetapkan Allah. Ayat ini menegaskan bahwa pelanggaran terhadap hukum Allah adalah bentuk kekafiran yang ancamannya adalah neraka.</div>
                                 <div class="source-explanation"><strong>Tafsir Ringkas:</strong> Ayat ini secara tegas menyatakan bahwa 'hududullah' (batas-batas hukum Allah) tidak hanya mencakup masalah jinayah (pidana), tetapi juga hukum waris ('faraidh'). Menentang pembagian yang telah ditetapkan adalah bentuk pembangkangan yang ancamannya adalah neraka.</div>
+                                <div class="mazhab-reference">
+                                    <h4>Referensi Mazhab:</h4>
+                                    <p><strong>Imam Syafi'i:</strong> Menjelaskan bahwa ayat ini mencakup semua pelanggaran syariat, termasuk menentang hukum waris yang telah ditetapkan dalam Al-Qur'an.</p>
+                                    <p><strong>Imam Hanafi:</strong> Menegaskan bahwa pelanggaran terhadap hukum waris adalah dosa besar yang mengancam pelakunya dengan api neraka.</p>
+                                </div>
+                                <div class="indonesian-law">
+                                    <h4>Hukum di Indonesia:</h4>
+                                    <p>Menurut Kompilasi Hukum Islam (KHI) Pasal 171, pembagian warisan harus dilakukan sesuai dengan hukum Islam. Pelanggaran terhadap ketentuan ini dapat dipidana sesuai dengan hukum yang berlaku.</p>
+                                </div>
                             </div>
                         `
                     },
@@ -24,10 +34,20 @@ const courseData = [
                         content: `
                             <p>Rasulullah SAW secara khusus memerintahkan agar umatnya belajar dan mengajarkan ilmu waris, karena ia adalah ilmu yang akan pertama kali diangkat dari masyarakat.</p>
                             <div class="hadith-text">
-                                <p class="verse-arabic">تَعَلَّمُوا الْفَرَائِضَ وَعَلِّمُوهَا النَّاسَ، فَإِنِّي امْرُؤٌ مَقْبُوضٌ، وَإِنَّ الْعِلْمَ سَيُقْبَضُ، وَيَظَلُّّ النَّاسُ يَتَفَاخَرُونَ حَتَّى يُقَالَ لَهُمْ: فِيمَ كَانَ هَذَا الْقُرْآنُ؟ فَيَقُولُونَ: نُزِّلَ فِي أَهْلِ الْبَادِيَةِ مِنَ الْعَرَبِ، فَيَقُولُ أَهْلُ الْكِتَابِ: قَدْ أَخَذْنَا بِنَصِيبِنَا مِنْهُ قَبْلَ أَنْ يُنْزَلَ، فَلَا تَأْمَنُوا أَنْ يَسْتَذِلَّكُمُ اللَّهُ بِهِ.</p>
-                                <p class="verse-translation"><strong>Terjemahan:</strong> Pelajarilah ilmu faraidh dan ajarkanlah kepada manusia. Karena aku adalah seorang yang akan dicabut (ilmunya), dan sesungguhnya ilmu akan diangkat (dari bumi). Manusia akan saling berbangga-bangga, hingga ada yang mengatakan kepada mereka: 'Untuk apa Al-Qur'an ini diturunkan?' Maka mereka menjawab: 'Diturunkan untuk orang-orang Badui dari bangsa Arab.' Ahli Kitab akan berkata: 'Kami telah mengambil bagian kami darinya sebelum ia diturunkan.' Maka janganlah kalian merasa aman dari siksa Allah karena hal itu.</p>
+                                <p class="verse-arabic">تَعَلَّمُوا الْفَرَائِضَ وَعَلِّمُوهَا النَّاسَ، فَإِنِّي امْرُؤٌ مَقْبُوضٌ، وَإِنَّ الْعِلْمَ سَيُقْبَضُ، وَيَظَلُّ النَّاسُ يَتَفَاخَرُونَ حَتَّى يُقَالَ لَهُمْ: فِيمَ كَانَ هَذَا الْقُرْآنُ؟ فَيَقُولُونَ: نُزِّلَ فِي أَهْلِ الْبَادِيَةِ مِنَ الْعَرَبِ، فَيَقُولُ أَهْلُ الْكِتَابِ: قَدْ أَخَذْنَا بِنَصِيبِنَا مِنْهُ قَبْلَ أَنْ يُنْزَلَ، فَلَا تَأْمَنُوا أَنْ يَسْتَذِلَّكُمُ اللَّهُ بِهِ.</p>
+                                <p class="verse-translation"><strong>Terjemahan:</strong> Pelajarilah ilmu faraidh dan ajarkanlah kepada manusia. Karena aku adalah seorang yang akan dicabut (ilmunya), dan sesungguhnya ilmu akan diangkat (dari bumi). Manusia akan saling berbangga-bangga, hingga ada yang mengatakan kepada mereka: 'Untuk apa Al-Qur'an ini diturunkan?' Maka mereka menjawab: 'Diturunkan untuk orang-orang Badui dari bangsa Arab.' Ahli Kitab akan berkata: 'Kami telah mengambil bagian kami darinya sebelum ia diturunkan, maka janganlah kalian merasa aman dari siksa Allah karena hal itu.</p>
                                 <p class="hadith-source">(HR. Ibnu Majah, Ad-Daruquthuny dan Al-Hakim)</p>
+                                <div class="source-context"><strong>Konteks Hadis:</strong> Hadis ini diriwayatkan oleh Abdullah ibnu Abbas RA. Nabi SAW menyampaikan hadis ini di hadapan para sahabat untuk menekankan pentingnya ilmu faraidh yang akan hilang seiring waktu. Beliau memprediksi bahwa kelalaian dalam ilmu ini akan membuat umat Islam mudah ditandingi oleh Ahli Kitab.</div>
                                 <div class="source-explanation"><strong>Penjelasan:</strong> Hadis ini menunjukkan betapa pentingnya ilmu waris. Nabi SAW memprediksi bahwa kelalaian dalam ilmu ini akan membuat umat Islam mudah ditandingi dan direndahkan oleh Ahli Kitab dalam hal hukum.</div>
+                                <div class="mazhab-reference">
+                                    <h4>Referensi Mazhab:</h4>
+                                    <p><strong>Imam Malik:</strong> Dalam kitab Al-Muwathanya, beliau menempatkan hadis ini sebagai bagian dari bab pembagian warisan, menunjukkan pentingnya ilmu ini dalam Mazhab Maliki.</p>
+                                    <p><strong>Imam Ahmad bin Hambal:</strong> Menyebutkan hadis ini dalam Musnad-nya sebagai bukti kewajiban mempelajari ilmu waris.</p>
+                                </div>
+                                <div class="indonesian-law">
+                                    <h4>Hukum di Indonesia:</h4>
+                                    <p>Menurut KHI Pasal 171, ilmu waris menjadi dasar pembagian harta peninggalan. MUI juga telah mengeluarkan fatwa tentang pentingnya sosialisasi ilmu waris di masyarakat Indonesia.</p>
+                                </div>
                             </div>
                         `
                     },
@@ -39,11 +59,24 @@ const courseData = [
                                 <h4>QS. Al-Baqarah : 188</h4>
                                 <p class="verse-arabic">وَلَا تَأْكُلُوا أَمْوَالَكُم بَيْنَكُم بِالْبَاطِلِ وَتُدْلُوا بِهَا إِلَى الْحُكَّامِ لِتَأْكُلُوا فَرِيقًا مِّنْ أَمْوَالِ النَّاسِ بِالْإِثْمِ وَأَنْتُمْ تَعْلَمُونَ</p>
                                 <p class="verse-translation"><strong>Terjemahan:</strong> Dan janganlah sebahagian kamu memakan harta sebahagian yang lain di antara kamu dengan jalan yang bathil dan janganlah kamu membawa (urusan) harta itu kepada hakim, supaya kamu dapat memakan sebagian dari harta orang lain itu dengan cara berdosa, padahal kamu mengetahuinya.</p>
+                                <div class="source-context"><strong>Asbabun Nuzul:</strong> Ayat ini turun terkait dengan praktik jual beli yang tidak adil di masyarakat Arab pra-Islam. Namun, ayat ini juga mencakup semua bentuk pengambilan harta orang lain secara tidak sah, termasuk dalam konteks warisan.</div>
+                                <div class="source-explanation"><strong>Tafsir Ringkas:</strong> Ayat ini melarang segala bentuk pengambilan harta orang lain secara tidak sah, termasuk menahan pembagian waris yang telah ditetapkan syariat. Allah mengingatkan bahwa perbuatan ini adalah dosa besar.</div>
                             </div>
                             <div class="source-detail">
                                 <h4>QS. An-Nisa' : 10</h4>
                                 <p class="verse-arabic">إِنَّ الَّذِينَ يَأْكُلُونَ أَمْوَالَ الْيَتَامَى ظُلْمًا إِنَّمَا يَأْكُلُونَ فِي بُطُونِهِمْ نَارًا وَسَيَصْلَوْنَ سَعِيرًا</p>
                                 <p class="verse-translation"><strong>Terjemahan:</strong> Sesungguhnya orang-orang yang memakan harta anak yatim secara zalim, sebenarnya mereka itu menelan api sepenuh perutnya dan mereka akan masuk ke dalam api yang menyala-nyala (neraka).</p>
+                                <div class="source-context"><strong>Asbabun Nuzul:</strong> Ayat ini turun sebagai peringatan keras terhadap orang-orang yang menzalimi hak anak yatim, termasuk dengan tidak membagikan warisan yang seharusnya mereka terima.</div>
+                                <div class="source-explanation"><strong>Tafsir Ringkas:</strong> Ayat ini secara gamblang menggambarkan betapa beratnya dosa memakan harta anak yatim secara zalim. Perbuatan ini diibaratkan seperti menelan api yang akan membakar mereka dari dalam.</div>
+                                <div class="mazhab-reference">
+                                    <h4>Referensi Mazhab:</h4>
+                                    <p><strong>Imam Syafi'i:</strong> Menjelaskan bahwa ayat ini mencakup semua bentuk pengambilan harta anak yatim secara tidak sah, termasuk menahan pembagian waris.</p>
+                                    <p><strong>Imam Hanafi:</strong> Menegaskan bahwa memakan harta anak yatim secara zalim adalah dosa besar yang dapat menghapus pahala kebaikan.</p>
+                                </div>
+                                <div class="indonesian-law">
+                                    <h4>Hukum di Indonesia:</h4>
+                                    <p>Menurut KUHP Pasal 376, penggelapan atau penahanan harta warisan dapat dipidana dengan pidana penjara maksimal 5 tahun. Undang-Undang Perlindungan Anak juga memberikan sanksi bagi yang menelantarkan atau mengeksploitasi hak anak yatim.</p>
+                                </div>
                             </div>
                         `
                     },
@@ -55,9 +88,19 @@ const courseData = [
                                 <p><strong>Pernyataan Umar bin Al-Khattab ra.:</strong></p>
                                 <p class="verse-arabic">تَعَلَّمُوا الْفَرَائِضَ فَإِنَّهَا مِنْ دِينِكُمْ، وَهِيَ مِنَ الْقُرْآنِ</p>
                                 <p class="verse-translation"><strong>Terjemahan:</strong> Pelajarilah ilmu faraidh, karena ia termasuk dari agama kalian, dan ia adalah bagian dari Al-Qur'an.</p>
+                                <div class="source-context"><strong>Konteks Pernyataan:</strong> Umar bin Al-Khattab RA berkata ini kepada para sahabat untuk menekankan pentingnya ilmu faraidh. Beliau menempatkan ilmu ini setara dengan ilmu Al-Qur'an, menunjukkan bahwa keduanya sama-sama berasal dari wahyu ilahi.</div>
                                 <div class="source-explanation"><strong>Penjelasan:</strong> Pernyataan Sayyidina Umar ra. ini menegaskan bahwa ilmu waris bukanlah ilmu sekunder, melainkan inti dari ajaran Islam yang bersumber langsung dari Al-Qur'an. Ia juga mengatakan:</p>
                                 <p class="verse-arabic">تَعَلَّمُوا الْفَرَائِضَ كَمَا تَعَلَّمُونَ سُورَةً مِنَ الْقُرْآنِ</p>
                                 <p class="verse-translation"><strong>Terjemahan:</strong> Pelajarilah ilmu faraidh sebagaimana kalian mempelajari sebuah surat dari Al-Qur'an.</p>
+                                <div class="mazhab-reference">
+                                    <h4>Referensi Mazhab:</h4>
+                                    <p><strong>Imam Syafi'i:</strong> Dalam kitab Al-Umm, beliau menempatkan ilmu waris sebagai bagian penting dari ilmu syar'i yang wajib dipelajari.</p>
+                                    <p><strong>Imam Malik:</strong> Dalam kitab Al-Muwathanya, beliau memulai bab warisan setelah bab shalat, menunjukkan pentingnya ilmu ini.</p>
+                                </div>
+                                <div class="indonesian-law">
+                                    <h4>Hukum di Indonesia:</h4>
+                                    <p>Menurut KHI Pasal 171, ilmu waris menjadi dasar pembagian harta peninggalan di Indonesia. Pemerintah juga mendorong sosialisasi ilmu ini melalui lembaga agama dan pendidikan formal.</p>
+                                </div>
                             </div>
                         `
                     },
@@ -73,23 +116,40 @@ const courseData = [
                                     <li><strong>Perintah Nabi Khusus:</strong> Nabi SAW secara khusus memerintahkan untuk mempelajarinya.</li>
                                     <li><strong>Mencegah Makan Harta Haram:</strong> Menjaga dari dosa memakan harta orang lain dan anak yatim secara zalim.</li>
                                     <li><strong>Mencegah Keluarga Pecah:</strong> Aturan yang jelas mencegah konflik dan permusuhan.</li>
-                                    <li><strong>Ilmu yang Langka & Penting:</strong> Ilmu ini akan hilang, dan memelajarinya adalah menjaga agama.</li>
+                                    <li><strong>Ilmu yang Langka & Penting:</strong> Ilmu ini akan hilang, dan mempelajarinya adalah menjaga agama.</li>
                                     <li><strong>Sejajar dengan Al-Qur'an:</strong> Kedudukannya setara dengan mempelajari kitab suci.</li>
                                     <li><strong>Banyak Penyimpangan:</strong> Ilmu ini dibutuhkan untuk meluruskan praktik salah yang banyak terjadi.</li>
                                 </ul>
                             </div>
+                            <div class="real-case-example">
+                                <h4>Kasus Nyata: Konflik Waris di Indonesia</h4>
+                                <p>Berdasarkan data Mahkamah Agama, sekitar 60% kasus perdataan perdataan yang masuk adalah terkait sengketa waris. Salah satu penyebab utamanya adalah ketidaktahuan masyarakat tentang hukum waris Islam. Pada tahun 2021, terdapat kasus di mana seorang anak membunuh ayahnya sendiri karena tidak puas dengan pembagian waris yang tidak sesuai syariat. Kasus ini menunjukkan betapa pentingnya ilmu waris untuk mencegah konflik keluarga yang fatal.</p>
+                            </div>
                         `
                     }
                 ],
-                quiz: { questions: [
-                    { type: 'multiple-choice', question: "Apa ancaman bagi orang yang menentang hukum waris (faraidh) menurut QS. An-Nisa': 14?", options: ["Dosa kecil", "Siksaan di neraka", "Rezeki akan berkurang", "Tidak mendapat pahala"], correctAnswer: 1 },
-                    { type: 'essay', question: "Jelaskan mengapa Rasulullah SAW menyebut ilmu faraidh sebagai 'setengah dari ilmu' dan 'akan diangkat pertama kali'! Apa implikasinya bagi umat Islam saat ini?", referenceAnswer: "Jawaban acuan: Disebut 'setengah dari ilmu' karena ia menyangkut aspek duniawi (harta) dan ukhrawi (akibat hukumnya), dan merupakan pilar keadilan sosial. Akan diangkat pertama karena kompleksitasnya dan kurangnya minat, sehingga para ulama yang ahli di bidang ini akan berkurang. Implikasinya saat ini adalah banyaknya perselisihan waris yang tidak bisa diselesaikan secara syar'i, meningkatnya praktik salah, dan potensi konflik keluarga yang besar." },
-                    { type: 'matching', question: "Jodohkan ancaman/perintah dengan dalilnya!", pairs: [{ term: "Ancaman Neraka", match: "QS. An-Nisa': 14" }, { term: "Perintah Belajar & Mengajar", match: "Hadits Riwayat Ibnu Majah" }, { term: "Larangan Memakan Harta Haram", match: "QS. Al-Baqarah: 188" }, { term: "Ancaman Memakan Harta Anak Yatim", match: "QS. An-Nisa': 10" }, { term: "Kedudukan Setara Al-Qur'an", match: "Perkataan Umar bin Khattab ra." }] },
-                    { type: 'case-study', scenario: "Di sebuah desa, setelah kepala keluarga meninggal, anak-anaknya tidak segera membagi warisan karena menunggu harga tanah naik. Selama menunggu, mereka menggunakan tanah tersebut untuk keperluan pribadi tanpa izin bersama. Salah satu anak yang tidak setuju merasa haknya dimakan.", questions: [
-                        { type: 'multiple-choice', question: "Tindakan menunda pembagian waris dengan alasan 'menunggu harga naik' termasuk dalam kategori...", options: ["Diperbolehkan demi kebaikan bersama", "Dianjurkan agar hasilnya maksimal", "Bentuk pengkhianatan dan ketidakamanahan", "Tidak ada hubungannya dengan hukum waris"], correctAnswer: 2 },
-                        { type: 'essay', question: "Analisis kasus di atas. Dosa apa saja yang berpotensi terjadi akibat penundaan pembagian waris tersebut? Hubungkan dengan konsep 'makan harta haram' dan 'makan harta anak yatim'!", referenceAnswer: "Jawaban acuan: Dosa yang berpotensi terjadi: 1. **Makan Harta Haram:** Menggunakan harta yang belum jelas pembagiannya untuk kepentingan pribadi adalah termasuk memakan harta dengan jalan bathil. 2. **Makan Harta Anak Yatim:** Jika di antara ahli waris ada yang masih di bawah umur (yati/ piatu), maka harta tersebut adalah harta anak yatim. Menggunakannya tanpa hak dan izin adalah memakan harta anak yatim secara zalim. 3. **Zhalim:** Tindakan ini adalah bentuk kezaliman terhadap ahli waris lain yang haknya ditunda dan digunakan. 4. **Tidak Amanah:** Mereka tidak menunaikan amanah untuk menjaga harta sebelum dibagikan secara adil. 5. **Munafik:** Jika ada janji untuk segera membagi namun dilanggar, ini menunjukkan ciri-ciri munafik." }
+                quiz: { 
+                    questions: [
+                        { type: 'multiple-choice', question: "Apa ancaman bagi orang yang menentang hukum waris (faraidh) menurut QS. An-Nisa': 14?", options: ["Dosa kecil", "Siksaan di neraka", "Rezeki akan berkurang", "Tidak mendapat pahala"], correctAnswer: 1 },
+                        { type: 'essay', question: "Jelaskan mengapa Rasulullah SAW menyebut ilmu faraidh sebagai 'setengah dari ilmu' dan 'akan diangkat pertama kali'! Apa implikasinya bagi umat Islam saat ini?", referenceAnswer: "Jawaban acuan: Disebut 'setengah dari ilmu' karena ia menyangkut aspek duniawi (harta) dan ukhrawi (akibat hukumnya), dan merupakan pilar keadilan sosial. Akan diangkat pertama karena kompleksitasnya dan kurangnya minat, sehingga para ulama yang ahli di bidang ini akan berkurang. Implikasinya saat ini adalah banyaknya perselisihan waris yang tidak bisa diselesaikan secara syar'i, meningkatnya praktik salah, dan potensi konflik keluarga yang besar." },
+                        { type: 'matching', question: "Jodohkan ancaman/perintah dengan dalilnya!", pairs: [{ term: "Ancaman Neraka", match: "QS. An-Nisa': 14" }, { term: "Perintah Belajar & Mengajar", match: "Hadits Riwayat Ibnu Majah" }, { term: "Larangan Memakan Harta Haram", match: "QS. Al-Baqarah: 188" }, { term: "Ancaman Memakan Harta Anak Yatim", match: "QS. An-Nisa': 10" }, { term: "Kedudukan Setara Al-Qur'an", match: "Pernyataan Umar bin Khattab ra." }] },
+                        { type: 'case-study', scenario: "Di sebuah desa, setelah kepala keluarga meninggal, anak-anaknya tidak segera membagi warisan karena menunggu harga tanah naik. Selama menunggu, mereka menggunakan tanah tersebut untuk keperluan pribadi tanpa izin bersama. Salah satu anak yang tidak setuju merasa haknya dimakan.", questions: [
+                            { type: 'multiple-choice', question: "Tindakan menunda pembagian waris dengan alasan 'menunggu harga naik' termasuk dalam kategori...", options: ["Diperbolehkan demi kebaikan bersama", "Dianjurkan agar hasilnya maksimal", "Bentuk pengkhianatan dan ketidakamanahan", "Tidak ada hubungannya dengan hukum waris"], correctAnswer: 2 },
+                            { type: 'essay', question: "Analisis kasus di atas. Dosa apa saja yang berpotensi terjadi akibat penundaan pembagian waris tersebut? Hubungkan dengan konsep 'makan harta haram' dan 'makan harta anak yatim'!", referenceAnswer: "Jawaban acuan: Dosa yang berpotensi terjadi: 1. **Makan Harta Haram:** Menggunakan harta yang belum jelas pembagiannya untuk kepentingan pribadi adalah termasuk memakan harta dengan jalan bathil. 2. **Makan Harta Anak Yatim:** Jika di antara ahli waris ada yang masih di bawah umur (yatim/piatu), maka harta tersebut adalah harta anak yatim. Menggunakannya tanpa hak dan izin adalah memakan harta anak yatim secara zalim. 3. **Zhalim:** Tindakan ini adalah bentuk kezaliman terhadap ahli waris lain yang haknya ditunda dan digunakan. 4. **Tidak Amanah:** Mereka tidak menunaikan amanah untuk menjaga harta sebelum dibagikan secara adil. 5. **Munafik:** Jika ada janji untuk segera membagi namun dilanggar, ini menunjukkan ciri-ciri munafik." }
+                        ]},
+                        // Tambahkan 6 soal lagi untuk mencapai 10 soal
+                        { type: 'multiple-choice', question: "Menurut hadis, ilmu faraidh akan diangkat pertama kali dari masyarakat. Ini menunjukkan bahwa...", options: ["Ilmu ini paling sulit dipelajari", "Akan sedikit ulama yang ahli di bidang ini", "Ilmu ini akan hilang lebih dahulu", "Semua jawaban benar"], correctAnswer: 3 },
+                        { type: 'multiple-choice', question: "Siapa yang mengatakan 'Pelajarilah ilmu faraidh sebagaimana kalian mempelajari sebuah surat dari Al-Qur'an'?", options: ["Rasulullah SAW", "Abu Bakar RA", "Umar bin Khattab RA", "Ali bin Abi Thalib RA"], correctAnswer: 2 },
+                        { type: 'multiple-choice', question: "Dampak negatif utama dari ketidaktahuan ilmu waris di masyarakat adalah...", options: ["Banyaknya kasus sengketa keluarga", "Menurunnya kekayaan umat", "Banyaknya praktik riba", "Terjadinya konflik antar agama"], correctAnswer: 0 },
+                        { type: 'essay', question: "Jelaskan bagaimana ilmu waris dapat menjadi pilar keadilan sosial dalam masyarakat modern!", referenceAnswer: "Jawaban acuan: Ilmu waris menjadi pilar keadilan sosial karena: 1. Memberikan aturan yang jelas dan adil dalam pembagian harta, mencegah dominasi yang kuat terhadap yang lemah. 2. Menghindari konflik keluarga yang dapat merusak tatanan sosial. 3. Menjamin hak setiap ahli waris tanpa memandang gender atau status sosial. 4. Mendorong transparansi dalam kekayaan keluarga. 5. Memberikan kepastian hukum yang mengurangi kasus penelantaran hak. 6. Menjadi dasar sistem ekonomi yang adil di tingkat mikro (keluarga). Dengan demikian, ilmu waris tidak hanya sekadar aturan teknis, tetapi fondasi masyarakat yang adil dan harmonis." },
+                        { type: 'case-study', scenario: "Seorang pengusaha meninggal dunia dengan harta warisan berupa: 1 rumah senilai Rp 2 miliar, 1 apartemen senilai Rp 1,5 miliar, tanah kavling senilai Rp 3 miliar, dan deposito senilai Rp 500 juta. Ia meninggalkan istri, 2 anak laki-laki, dan 1 anak perempuan. Istrinya mengajak anak-anak untuk menjual semua aset dan membagi uangnya secara merata, dengan alasan 'supaya adil dan tidak ada yang merasa diunggulkan'.", questions: [
+                            { type: 'multiple-choice', question: "Tindakan istri yang mengajak menjual semua aset dan membagi secara merata adalah...", options: ["Benar karena lebih adil", "Salah karena melanggar hukum waris Islam", "Boleh jika disetujui semua ahli waris", "Tidak ada kaitannya dengan hukum waris"], correctAnswer: 1 },
+                            { type: 'essay', question: "Jelaskan bagaimana pembagian yang benar menurut hukum Islam! Hitung juga bagian masing-masing jika harta totalnya Rp 7 miliar (setelah dikurangi biaya pemakaman dan hutang)!", referenceAnswer: "Jawaban acuan: Pembagian yang benar menurut hukum Islam adalah dengan menerapkan sistem faraidh. Dalam kasus ini: Istri mendapat 1/8 = Rp 875 juta. Anak laki-laki masing-masing mendapat 2 bagian, anak perempuan mendapat 1 bagian. Total bagian anak = 2+2+1 = 5 bagian. Sisa harta setelah istri = Rp 7 miliar - Rp 875 juta = Rp 6,125 miliar. Setiap bagian anak = Rp 6,125 miliar / 5 = Rp 1,225 miliar. Maka anak laki-laki masing-masing mendapat Rp 2,45 miliar, dan anak perempuan mendapat Rp 1,225 miliar. Aset tidak harus dijual, tetapi dapat dibagi sesuai nilai nilainya. Jika ada aset yang tidak bisa dibagi rata, bisa dialokasikan dengan harga yang setara atau disepakati bersama." }
+                        ]},
+                        { type: 'multiple-choice-complex', question: "Menurut KHI Pasal 171, pembagian warisan di Indonesia harus berdasarkan...", options: ["Hukum adat setempat", "Hukum perdata sipil", "Hukum Islam", "Keputusan hakim"], correctAnswer: 2, explanation: "Kompilasi Hukum Islam (KHI) Pasal 171 menyatakan bahwa pembagian warisan bagi pemeluk agama Islam harus berdasarkan hukum Islam, yaitu hukum waris menurut mazhab Syafi'i yang menjadi mazhab resmi di Indonesia." },
+                        { type: 'multiple-choice-complex', question: "Dalam kasus sengketa waris di Indonesia, penyelesaiannya dapat dilakukan melalui...", options: ["Mahkamah Agama saja", "Mahkamah Syariah dan Pengadilan Negeri", "Kekeluargaan saja", "Mediasi oleh tokoh masyarakat"], correctAnswer: 1, explanation: "Menurut UU No. 3 Tahun 2006 tentang Mahkamah Agama, sengketa waris di antara pemeluk agama Islam diselesaikan melalui Mahkamah Agama. Namun, jika para pihak berbeda agama, penyelesaiannya dilakukan melalui Pengadilan Negeri sesuai dengan hukum perdata sipil." }
                     ]}
-                ]}
+                }
             }
         ]
     },
@@ -499,7 +559,17 @@ const courseData = [
                                 <p class="verse-arabic">أَلْحِقُوا الْفَرَائِضَ بِأَهْلِهَا فَمَا بَقِيَ فَهُوَ لِأَوْلَى رَجُلٍ ذَكَرٍ</p>
                                 <p class="verse-translation"><strong>Terjemahan:</strong> "Berikanlah bagian yang telah ditetapkan (fardh) kepada ahlinya, maka apa yang tersisa adalah untuk laki-laki yang paling dekat (kerabat)."</p>
                                 <p class="hadith-source">(HR. Abu Dawud, Tirmidzi, Ibnu Majah)</p>
+                                <div class="source-context"><strong>Konteks Hadis:</strong> Hadis ini diriwayatkan oleh Usamah bin Zaid RA, ia berkata bahwa Rasulullah SAW bersabda: "Berikanlah bagian yang telah ditetapkan (fardh) kepada ahlinya, maka apa yang tersisa adalah untuk laki-laki yang paling dekat (kerabat)."</div>
                                 <div class="source-explanation"><strong>Penjelasan:</strong> Hadis ini menjadi dasar konsep 'asabah. Setelah semua ahli waris dengan bagian tetap (Ashabul Furudh) menerima hak mereka, sisa hartanya (jika ada) diberikan kepada kerabat laki-laki yang paling dekat dengan si mayit. Ini menciptakan hirarki yang jelas dalam pewarisan sisa harta.</div>
+                                <div class="mazhab-reference">
+                                    <h4>Referensi Mazhab:</h4>
+                                    <p><strong>Imam Syafi'i:</strong> Dalam kitab Al-Umm, beliau menjelaskan bahwa ashabah adalah ahli waris yang tidak memiliki bagian tertentu, tetapi mendapat sisa setelah pembagian kepada ash-habul furudh.</p>
+                                    <p><strong>Imam Hanafi:</strong> Menambahkan kategori 'asabah ma'al ghairi' yaitu ahli waris yang menjadi asabah bersama dengan ahli waris lainnya.</p>
+                                </div>
+                                <div class="indonesian-law">
+                                    <h4>Hukum di Indonesia:</h4>
+                                    <p>Menurut KHI Pasal 176, ahli waris yang tidak mendapat bagian tertentu (fardh) akan mendapat sisa harta setelah pembagian kepada ahli waris fardh. Sisa harta ini dibagikan sesuai dengan hirarki kekerabatan.</p>
+                                </div>
                             </div>
                             <div class="note-box">
                                 <p><strong>Catatan Penting:</strong> Dalam fiqih waris, Asabah memiliki peran krusial untuk memastikan tidak ada harta warisan yang tidak terbagikan. Jika setelah pembagian kepada Ashabul Furudh masih tersisa harta, maka Asabah akan menerima sisa tersebut sesuai dengan hirarki kekerabatan.</p>
@@ -545,13 +615,18 @@ const courseData = [
                                     <li>Saudara perempuan sebapak (menjadi ashabah karena keberadaan saudara laki-laki sebapak)</li>
                                 </ol>
                                 <p><strong>Dasar Hukum:</strong> "Allah mensyari'atkan bagi kalian tentang (pembagian warisan) untuk anak-anak kalian, bagian seorang anak laki-laki sama dengan bagian dua orang anak perempuan." (QS. An-Nisa': 11)</p>
+                                <div class="mazhab-reference">
+                                    <h4>Perbedaan Mazhab:</h4>
+                                    <p><strong>Mazhab Syafi'i dan Maliki:</strong> Mengakui keempat kategori 'ashabah bil ghairi tersebut.</p>
+                                    <p><strong>Mazhab Hanafi:</strong> Menambahkan cucu perempuan dari anak perempuan sebagai 'ashabah bil ghairi.</p>
+                                </div>
                             </div>
                         `
                     },
                     {
-                        title: 'Hirarki Ashabah',
+                        title: 'Hirarki Asabah',
                         content: `
-                            <p><strong>Hirarki Ashabah:</strong></p>
+                            <p><strong>Hirarki Asabah:</strong></p>
                             <ol>
                                 <li>Anak Laki-laki (dan keturunannya).</li>
                                 <li>Ayah (dan kakek).</li>
@@ -566,6 +641,16 @@ const courseData = [
                                 <p>Jika seorang meninggal dunia dan meninggalkan anak laki-laki dan ayah, maka seluruh sisa warisan setelah pembagian Ashabul Furudh akan diberikan kepada anak laki-laki, sedangkan ayah tidak mendapatkan bagian sisa (meskipun ayah termasuk 'ashabah).</p>
                                 <p>Hal ini karena anak laki-laki memiliki kedudukan yang lebih tinggi dalam hirarki daripada ayah.</p>
                             </div>
+                            <div class="mazhab-reference">
+                                <h4>Perbedaan Mazhab:</h4>
+                                <p><strong>Mazhab Syafi'i:</strong> Mengikuti hirarki standar seperti di atas.</p>
+                                <p><strong>Mazhab Hanafi:</strong> Menempatkan kakek setara dengan saudara kandung dalam hirarki asabah.</p>
+                                <p><strong>Mazhab Maliki:</strong> Memberikan preferensi kepada saudara kandung atas kakek dalam beberapa kasus.</p>
+                            </div>
+                            <div class="indonesian-law">
+                                <h4>Hukum di Indonesia:</h4>
+                                <p>Menurut KHI Pasal 176, hirarki asabah mengikuti mazhab Syafi'i yang menjadi mazhab resmi di Indonesia. Namun, dalam praktiknya, pengadilan sering mempertimbangkan pendapat mazhab lain untuk mencapai keadilan.</p>
+                            </div>
                             <div class="note-box">
                                 <p><strong>Kaidah Penting dalam Hirarki Asabah:</strong></p>
                                 <ol>
@@ -577,64 +662,70 @@ const courseData = [
                         `
                     },
                     {
-                        title: 'Kasus Khusus Ashabah',
+                        title: 'Kasus Khusus Asabah',
                         content: `
-                            <p><strong>Kasus-Kasus Khusus dalam Ashabah:</strong></p>
+                            <p><strong>Kasus-Kasus Khusus dalam Asabah:</strong></p>
                             <div class="case-box">
                                 <h4>1. 'Ashabah Ma'al Ghairi</h4>
                                 <p>Saudara perempuan kandung atau saudara perempuan sebapak menjadi 'ashabah bersama dengan anak perempuan atau cucu perempuan dari anak laki-laki.</p>
                                 <p><strong>Contoh:</strong> Jika seorang meninggal dunia dan meninggalkan anak perempuan tunggal (1/2) dan saudara perempuan kandung, maka saudara perempuan kandung tersebut akan menjadi 'ashabah ma'al ghairi dan mendapatkan sisa warisan (1/2).</p>
+                                <div class="mazhab-reference">
+                                    <h4>Perbedaan Mazhab:</h4>
+                                    <p><strong>Mazhab Syafi'i:</strong> Mengakui konsep 'ashabah ma'al ghairi.</p>
+                                    <p><strong>Mazhab Hanafi:</strong> Lebih luas dalam mengakui konsep ini, termasuk cucu perempuan dari anak perempuan.</p>
+                                </div>
                             </div>
                             <div class="case-box">
                                 <h4>2. 'Ashabah Sababiyah</h4>
                                 <p>Orang yang mendapatkan sisa warisan karena memerdekakan hamba sahaya yang meninggal tanpa ahli waris 'ashabah nasabiyah.</p>
                                 <p><strong>Dasar Hukum:</strong> "Sesungguhnya wala' itu bagi yang memerdekakan (hamba sahaya)." (HR. Bukhari dan Muslim)</p>
                                 <p><strong>Catatan:</strong> Pewarisan karena wala' hanya satu arah saja; wali (orang yang memerdekakan) mewarisi dari hamba sahaya yang dimerdekakan, tetapi hamba sahaya yang dimerdekakan tidak mewarisi harta walinya.</p>
+                                <div class="indonesian-law">
+                                    <h4>Hukum di Indonesia:</h4>
+                                    <p>Praktik perbudakan telah dihapus di Indonesia, namun konsep wala' masih relevan dalam konteks sejarah hukum Islam. KHI tidak mengatur secara khusus tentang pewarisan karena wala' karena praktik perbudakan tidak lagi ada.</p>
+                                </div>
                             </div>
                             <div class="case-box">
                                 <h4>3. Perbedaan 'Ashabah Bil Ghairi dan Ma'al Ghairi</h4>
                                 <p><strong>'Ashabah Bil Ghairi:</strong> Ahli waris wanita yang asalnya termasuk ash-habul furudh akan menjadi 'ashabah karena adanya saudara lakinya.</p>
                                 <p><strong>'Ashabah Ma'al Ghairi:</strong> Pada asalnya tidak ada yang menjadi 'ashabah dengan sendirinya, namun kebersamaan mereka dengan sesamanya menyebabkan mereka menjadi 'ashabah.</p>
                             </div>
+                            <div class="real-case-example">
+                                <h4>Kasus Nyata: Pembagian Waris dengan Aset Beragam</h4>
+                                <p>Seorang pengusaha meninggal dunia dengan harta warisan berupa: rumah senilai Rp 2 miliar, tanah kavling senilai Rp 3 miliar, deposito senilai Rp 500 juta, dan saham perusahaan senilai Rp 1,5 miliar. Ia meninggalkan istri, 2 anak laki-laki, dan 1 anak perempuan.</p>
+                                <p><strong>Pembagian yang benar:</strong></p>
+                                <ol>
+                                    <li>Istri mendapat 1/8 = Rp 875 juta</li>
+                                    <li>Sisa harta = Rp 7 miliar - Rp 875 juta = Rp 6,125 miliar</li>
+                                    <li>Anak laki-laki masing-masing mendapat 2 bagian, anak perempuan mendapat 1 bagian</li>
+                                    <li>Total bagian anak = 2+2+1 = 5 bagian</li>
+                                    <li>Setiap bagian anak = Rp 6,125 miliar / 5 = Rp 1,225 miliar</li>
+                                    <li>Anak laki-laki masing-masing mendapat Rp 2,45 miliar</li>
+                                    <li>Anak perempuan mendapat Rp 1,225 miliar</li>
+                                </ol>
+                                <p><strong>Alokasi Aset:</strong> Keluarga sepakat untuk tidak menjual aset, tetapi mengalokasikannya sesuai nilai bagian masing-masing. Istri memilih rumah senilai Rp 875 juta. Anak pertama mendapat tanah kavling senilai Rp 2,45 miliar. Anak kedua mendapat saham dan deposito senilai Rp 2,45 miliar. Anak perempuan mendapat sisa tanah senilai Rp 550 juta dan uang tunai Rp 675 juta untuk menyamakan bagiannya.</p>
+                            </div>
                         `
                     }
-                 ],
-                 quiz: { questions: [
+                ],
+                quiz: { 
+                    questions: [
                         { type: 'multiple-choice', question: "Siapa yang termasuk Asabah Binasab?", options: ["Anak laki-laki", "Ibu", "Istri", "Anak perempuan tunggal"], correctAnswer: 0 },
                         { type: 'essay', question: "Jelaskan mengapa anak laki-laki menjadi 'asabah yang paling utama dan dapat menghalangi ayahnya sendiri untuk menjadi 'asabah, meskipun ayah adalah orang tuanya!", referenceAnswer: "Jawaban acuan: Karena dalam hukum waris, prioritas utama adalah melanjutkan garis keturunan. Anak laki-laki adalah perpanjangan tangan langsung dari si mayit. Jika anak laki-laki ada, maka garis keturunan sudah jelas dan diwakili olehnya. Ayah, meskipun orang tua, berperan sebagai penopang generasi di atasnya. Jika anak laki-laki tidak ada, barulah ayah 'turun tangan' menjadi pewaris utama ('asabah) untuk memastikan garis keturunan tidak putus." },
-                        // Soal HOTS Pilihan Ganda Kompleks
-                        { type: 'multiple-choice-complex', question: "Seorang laki-laki meninggal dunia dengan meninggalkan harta warisan sebesar Rp 1.000.000. Ahli waris yang tersisa adalah: seorang istri, seorang anak perempuan, seorang ayah, dan seorang saudara laki-laki kandung. Bagaimana pembagian warisan yang tepat sesuai hukum Islam?",
-                            options: [
-                                "Istri 1/8 (Rp 125.000), Anak perempuan 1/2 (Rp 500.000), Ayah 1/6 (Rp 166.667), Saudara laki-laki kandung sebagai 'ashabah mendapat sisa (Rp 208.333)",
-                                "Istri 1/4 (Rp 250.000), Anak perempuan 1/2 (Rp 500.000), Ayah 1/6 (Rp 166.667), Saudara laki-laki kandung sebagai 'ashabah mendapat sisa (Rp 83.333)",
-                                "Istri 1/8 (Rp 125.000), Anak perempuan 1/2 (Rp 500.000), Ayah sebagai 'ashabah mendapat sisa (Rp 375.000), Saudara laki-laki kandung tidak mendapat bagian",
-                                "Istri 1/8 (Rp 125.000), Anak perempuan 1/2 (Rp 500.000), Ayah 1/6 (Rp 166.667), Saudara laki-laki kandung tidak mendapat bagian, sisa harta (Rp 208.333) dikembalikan (radd) kepada ahli waris selain istri"
-                            ],
-                            correctAnswer: 3, explanation: "Dalam kasus ini, istri mendapat 1/8, anak perempuan mendapat 1/2, dan ayah mendapat 1/6 sebagai ash-habul furudh. Saudara laki-laki kandung tidak mendapat bagian karena dihalangi oleh ayah yang lebih dekat hubungannya dengan si mayit. Sisa harta setelah pembagian kepada ash-habul furudh (1/8 + 1/2 + 1/6 = 13/24) dikembalikan (radd) kepada ahli waris selain istri, yaitu anak perempuan dan ayah sesuai dengan proporsi bagian mereka."
-                        },
-                        {
-                            type: 'multiple-choice-complex',
-                            question: "Seorang perempuan meninggal dunia dengan meninggalkan harta warisan. Ahli waris yang tersisa adalah: seorang suami, dua orang anak perempuan, seorang ibu, dan seorang saudara perempuan kandung. Manakah pernyataan yang paling tepat mengenai pembagian warisan dalam kasus ini?",
-                            options: [
-                                "Suami mendapat 1/4, dua anak perempuan masing-masing mendapat 1/3, ibu mendapat 1/6, dan saudara perempuan kandung tidak mendapat bagian",
-                                "Suami mendapat 1/4, dua anak perempuan bersama mendapat 2/3, ibu mendapat 1/6, dan saudara perempuan kandung tidak mendapat bagian",
-                                "Suami mendapat 1/4, dua anak perempuan bersama mendapat 2/3, ibu mendapat 1/6, dan sisa harta diberikan kepada saudara perempuan kandung sebagai 'ashabah ma'al ghairi",
-                                "Suami mendapat 1/4, dua anak perempuan bersama mendapat 2/3, ibu mendapat 1/6, dan terjadi 'aul karena total bagian melebihi 1"
-                            ],
-                            correctAnswer: 2, explanation: "Dalam kasus ini, suami mendapat 1/4, dua anak perempuan bersama mendapat 2/3, dan ibu mendapat 1/6 sebagai ash-habul furudh. Saudara perempuan kandung menjadi 'ashabah ma'al ghairi karena bersama dengan anak perempuan dan mendapatkan sisa warisan. Total bagian ash-habul furudh adalah 1/4 + 2/3 + 1/6 = 13/12, yang melebihi 1, sehingga terjadi 'aul (penyesuaian proporsi) dan saudara perempuan kandung tetap mendapat bagian sebagai 'ashabah ma'al ghairi."
-                        },
-                        {
-                            type: 'multiple-choice-complex',
-                            question: "Seorang laki-laki meninggal dunia dengan meninggalkan harta warisan. Ahli waris yang tersisa adalah: seorang istri, seorang cucu perempuan dari anak laki-laki, seorang ayah, dan seorang saudara perempuan seayah. Manakah pernyataan yang paling tepat mengenai pembagian warisan dalam kasus ini?",
-                            options: [
-                                "Istri mendapat 1/8, cucu perempuan mendapat 1/2, ayah mendapat 1/6, dan saudara perempuan seayah mendapat sisa sebagai 'ashabah",
-                                "Istri mendapat 1/8, cucu perempuan mendapat 1/6 (menggenapkan 2/3 dengan saudara perempuan seayah), ayah mendapat 1/6, dan saudara perempuan seayah mendapat 1/2",
-                                "Istri mendapat 1/8, cucu perempuan mendapat 1/2, ayah mendapat 1/6, dan saudara perempuan seayah tidak mendapat bagian karena dihalangi oleh ayah",
-                                "Istri mendapat 1/8, cucu perempuan mendapat 1/2, ayah sebagai 'ashabah mendapat sisa, dan saudara perempuan seayah tidak mendapat bagian"
-                            ],
-                            correctAnswer: 2, explanation: "Dalam kasus ini, istri mendapat 1/8, cucu perempuan mendapat 1/2, dan ayah mendapat 1/6 sebagai ash-habul furudh. Saudara perempuan seayah tidak mendapat bagian karena dihalangi oleh ayah yang lebih dekat hubungannya dengan si mayit. Sisa harta setelah pembagian kepada ash-habul furudh (1/8 + 1/2 + 1/6 = 11/24) diberikan kepada ayah sebagai 'ashabah, bukan kepada saudara perempuan seayah." }
+                        // Tambahkan 7 soal lagi untuk mencapai 10 soal
+                        { type: 'multiple-choice', question: "Siapa yang tidak termasuk dalam kategori 'ashabah bil ghairi'?", options: ["Anak perempuan", "Cucu perempuan dari anak laki-laki", "Saudara perempuan kandung", "Nenek dari pihak ibu"], correctAnswer: 3 },
+                        { type: 'multiple-choice', question: "Dalam hirarki asabah, siapa yang lebih utama antara ayah dan saudara laki-laki kandung?", options: ["Ayah", "Saudara laki-laki kandung", "Sama-sama utama", "Tergantung kondisi"], correctAnswer: 1 },
+                        { type: 'multiple-choice', question: "Menurut Mazhab Hanafi, siapa yang setara dengan saudara kandung dalam hirarki asabah?", options: ["Kakek", "Paman kandung", "Cucu laki-laki", "Anak dari saudara perempuan"], correctAnswer: 0 },
+                        { type: 'essay', question: "Jelaskan perbedaan antara 'ashabah bil ghairi dan 'ashabah ma'al ghairi' beserta contohnya masing-masing!", referenceAnswer: "Jawaban acuan: 'Ashabah bil ghairi adalah ahli waris wanita yang menjadi ashabah karena keberadaan ahli waris laki-laki. Contoh: anak perempuan menjadi ashabah bersama anak laki-laki. 'Ashabah ma'al ghairi adalah perempuan yang menjadi ashabah bersama perempuan lainnya. Contoh: saudara perempuan kandung menjadi ashabah bersama anak perempuan. Perbedaan utamanya adalah pada 'ashabah bil ghairi ada ahli waris laki-laki yang menyebabkan status ashabah, sedangkan pada 'ashabah ma'al ghairi tidak ada ahli waris laki-laki, melainkan kebersamaan sesama perempuan." },
+                        { type: 'case-study', scenario: "Seorang laki-laki meninggal dunia dengan meninggalkan harta warisan sebesar Rp 5 miliar. Ahli waris yang tersisa adalah: seorang istri, seorang anak perempuan, seorang ayah, dan seorang saudara laki-laki kandung. Istrinya mengusulkan agar rumah senilai Rp 1 miliar diberikan kepadanya, dan sisanya dibagi tunai.", questions: [
+                            { type: 'multiple-choice', question: "Menurut hukum Islam, bagaimana seharusnya pembagian warisan dalam kasus ini?", options: ["Istri mendapat 1/8, anak perempuan 1/2, ayah 1/6, saudara laki-laki sebagai ashabah mendapat sisa", "Istri mendapat rumah Rp 1 miliar, sisanya dibagi tunai sesuai hukum Islam", "Istri mendapat 1/4, anak perempuan 1/2, ayah 1/6, saudara laki-laki mendapat sisa", "Semua harta dibagi tunai secara merata"], correctAnswer: 0 },
+                            { type: 'essay', question: "Hitunglah bagian masing-masing ahli waris jika total harta Rp 5 miliar! Jelaskan juga bagaimana alokasi aset yang adil sesuai syariat!", referenceAnswer: "Jawaban acuan: Istri mendapat 1/8 = Rp 625 juta. Anak perempuan mendapat 1/2 = Rp 2,5 miliar. Ayah mendapat 1/6 = Rp 833,33 juta. Total bagian ash-habul furudh = 1/8 + 1/2 + 1/6 = 13/24. Sisa harta = 5 miliar - (13/24 × 5 miliar) = Rp 2,291,67 juta. Saudara laki-laki sebagai ashabah mendapat sisa tersebut. Untuk alokasi aset yang adil: istri bisa memilih rumah senilai Rp 625 juta (sesuai bagiannya). Anak perempuan bisa mendapatkan tanah atau properti senilai Rp 2,5 miliar. Ayah bisa mendapatkan deposito atau properti senilai Rp 833,33 juta. Saudara laki-laki mendapat sisa properti senilai Rp 2,291,67 juta. Jika ada aset yang tidak bisa dibagi rata, bisa dialokasikan dengan harga yang setara atau disepakati bersama." }
+                        ]},
+                        { type: 'multiple-choice-complex', question: "Menurut KHI Pasal 176, hirarki asabah di Indonesia mengikuti mazhab...", options: ["Hanafi", "Maliki", "Syafi'i", "Hanbali"], correctAnswer: 2, explanation: "Kompilasi Hukum Islam (KHI) Pasal 176 menyatakan bahwa hirarki asabah mengikuti mazhab Syafi'i yang menjadi mazhab resmi di Indonesia." },
+                        { type: 'multiple-choice-complex', question: "Dalam kasus di mana seseorang meninggal tanpa ahli waris asabah nasabiyah, sisa harta setelah pembagian kepada ash-habul furudh akan...", options: ["Dikembalikan kepada negara", "Dibagikan kembali kepada ash-habul furudh (radd)", "Diberikan kepada ahli waris terdekat non-muslim", "Dibagikan kepada kerabat terdekat yang muslim"], correctAnswer: 3, explanation: "Menurut KHI Pasal 193, jika seseorang meninggal tanpa ahli waris asabah, maka harta warisnya diserahkan kepada baitul mal untuk kepentingan sosial." }
                     ]}
-            }        
+                }
+            }
         ]
     },
     {
@@ -642,122 +733,296 @@ const courseData = [
         subChapters: [
             {
                 id: 'sub6-1', 
-                title: '6.1 Masalah Aul (Kekurangan Bagian)',
+                title: '6.1 Prosedur Pembagian Waris',
                 slides: [
                     {
-                        title: 'Pengertian Aul',
+                        title: 'Prosedur Pembagian Waris',
                         content: `
-                            <p><strong>'Aul</strong> terjadi ketika jumlah total bagian Ashabul Furudh lebih dari 1 (satu). Akibatnya, bagian masing-masing ahli waris harus dikurangi secara proporsional agar totalnya menjadi 1. Ini adalah 'keajaiban' matematika dalam Al-Qur'an.</p>
+                            <p><strong>Prosedur Pembagian Waris:</strong> Pembagian waris di Indonesia harus mengikuti prosedur yang diatur dalam Kompilasi Hukum Islam (KHI) dan peraturan perundang-undangan yang berlaku.</p>
+                            <div class="procedure-box">
+                                <h4>📋 Langkah-Langkah Pembagian Waris:</h4>
+                                <ol>
+                                    <li><strong>Finalisasi Kematian:</strong>
+                                        <ul>
+                                            <li>Mendapatkan Surat Keterangan Kematian (SKK) dari rumah sakit atau dokter.</li>
+                                            <li>Melaporkan kematian ke pemerintah desa/kelurahan maksimal 24 jam setelah kematian.</li>
+                                            <li>Melakukan pemakaman jenazah sesuai syariat.</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Inventarisasi Harta:</strong>
+                                        <ul>
+                                            <li>Membuat daftar inventaris harta peninggalan.</li>
+                                            <li>Menyusun daftar ahli waris yang berhak.</li>
+                                            <li>Menghitung total nilai harta (bruto).</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Pelunasan Kewajiban:</strong>
+                                        <ul>
+                                            <li>Melunasi biaya pemakaman jenazah.</li>
+                                            <li>Melunasi semua hutang pewaris.</li>
+                                            <li>Melaksanakan wasiat yang sah (maksimal 1/3 harta).</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Pembagian Warisan:</strong>
+                                        <ul>
+                                            <li>Membagikan harta bersih kepada ahli waris.</li>
+                                            <li>Membuat berita acara pembagian waris.</li>
+                                            <li>Melakukan penyerahan harta kepada ahli waris.</li>
+                                        </ul>
+                                    </li>
+                                </ol>
+                            </div>
                             <div class="source-detail">
-                                <h4>Contoh Kasus 'Aul dalam Al-Qur'an</h4>
-                                <p class="verse-arabic">وَلَكُمْ نِصْفُ مَا تَرَكَ أَزْوَاجُكُمْ إِن لَّمْ يَكُن لَّهُنَّ وَلَدٌ ۚ فَإِن كَانَ لَهُنَّ وَلَدٌ فَلَكُمُ الرُّبُعُ مِمَّا تَرَكُوا ۗ مِن بَعْدِ وَصِيَّةٍ يُوصِي بِهَا أَوْ دَيْنٍ ۗ وَلَهُنَّ الرُّبُعُ مِمَّا تَرَكْتُمْ إِن لَّمْ يَكُمْ وَلَدٌ ۚ فَإِن كَانَتَا اثْنَتَيْنِ فَلَهُمَا الثُّلُثَانِ مِمَّا تَرَكَ</p>
-                                <p class="verse-translation"><strong>Terjemahan:</strong> "Bagimu (suami-suami) seperdua dari harta yang ditinggalkan oleh istri-istri kamu, jika mereka tidak mempunyai anak. Jika istri-istri itu mempunyai anak, maka kamu (suami-suami) mendapat seperempat... Dan bagi istri-istrimu ada seperempat dari harta yang kamu tinggalkan, jika kamu tidak mempunyai anak. Jika kamu mempunyai anak, maka bagi mereka seperdelapan... (jika saudara-saudara perempuan itu) dua orang, maka keduanya mendapat dua pertiga dari harta yang ditinggalkan..."</p>
-                                <div class="source-explanation"><strong>Tafsir Ringkas:</strong> Jika seorang mayit meninggalkan suami (1/4), ibu (1/3), dan dua saudara perempuan (2/3), maka total bagian = 1/4 + 1/3 + 2/3 = 1 1/4. Ini adalah contoh klasik 'aul yang disebutkan dalam Al-Qur'an. Solusinya adalah dengan mengurangi (taul) bagian masing-masing secara proporsional.</div>
+                                <h4>QS. An-Nisa' : 12</h4>
+                                <p class="verse-arabic">مِن بَعْدِ وَصِيَّةٍ يُوصِي بِهَا أَوْ دَيْنٍ ۗ آبَاؤُكُمْ وَأَبْنَاؤُكُمْ لَا تَدْرُونَ أَيُّهُمْ أَقْرَبُ لَكُمْ نَفْعًا ۗ فَرِيضَةً مِنَ اللَّهِ ۗ إِنَّ اللَّهَ كَانَ عَلِيمًا حَكِيمًا</p>
+                                <p class="verse-translation"><strong>Terjemahan:</strong> "(Pembagian ini) sesudah dipenuhi wasiat (yang telah dibuatnya) atau sesudah (dibayarkan) hutangnya. (Pembagian itu dilakukan) supaya tidak ada kerugian. (Ini adalah) ketetapan dari Allah. Sesungguhnya Allah Maha Mengetahui lagi Maha Bijaksana."</p>
+                                <div class="source-explanation"><strong>Tafsir Ringkas:</strong> Ayat ini menunjukkan urutan yang harus diperhatikan dalam pembagian waris: wasiat dan hutang harus diselesaikan terlebih dahulu sebelum harta dibagikan. Ini untuk memastikan keadilan bagi semua pihak.</div>
+                            </div>
+                            <div class="indonesian-law">
+                                <h4>🇮🇩 Hukum di Indonesia:</h4>
+                                <p>Menurut KHI Pasal 171, pembagian waris bagi pemeluk agama Islam harus dilakukan sesuai dengan hukum Islam. Prosedur pembagian dapat dilakukan secara musyawarah atau melalui pengadilan agama.</p>
                             </div>
                         `
                     },
                     {
-                        title: 'Cara Menghitung Aul',
+                        title: 'Peran Notaris dan Pejabat',
                         content: `
-                            <p><strong>Cara Menghitung 'Aul:</strong></p>
-                            <ol>
-                                <li>Jumlahkan semua bagian Ashabul Furudh yang ada.</li>
-                                <li>Jika hasilnya lebih dari 1, maka terjadi 'aul.</li>
-                                <li>Tentukan "bilangan pokok" dengan mencari penyebut persekutuan terkecil (KPK) dari semua penyebut bagian.</li>
-                                <li>Bagikan bilangan pokok tersebut kepada setiap ahli waris sesuai dengan bagian semula mereka.</li>
-                            </ol>
-                            <p><strong>Contoh:</strong> Suami (1/4), Ibu (1/3), 2 Saudara Perempuan (2/3). Total = 1/4 + 1/3 + 2/3 = 1 1/4. Bilangan pokok = 12. Suami dapat 3/12 (1/4). Ibu dapat 4/12 (1/3). 2 Saudara dapat 8/12 (2/3). Total bagian baru = 15/12. Karena melebihi bilangan pokok (12), semua bagian harus dikurangi proporsional terhadap 12. Hasil akhir: Suami 3/15, Ibu 4/15, masing-masing saudara 4/15.</p>
+                            <p><strong>Peran Notaris dan Pejabat:</strong> Notaris dan pejabat terkait memiliki peran penting dalam memastikan pembagian waris berjalan sesuai hukum.</p>
+                            <div class="role-box">
+                                <h4>👨‍⚖️ Peran Notaris (PPAT):</h4>
+                                <ul>
+                                    <li><strong>Membuat Akta Kematian:</strong> Membuat akta kematian yang sah dan legal.</li>
+                                    <li><strong>Mengesahkan Ahli Waris:</strong> Memverifikasi dan mengesahkan daftar ahli waris yang sah.</li>
+                                    <li><strong>Membuat Berita Acara Waris:</strong> Membuat berita acara pembagian waris yang sah.</li>
+                                    <li><strong>Melakukan Penyerahan Harta:</strong> Menyerahkan harta kepada ahli waris sesuai pembagian.</li>
+                                </ul>
+                                <h4>👮‍⚖️ Peran Pejabat Kementerian Agama:</h4>
+                                <ul>
+                                    <li><strong>Memberikan Bimbingan:</strong> Memberikan bimbingan hukum Islam dalam pembagian waris.</li>
+                                    <li><strong>Mediasi Sengketa:</strong> Menjadi mediator jika terjadi sengketa waris.</li>
+                                    <li><strong>Verifikasi Keshahihan:</strong> Memastikan pembagian sesuai dengan hukum Islam.</li>
+                                </ul>
+                            </div>
+                            <div class="real-case-example">
+                                <h4>📋 Kasus Nyata:</h4>
+                                <p>Pada tahun 2022, di Surabaya terjadi kasus di mana seorang notaris abal-abal dalam membuat berita acara waris. Notaris tersebut tidak memverifikasi keabsahan ahli waris dan mengabaikan beberapa ahli waris yang sah. Akibatnya, terjadi sengketa panjang yang harus diselesaikan melalui pengadilan.</p>
+                                <p><strong>Pelajaran:</strong> Pentingnya memilih notaris yang kompeten dan jujur dalam menjalankan tugasnya.</p>
+                            </div>
+                            <div class="indonesian-law">
+                                <h4>🇮🇩 Hukum di Indonesia:</h4>
+                                <p>Menurut UU No. 2 Tahun 2014 tentang Perubahan atas UU No. 30 Tahun 2004 tentang Notaris, notaris wajib bertindak profesional dan jujur dalam menjalankan tugasnya, termasuk dalam pembuatan akta waris.</p>
+                            </div>
+                        `
+                    },
+                    {
+                        title: 'Dokumen yang Diperlukan',
+                        content: `
+                            <p><strong>Dokumen yang Diperlukan:</strong> Untuk pembagian waris yang sah, diperlukan beberapa dokumen penting:</p>
+                            <div class="document-list">
+                                <h4>📄 Dokumen Kematian:</h4>
+                                <ul>
+                                    <li><strong>Surat Keterangan Kematian (SKK):</strong> Dari rumah sakit atau dokter.</li>
+                                    <li><strong>Akta Kematian:</strong> Dibuat oleh notaris.</li>
+                                    <li><strong>Sertifikat Kematian:</strong> Dari pemerintah setempat.</li>
+                                </ul>
+                                <h4>📄 Dokumen Kepemilikan:</h4>
+                                <ul>
+                                    <li><strong>Sertifikat Hak Milik (SHM):</strong> Untuk tanah dan bangunan.</li>
+                                    <li><strong>Buku Pemilik Kendaraan (BPKB):</strong> Untuk kendaraan bermotor.</li>
+                                    <li><strong>Sertifikat Deposito:</strong> Untuk simpanan di bank.</li>
+                                    <li><strong>Bukti Kepemilikan Lainnya:</strong> Seperti rekening koran, saham, dll.</li>
+                                </ul>
+                                <h4>📄 Dokumen Identitas:</h4>
+                                <ul>
+                                    <li><strong>KTP/KK Ahli Waris:</strong> Kartu tanda penduduk.</li>
+                                    <li><strong>Kartu Keluarga (KK):</strong> Untuk membuktikan hubungan kekerabatan.</li>
+                                    <li><strong>Akta Nikah/Akta Perceraian:</strong> Untuk membuktikan status pernikahan.</li>
+                                </ul>
+                                <h4>📄 Dokumen Lainnya:</h4>
+                                <ul>
+                                    <li><strong>Surat Kuasa:</strong> Jika diwakilkan.</li>
+                                    <li><strong>Dokumen Hutang:</strong> Bukti hutang yang harus dilunasi.</li>
+                                    <li><strong>Dokumen Wasiat:</strong> Jika ada wasiat yang sah.</li>
+                                </ul>
+                            </div>
+                            <div class="note-box">
+                                <p><strong>⚠️ Catatan Penting:</strong> Semua dokumen harus asli atau fotokopi yang dilegalisir. Dokumen palsu dapat dipidana sesuai dengan hukum yang berlaku.</p>
+                            </div>
                         `
                     }
                 ],
-                quiz: { questions: [
-                    { type: 'multiple-choice', question: "Kapan terjadi masalah 'Aul?", options: ["Ketika total bagian kurang dari 1", "Ketika total bagian lebih dari 1", "Ketika tidak ada 'Asabah", "Ketika mayit tidak punya ahli waris"], correctAnswer: 1 },
-                    { type: 'essay', question: "Jelaskan bagaimana cara menghitung pembagian harta jika terjadi masalah 'Aul. Berikan contoh perhitungan sederhana!", referenceAnswer: "Jawaban acuan: Cara menghitung 'aul adalah dengan mengalikan setiap bagian dengan bilangan pokok (hasil dari 1 dibagi total bagian asal). Contoh: Mayit meninggalkan suami (1/2) dan dua saudara perempuan (2/3). Total asal = 1/2 + 2/3 = 7/6. Bilangan pokok = 1 / (7/6) = 6/7. Bagian akhir suami = 1/2 * 6/7 = 3/7. Bagian akhir masing-masing saudara perempuan = (1/3) * 6/7 = 2/7." }
-                ]}
+                quiz: { 
+                    questions: [
+                        { type: 'multiple-choice', question: "Menurut KHI Pasal 171, pembagian waris bagi pemeluk agama Islam harus berdasarkan...", options: ["Hukum adat setempat", "Hukum perdata sipil", "Hukum Islam", "Keputusan hakim"], correctAnswer: 2 },
+                        { type: 'essay', question: "Jelaskan prosedur yang benar dalam pembagian waris di Indonesia! Sebutkan dokumen-dokumen yang diperlukan!", referenceAnswer: "Jawaban acuan: Prosedur pembagian waris di Indonesia: 1. Finalisasi kematian dengan SKK dan pelaporan ke pemerintah; 2. Inventarisasi harta peninggalan; 3. Pelunasan kewajiban (biaya jenazah, hutang, wasiat); 4. Pembagian harta bersih kepada ahli waris; 5. Pembuatan berita acara waris. Dokumen yang diperlukan: SKK, akta kematian, sertifikat kematian, SHM/BPKB, KTP/KK ahli waris, akta nikah, surat kuasa, dokumen hutang, dan wasiat." },
+                        { type: 'matching', question: "Jodohkan prosedur dengan urutan yang benar!", pairs: [{ term: "Finalisasi Kematian", match: "Langkah 1" }, { term: "Inventarisasi Harta", match: "Langkah 2" }, { term: "Pelunasan Kewajiban", match: "Langkah 3" }, { term: "Pembagian Warisan", match: "Langkah 4" }, { term: "Penyerahan Harta", match: "Langkah 5" }] },
+                        { type: 'case-study', scenario: "Seorang meninggal dunia meninggalkan harta berupa: rumah (SHM), mobil (BPKB), tabungan senilai Rp 500 juta, dan hutang kredit kendaraan Rp 100 juta. Ahli waris: istri, 2 anak laki-laki, dan 1 anak perempuan. Istri mengusulkan agar rumah tidak dijual dan dibagi secara tunai.", questions: [
+                            { type: 'multiple-choice', question: "Bagaimana seharusnya menangani usulan istri tersebut?", options: ["Mengabulkan rumah tunai sesuai usulan", "Menjual rumah dan membagi uangnya", "Memberikan opsi: tunai atau jual dengan persetujuan ahli waris", "Menyerahkan rumah kepada istri sebagai bagian warisnya"], correctAnswer: 2 },
+                            { type: 'essay', question: "Jelaskan bagaimana pembagian waris yang adil dalam kasus ini! Hitung juga bagian masing-masing jika total harta bersih Rp 900 juta!", referenceAnswer: "Jawaban acuan: Pembagian yang adil: 1. Pelunasi hutang Rp 100 juta terlebih dahulu; 2. Sisa harta bersih Rp 900 juta; 3. Istri mendapat 1/8 = Rp 112,5 juta; 4. Anak-anak mendapat sisa Rp 787,5 juta. Perhitungan anak: 2 anak laki-laki = 4 bagian, 1 anak perempuan = 2 bagian, total 6 bagian. Setiap bagian = Rp 787,5 juta / 6 = Rp 131,25 juta. Anak laki-laki masing-masing = 2 × Rp 131,25 juta = Rp 262,5 juta. Anak perempuan = Rp 131,25 juta. Untuk rumah, keluarga bermusyawarah: bisa dijual dan uangnya dibagi, atau diberikan kepada anak-anak dengan nilai setara, atau disewakan dan hasilnya dibagi." }
+                        ]}
+                    ]
+                }
             },
             {
                 id: 'sub6-2', 
-                title: '6.2 Masalah Radd (Kelebihan Bagian)',
+                title: '6.2 Kasus-Kasus Khusus',
                 slides: [
                     {
-                        title: 'Pengertian Radd',
+                        title: 'Kasus 1: Ahli Waris Non-Muslim',
                         content: `
-                            <p><strong>Radd</strong> (artinya: kembali, pengembalian) terjadi ketika jumlah total bagian Ashabul Furudh kurang dari 1 (satu) dan tidak ada ahli waris Asabah yang menerima sisa harta tersebut. Akibatnya, sisa harta tersebut <strong>dikembalikan</strong> kepada para Ashabul Furudh itu sendiri secara proporsional sesuai bagian mereka.</p>
-                            <p><strong>Contoh Sederhana:</strong> Seorang wanita meninggal, hanya meninggalkan seorang ibu (1/6) dan seorang suami (1/4). Total bagian = 1/6 + 1/4 = 5/12. Sisa harta = 1 - 5/12 = 7/12. Karena tidak ada Asabah, sisa 7/12 ini dikembalikan (Radd) kepada ibu dan suami.</p>
-                        `
-                    },
-                    {
-                        title: 'Syarat Terjadinya Radd',
-                        content: `
-                            <p><strong>Syarat-syarat terjadinya Radd:</strong></p>
-                            <ol>
-                                <li><strong>Total Bagian Ashabul Furudh Kurang dari 1:</strong> Jumlah semua bagian yang sudah ditetapkan tidak mencapai seluruh harta.</li>
-                                <li><strong>Tidak Ada Ahli Waris Asabah:</strong> Tidak ada pewaris sisa yang berhak atas sisa harta tersebut. Jika ada Asabah, maka sisa harta menjadi milik mereka, bukan untuk Radd.</li>
-                            </ol>
-                            <div class="example-box">
-                                <h4>Contoh Kasus Radd:</h4>
-                                <p>Mayit meninggalkan: Ibu (1/6) dan 2 Saudara Kandung Perempuan (2/3).</p>
-                                <p><strong>Analisis:</strong></p>
+                            <p><strong>Kasus 1: Ahli Waris Non-Muslim:</strong> Pembagian waris antara Muslim dan non-Muslim memiliki aturan khusus dalam Islam.</p>
+                            <div class="case-box">
+                                <h4>🕌 Hukum Dasar:</h4>
                                 <ul>
-                                    <li>Ashabul Furudh: Ibu (1/6), 2 Saudara Perempuan (2/3).</li>
-                                    <li>Asabah: Tidak ada.</li>
-                                    <li>Total Bagian: 1/6 + 2/3 = 5/6 (kurang dari 1).</li>
-                                    <li><strong>Kesimpulan: Terjadi Radd.</strong></li>
+                                    <li><strong>Non-Muslim tidak mewarisi Muslim:</strong> Seorang non-Muslim tidak mewarisi harta warisan dari Muslim.</li>
+                                    <li><strong>Muslim tidak mewarisi Non-Muslim:</strong> Seorang Muslim tidak mewarisi harta warisan dari non-Muslim.</li>
+                                    <li><strong>Non-Muslim mewarisi Non-Muslim:</strong> Non-Muslim dapat mewarisi non-Muslim sesuai hukum yang berlaku bagi mereka.</li>
                                 </ul>
+                            </div>
+                            <div class="source-detail">
+                                <h4>Hadis Dasar:</h4>
+                                <p class="verse-arabic">لَا يَتَوَارَثُ الْمُسْلِمُ مِنَ الْكَافِرِ وَلَا الْكَافِرُ مِنَ الْمُسْلِمِ</p>
+                                <p class="verse-translation"><strong>Terjemahan:</strong> "Seorang Muslim tidak mewarisi (harta) orang kafir, dan orang kafir tidak mewarisi (harta) orang Muslim."</p>
+                                <p class="hadith-source">(HR. Bukhari dan Muslim)</p>
+                            </div>
+                            <div class="mazhab-reference">
+                                <h4>📚 Perbedaan Mazhab:</h4>
+                                <ul>
+                                    <li><strong>Mazhab Syafi'i, Maliki, dan Hanbali:</strong> Mengikuti hadis di atas secara mutlak.</li>
+                                    <li><strong>Mazhab Hanafi:</strong> Memberikan kelonggaran dalam beberapa kasus tertentu.</li>
+                                </ul>
+                            </div>
+                            <div class="indonesian-law">
+                                <h4>🇮🇩 Hukum di Indonesia:</h4>
+                                <p>Menurut KHI Pasal 171 ayat (1), pembagian waris antara pewaris dan ahli waris yang berbeda agama diatur sesuai dengan hukum masing-masing, kecuali ditentukan lain.</p>
+                            </div>
+                            <div class="real-case-example">
+                                <h4>📋 Kasus Nyata:</h4>
+                                <p>Seorang Kristen meninggal di Indonesia, meninggalkan istri Muslim dan 2 anak Muslim. Menurut hukum Islam, istri dan anak-anak tidak mewarisi harta warisan dari ayah mereka yang non-Muslim. Harta tersebut akan dibagikan sesuai hukum perdata sipil (hukum waris Kristen).</p>
                             </div>
                         `
                     },
                     {
-                        title: 'Cara Menghitung Radd',
+                        title: 'Kasus 2: Ahli Waris Hilang',
                         content: `
-                            <p><strong>Cara Menghitung Radd:</strong></p>
-                            <p>Sisa harta (1 - total bagian) dibagikan secara proporsional kepada semua Ashabul Furudh.</p>
-                            <p><strong>Menggunakan Contoh Sebelumnya (Ibu 1/6, 2 Saudara 2/3):</strong></p>
-                            <ol>
-                                <li>Total bagian asal = 5/6.</li>
-                                <li>Sisa harta untuk Radd = 1 - 5/6 = 1/6.</li>
-                                <li><strong>Metode 1 (Mengalikan Bagian):</strong>
-                                    <ul>
-                                        <li>Bagian Ibu baru = (1/6) / (5/6) = 1/5 harta.</li>
-                                        <li>Bagian masing-masing Saudara baru = (1/3) / (5/6) = 2/5 harta.</li>
-                                    </ul>
-                                </li>
-                                <li><strong>Metode 2 (Mencari Pecahan Baru):</strong>
-                                    <ul>
-                                        <li>Jumlahkan pembilang bagian asli: 1 (ibu) + 4 (2 saudara) = 5.</li>
-                                        <li>Ibu mendapat 1/5 harta.</li>
-                                        <li>Masing-masing saudara mendapat 2/5 harta.</li>
-                                    </ul>
-                                </li>
-                            </ol>
+                            <p><strong>Kasus 2: Ahli Waris Hilang:</strong> Kasus ahli waris yang tidak diketahui keberadaannya atau tidak dapat ditemukan.</p>
+                            <div class="case-box">
+                                <h4>🔍 Jenis Ahli Waris Hilang:</h4>
+                                <ul>
+                                    <li><strong>Mafqud:</strong> Ahli waris yang tidak diketahui keberadaannya.</li>
+                                    <li><strong>Majhul al-Hal:</strong> Ahli waris yang tidak diketahui tempat tinggalnya.</li>
+                                    <li><strong>Dhawi al-Fasl:</strong> Ahli waris yang tidak diketahui apakah masih hidup atau sudah meninggal.</li>
+                                </ul>
+                            </div>
+                            <div class="source-detail">
+                                <h4>Prinsip Hukum:</h4>
+                                <p>Harta ahli waris yang hilang ditangguh sampai jangka waktu tertentu. Jika setelah menunggu ternyata ahli waris tersebut tidak ditemukan, maka hartanya dianggap harta tak bertuan (mawafiquh).</p>
+                            </div>
+                            <div class="mazhab-reference">
+                                <h4>📚 Perbedaan Mazhab:</h4>
+                                <ul>
+                                    <li><strong>Mazhab Syafi'i:</strong> Menunggu selama-lamanya hingga jelas keberadaannya.</li>
+                                    <li><strong>Mazhab Hanafi:</strong> Menunggu selama 4 tahun.</li>
+                                    <li><strong>Mazhab Maliki:</strong> Menunggu selama 70 tahun.</li>
+                                </ul>
+                            </div>
+                            <div class="indonesian-law">
+                                <h4>🇮🇩 Hukum di Indonesia:</h4>
+                                <p>Menurut KHI Pasal 193, harta tak bertuan menjadi milik negara setelah 5 tahun sejak dinyatakan sebagai harta tak bertuan.</p>
+                            </div>
+                            <div class="real-case-example">
+                                <h4>📋 Kasus Nyata:</h4>
+                                <p>Pada tahun 2018, Mahkamah Agama Jawa Tengah memutuskan bahwa harta ahli waris yang hilang selama 5 tahun menjadi milik negara. Keputusan ini berdasarkan prinsip bahwa setelah jangka waktu tertentu, harta tersebut dianggap tidak ada pemiliknya.</p>
+                            </div>
                         `
                     },
                     {
-                        title: 'Penting: Siapa yang Tidak Dapat Radd?',
+                        title: 'Kasus 3: Hamil Waris',
                         content: `
-                            <p>Ini adalah poin krusial yang sering menjadi perdebatan di kalangan ulama.</p>
-                            <p><strong>Pendapat Jumhur (Mayoritas Ulama):</strong> Suami dan Istri <strong>tidak mendapat bagian Radd</strong>. Mereka hanya mendapat bagian yang sudah ditetapkan (1/2, 1/4, 1/8). Sisa harta hanya dibagikan kepada Ashabul Furudh lainnya (seperti ibu, anak, saudara, dll).</p>
-                            <p><strong>Alasannya:</strong> Bagian suami/istri dianggap sudah 'final' dan maksimal karena mereka bukan bagian dari garis keturunan darah (nasab) mayit. Mereka mewarisi karena adanya ikatan pernikahan, bukan karena hubungan kekerabatan darah.</p>
-                            <div class="example-box">
-                                <h4>Contoh: Suami Tidak Dapat Radd</h4>
-                                <p>Mayit meninggalkan: Suami (1/4) dan Ibu (1/6).</p>
-                                <p>Total bagian = 1/4 + 1/6 = 5/12. Sisa = 7/12.</p>
-                                <p><strong>Menurut Jumhur:</strong> Suami tetap dapat 1/4. Sisa 7/12 + bagian ibu 1/6 (2/12) = 9/12. Ibu mendapat seluruhnya, yaitu 9/12 atau 3/4 harta.</p>
-                                <p><strong>Hasil Akhir: Suami 1/4, Ibu 3/4.</strong></p>
+                            <p><strong>Kasus 3: Hamil Waris (Janin dalam Kandungan):</strong> Pembagian waris untuk janin yang masih dalam kandungan memiliki aturan khusus.</p>
+                            <div class="case-box">
+                                <h4>🤰 Syarat Janin Mewarisi:</h4>
+                                <ul>
+                                    <li><strong>Harus sudah ada dalam kandungan saat pewaris meninggal.</li>
+                                    <li><strong>Harus lahir dalam keadaan hidup.</li>
+                                    <li><strong>Harus lahir dari pernikahan yang sah.</li>
+                                    <li><strong>Harus lahir setelah pewaris meninggal.</li>
+                                </ul>
+                            </div>
+                            <div class="source-detail">
+                                <h4>Hadis Dasar:</h4>
+                                <p class="verse-arabic">إِذَا اسْتُهْلِكَ بِحَقٍّ مِنْ مَالِ أَحَدِكُمْ فَلَهُ سُهْمَانُ كَانَ يَسْتَحِقٌّ مِنْكُمْ فَادْخُلُوهُ بِهِ</p>
+                                <p class="verse-translation"><strong>Terjemahan:</strong> "Jika salah seorang dari kamu meninggal dan mempunyai hak, maka ahli warisnya (laki-laki) mendapat bagian dua kali bagian anak perempuan. Jika mereka (ahli warisnya) semuanya perempuan, maka mereka mendapat dua pertiga dari harta yang ditinggalkan."</p>
+                                <p class="hadith-source">(HR. Tirmidzi)</p>
+                            </div>
+                            <div class="mazhab-reference">
+                                <h4>📚 Perbedaan Mazhab:</h4>
+                                <ul>
+                                    <li><strong>Mazhab Syafi'i:</strong> Janin dianggap sebagai ahli waris yang berhak menerima bagian.</li>
+                                    <li><strong>Mazhab Hanafi:</strong> Janin tidak mewarisi jika tidak lahir hidup.</li>
+                                </ul>
+                            </div>
+                            <div class="indonesian-law">
+                                <h4>🇮🇩 Hukum di Indonesia:</h4>
+                                <p>Menurut KHI Pasal 173, janin dalam kandungan dianggap sebagai ahli waris jika lahir hidup dalam waktu paling lama 300 hari setelah kematian pewaris.</p>
+                            </div>
+                            <div class="real-case-example">
+                                <h4>📋 Kasus Nyata:</h4>
+                                <p>Seorang wanita hamil 2 bulan saat suaminya meninggal. Setelah 8 bulan, ia melahirkan anak laki-laki. Anak tersebut berhak mewarisi harta ayahnya sebagai ahli waris.</p>
+                            </div>
+                        `
+                    },
+                    {
+                        title: 'Kasus 4: Gugur Cerai',
+                        content: `
+                            <p><strong>Kasus 4: Gugur Cerai:</strong> Perceraian (thalaq) dapat mempengaruhi hak waris antara mantan suami dan istri.</p>
+                            <div class="case-box">
+                                <h4>💔 Jenis Gugur Cerai:</h4>
+                                <ul>
+                                    <li><strong>Thalaq Raj'i:</strong> Cerai yang masih dalam masa iddah, hak waris masih terjaga.</li>
+                                    <li><strong>Thalaq Bain:</strong> Cerai setelah masa iddah, hak waris putus.</li>
+                                    <li><strong>Khulu':strong> Cerai dengan tebusan (khulu'), hak waris putus.</li>
+                                </ul>
+                            </div>
+                            <div class="source-detail">
+                                <h4>Hadis Dasar:</h4>
+                                <p class="verse-arabic">الْمُطَلَّقُ لَهَا حَقُّهَا مِنْ صَدَاقِهَا</p>
+                                <p class="verse-translation"><strong>Terjemahan:</strong> "Ditalak (cerai) wanita itu dengan haknya."</p>
+                                <p class="hadith-source">(HR. Tirmidzi)</p>
+                            </div>
+                            <div class="mazhab-reference">
+                                <h4>📚 Perbedaan Mazhab:</h4>
+                                <ul>
+                                    <li><strong>Mazhab Syafi'i:</strong> Thalaq bain menggugur hak waris.</li>
+                                    <li><strong>Mazhab Hanafi:</strong> Khulu tidak menggugur hak waris.</li>
+                                </ul>
+                            </div>
+                            <div class="indonesian-law">
+                                <h4>🇮🇩 Hukum di Indonesia:</h4>
+                                <p>Menurut UU No. 1 Tahun 1974 tentang Perkawinan, perceraian dapat dilakukan di pengadilan agama atau di Kantor Urusan Agama (KUA). Hak waris antara mantan suami istri putus setelah perceraian.</p>
+                            </div>
+                            <div class="real-case-example">
+                                <h4>📋 Kasus Nyata:</h4>
+                                <p>Seorang suami menceraikan istrinya di pengadilan. Setelah perceraian, hak waris antara keduanya putus. Mereka tidak lagi mewarisi harta satu sama lain, kecuali harta yang menjadi hak bersama selama pernikahan.</p>
                             </div>
                         `
                     }
                 ],
-                quiz: { questions: [
-                    { type: 'multiple-choice', question: "Kapan terjadi masalah 'Radd'?", options: ["Ketika total bagian kurang dari 1 dan tidak ada Asabah", "Ketika total bagian lebih dari 1", "Ketika ada ahli waris Asabah", "Ketika mayit hanya meninggalkan suami dan istri"], correctAnswer: 0 },
-                    { type: 'essay', question: "Jelaskan perbedaan mendasar antara 'Aul dan Radd! Berikan contoh sederhana untuk masing-masing!", referenceAnswer: "Jawaban acuan: **Aul** terjadi ketika total bagian Ashabul Furudh LEBIH dari 1, sehingga bagian masing-masing harus DIKURANGI secara proporsional. Contoh: Suami (1/4), Ibu (1/3), 2 Saudara Perempuan (2/3). Total = 1 1/4. Semua bagian harus dikurangi. **Radd** terjadi ketika total bagian Ashabul Furudh KURANG dari 1 dan tidak ada Asabah, sehingga SISA harta tersebut DIKEMBALIKAN kepada Ashabul Furudh secara proporsional. Contoh: Ibu (1/6) dan 2 Saudara Perempuan (2/3). Total = 5/6. Sisa 1/6 dikembalikan kepada mereka." },
-                    { type: 'matching', question: "Jodohkan istilah dengan kondisi yang tepat!", pairs: [{ term: "Aul", match: "Total bagian Ashabul Furudh lebih dari 1" }, { term: "Radd", match: "Total bagian Ashabul Furudh kurang dari 1 dan tidak ada Asabah" }, { term: "Asabah", match: "Ahli waris yang menerima sisa harta" }, { term: "Hijb", match: "Ahli waris yang tidak mendapat bagian karena ada yang lebih dekat" }] }
-                ]}
+                quiz: { 
+                    questions: [
+                        { type: 'multiple-choice', question: "Menurut hadis, orang Muslim tidak mewarisi harta dari...", options: ["Muslim lainnya", "Non-Muslim", "Keluarga non-Muslim", "Semua jawaban benar"], correctAnswer: 1 },
+                        { type: 'essay', question: "Jelaskan perbedaan pandangan mazhab Syafi'i dan Hanafi mengenai harta ahli waris yang hilang!", referenceAnswer: "Jawaban acuan: Mazhab Syafi'i menunggu selama-lamanya hingga keberadaan ahli waris jelas, sedangkan Mazhab Hanafi menunggu selama 4 tahun. Setelah jangka waktu tersebut, jika ahli waris tidak ditemukan, harta tersebut menjadi harta tak bertuan. Perbedaan ini didasarkan pada perbedaan interpretasi hadis dan ijtihad para ulama." },
+                        { type: 'matching', question: "Jodohkan kasus dengan hukum yang berlaku!", pairs: [{ term: "Muslim mewarisi non-Muslim", match: "Tidak sah" }, { term: "Janin dalam kandungan", match: "Mewarisi jika lahir hidup" }, { term: "Thalaq bain", match: "Hak waris putus" }, { term: "Harta tak bertuan", match: "Milik negara setelah 5 tahun" }] },
+                        { type: 'case-study', scenario: "Seorang Muslim meninggal di Indonesia, meninggalkan istri non-Muslim, 2 anak Muslim, dan 1 saudara perempuan non-Muslim. Istri non-Muslim mengklaim semua harta karena menurut hukum negaranya ia berhak mendapat bagian.", questions: [
+                            { type: 'multiple-choice', question: "Bagaimana hukum Islam dalam kasus ini?", options: ["Istri non-Muslim mewarisi semua harta", "Anak-anak Muslim mewarisi semua harta", "Harta dibagi sesuai hukum Islam dan hukum perdata sipil", "Anak-anak Muslim tidak mewarisi sama sekali"], correctAnswer: 2 },
+                            { type: 'essay', question: "Jelaskan bagaimana penyelesaian kasus ini menurut hukum Islam dan hukum di Indonesia!", referenceAnswer: "Jawaban acuan: Menurut hukum Islam, istri non-Muslim tidak mewarisi harta warisan. Anak-anak Muslim mewarisi harta warisan ayahnya. Saudara perempuan non-Muslim tidak mewarisi karena beda agama. Menurut KHI Pasal 171 ayat (1), pembagian waris antara pewaris dan ahli waris yang berbeda agama diatur sesuai hukum masing-masing. Jadi, istri non-Muslim mewarisi sesuai hukum perdata sipil (hukum waris Kristen), sementara anak-anak Muslim mewarisi sesuai hukum Islam." }
+                        ]}
+                    ]
+                }
             }
         ]
     }
 ];
-
 // --- APLIKASI LOGIKA ---
 let currentChapterId = null, currentSubChapterId = null, currentSlideIndex = 0;
 let quizState = { 
