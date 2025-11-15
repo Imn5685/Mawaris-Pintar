@@ -909,7 +909,7 @@ const courseData = [
                         ]},
                         { type: 'multiple-choice-complex', question: "Menurut KHI Pasal 176, harta tak bertuan menjadi milik negara setelah 5 tahun jika...", options: ["Hanya jika tidak ada ahli waris", "Jika tidak ada ahli waris", "Setelah 5 tahun", "Setelah 2 tahun"], correctAnswer: 2, explanation: "Menurut KHI Pasal 176, harta tak bertuan menjadi milik negara setelah 5 tahun jika tidak ada ahli waris." }
                         ]
-                    ]
+                    
                 }
             }
         ]
