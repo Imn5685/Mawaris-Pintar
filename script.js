@@ -232,6 +232,52 @@ const courseData = [
                         `
                     },
                     {
+                        title: 'Penjaga Harmoni Keluarga',
+                        content: `
+                            <p>Salah satu musuh terbesar keutuhan keluarga adalah sengketa warisan. Banyak kisah sedih di mana saudara yang semula akur menjadi bermusuhan hanya karena harta peninggalan. Islam, melalui ilmu waris (faraidh), memberikan sistem yang dirancang secara sempurna untuk mencegah perpecahan ini sejak awal.</p>
+                            <div class="example-box">
+                                <h4>🧩 Akar Perpecahan Keluarga dalam Warisan</h4>
+                                <p>Perpecahan biasanya dimulai dari:</p>
+                                <ul>
+                                    <li><strong>Ketidakadilan:</strong> Satu pihak merasa lebih berhak dan mengambil porsi yang lebih besar, merugikan yang lain.</li>
+                                    <li><strong>Ketidakjelasan:</strong> Tidak ada aturan yang jelas, sehingga masing-masing mengklaim versi keadilannya sendiri.</li>
+                                    <li><strong>Keserakahan:</strong> Nafsu ingin menguasai semua harta tanpa memperdulikan hak ahli waris lain.</li>
+                                    <li><strong>Pengaruh Adat yang Keliru:</strong> Adat yang meniadakan hak anak perempuan atau mengutamakan anak tertua sering menjadi sumber konflik dengan syariat.</li>
+                                </ul>
+                            </div>
+                            <div class="example-box">
+                                <h4>🛡️ Bagaimana Faraidh Mencegah Perpecahan?</h4>
+                                <p>Hukum waris Islam adalah "obat" untuk masalah di atas:</p>
+                                <ul>
+                                    <li><strong>Menetapkan Keadilan Transparan:</strong> Allah, yang Maha Adil, telah menetapkan bagian masing-masing. Ini bukan pendapat manusia yang bisa dinegosiasi, melainkan ketetapan ilahi yang harus diterima.</li>
+                                    <li><strong>Memberikan Kepastian Hukum:</strong> Aturannya jelas dan baku. Tidak ada ruang untuk interpretasi yang berlebihan yang bisa memicu perselisihan. Siapa yang berhak dan berapa baginya sudah ditulis.</li>
+                                    <li><strong>Memotong Keserakahan:</strong> Karena bagian sudah ditetapkan, tidak ada lagi alasan bagi seseorang untuk mengklaim lebih dari haknya. Keserakahan dijaga oleh batasan syariat.</li>
+                                    <li><strong>Menghormati Hak Setiap Pihak:</strong> Sistem ini melindungi hak mereka yang sering diabaikan, seperti anak perempuan, ibu, dan istri, sehingga tidak ada yang merasa dizalimi.</li>
+                                </ul>
+                            </div>
+                            <div class="source-detail">
+                                <h4>QS. An-Nisa' : 1</h4>
+                                <p class="verse-arabic">يَا أَيُّهَا النَّاسُ اتَّقُوا رَبَّكُمُ الَّذِي خَلَقَكُمْ مِنْ نَفْسٍ وَاحِدَةٍ وَخَلَqَ مِنْهَا زَوْجَهَا وَبَثَّ مِنْهُمَا رِجَالًا كَثِيرًا وَنِسَاءً ۚ وَاتَّقُوا اللَّهَ الَّذِي تَسَاءَلُونَ بِهِ وَالْأَرْحَامَ ۚ إِنَّ اللَّهَ كَانَ عَلَيْكُمْ رَقِيبًا</p>
+                                <p class="verse-translation"><strong>Terjemahan:</strong> Wahai manusia! Bertakwalah kepada Tuhanmu yang telah menciptakan kamu dari seorang diri, dan dari padanya Dia menciptakan pasangannya, dan dari keduanya Dia memperkembangbiakkan laki-laki dan perempuan yang banyak. Dan bertakwalah kepada Allah yang dengan (memgunakan) nama-Nya kamu saling meminta satu sama lain, dan (jaga) hubungan silaturahim. Sesungguhnya Allah selalu menjaga dan mengawasi kamu.</p>
+                                <div class="source-explanation"><strong>Tafsir Ringkas:</strong> Ayat ini memerintahkan untuk bertakwa dan menjaga hubungan silaturahim. Salah satu implementasi tertinggi dari ketaqwaan dan penjagaan silaturahim adalah dengan menyelesaikan masalah harta waris secara adil sesuai syariat. Meninggalkan aturan Allah adalah jalan menuju permusuhan dan putusnya tali kekeluargaan.</div>
+                            </div>
+                            <div class="real-case-example">
+                                <h4>📖 Kisah Nyata: Dua Jalan, Dua Nasib</h4>
+                                <p><strong>Keluarga A (Tanpa Ilmu Waris):</strong> Pak Haji meninggal, meninggalkan 3 anak (2 laki-laki, 1 perempuan) dan sebuah rumah pusat. Anak sulung mengklaim rumah itu miliknya karena "yang paling berjasa". Dua anak lainnya merasa dizalimi. Mereka saling gugat, tidak bicara selama bertahun-tahun, dan rumah keluarga tersebut terbengkalai dan tidak bisa dijual. Keluarga retak.</p>
+                                <p><strong>Keluarga B (Menerapkan Ilmu Waris):</strong> Pak Budi meninggal dengan kondisi ahli waris yang sama. Anak-anaknya duduk bersama, menghitung bagian masing-masing berdasarkan faraidh. Mereka sepakat untuk menilai rumah dan membagi nilainya. Anak sulung yang ingin tetap tinggal di rumah tersebut membayar bagian adik-adiknya sesuai nilai hak mereka. Semua proses transparan, adil, dan hubungan kekeluargaan tetap terjaga.</p>
+                                <p><strong>Kesimpulan:</strong> Ilmu waris bukan sekadar soal matematika harta, melainkan alat untuk menjaga cinta kasih dan persaudaraan.</p>
+                            </div>
+                            <div class="mazhab-reference">
+                                <h4>Referensi Mazhab:</h4>
+                                <p>Semua mazhab sepakat bahwa salah satu hikmah (tujuan utama) disyariatkannya hukum waris adalah untuk <strong>mencegah kerusakan (fasad) dan menegakkan keadilan sosial</strong>. Imam Al-Ghazali dalam kitabnya *Ihya' 'Ulumiddin* menempatkan ilmu waris sebagai bagian dari cabang ilmu yang menjaga kemaslahatan umum.</p>
+                            </div>
+                            <div class="indonesian-law">
+                                <h4>Hukum di Indonesia:</h4>
+                                <p>Tujuan dari Kompilasi Hukum Islam (KHI) Pasal 171 bukan hanya untuk kepatuhan religius, tetapi juga untuk memberikan <strong>kepastian hukum</strong> dan <strong>ketertiban sosial</strong>. Dengan adanya aturan yang jelas, diharapkan dapat menekan angka sengketa waris yang tinggi di pengadilan dan mendorong penyelesaian secara kekeluargaan yang adil.</p>
+                            </div>
+                        `
+                    },
+                    {
                         title: 'Kesimpulan: Mengapa Wajib?',
                         content: `
                             <p>Mempelajari ilmu waris adalah kewajiban karena:</p>
@@ -241,11 +287,11 @@ const courseData = [
                                     <li><strong>Ancaman Kekal di Neraka:</strong> Menentang hukum waris adalah maksiat yang diancam neraka.</li>
                                     <li><strong>Allah Ajarkan Langsung:</strong> Hukum ini datang langsung dari wahyu, bukan hasil pemikiran manusia.</li>
                                     <li><strong>Perintah Nabi Khusus:</strong> Nabi SAW secara khusus memerintahkan untuk mempelajarinya.</li>
-                                    <li><strong>Mencegah Makan Harta Haram:</strong> Menjaga dari dosa memakan harta orang lain dan anak yatim secara zalim.</li>
-                                    <li><strong>Mencegah Keluarga Pecah:</strong> Aturan yang jelas mencegah konflik dan permusuhan.</li>
+                                    <li><strong>Mencegah Makan Harta Haram:</strong> Menjaga dari dosa memakan harta orang lain dan anak yatim secara zalim.</li>                                    
                                     <li><strong>Ilmu yang Langka & Penting:</strong> Ilmu ini akan hilang, dan mempelajarinya adalah menjaga agama.</li>
                                     <li><strong>Sejajar dengan Al-Qur'an:</strong> Kedudukannya setara dengan mempelajari kitab suci.</li>
                                     <li><strong>Membongkar Mitos: Ilmu Waris Itu Mudah & Sederhana:</strong> ilmu ini dibangun atas logika dan keadilan yang sangat sederhana.</li>
+                                    <li><strong>Penjaga Harmoni Keluarga:</strong> Aturan yang jelas mencegah konflik dan permusuhan.</li>
                                     <li><strong>Banyak Penyimpangan:</strong> Ilmu ini dibutuhkan untuk meluruskan praktik salah yang banyak terjadi.</li>
                                 </ul>
                             </div>
