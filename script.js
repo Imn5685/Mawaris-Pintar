@@ -212,11 +212,119 @@ const courseData = [
         ]
     },
     {
-        id: 'bab2', title: 'Bab 2: Penyimpangan & Rukun Waris',
+        id: 'bab2', title: 'Bab 2: Rukun Waris & Penyimpangan',
         subChapters: [
             {
                 id: 'sub2-1', 
-                title: '2.1 Penyimpangan Umum dalam Pembagian Waris',
+                title: '2.1 Rukun & Detail Teknis Waris',
+                slides: [
+                    {
+                        title: 'Pengenalan Rukun Waris',
+                        content: `<p>Untuk bisa melakukan pembagian waris, harus ada 4 rukun (elemen pokok) yang terpenuhi. Jika salah satu tidak ada, maka pembagian waris tidak bisa dilaksanakan.</p><ol><li><strong>Pewaris (Al-Mayyit):</strong> Orang yang meninggal dunia.</li><li><strong>Harta Warisan (At-Tirkah):</strong> Aset yang ditinggalkan pewaris.</li><li><strong>Ahli Waris (Al-Warats):</strong> Orang yang berhak menerima harta.</li><li><strong>Hijb (Al-Hijb):</strong> Sebab yang menyebabkan seseorang tidak mendapat bagian.</li></ol>`
+                    },
+                    {
+                        title: 'Rukun 1: Pewaris (Al-Mayyit)',
+                        content: `
+                            <p><strong>Pengertian:</strong> Orang yang wafat dan hartanya harus dibagikan waris.</p>
+                            <p><strong>Syarat-syarat Pewaris:</strong></p>
+                            <ul>
+                                <li><strong>Muslim:</strong> Pewaris harus beragama Islam. Non-Muslim tidak mewariskan hartanya menurut hukum Islam.</li>
+                                <li><strong>Sudah Wafat:</strong> Proses waris hanya terjadi setelah kematian yang pasti.</li>
+                                <li><strong>Punya Harta:</strong> Harus ada harta yang bisa diwariskan.</li>
+                            </ul>
+                            <p><strong>Kewajiban Pewaris (sebelum meninggal):</strong></p>
+                            <ul>
+                                <li><strong>Belajar Ilmu Waris:</strong> Agar bisa membagikan dengan benar.</li>
+                                <li><strong>Mengajarkan Ahli Waris:</strong> Memberi pemahaman kepada keluarga.</li>
+                                <li><strong>Menjelaskan Harta:</strong> Mencantumkan harta, hutang, dan wasiatnya secara jelas.</li>
+                            </ul>
+                            <div class="example-box">
+                                <h4>⚠️ BOM WAKTU</h4>
+                                <p>Hal-hal yang sering menjadi sumber konflik pasca kematian:</p>
+                                <ul>
+                                    <li><strong>Berhutang diam-diam.</strong></li>
+                                    <li><strong>Harta yang samar-samar (milik siapa?).</strong></li>
+                                    <li><strong>Wasiat yang keliru atau tidak sah.</strong></li>
+                                    <li><strong>Hibah tanpa saksi dan legalitas yang jelas.</strong></li>
+                                    <li><strong>Aset dengan legalitas bermasalah (tanah tidak bersertifikat).</strong></li>
+                                </ul>
+                            </div>
+                        `
+                    },
+                    {
+                        title: 'Rukun 2: Harta Warisan (At-Tirkah)',
+                        content: `
+                            <p><strong>Syarat-syarat Harta Warisan:</strong></p>
+                            <ul>
+                                <li><strong>Halal & Tidak Sengketa:</strong> Harta harus berasal dari sumber yang halal dan bukan objek sengketa di pengadilan.</li>
+                                <li><strong>Dimiliki Selagi Hidup:</strong> Harta tersebut benar-benar milik pewaris saat ia hidup.</li>
+                                <li><strong>Berwujud atau Bernilai:</strong> Bisa berupa benda (rumah, mobil) atau hak (hak atas deposito, saham).</li>
+                            </ul>
+                            <p><strong>Yang Harus Dikeluarkan Dulu dari Harta:</strong></p>
+                            <p>Harta warisan (bruto) tidak langsung dibagi. Beberapa hal harus dipotong terlebih dahulu:</p>
+                            <ol>
+                                <li><strong>Biaya Jenazah:</strong> Biaya pengurusan jenazah yang wajar (mandi, kafan, penguburan).</li>
+                                <li><strong>Hutang Pewaris:</strong> Semua hutang yang dimiliki pewaris kepada orang lain harus dilunasi terlebih dahulu.</li>
+                                <li><strong>Wasiat:</strong> Pelaksanaan wasiat (maksimal 1/3 harta) kepada penerima yang bukan ahli waris.</li>
+                                <li><strong>Hak Pihak Lain:</strong> Seperti sewa yang belum dibayar, gaji karyawan, dll.</li>
+                            </ol>
+                            <p>Harta yang tersisa setelah semua potongan inilah yang disebut <strong>'harta bersih'</strong> yang akan dibagikan kepada ahli waris.</p>
+                        `
+                    },
+                    {
+                        title: 'Rukun 3: Ahli Waris (Al-Warats)',
+                        content: `
+                            <p><strong>Syarat Menerima Waris:</strong></p>
+                            <ul>
+                                <li><strong>Hidup Saat Pewaris Wafat:</strong> Ahli waris harus hidup pada saat pewaris meninggal. Janin dalam kandungan dianggap hidup asalkan lahir dalam keadaan hidup.</li>
+                                <li><strong>Tidak Terhalang (Hijb):</strong> Tidak ada ahli waris lain yang lebih dekat yang menutup haknya.</li>
+                                <li><strong>Ada Hubungan Nasab atau Perjanjian:</strong> Baik melalui garis keturunan (nasab) atau perjanjian (seperti budak yang membebaskan tuannya).</li>
+                                <li><strong>Berbeda Agama dengan Pewaris:</strong> Ahli waris harus seagama dengan pewaris (Muslim mewarisi Muslim, non-Muslim mewarisi non-Muslim). Ahli waris non-Muslim tidak mewarisi pewaris Muslim.</li>
+                            </ul>
+                            <div class="example-box">
+                                <h4>📊 Hirarki Ahli Waris (Sederhana)</h4>
+                                <p><strong>Kelompok 1 (Anak & Cucu):</strong> Anak laki-laki, anak perempuan, cucu laki-laki, cucu perempuan.</p>
+                                <p><strong>Kelompok 2 (Orang Tua & Kakek):</strong> Ayah, ibu, kakek, nenek.</p>
+                                <p><strong>Kelompok 3 (Saudara & Keluarganya):</strong> Saudara kandung, saudara seayah, saudara seibu, keponakan, paman, bibi.</p>
+                                <p><strong>Kelompok 4 (Kerabat Jauh):</strong> Sepupu dan seterusnya.</p>
+                                <p><strong>Kelompok 5 (Lainnya):</strong> Suami/istri, mantan budak.</p>
+                            </div>
+                        `
+                    },
+                    {
+                        title: 'Rukun 4: Hijb (Penghalang)',
+                        content: `
+                            <p><strong>Pengertian Hijb:</strong> Adanya ahli waris tertentu yang menyebabkan ahli waris lain tidak mendapat bagian sama sekali. Ada dua jenis hijb:</p>
+                            <ol>
+                                <li><strong>Hijb Nuqson (Penghalangan Sebagian):</strong> Ahli waris tetap dapat bagian, tapi jumlahnya berkurang dari bagian semestinya. Contoh: Ibu dari 1/3 menjadi 1/6 jika ada dua saudara kandung.</li>
+                                <li><strong>Hijb Hirman (Penghalangan Seluruhnya):</strong> Ahli waris tidak mendapat bagian sama sekali. Contoh: Cucu tidak mendapat bagian jika ada anak.</li>
+                            </ol>
+                            <div class="example-box">
+                                <h4>Contoh Hijb Hirman Paling Umum:</h4>
+                                <ul>
+                                    <li><strong>Anak menghalangi Cucu:</strong> Jika ada anak laki-laki atau perempuan, maka cucu (dari anak yang sudah meninggal) tidak mendapat bagian.</li>
+                                    <li><strong>Ayah menghalangi Kakek:</strong> Jika ada ayah, maka kakek (ayah dari ayah) tidak mendapat bagian.</li>
+                                    <li><strong>Saudara Kandung menghalangi Saudara Seayah/Seibu:</strong> Jika ada saudara kandung, maka saudara seayah atau seibu tidak mendapat bagian.</li>
+                                    <li><strong>Anak laki-laki menghalangi semua saudara dan paman:</strong> Kehadiran anak laki-laki (atau cucu laki-laki) akan menghalangi saudara kandung, saudara seayah, paman, dan semua kerabat dari garis ayah.</li>
+                                </ul>
+                            </div>
+                            <p><strong>Prinsip Utama:</strong> <em>Yang lebih dekat nasabnya menghalangi yang lebih jauh.</em></p>
+                        `
+                    }
+                ],
+                quiz: { questions: [
+                    { type: 'multiple-choice', question: "Dari urutan berikut, siapa yang paling berhak mewarisi harta mayit jika keduanya hidup: Ayah atau Kakek?", options: ["Ayah", "Kakek", "Sama-sama berhak", "Tidak ada yang berhak"], correctAnswer: 0 },
+                    { type: 'essay', question: "Jelaskan urutan yang benar dalam menangani harta peninggalan, mulai dari saat pewaris meninggal hingga siap dibagikan! Sebutkan apa saja yang harus dipotong terlebih dahulu!", referenceAnswer: "Jawaban acuan: Urutan yang benar adalah: 1. <strong>Finalisasi Kematian:</strong> Memastikan pewaris benar-benar wafat. 2. <strong>Pengamanan & Inventarisasi Harta:</strong> Mengamankan dan mencatat semua aset (bruto) yang ditinggalkan. 3. <strong>Potongan Wajib:</strong> Mengeluarkan biaya-biaya yang harus didahulukan dari harta bruto, yaitu: (a) Biaya pengurusan jenazah, (b) Pelunasan semua hutang pewaris, (c) Pelaksanaan wasiat yang sah (maks 1/3). 4. <strong>Penentuan Ahli Waris:</strong> Mengidentifikasi siapa saja ahli waris yang berhak dan masih hidup. 5. <strong>Pembagian Harta Bersih:</strong> Membagikan sisa harta (bersih) kepada ahli waris sesuai dengan bagian faraidh dan ashabah." },
+                    { type: 'matching', question: "Jodohkan Rukun Waris dengan penjelasannya!", pairs: [{ term: "Pewaris", match: "Orang yang meninggal dunia" }, { term: "Harta Warisan", match: "Aset yang ditinggalkan setelah dipotong biaya" }, { term: "Ahli Waris", match: "Pihak yang berhak menerima harta" }, { term: "Hijb", match: "Sebab yang menghalangi seseorang mewarisi" }] },
+                    { type: 'case-study', scenario: "Pak Budi meninggal dunia. Ia meninggalkan istri, seorang ayah, seorang ibu, seorang anak laki-laki (Andi), dan seorang cucu laki-laki (Budi Jr) dari anak pertamanya yang sudah meninggal terlebih dahulu. Tidak ada hutang atau wasiat.", questions: [
+                        { type: 'multiple-choice', question: "Siapa di antara ahli waris di atas yang terhalang (mahjub) dan tidak mendapat bagian?", options: ["Istri", "Ayah", "Cucu laki-laki (Budi Jr)", "Ibu"], correctAnswer: 2 },
+                        { type: 'essay', question: "Jelaskan mengapa ahli waris yang Anda pilih di soal sebelumnya terhalang! Sebutkan prinsip hukum yang mendasarinya!", referenceAnswer: "Jawaban acuan: Ahli waris yang terhalang adalah cucu laki-laki (Budi Jr). Prinsip hukum yang mendasarinya adalah <strong>'Hijb Hirman'</strong>, yaitu penghalangan total. Kehadiran Anak laki-laki (Andi) yang merupakan anak kandung dari Pak Budi, secara otomatis menghalangi hak cucu (Budi Jr) untuk mewarisi. Prinsipnya adalah <strong>'Anak menghalangi Cucu'</strong>. Karena garis keturunan ke bawah sudah diwakili oleh anak, maka cucu tidak lagi mendapat bagian." }
+                    ]}
+                ]}
+            },
+            {
+                id: 'sub2-2', 
+                title: '2.2 Penyimpangan Umum dalam Pembagian Waris',
                 slides: [
                     {
                         title: 'Pendahuluan: Banyaknya Penyimpangan',
@@ -327,114 +435,6 @@ const courseData = [
                 quiz: { questions: [
                     { type: 'multiple-choice', question: "Bagaimana Islam memandang pembagian harta 'gono-gini' antara suami dan istri?", options: ["Sah dan diatur secara detail", "Tidak dikenal dalam hukum Islam, yang ada adalah harta masing-masing dan waris", "Sama dengan konsep waris", "Hanya berlaku jika ada perjanjian pra-nikah"], correctAnswer: 1 },
                     { type: 'essay', question: "Seorang ayah menjelang wafatnya memberikan sebuah rumah kepada anak pertamanya secara 'hibah' dengan alasan anak tersebut yang paling berjasa. Anak-anak lainnya tidak mendapat apa-apa. Analisis tindakan sang ayah menurut hukum Islam!", referenceAnswer: "Jawaban acuan: Tindakan sang ayah secara syar'i sangat bermasalah. 1. Jika rumah sudah diserahkan (balik nama) saat ia masih hidup dan sehat, maka itu adalah hibah yang sah. Namun, secara etika dan adil, ia seharusnya memperlakukan anak-anaknya secara adil. 2. Jika rumah belum diserahkan dan hanya janji, maka ini adalah wasiat. Wasiat ini tidak sah karena melebihi 1/3 (kecuali disetujui ahli waris lain) dan merugikan hak ahli waris lain. Anak-anak lainnya berhak menolak wasiat ini dan menuntut pembagian harta sesuai hukum waris setelah ayahnya wafat." }
-                ]}
-            },
-            {
-                id: 'sub2-2', 
-                title: '2.2 Rukun & Detail Teknis Waris',
-                slides: [
-                    {
-                        title: 'Pengenalan Rukun Waris',
-                        content: `<p>Untuk bisa melakukan pembagian waris, harus ada 4 rukun (elemen pokok) yang terpenuhi. Jika salah satu tidak ada, maka pembagian waris tidak bisa dilaksanakan.</p><ol><li><strong>Pewaris (Al-Mayyit):</strong> Orang yang meninggal dunia.</li><li><strong>Harta Warisan (At-Tirkah):</strong> Aset yang ditinggalkan pewaris.</li><li><strong>Ahli Waris (Al-Warats):</strong> Orang yang berhak menerima harta.</li><li><strong>Hijb (Al-Hijb):</strong> Sebab yang menyebabkan seseorang tidak mendapat bagian.</li></ol>`
-                    },
-                    {
-                        title: 'Rukun 1: Pewaris (Al-Mayyit)',
-                        content: `
-                            <p><strong>Pengertian:</strong> Orang yang wafat dan hartanya harus dibagikan waris.</p>
-                            <p><strong>Syarat-syarat Pewaris:</strong></p>
-                            <ul>
-                                <li><strong>Muslim:</strong> Pewaris harus beragama Islam. Non-Muslim tidak mewariskan hartanya menurut hukum Islam.</li>
-                                <li><strong>Sudah Wafat:</strong> Proses waris hanya terjadi setelah kematian yang pasti.</li>
-                                <li><strong>Punya Harta:</strong> Harus ada harta yang bisa diwariskan.</li>
-                            </ul>
-                            <p><strong>Kewajiban Pewaris (sebelum meninggal):</strong></p>
-                            <ul>
-                                <li><strong>Belajar Ilmu Waris:</strong> Agar bisa membagikan dengan benar.</li>
-                                <li><strong>Mengajarkan Ahli Waris:</strong> Memberi pemahaman kepada keluarga.</li>
-                                <li><strong>Menjelaskan Harta:</strong> Mencantumkan harta, hutang, dan wasiatnya secara jelas.</li>
-                            </ul>
-                            <div class="example-box">
-                                <h4>⚠️ BOM WAKTU</h4>
-                                <p>Hal-hal yang sering menjadi sumber konflik pasca kematian:</p>
-                                <ul>
-                                    <li><strong>Berhutang diam-diam.</strong></li>
-                                    <li><strong>Harta yang samar-samar (milik siapa?).</strong></li>
-                                    <li><strong>Wasiat yang keliru atau tidak sah.</strong></li>
-                                    <li><strong>Hibah tanpa saksi dan legalitas yang jelas.</strong></li>
-                                    <li><strong>Aset dengan legalitas bermasalah (tanah tidak bersertifikat).</strong></li>
-                                </ul>
-                            </div>
-                        `
-                    },
-                    {
-                        title: 'Rukun 2: Harta Warisan (At-Tirkah)',
-                        content: `
-                            <p><strong>Syarat-syarat Harta Warisan:</strong></p>
-                            <ul>
-                                <li><strong>Halal & Tidak Sengketa:</strong> Harta harus berasal dari sumber yang halal dan bukan objek sengketa di pengadilan.</li>
-                                <li><strong>Dimiliki Selagi Hidup:</strong> Harta tersebut benar-benar milik pewaris saat ia hidup.</li>
-                                <li><strong>Berwujud atau Bernilai:</strong> Bisa berupa benda (rumah, mobil) atau hak (hak atas deposito, saham).</li>
-                            </ul>
-                            <p><strong>Yang Harus Dikeluarkan Dulu dari Harta:</strong></p>
-                            <p>Harta warisan (bruto) tidak langsung dibagi. Beberapa hal harus dipotong terlebih dahulu:</p>
-                            <ol>
-                                <li><strong>Biaya Jenazah:</strong> Biaya pengurusan jenazah yang wajar (mandi, kafan, penguburan).</li>
-                                <li><strong>Hutang Pewaris:</strong> Semua hutang yang dimiliki pewaris kepada orang lain harus dilunasi terlebih dahulu.</li>
-                                <li><strong>Wasiat:</strong> Pelaksanaan wasiat (maksimal 1/3 harta) kepada penerima yang bukan ahli waris.</li>
-                                <li><strong>Hak Pihak Lain:</strong> Seperti sewa yang belum dibayar, gaji karyawan, dll.</li>
-                            </ol>
-                            <p>Harta yang tersisa setelah semua potongan inilah yang disebut <strong>'harta bersih'</strong> yang akan dibagikan kepada ahli waris.</p>
-                        `
-                    },
-                    {
-                        title: 'Rukun 3: Ahli Waris (Al-Warats)',
-                        content: `
-                            <p><strong>Syarat Menerima Waris:</strong></p>
-                            <ul>
-                                <li><strong>Hidup Saat Pewaris Wafat:</strong> Ahli waris harus hidup pada saat pewaris meninggal. Janin dalam kandungan dianggap hidup asalkan lahir dalam keadaan hidup.</li>
-                                <li><strong>Tidak Terhalang (Hijb):</strong> Tidak ada ahli waris lain yang lebih dekat yang menutup haknya.</li>
-                                <li><strong>Ada Hubungan Nasab atau Perjanjian:</strong> Baik melalui garis keturunan (nasab) atau perjanjian (seperti budak yang membebaskan tuannya).</li>
-                                <li><strong>Berbeda Agama dengan Pewaris:</strong> Ahli waris harus seagama dengan pewaris (Muslim mewarisi Muslim, non-Muslim mewarisi non-Muslim). Ahli waris non-Muslim tidak mewarisi pewaris Muslim.</li>
-                            </ul>
-                            <div class="example-box">
-                                <h4>📊 Hirarki Ahli Waris (Sederhana)</h4>
-                                <p><strong>Kelompok 1 (Anak & Cucu):</strong> Anak laki-laki, anak perempuan, cucu laki-laki, cucu perempuan.</p>
-                                <p><strong>Kelompok 2 (Orang Tua & Kakek):</strong> Ayah, ibu, kakek, nenek.</p>
-                                <p><strong>Kelompok 3 (Saudara & Keluarganya):</strong> Saudara kandung, saudara seayah, saudara seibu, keponakan, paman, bibi.</p>
-                                <p><strong>Kelompok 4 (Kerabat Jauh):</strong> Sepupu dan seterusnya.</p>
-                                <p><strong>Kelompok 5 (Lainnya):</strong> Suami/istri, mantan budak.</p>
-                            </div>
-                        `
-                    },
-                    {
-                        title: 'Rukun 4: Hijb (Penghalang)',
-                        content: `
-                            <p><strong>Pengertian Hijb:</strong> Adanya ahli waris tertentu yang menyebabkan ahli waris lain tidak mendapat bagian sama sekali. Ada dua jenis hijb:</p>
-                            <ol>
-                                <li><strong>Hijb Nuqson (Penghalangan Sebagian):</strong> Ahli waris tetap dapat bagian, tapi jumlahnya berkurang dari bagian semestinya. Contoh: Ibu dari 1/3 menjadi 1/6 jika ada dua saudara kandung.</li>
-                                <li><strong>Hijb Hirman (Penghalangan Seluruhnya):</strong> Ahli waris tidak mendapat bagian sama sekali. Contoh: Cucu tidak mendapat bagian jika ada anak.</li>
-                            </ol>
-                            <div class="example-box">
-                                <h4>Contoh Hijb Hirman Paling Umum:</h4>
-                                <ul>
-                                    <li><strong>Anak menghalangi Cucu:</strong> Jika ada anak laki-laki atau perempuan, maka cucu (dari anak yang sudah meninggal) tidak mendapat bagian.</li>
-                                    <li><strong>Ayah menghalangi Kakek:</strong> Jika ada ayah, maka kakek (ayah dari ayah) tidak mendapat bagian.</li>
-                                    <li><strong>Saudara Kandung menghalangi Saudara Seayah/Seibu:</strong> Jika ada saudara kandung, maka saudara seayah atau seibu tidak mendapat bagian.</li>
-                                    <li><strong>Anak laki-laki menghalangi semua saudara dan paman:</strong> Kehadiran anak laki-laki (atau cucu laki-laki) akan menghalangi saudara kandung, saudara seayah, paman, dan semua kerabat dari garis ayah.</li>
-                                </ul>
-                            </div>
-                            <p><strong>Prinsip Utama:</strong> <em>Yang lebih dekat nasabnya menghalangi yang lebih jauh.</em></p>
-                        `
-                    }
-                ],
-                quiz: { questions: [
-                    { type: 'multiple-choice', question: "Dari urutan berikut, siapa yang paling berhak mewarisi harta mayit jika keduanya hidup: Ayah atau Kakek?", options: ["Ayah", "Kakek", "Sama-sama berhak", "Tidak ada yang berhak"], correctAnswer: 0 },
-                    { type: 'essay', question: "Jelaskan urutan yang benar dalam menangani harta peninggalan, mulai dari saat pewaris meninggal hingga siap dibagikan! Sebutkan apa saja yang harus dipotong terlebih dahulu!", referenceAnswer: "Jawaban acuan: Urutan yang benar adalah: 1. <strong>Finalisasi Kematian:</strong> Memastikan pewaris benar-benar wafat. 2. <strong>Pengamanan & Inventarisasi Harta:</strong> Mengamankan dan mencatat semua aset (bruto) yang ditinggalkan. 3. <strong>Potongan Wajib:</strong> Mengeluarkan biaya-biaya yang harus didahulukan dari harta bruto, yaitu: (a) Biaya pengurusan jenazah, (b) Pelunasan semua hutang pewaris, (c) Pelaksanaan wasiat yang sah (maks 1/3). 4. <strong>Penentuan Ahli Waris:</strong> Mengidentifikasi siapa saja ahli waris yang berhak dan masih hidup. 5. <strong>Pembagian Harta Bersih:</strong> Membagikan sisa harta (bersih) kepada ahli waris sesuai dengan bagian faraidh dan ashabah." },
-                    { type: 'matching', question: "Jodohkan Rukun Waris dengan penjelasannya!", pairs: [{ term: "Pewaris", match: "Orang yang meninggal dunia" }, { term: "Harta Warisan", match: "Aset yang ditinggalkan setelah dipotong biaya" }, { term: "Ahli Waris", match: "Pihak yang berhak menerima harta" }, { term: "Hijb", match: "Sebab yang menghalangi seseorang mewarisi" }] },
-                    { type: 'case-study', scenario: "Pak Budi meninggal dunia. Ia meninggalkan istri, seorang ayah, seorang ibu, seorang anak laki-laki (Andi), dan seorang cucu laki-laki (Budi Jr) dari anak pertamanya yang sudah meninggal terlebih dahulu. Tidak ada hutang atau wasiat.", questions: [
-                        { type: 'multiple-choice', question: "Siapa di antara ahli waris di atas yang terhalang (mahjub) dan tidak mendapat bagian?", options: ["Istri", "Ayah", "Cucu laki-laki (Budi Jr)", "Ibu"], correctAnswer: 2 },
-                        { type: 'essay', question: "Jelaskan mengapa ahli waris yang Anda pilih di soal sebelumnya terhalang! Sebutkan prinsip hukum yang mendasarinya!", referenceAnswer: "Jawaban acuan: Ahli waris yang terhalang adalah cucu laki-laki (Budi Jr). Prinsip hukum yang mendasarinya adalah <strong>'Hijb Hirman'</strong>, yaitu penghalangan total. Kehadiran Anak laki-laki (Andi) yang merupakan anak kandung dari Pak Budi, secara otomatis menghalangi hak cucu (Budi Jr) untuk mewarisi. Prinsipnya adalah <strong>'Anak menghalangi Cucu'</strong>. Karena garis keturunan ke bawah sudah diwakili oleh anak, maka cucu tidak lagi mendapat bagian." }
-                    ]}
                 ]}
             }
         ]
