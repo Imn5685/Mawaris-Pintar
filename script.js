@@ -334,7 +334,7 @@ const courseData = [
                 title: '1.1 Definisi, Pentingnya, dan Dasar Hukum',
                 slides: [
                     {
-                        title: 'Definisi Ilmu Mawaris (Faraidh) Menurut Para Ulama',
+                        title: 'Definisi Ilmu Mawaris (Faraidh)',
                         content: `
                             <p><strong>Definisi Ilmu Mawaris (Faraidh):</strong> Secara bahasa, 'faraidh' adalah jamak dari 'faridhah' yang berarti bagian yang ditentukan. 'Mawaris' adalah jamak dari 'wiratsah' yang berarti warisan. Secara istilah, Ilmu Mawaris adalah cabang ilmu syar'i yang mempelajari tentang siapa yang berhak menerima harta peninggalan (tirkah), berapa bagian masing-masing, dan siapa yang terhalang (mahjub) dari warisan setelah si mayit meninggal dunia.</p>
                             <p>Ilmu ini mengatur pembagian harta dengan adil sesuai syariat Islam, memastikan setiap ahli waris mendapatkan haknya dan mencegah perselisihan.</p>
