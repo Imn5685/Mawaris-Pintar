@@ -334,8 +334,68 @@ const courseData = [
                 title: '1.1 Definisi, Pentingnya, dan Dasar Hukum',
                 slides: [
                     {
-                        title: 'Definisi Ilmu Mawaris (Faraidh)',
-                        content: `<p><strong>Definisi Ilmu Mawaris (Faraidh):</strong> Secara bahasa, 'faraidh' adalah jamak dari 'faridhah' yang berarti bagian yang ditentukan. Secara istilah, Ilmu Mawaris adalah cabang ilmu syar'i yang mempelajari tentang siapa yang berhak menerima harta peninggalan (tirkah), berapa bagian masing-masing, dan siapa yang terhalang (mahjub) dari warisan setelah si mayit meninggal dunia.</p><p>Ilmu ini mengatur pembagian harta dengan adil sesuai syariat Islam, memastikan setiap ahli waris mendapatkan haknya dan mencegah perselisihan.</p>`
+                        title: 'Definisi Ilmu Mawaris (Faraidh) Menurut Para Ulama',
+                        content: `
+                            <p><strong>Definisi Ilmu Mawaris (Faraidh):</strong> Secara bahasa, 'faraidh' adalah jamak dari 'faridhah' yang berarti bagian yang ditentukan. 'Mawaris' adalah jamak dari 'wiratsah' yang berarti warisan. Secara istilah, Ilmu Mawaris adalah cabang ilmu syar'i yang mempelajari tentang siapa yang berhak menerima harta peninggalan (tirkah), berapa bagian masing-masing, dan siapa yang terhalang (mahjub) dari warisan setelah si mayit meninggal dunia.</p>
+                            <p>Ilmu ini mengatur pembagian harta dengan adil sesuai syariat Islam, memastikan setiap ahli waris mendapatkan haknya dan mencegah perselisihan.</p>
+                    
+                            <div class="info-box">
+                                <h4>📚 Definisi Para Ulama dari Berbagai Mazhab</h4>
+                                <p>Para ulama Islam sejak zaman klasik telah memberikan definisi yang komprehensif, menunjukkan betapa fundamentalnya ilmu ini.</p>
+                                
+                                <div class="source-detail">
+                                    <h5>1. Imam An-Nawawi (Mazhab Syafi'i) dalam kitab <em>Al-Majmu' Syarh al-Muhadzdzab</em>:</h5>
+                                    <p class="verse-arabic">العِلْمُ بِمَنْ يَرِثُ وَمَنْ لاَ يَرِثُ، وَبِمَا يَرِثُ</p>
+                                    <p><em>(Transliterasi: Al-'ilmu biman yarith wa man la yarith, wa bima yarith)</em></p>
+                                    <p><strong>Terjemahan:</strong> "Ilmu tentang siapa yang mewarisi dan siapa yang tidak mewarisi, serta tentang apa yang diwarisinya (bagiannya)."</p>
+                                    <p><strong>Penjelasan:</strong> Definisi ini ringkas dan mencakup tiga pilar utama: identifikasi ahli waris, sebab penghalang (hijb), dan penetapan bagian.</p>
+                                </div>
+                    
+                                <div class="source-detail">
+                                    <h5>2. Imam Ibn Qudamah (Mazhab Hanbali) dalam kitab <em>Al-Mughni</em>:</h5>
+                                    <p class="verse-arabic">العِلْمُ بِالْفَرَائِضِ وَمَنْ تَسْتَحِقُّهَا وَمَنْ تُحْجَبُ عَنْهَا</p>
+                                    <p><em>(Transliterasi: Al-'ilmu bil-fara'idh wa man tastahiqquha wa man tuhjabu 'anha)</em></p>
+                                    <p><strong>Terjemahan:</strong> "Ilmu tentang bagian-bagian yang ditetapkan (faraidh), siapa yang berhak atasnya, dan siapa yang terhalang darinya."</p>
+                                    <p><strong>Penjelasan:</strong> Definisi ini menekankan bahwa ilmu waris sepenuhnya bersumber dari syariat (faraidh) dan secara eksplisit menyebutkan konsep penghalangan (hijb).</p>
+                                </div>
+                    
+                                <div class="source-detail">
+                                    <h5>3. Imam Al-Kasani (Mazhab Hanafi) dalam kitab <em>Bada'i' al-Shana'i'</em>:</h5>
+                                    <p class="verse-arabic">العِلْمُ بِحُقُوقِ الْوَارِثِ بَعْضِهِمْ عَلَى بَعْضٍ وَبِحُقُوقِهِمْ عَلَى التَّرِكَةِ</p>
+                                    <p><em>(Transliterasi: Al-'ilmu bihuquq al-warithi ba'dhim 'ala ba'din wa bihuquqihim 'ala al-tirkah)</em></p>
+                                    <p><strong>Terjemahan:</strong> "Ilmu tentang hak-hak para pewaris sebagian atas sebagian yang lain (hierarki), dan hak-hak mereka atas harta peninggalan."</p>
+                                    <p><strong>Penjelasan:</strong> Definisi ini menyoroti aspek hirarki ('asabah) dan klaim kolektif para ahli waris atas harta warisan.</p>
+                                </div>
+                    
+                                <div class="source-detail">
+                                    <h5>4. Imam Ibn Rushd (Mazhab Maliki) dalam kitab <em>Bidayat al-Mujtahid wa Nihayat al-Muqtasid</em>:</h5>
+                                    <p>Imam Ibn Rushd tidak memberikan definisi satu kalimat, tetapi membahasnya dalam bab <em>أحكام المواريث</em> (Hukum-hukum Waris). Inti pembahasannya adalah:</p>
+                                    <p class="verse-arabic">...مَعْرِفَةُ حُقُوقِ النَّاسِ بَعْضِهِمْ فِي بَعْضٍ عِنْدَ الْوَفَاةِ، الَّتِي هِيَ مِنْ تَمَامِ الدِّينِ</p>
+                                    <p><em>(Transliterasi: ...ma'rifat huquq an-nasi ba'dihim fi ba'din 'inda al-wafah, allati hiya min tamam ad-din)</em></p>
+                                    <p><strong>Terjemahan:</strong> "...(Ilmu waris adalah) pengetahuan tentang hak-hak manusia sebagian atas sebagian yang lain saat terjadi kematian, yang merupakan bagian dari kesempurnaan agama."</p>
+                                    <p><strong>Penjelasan:</strong> Pendekatan Maliki melihat ilmu waris sebagai bagian integral dari ajaran agama yang sempurna, yang mengatur hak-hak keuangan antar manusia pasca-kematian.</p>
+                                </div>
+                            </div>
+                    
+                            <div class="example-box">
+                                <h4>🧩 Ruang Lingkup Ilmu Mawaris</h4>
+                                <p>Berdasarkan definisi para ulama, ruang lingkup ilmu ini mencakup:</p>
+                                <ol>
+                                    <li><strong>Identifikasi Ahli Waris (Al-Warithun):</strong> Menentukan siapa saja yang memiliki hak mewaris berdasarkan nasab (keturunan), pernikahan, dan perjanjian (wala').</li>
+                                    <li><strong>Penetapan Bagian Tetap (Al-Furudh):</strong> Menentukan bagian spesifik untuk ahli waris tertentu (seperti 1/2, 1/4, 1/8, 1/6, 2/3, 1/3) yang telah ditetapkan dalam Al-Qur'an dan Sunnah.</li>
+                                    <li><strong>Penentuan Pewaris Sisa (Al-'Asabah):</strong> Menjelaskan siapa ahli waris yang tidak memiliki bagian tetap dan berhak atas sisa harta setelah Ashabul Furudh menerima bagian mereka.</li>
+                                    <li><strong>Sebab Penghalang (Al-Hujub):</strong> Memahami sebab-sebab yang dapat menghalangi atau mengurangi hak seseorang untuk mewarisi, baik sebagian (hijb nuqson) maupun seluruhnya (hijb hirman).</li>
+                                    <li><strong>Kasus Khusus:</strong> Mempelajari penyelesaian untuk kasus-kasus seperti 'Aul (pengurangan bagian) dan 'Radd (pengembalian sisa).</li>
+                                </ol>
+                            </div>
+                    
+                            <div class="source-detail">
+                                <h4>Kontinuitas dari Zaman Sahabat Hingga Kini</h4>
+                                <p><strong>Zaman Sahabat:</strong> Para sahabat adalah generasi pertama yang mempraktikkan dan mengajarkan ilmu ini secara langsung. Mereka tidak memerlukan definisi rumit karena mereka menyaksikan turunnya wahyu dan implementasinya langsung dari Rasulullah SAW. Pernyataan <strong>Umar bin Khattab ra., "Pelajarilah ilmu faraidh, karena ia termasuk dari agama kalian,"</strong> menunjukkan bahwa bagi mereka, ilmu waris adalah bagian tak terpisahkan dari praktik keagamaan.</p>
+                                <p><strong>Era Klasik:</strong> Para ulama mazhab kemudian menuliskan ilmu ini secara sistematis dalam kitab-kitab fiqh mereka, menjadikannya disiplin ilmu yang berdiri sendiri dengan metodologi yang jelas, seperti yang tercermin dalam definisi-definisi mereka.</p>
+                                <p><strong>Era Modern:</strong> Lembaga-lembaga Islam seperti <strong>Al-Azhar (Mesir)</strong>, <strong>Majelis Ulama Indonesia (MUI)</strong>, dan berbagai universitas Islam terus mengajarkan, meneliti, dan menerbitkan karya-karya tentang ilmu waris. Ini memastikan bahwa definisi dan pemahaman ilmu ini tetap relevan dan dapat diakses oleh umat Islam di seluruh dunia, termasuk dalam konteks hukum positif seperti Kompilasi Hukum Islam (KHI) di Indonesia.</p>
+                            </div>
+                        `
                     },
                     {
                         title: 'Dasar Hukum Utama: Al-Qur\'an',
